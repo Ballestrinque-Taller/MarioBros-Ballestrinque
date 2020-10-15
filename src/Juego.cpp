@@ -35,12 +35,14 @@ int Juego::inicializar_ventana(){
         SDL_Quit();
         return ERROR;
     }
-    std::string fileName = "../res/Icono.png";
+    // Carga del icono
+    std::string fileName = "../res/IconoOrig.png";
     SDL_Surface* icono_surface = IMG_Load(fileName.c_str());
     if(icono_surface == NULL){
         std::cout << "No cargo el Icono " << std::endl;
         return ERROR;
     }
+    SDL_SetColorKey( icono_surface, SDL_TRUE, SDL_MapRGB( icono_surface->format, 0xFF, 0xFF, 0xFF ) );
     SDL_SetWindowIcon(ventana,icono_surface);
     SDL_FreeSurface(icono_surface);
 
