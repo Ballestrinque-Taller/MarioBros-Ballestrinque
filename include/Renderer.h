@@ -23,9 +23,9 @@ class Renderer {
         std::string path_to_image;
         void set_dest_rect(int x,int y,int height,int width);
         void set_src_rect(int x,int y,int height,int width);
-
-    private:
         frames_t frames_render;
+    private:
+
 };
 
 

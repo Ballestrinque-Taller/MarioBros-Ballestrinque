@@ -63,6 +63,18 @@ void Juego::input(SDL_Event evento){
             case (SDLK_ESCAPE):
                 quit=true;
                 break;
+            case (SDLK_a):
+                jugador_test->mover_pos_x(5);
+                break;
+            case (SDLK_d):
+                jugador_test->mover_pos_x(-5);
+                break;
+            case (SDLK_s):
+                jugador_test->mover_pos_y(-5);
+                break;
+            case (SDLK_w):
+                jugador_test->mover_pos_y(5);
+                break;
         }
     }
 }
