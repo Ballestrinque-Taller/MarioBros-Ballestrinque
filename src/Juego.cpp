@@ -36,7 +36,7 @@ int Juego::inicializar_ventana(){
         return ERROR;
     }
     // Carga del icono
-    std::string fileName = "../res/IconoOrig.png";
+    std::string fileName = "../res/icono_mario.png";
     SDL_Surface* icono_surface = IMG_Load(fileName.c_str());
     if(icono_surface == NULL){
         std::cout << "No cargo el Icono " << std::endl;
