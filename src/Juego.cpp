@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 #include "../include/Jugador.h"
+#include <SDL2/SDL_image.h>
 
 #define ERROR -1
 #define ANCHO_VENTANA 800
@@ -34,6 +35,16 @@ int Juego::inicializar_ventana(){
         SDL_Quit();
         return ERROR;
     }
+    std::string fileName = "../res/Icono.png";
+    SDL_Surface* icono_surface = IMG_Load(fileName.c_str());
+    if(icono_surface == NULL){
+        std::cout << "No cargo el Icono " << std::endl;
+        return ERROR;
+    }
+    SDL_SetWindowIcon(ventana,icono_surface);
+    SDL_FreeSurface(icono_surface);
+
+
     return 0;
 }
 
