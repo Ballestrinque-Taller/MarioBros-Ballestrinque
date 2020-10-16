@@ -9,7 +9,7 @@ class Juego {
     private:
         SDL_Window * ventana = nullptr;
         SDL_Renderer * renderer = nullptr;
-        Jugador* jugador_test;
+        Jugador* jugador;
         bool quit = false;
         int estado_error;
         int inicializar_ventana();

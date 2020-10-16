@@ -8,10 +8,13 @@
 #define ANCHO_VENTANA 800
 #define ALTO_VENTANA 600
 
+#define DERECHA 1
+#define IZQUIERDA -1
+
 
 Juego::Juego() {
     estado_error = Juego::inicializar_ventana();
-    jugador_test = new Jugador();
+    jugador = new Jugador(renderer);
 }
 
 
@@ -64,7 +67,7 @@ void Juego::game_loop() {
 }
 
 void Juego::update(SDL_Event evento) {
-
+    jugador->desplazar();
     while (SDL_PollEvent(&evento) != 0) {
         input(evento);
     }
@@ -77,16 +80,16 @@ void Juego::input(SDL_Event evento){
                 quit=true;
                 break;
             case (SDLK_a):
-                jugador_test->mover_pos_x(5);
+                jugador->acelerar_x(IZQUIERDA);
                 break;
             case (SDLK_d):
-                jugador_test->mover_pos_x(-5);
+                jugador->acelerar_x(DERECHA);
                 break;
             case (SDLK_s):
-                jugador_test->mover_pos_y(-5);
+                //BAJAR HITBOX A LA MITAD Y CAMBIAR A FRAMES AGACHADO
                 break;
             case (SDLK_w):
-                jugador_test->mover_pos_y(5);
+                jugador->saltar();
                 break;
         }
     }
@@ -94,6 +97,6 @@ void Juego::input(SDL_Event evento){
 
 void Juego::render(){
     SDL_RenderClear(renderer);
-    jugador_test->renderizar(renderer);
+    jugador->cambiar_frame(renderer);
     SDL_RenderPresent(renderer);
 }
