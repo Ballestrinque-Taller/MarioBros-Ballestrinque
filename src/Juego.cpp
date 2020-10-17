@@ -72,20 +72,8 @@ void Juego::update(SDL_Event evento) {
     while (SDL_PollEvent(&evento) != 0) {
         if (evento.type == SDL_QUIT) // la cruz de cerrar ventana
             quit = true;
-        input(evento);
-    }
-}
-
-void Juego::input(SDL_Event evento){
-    if (evento.type == SDL_KEYDOWN) {
-        switch(evento.key.keysym.sym){
-            case (SDLK_ESCAPE):
-                quit=true;
-                break;
-            default:
-                jugador->recibir_evento(evento);
-                break;
-        }
+        else if (evento.type == SDL_KEYDOWN)
+            jugador->recibir_evento(evento);
     }
 }
 

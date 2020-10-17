@@ -19,7 +19,6 @@ class Juego {
     public:
         void update(SDL_Event evento);
         void render();
-        void input(SDL_Event evento);
         Juego();
         void game_loop();
 };

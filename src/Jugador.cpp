@@ -86,8 +86,7 @@ void Jugador::aceleracion_gravitatoria() {
 }
 
 void Jugador::recibir_evento(SDL_Event evento) {
-    if (evento.type == SDL_KEYDOWN) {
-        switch (evento.key.keysym.sym) {
+    switch (evento.key.keysym.sym) {
             case (SDLK_a):
                 acelerar_x(IZQUIERDA);
                 break;
@@ -96,11 +95,10 @@ void Jugador::recibir_evento(SDL_Event evento) {
                 break;
             case (SDLK_s):
                 //BAJAR HITBOX A LA MITAD Y CAMBIAR A FRAMES AGACHADO
-                textura_actual = texturas.textura_agachado
+                //textura_actual = texturas.textura_agachado
                 break;
             case (SDLK_w):
                 saltar();
                 break;
-        }
     }
 }
