@@ -4,10 +4,10 @@
 #include "Renderer.h"
 
 typedef struct texturas{
-    //0 Derecha && 1 Izquierda
-    SDL_Texture* texturas[2];
-    SDL_Texture* textura_agachado[2];
-    SDL_Texture* textura_salto[2];
+    SDL_Texture* textura;
+    SDL_Texture* textura_agachado;
+    SDL_Texture* textura_salto;
+    SDL_RendererFlip flip;
 }texturas_t;
 
 class Jugador: public Renderer{
@@ -26,6 +26,7 @@ class Jugador: public Renderer{
         bool acelerando;
         int aceleracion_x;
         int aceleracion_y;
+        int frame_actual;
         bool en_aire;
         void aceleracion_gravitatoria();
         void rozamiento();

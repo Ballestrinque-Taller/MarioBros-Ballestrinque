@@ -9,35 +9,36 @@
 #define DECAIMIENTO_ROZAMIENTO 1
 #define MAX_ACEL_GRAVEDAD 10
 #define ACELERACION_SALTO 20
+#define ANCHO_FRAME 17
+#define ALTO_FRAME 34
+#define ANCHO_IMAGEN 358
 
 Jugador::Jugador(SDL_Renderer* renderer){
-    path_to_image = "../res/mario.png";
+    path_to_image = "../res/MARIO_NORMAL.png";
     set_dest_rect(0,0,200,200);
-    set_src_rect(0,0,920,920);
+    set_src_rect(0,0,ALTO_FRAME,ANCHO_FRAME);
     aceleracion_x = 0;
     aceleracion_y = 0;
+    frame_actual = 0;
+    texturas.flip = SDL_FLIP_NONE;
     Jugador::renderizar(renderer);
 }
 
 void Jugador::renderizar(SDL_Renderer* renderer){
     SDL_Surface* surface =  IMG_Load(path_to_image.c_str());
-    SDL_Surface* surface2 = IMG_Load("../res/icono_mario.png");
-    texturas.texturas[0] = SDL_CreateTextureFromSurface(renderer, surface);
-    texturas.texturas[1] = SDL_CreateTextureFromSurface(renderer, surface2);
+    SDL_SetColorKey( surface, SDL_TRUE, SDL_MapRGB( surface->format, 0x92, 0x27, 0x8F ) ); //0x92 0x27 0x8F es el color del divisor
+    texturas.textura = SDL_CreateTextureFromSurface(renderer, surface);
+    textura_actual = texturas.textura;
     SDL_FreeSurface(surface);
-    SDL_FreeSurface(surface2);
-    SDL_RenderCopy(renderer, texturas.texturas[0], &(frames_render.src_rect), &(frames_render.dest_rect));
+    SDL_RenderCopyEx(renderer, texturas.textura, &(frames_render.src_rect), &(frames_render.dest_rect), 0, NULL, texturas.flip);
 }
 
 void Jugador::cambiar_frame(SDL_Renderer* renderer){
-    if (aceleracion_x<0){
-        textura_actual = texturas.texturas[0];
-    }
-    else{
-        textura_actual = texturas.texturas[1];
-    }
-    SDL_RenderCopy(renderer, textura_actual, &(frames_render.src_rect), &(frames_render.dest_rect));
-
+    frame_actual++;
+        if(frame_actual > 3)
+            frame_actual = 0;
+        set_src_rect(frame_actual*ANCHO_FRAME,0,ALTO_FRAME,ANCHO_FRAME);
+    SDL_RenderCopyEx(renderer, textura_actual, &(frames_render.src_rect), &(frames_render.dest_rect), 0, NULL, texturas.flip);
 }
 
 void Jugador::acelerar_x(int direccion){
@@ -88,9 +89,11 @@ void Jugador::aceleracion_gravitatoria() {
 void Jugador::recibir_evento(SDL_Event evento) {
     switch (evento.key.keysym.sym) {
             case (SDLK_a):
+                texturas.flip = SDL_FLIP_HORIZONTAL;
                 acelerar_x(IZQUIERDA);
                 break;
             case (SDLK_d):
+                texturas.flip = SDL_FLIP_NONE;
                 acelerar_x(DERECHA);
                 break;
             case (SDLK_s):
