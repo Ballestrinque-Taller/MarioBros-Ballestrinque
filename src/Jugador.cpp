@@ -6,11 +6,12 @@
 #define MAX_ACELERACION 7
 #define TICK_ACELERACION 3
 #define DECAIMIENTO_ACEL_Y 1
+#define DECAIMIENTO_ROZAMIENTO 1
 #define MAX_ACEL_GRAVEDAD 10
 #define ACELERACION_SALTO 20
 
 Jugador::Jugador(SDL_Renderer* renderer){
-    path_to_image = "./res/mario.png";
+    path_to_image = "../res/mario.png";
     set_dest_rect(0,0,200,200);
     set_src_rect(0,0,920,920);
     aceleracion_x = 0;
@@ -20,7 +21,7 @@ Jugador::Jugador(SDL_Renderer* renderer){
 
 void Jugador::renderizar(SDL_Renderer* renderer){
     SDL_Surface* surface =  IMG_Load(path_to_image.c_str());
-    SDL_Surface* surface2 = IMG_Load("./res/icono_mario.png");
+    SDL_Surface* surface2 = IMG_Load("../res/icono_mario.png");
     texturas.texturas[0] = SDL_CreateTextureFromSurface(renderer, surface);
     texturas.texturas[1] = SDL_CreateTextureFromSurface(renderer, surface2);
     SDL_FreeSurface(surface);
@@ -60,22 +61,46 @@ void Jugador::desplazar(){
     frames_render.dest_rect.x += aceleracion_x;
     aceleracion_gravitatoria();
     frames_render.dest_rect.y += aceleracion_y;
-    if(aceleracion_x < 0 && !acelerando && !en_aire)
-        aceleracion_x += TICK_ACELERACION;
-    else if (aceleracion_x > 0 && !acelerando && !en_aire)
-        aceleracion_x -= TICK_ACELERACION;
+    rozamiento();
     acelerando = false;
 }
 
-void Jugador::aceleracion_gravitatoria(){
+void Jugador::rozamiento(){
+    if(aceleracion_x < 0 && !acelerando && !en_aire)
+        aceleracion_x += DECAIMIENTO_ROZAMIENTO;
+    else if (aceleracion_x > 0 && !acelerando && !en_aire)
+        aceleracion_x -= DECAIMIENTO_ROZAMIENTO;
+}
+
+void Jugador::aceleracion_gravitatoria() {
     //IF !COLISION && ACEL < MAX_ACEL_GRAVEDAD (BAJA MENOS DE LO MAXIMO)
-    if (aceleracion_y < MAX_ACEL_GRAVEDAD && frames_render.dest_rect.y < 600-frames_render.dest_rect.h){
+    if (aceleracion_y < MAX_ACEL_GRAVEDAD && frames_render.dest_rect.y < 600 - frames_render.dest_rect.h) {
         aceleracion_y += DECAIMIENTO_ACEL_Y;
         en_aire = true;
     }
-    //IF COLISION && ACEL PARA ABAJO (POSITIVA)
-    else if (aceleracion_y > 0 && frames_render.dest_rect.y >= 600-frames_render.dest_rect.h){
+        //IF COLISION && ACEL PARA ABAJO (POSITIVA)
+    else if (aceleracion_y > 0 && frames_render.dest_rect.y >= 600 - frames_render.dest_rect.h) {
         aceleracion_y = 0;
         en_aire = false;
+    }
+}
+
+void Jugador::recibir_evento(SDL_Event evento) {
+    if (evento.type == SDL_KEYDOWN) {
+        switch (evento.key.keysym.sym) {
+            case (SDLK_a):
+                acelerar_x(IZQUIERDA);
+                break;
+            case (SDLK_d):
+                acelerar_x(DERECHA);
+                break;
+            case (SDLK_s):
+                //BAJAR HITBOX A LA MITAD Y CAMBIAR A FRAMES AGACHADO
+                textura_actual = texturas.textura_agachado
+                break;
+            case (SDLK_w):
+                saltar();
+                break;
+        }
     }
 }

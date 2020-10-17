@@ -40,7 +40,7 @@ int Juego::inicializar_ventana(){
         return ERROR;
     }
     // Carga del icono
-    std::string fileName = "./res/icono_mario.png";
+    std::string fileName = "../res/icono_mario.png";
     SDL_Surface* icono_surface = IMG_Load(fileName.c_str());
     if(icono_surface == NULL){
         std::cout << "No cargo el Icono " << std::endl;
@@ -59,8 +59,8 @@ void Juego::game_loop() {
     if (estado_error == ERROR)
         quit = true;
     while (!quit){
-        render();
         update(evento);
+        render();
     }
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(ventana);
@@ -82,17 +82,8 @@ void Juego::input(SDL_Event evento){
             case (SDLK_ESCAPE):
                 quit=true;
                 break;
-            case (SDLK_a):                      //todo esto no debería estar en Jugador?
-                jugador->acelerar_x(IZQUIERDA);
-                break;
-            case (SDLK_d):
-                jugador->acelerar_x(DERECHA);
-                break;
-            case (SDLK_s):
-                //BAJAR HITBOX A LA MITAD Y CAMBIAR A FRAMES AGACHADO
-                break;
-            case (SDLK_w):
-                jugador->saltar();
+            default:
+                jugador->recibir_evento(evento);
                 break;
         }
     }

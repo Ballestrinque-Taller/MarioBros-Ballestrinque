@@ -18,6 +18,7 @@ class Jugador: public Renderer{
         void desplazar();
         void renderizar(SDL_Renderer* renderer);
         void cambiar_frame(SDL_Renderer* renderer);
+        void recibir_evento(SDL_Event evento);
 
     private:
         SDL_Texture* textura_actual;
@@ -27,6 +28,7 @@ class Jugador: public Renderer{
         int aceleracion_y;
         bool en_aire;
         void aceleracion_gravitatoria();
+        void rozamiento();
 };
 
 
