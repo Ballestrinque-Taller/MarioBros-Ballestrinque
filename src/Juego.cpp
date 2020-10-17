@@ -11,6 +11,8 @@
 
 #define DERECHA 1
 #define IZQUIERDA -1
+#define FPS 60
+const int FRAME_DELAY = 1000/FPS;
 
 
 Juego::Juego() {
@@ -59,8 +61,12 @@ void Juego::game_loop() {
     if (estado_error == ERROR)
         quit = true;
     while (!quit){
+        int frame_start = SDL_GetTicks();
         update(evento);
         render();
+        int frame_time = SDL_GetTicks()-frame_start;
+        if(FRAME_DELAY>frame_time)
+            SDL_Delay(FRAME_DELAY-frame_time);
     }
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(ventana);
