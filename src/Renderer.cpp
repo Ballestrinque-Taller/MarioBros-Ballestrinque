@@ -1,7 +1,8 @@
-#include "../include/Renderer.h"
-#include <iostream>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <iostream>
+
+#include "Renderer.h"
 
 void Renderer::set_src_rect(int x,int y,int height,int width){
     frames_render.src_rect.x=x;

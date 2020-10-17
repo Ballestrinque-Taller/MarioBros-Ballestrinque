@@ -2,7 +2,8 @@
 #define MARIOBROS_BALLESTRINQUE_JUEGO_H
 
 #include <SDL2/SDL.h>
-#include "../include/Jugador.h"
+
+#include "Jugador.h"
 
 
 class Juego {

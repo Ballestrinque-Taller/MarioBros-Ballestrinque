@@ -1,5 +1,5 @@
-#include "../include/Jugador.h"
-#include "../include/Renderer.h"
+#include "Jugador.h"
+#include "Renderer.h"
 
 #define DERECHA 1
 #define IZQUIERDA -1
@@ -10,7 +10,7 @@
 #define ACELERACION_SALTO 20
 
 Jugador::Jugador(SDL_Renderer* renderer){
-    path_to_image = "../res/mario.png";
+    path_to_image = "./res/mario.png";
     set_dest_rect(0,0,200,200);
     set_src_rect(0,0,920,920);
     aceleracion_x = 0;
@@ -20,7 +20,7 @@ Jugador::Jugador(SDL_Renderer* renderer){
 
 void Jugador::renderizar(SDL_Renderer* renderer){
     SDL_Surface* surface =  IMG_Load(path_to_image.c_str());
-    SDL_Surface* surface2 = IMG_Load("../res/icono_mario.png");
+    SDL_Surface* surface2 = IMG_Load("./res/icono_mario.png");
     texturas.texturas[0] = SDL_CreateTextureFromSurface(renderer, surface);
     texturas.texturas[1] = SDL_CreateTextureFromSurface(renderer, surface2);
     SDL_FreeSurface(surface);

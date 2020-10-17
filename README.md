@@ -48,5 +48,9 @@ Luego de que termine de ejecutarse, el ejecutable se encuentra en el directorio 
 
 *En el directorio principal y el ejecutable 'app' se genera en bin/
 
+## Ejecución
+
+ejecutar desde una terminal con el derectorio de trabajo en el projecto  
+`bin/app` o `bin/app.exe`
 
 

@@ -1,8 +1,9 @@
-#include "../include/Juego.h"
 #include <SDL2/SDL.h>
-#include <iostream>
-#include "../include/Jugador.h"
 #include <SDL2/SDL_image.h>
+#include <iostream>
+
+#include "Jugador.h"
+#include "Juego.h"
 
 #define ERROR -1
 #define ANCHO_VENTANA 800
@@ -39,7 +40,7 @@ int Juego::inicializar_ventana(){
         return ERROR;
     }
     // Carga del icono
-    std::string fileName = "../res/icono_mario.png";
+    std::string fileName = "./res/icono_mario.png";
     SDL_Surface* icono_surface = IMG_Load(fileName.c_str());
     if(icono_surface == NULL){
         std::cout << "No cargo el Icono " << std::endl;
@@ -69,6 +70,8 @@ void Juego::game_loop() {
 void Juego::update(SDL_Event evento) {
     jugador->desplazar();
     while (SDL_PollEvent(&evento) != 0) {
+        if (evento.type == SDL_QUIT) // la cruz de cerrar ventana
+            quit = true;
         input(evento);
     }
 }
@@ -79,7 +82,7 @@ void Juego::input(SDL_Event evento){
             case (SDLK_ESCAPE):
                 quit=true;
                 break;
-            case (SDLK_a):
+            case (SDLK_a):                      //todo esto no debería estar en Jugador?
                 jugador->acelerar_x(IZQUIERDA);
                 break;
             case (SDLK_d):

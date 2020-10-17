@@ -1,7 +1,7 @@
 #ifndef MARIOBROS_BALLESTRINQUE_JUGADOR_H
 #define MARIOBROS_BALLESTRINQUE_JUGADOR_H
 
-#include "../include/Renderer.h"
+#include "Renderer.h"
 
 typedef struct texturas{
     //0 Derecha && 1 Izquierda
