@@ -3,15 +3,22 @@
 
 #define DERECHA 1
 #define IZQUIERDA -1
+
 #define MAX_ACELERACION 7
 #define TICK_ACELERACION 3
 #define DECAIMIENTO_ACEL_Y 1
 #define DECAIMIENTO_ROZAMIENTO 1
 #define MAX_ACEL_GRAVEDAD 10
 #define ACELERACION_SALTO 20
+
 #define ANCHO_FRAME 17
 #define ALTO_FRAME 34
 #define ANCHO_IMAGEN 358
+
+#define TIEMPO_FRAME 5
+#define FRAME_SALTO 5
+#define FRAME_MOV_FINAL 3
+#define FRAME_AGACHADO 6
 
 Jugador::Jugador(SDL_Renderer* renderer){
     path_to_image = "../res/MARIO_NORMAL.png";
@@ -20,6 +27,8 @@ Jugador::Jugador(SDL_Renderer* renderer){
     aceleracion_x = 0;
     aceleracion_y = 0;
     frame_actual = 0;
+    agachado = false;
+    tick_actual = TIEMPO_FRAME;
     texturas.flip = SDL_FLIP_NONE;
     Jugador::renderizar(renderer);
 }
@@ -34,10 +43,26 @@ void Jugador::renderizar(SDL_Renderer* renderer){
 }
 
 void Jugador::cambiar_frame(SDL_Renderer* renderer){
-    frame_actual++;
-        if(frame_actual > 3)
-            frame_actual = 0;
-        set_src_rect(frame_actual*ANCHO_FRAME,0,ALTO_FRAME,ANCHO_FRAME);
+    tick_actual++;
+    if (tick_actual >= TIEMPO_FRAME && aceleracion_x != 0 && !en_aire){
+        tick_actual = 0;
+        frame_actual++;
+            if(frame_actual > FRAME_MOV_FINAL)
+                frame_actual = 0;
+    }
+    else if(agachado){
+        tick_actual = 0;
+        frame_actual = FRAME_AGACHADO;
+    }
+    else if(en_aire){
+        tick_actual = 0;
+        frame_actual = FRAME_SALTO;
+    }
+    else if (aceleracion_x == 0 && !en_aire){
+        tick_actual = 0;
+        frame_actual = 0;
+    }
+    set_src_rect(frame_actual*ANCHO_FRAME,0,ALTO_FRAME,ANCHO_FRAME);
     SDL_RenderCopyEx(renderer, textura_actual, &(frames_render.src_rect), &(frames_render.dest_rect), 0, NULL, texturas.flip);
 }
 
@@ -52,10 +77,8 @@ void Jugador::acelerar_x(int direccion){
 }
 
 void Jugador::saltar() {
-    if (aceleracion_y == 0) {
+    if (aceleracion_y == 0)
         aceleracion_y = -ACELERACION_SALTO;
-        //textura_actual = texturas.textura_salto;
-    }
 }
 
 void Jugador::desplazar(){
@@ -79,7 +102,7 @@ void Jugador::aceleracion_gravitatoria() {
         aceleracion_y += DECAIMIENTO_ACEL_Y;
         en_aire = true;
     }
-        //IF COLISION && ACEL PARA ABAJO (POSITIVA)
+    //IF COLISION && ACEL PARA ABAJO (POSITIVA)
     else if (aceleracion_y > 0 && frames_render.dest_rect.y >= 600 - frames_render.dest_rect.h) {
         aceleracion_y = 0;
         en_aire = false;
@@ -87,21 +110,34 @@ void Jugador::aceleracion_gravitatoria() {
 }
 
 void Jugador::recibir_evento(SDL_Event evento) {
-    switch (evento.key.keysym.sym) {
-            case (SDLK_a):
-                texturas.flip = SDL_FLIP_HORIZONTAL;
-                acelerar_x(IZQUIERDA);
-                break;
-            case (SDLK_d):
-                texturas.flip = SDL_FLIP_NONE;
-                acelerar_x(DERECHA);
-                break;
-            case (SDLK_s):
-                //BAJAR HITBOX A LA MITAD Y CAMBIAR A FRAMES AGACHADO
-                //textura_actual = texturas.textura_agachado
-                break;
-            case (SDLK_w):
-                saltar();
-                break;
+    if (evento.type == SDL_KEYDOWN){
+        switch (evento.key.keysym.sym) {
+                case (SDLK_a):
+                    texturas.flip = SDL_FLIP_HORIZONTAL;
+                    acelerar_x(IZQUIERDA);
+                    break;
+                case (SDLK_d):
+                    texturas.flip = SDL_FLIP_NONE;
+                    acelerar_x(DERECHA);
+                    break;
+                case (SDLK_s):
+                    agacharse();
+                    break;
+                case (SDLK_w):
+                    saltar();
+                    break;
+        }
+    }
+    else if (evento.type == SDL_KEYUP){
+        if (evento.key.keysym.sym == SDLK_s)
+            agachado = false;
+    }
+}
+
+void Jugador::agacharse(){
+    if (!en_aire){
+        //BAJAR HITBOX A LA MITAD
+        agachado = true;
+        aceleracion_x=0;
     }
 }

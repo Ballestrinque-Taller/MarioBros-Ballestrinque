@@ -19,15 +19,21 @@ class Jugador: public Renderer{
         void renderizar(SDL_Renderer* renderer);
         void cambiar_frame(SDL_Renderer* renderer);
         void recibir_evento(SDL_Event evento);
+        void agacharse();
 
     private:
         SDL_Texture* textura_actual;
         texturas_t texturas;
+
         bool acelerando;
+        bool en_aire;
+        bool agachado;
+
         int aceleracion_x;
         int aceleracion_y;
         int frame_actual;
-        bool en_aire;
+        int tick_actual;
+
         void aceleracion_gravitatoria();
         void rozamiento();
 };

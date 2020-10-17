@@ -6,13 +6,15 @@
 #include "Juego.h"
 
 #define ERROR -1
+
 #define ANCHO_VENTANA 800
 #define ALTO_VENTANA 600
 
 #define DERECHA 1
 #define IZQUIERDA -1
+
 #define FPS 60
-const int FRAME_DELAY = 1000/FPS;
+#define FRAME_DELAY 1000/FPS
 
 
 Juego::Juego() {
@@ -76,10 +78,9 @@ void Juego::game_loop() {
 void Juego::update(SDL_Event evento) {
     jugador->desplazar();
     while (SDL_PollEvent(&evento) != 0) {
-        if (evento.type == SDL_QUIT) // la cruz de cerrar ventana
+        if (evento.type == SDL_QUIT)
             quit = true;
-        else if (evento.type == SDL_KEYDOWN)
-            jugador->recibir_evento(evento);
+        jugador->recibir_evento(evento);
     }
 }
 
