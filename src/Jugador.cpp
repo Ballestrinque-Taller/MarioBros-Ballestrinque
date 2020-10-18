@@ -28,6 +28,7 @@ Jugador::Jugador(SDL_Renderer* renderer){
     aceleracion_y = 0;
     frame_actual = 0;
     agachado = false;
+    en_aire = true;
     tick_actual = TIEMPO_FRAME;
     texturas.flip = SDL_FLIP_NONE;
     Jugador::renderizar(renderer);
@@ -77,7 +78,7 @@ void Jugador::acelerar_x(int direccion){
 }
 
 void Jugador::saltar() {
-    if (aceleracion_y == 0)
+    if (aceleracion_y == 0 && !en_aire)
         aceleracion_y = -ACELERACION_SALTO;
 }
 
