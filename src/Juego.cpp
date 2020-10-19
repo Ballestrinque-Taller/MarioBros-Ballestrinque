@@ -4,6 +4,7 @@
 
 #include "Jugador.h"
 #include "Juego.h"
+#include "Enemigo.h"
 
 #define ERROR -1
 
@@ -18,8 +19,11 @@
 
 
 Juego::Juego() {
+    int pos_x = 0;
+    int pos_y = 0;
     estado_error = Juego::inicializar_ventana();
     jugador = new Jugador(renderer);
+    enemigo = new Enemigo(renderer, pos_x, pos_y);
 }
 
 
@@ -87,5 +91,6 @@ void Juego::update(SDL_Event evento) {
 void Juego::render(){
     SDL_RenderClear(renderer);
     jugador->cambiar_frame(renderer);
+    enemigo->cambiar_frame(renderer);
     SDL_RenderPresent(renderer);
 }

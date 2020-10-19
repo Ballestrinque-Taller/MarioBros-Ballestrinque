@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <iostream>
+#include "Texturas.h"
 
 typedef struct frames{
     SDL_Rect src_rect;
@@ -19,6 +20,7 @@ class Renderer {
         std::string path_to_image;
         void set_dest_rect(int x,int y,int height,int width);
         void set_src_rect(int x,int y,int height,int width);
+        texturas_t texturas;
         frames_t frames_render;
 };
 

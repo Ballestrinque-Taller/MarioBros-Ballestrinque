@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 
 #include "Jugador.h"
+#include "Enemigo.h"
 
 
 class Juego {
@@ -11,6 +12,7 @@ class Juego {
         SDL_Window * ventana = nullptr;
         SDL_Renderer * renderer = nullptr;
         Jugador* jugador;
+        Enemigo* enemigo;
         bool quit = false;
         int estado_error;
         int inicializar_ventana();
