@@ -3,14 +3,18 @@
 
 #include <SDL2/SDL.h>
 #include "Renderer.h"
+#include "Camara.h"
 
 class Enemigo: public Renderer{
     public:
-        Enemigo(SDL_Renderer* renderer, int pos_x, int pos_y);
-        void cambiar_frame(SDL_Renderer* renderer);
+        Enemigo();
+        virtual void cambiar_frame(SDL_Renderer* renderer, Camara* camara){};
 
-    private:
+    protected:
         int aceleracion_x;
+        int tick_actual;
+        int frame_actual;
+        bool muerto;
 };
 
 #endif /*MARIOBROS_BALLESTRINQUE_ENEMIGO_H*/

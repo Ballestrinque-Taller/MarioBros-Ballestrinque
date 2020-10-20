@@ -5,6 +5,9 @@
 #include "Jugador.h"
 #include "Juego.h"
 #include "Enemigo.h"
+#include "Koopa.h"
+#include "Tortuga.h"
+#include "Camara.h"
 
 #define ERROR -1
 
@@ -19,11 +22,12 @@
 
 
 Juego::Juego() {
-    int pos_x = 0;
-    int pos_y = 0;
     estado_error = Juego::inicializar_ventana();
     jugador = new Jugador(renderer);
-    enemigo = new Enemigo(renderer, pos_x, pos_y);
+    camara = new Camara();
+    enemigos[0] = new Koopa(renderer, 0, 0);
+    enemigos[1] = new Tortuga(renderer, 400, 0);
+    cant_enemigos = 2;
 }
 
 
@@ -54,6 +58,7 @@ int Juego::inicializar_ventana(){
         std::cout << "No cargo el Icono " << std::endl;
         return ERROR;
     }
+    SDL_SetRenderDrawColor(renderer, 144, 202, 249, 255);
     SDL_SetColorKey( icono_surface, SDL_TRUE, SDL_MapRGB( icono_surface->format, 0xFF, 0xFF, 0xFF ) );
     SDL_SetWindowIcon(ventana,icono_surface);
     SDL_FreeSurface(icono_surface);
@@ -90,7 +95,9 @@ void Juego::update(SDL_Event evento) {
 
 void Juego::render(){
     SDL_RenderClear(renderer);
-    jugador->cambiar_frame(renderer);
-    enemigo->cambiar_frame(renderer);
+    jugador->cambiar_frame(renderer, camara);
+    for (int i=0; i<cant_enemigos; i++){
+        enemigos[i]->cambiar_frame(renderer, camara);
+    }
     SDL_RenderPresent(renderer);
 }

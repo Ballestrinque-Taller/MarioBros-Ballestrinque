@@ -2,6 +2,7 @@
 #define MARIOBROS_BALLESTRINQUE_JUGADOR_H
 
 #include "Renderer.h"
+#include "Camara.h"
 
 
 class Jugador: public Renderer{
@@ -10,7 +11,7 @@ class Jugador: public Renderer{
         void acelerar_x(int direccion);
         void saltar();
         void desplazar();
-        void cambiar_frame(SDL_Renderer* renderer);
+        void cambiar_frame(SDL_Renderer* renderer, Camara* camara) override;
         void recibir_evento(SDL_Event evento);
         void agacharse();
 
@@ -23,6 +24,7 @@ class Jugador: public Renderer{
 
         int aceleracion_x;
         int aceleracion_y;
+        int max_acel;
         int frame_actual;
         int tick_actual;
 

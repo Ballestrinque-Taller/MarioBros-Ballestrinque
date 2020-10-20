@@ -1,11 +1,13 @@
 #include "Jugador.h"
 #include "Renderer.h"
+#include "Camara.h"
 
 #define DERECHA 1
 #define IZQUIERDA -1
 
-#define MAX_ACELERACION 7
-#define TICK_ACELERACION 3
+#define MAX_ACELERACION 8
+#define MAX_CORRIDA 12
+#define TICK_ACELERACION 4
 #define DECAIMIENTO_ACEL_Y 1
 #define DECAIMIENTO_ROZAMIENTO 1
 #define MAX_ACEL_GRAVEDAD 10
@@ -19,13 +21,15 @@
 #define FRAME_SALTO 5
 #define FRAME_MOV_FINAL 3
 #define FRAME_AGACHADO 6
+#define MOV_CAMARA
 
 Jugador::Jugador(SDL_Renderer* renderer){
     path_to_image = "../res/MARIO_NORMAL.png";
-    set_dest_rect(0,0,200,200);
+    set_dest_rect(0,0,150,75);
     set_src_rect(0,0,ALTO_FRAME,ANCHO_FRAME);
     aceleracion_x = 0;
     aceleracion_y = 0;
+    max_acel = MAX_ACELERACION;
     frame_actual = 0;
     agachado = false;
     en_aire = true;
@@ -33,17 +37,8 @@ Jugador::Jugador(SDL_Renderer* renderer){
     texturas.flip = SDL_FLIP_NONE;
     Jugador::renderizar(renderer);
 }
-/*
-void Jugador::renderizar(SDL_Renderer* renderer){
-    SDL_Surface* surface =  IMG_Load(path_to_image.c_str());
-    SDL_SetColorKey( surface, SDL_TRUE, SDL_MapRGB( surface->format, 0x92, 0x27, 0x8F ) ); //0x92 0x27 0x8F es el color del divisor
-    texturas.textura = SDL_CreateTextureFromSurface(renderer, surface);
-    textura_actual = texturas.textura;
-    SDL_FreeSurface(surface);
-    SDL_RenderCopyEx(renderer, texturas.textura, &(frames_render.src_rect), &(frames_render.dest_rect), 0, NULL, texturas.flip);
-}*/
 
-void Jugador::cambiar_frame(SDL_Renderer* renderer){
+void Jugador::cambiar_frame(SDL_Renderer* renderer, Camara* camara){
     tick_actual++;
     if (tick_actual >= TIEMPO_FRAME && aceleracion_x != 0 && !en_aire){
         tick_actual = 0;
@@ -64,14 +59,16 @@ void Jugador::cambiar_frame(SDL_Renderer* renderer){
         frame_actual = 0;
     }
     set_src_rect(frame_actual*ANCHO_FRAME,0,ALTO_FRAME,ANCHO_FRAME);
+    camara->check_movimiento(this, aceleracion_x);
+    camara->acomodar_a_imagen(this);
     SDL_RenderCopyEx(renderer, texturas.textura, &(frames_render.src_rect), &(frames_render.dest_rect), 0, NULL, texturas.flip);
 }
 
 void Jugador::acelerar_x(int direccion){
-    if (direccion == DERECHA && aceleracion_x < MAX_ACELERACION){
+    if (direccion == DERECHA && aceleracion_x < max_acel && !agachado){
         aceleracion_x += TICK_ACELERACION;
     }
-    else if (direccion == IZQUIERDA && aceleracion_x > -(MAX_ACELERACION)){
+    else if (direccion == IZQUIERDA && aceleracion_x > -max_acel && !agachado){
         aceleracion_x -= TICK_ACELERACION;
     }
     acelerando = true;
@@ -113,25 +110,37 @@ void Jugador::aceleracion_gravitatoria() {
 void Jugador::recibir_evento(SDL_Event evento) {
     if (evento.type == SDL_KEYDOWN){
         switch (evento.key.keysym.sym) {
-                case (SDLK_a):
+                case (SDLK_LEFT):
                     texturas.flip = SDL_FLIP_HORIZONTAL;
                     acelerar_x(IZQUIERDA);
                     break;
-                case (SDLK_d):
+                case (SDLK_RIGHT):
                     texturas.flip = SDL_FLIP_NONE;
                     acelerar_x(DERECHA);
                     break;
-                case (SDLK_s):
+                case (SDLK_DOWN):
                     agacharse();
                     break;
-                case (SDLK_w):
+                case (SDLK_UP):
                     saltar();
                     break;
+                /*
+                case (KMOD_RCTRL):
+                    max_acel = MAX_CORRIDA;
+                    break;
+                */
         }
     }
     else if (evento.type == SDL_KEYUP){
-        if (evento.key.keysym.sym == SDLK_s)
-            agachado = false;
+        switch(evento.key.keysym.sym) {
+            case (SDLK_DOWN):
+                agachado = false;
+                break;
+            /*case (KMOD_RCTRL):
+                max_acel = MAX_ACELERACION;
+                break;*/
+        }
+
     }
 }
 

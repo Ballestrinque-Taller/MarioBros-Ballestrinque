@@ -6,6 +6,8 @@
 #include <iostream>
 #include "Texturas.h"
 
+class Camara;
+
 typedef struct frames{
     SDL_Rect src_rect;
     SDL_Rect dest_rect;
@@ -14,7 +16,9 @@ typedef struct frames{
 class Renderer {
     public:
         void renderizar(SDL_Renderer* renderer);
-        void cambiar_frame(SDL_Renderer* renderer);
+        virtual void cambiar_frame(SDL_Renderer* renderer, Camara* camara){};
+        void set_dest_rect_x(int x);
+        int get_dest_rect_x();
 
     protected:
         std::string path_to_image;

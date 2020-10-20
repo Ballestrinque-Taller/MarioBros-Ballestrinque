@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "Renderer.h"
+#include "Camara.h"
 
 void Renderer::set_src_rect(int x,int y,int height,int width){
     frames_render.src_rect.x=x;
@@ -24,4 +25,12 @@ void Renderer::renderizar(SDL_Renderer* renderer){
     texturas.textura = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
     SDL_RenderCopyEx(renderer, texturas.textura, &(frames_render.src_rect), &(frames_render.dest_rect), 0, NULL, texturas.flip);
+}
+
+void Renderer::set_dest_rect_x(int x){
+    frames_render.dest_rect.x=x;
+}
+
+int Renderer::get_dest_rect_x(){
+    return frames_render.dest_rect.x;
 }
