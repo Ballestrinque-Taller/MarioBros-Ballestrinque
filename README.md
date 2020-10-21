@@ -21,7 +21,7 @@ Descargar e instalar el entorno [MSYS](https://www.msys2.org/). Seguir las instr
 
 Todavía en el entorno de MSYS, ejecutar el siguiente comando para obtener las dependencias:  
 ```
-pacman -S make mingw-w64-x86_64-gcc mingw-w64-x86_64-SDL2 mingw-w64-x86_64-SDL2_image
+pacman -S make mingw-w64-x86_64-gcc mingw-w64-x86_64-SDL2 mingw-w64-x86_64-SDL2_image mingw-w64-x86_64-pugixml
 ```  
 Responder a `:: Proceed with installation? [Y/n]` con `y` para instalarlos.
 
