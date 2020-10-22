@@ -9,7 +9,10 @@
 #include "Tortuga.h"
 #include "Camara.h"
 #include "Background.h"
-
+#include "Escenario.h"
+#include "Moneda.h"
+#include "Ladrillo.h"
+#include "Sorpresa.h"
 #define ERROR -1
 
 #define ANCHO_VENTANA 800
@@ -30,6 +33,13 @@ Juego::Juego() {
     enemigos[0] = new Koopa(renderer, 0, 0);
     enemigos[1] = new Tortuga(renderer, 400, 0);
     cant_enemigos = 2;
+    cant_escenarios = 4;
+
+    for(int i=0; i<2; i++) {
+        escenarios[i] = new Ladrillo(renderer, i*80+200, 200);
+    }
+    escenarios[2] = new Moneda(renderer, 200, 0);
+    escenarios[3] = new Sorpresa(renderer, 400, 300);
 }
 
 
@@ -53,6 +63,7 @@ int Juego::inicializar_ventana(){
         SDL_Quit();
         return ERROR;
     }
+    // Carga del icono
     std::string fileName = "../res/icono_mario.png";
     SDL_Surface* icono_surface = IMG_Load(fileName.c_str());
     if(icono_surface == NULL){
@@ -99,6 +110,9 @@ void Juego::render(){
     camara->scroll_background(background, renderer);
     for (int i=0; i<cant_enemigos; i++){
         enemigos[i]->cambiar_frame(renderer, camara);
+    }
+    for (int i=0; i<cant_escenarios; i++){
+        escenarios[i]->cambiar_frame(renderer, camara);
     }
     jugador->cambiar_frame(renderer, camara);
     SDL_RenderPresent(renderer);

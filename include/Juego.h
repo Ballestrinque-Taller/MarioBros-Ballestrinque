@@ -6,6 +6,7 @@
 #include "Jugador.h"
 #include "Enemigo.h"
 #include "Camara.h"
+#include "Escenario.h"
 
 
 class Juego {
@@ -16,12 +17,15 @@ class Juego {
         Camara* camara;
         Jugador* jugador;
         Enemigo* enemigo;
+        Escenario* escenario;
         bool quit = false;
         int estado_error;
         int inicializar_ventana();
         Enemigo* enemigos[100];
         int cant_enemigos;
 
+        Escenario* escenarios[50];
+        int cant_escenarios;
 
     public:
         void update(SDL_Event evento);
