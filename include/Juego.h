@@ -12,6 +12,7 @@ class Juego {
     private:
         SDL_Window * ventana = nullptr;
         SDL_Renderer * renderer = nullptr;
+        Background* background;
         Camara* camara;
         Jugador* jugador;
         Enemigo* enemigo;

@@ -21,7 +21,7 @@ void Renderer::set_dest_rect(int x,int y,int height,int width){
 
 void Renderer::renderizar(SDL_Renderer* renderer){
     SDL_Surface* surface =  IMG_Load(path_to_image.c_str());
-    SDL_SetColorKey( surface, SDL_TRUE, SDL_MapRGB( surface->format, 0x92, 0x27, 0x8F ) ); //0x92 0x27 0x8F es el color del divisor
+    SDL_SetColorKey( surface, SDL_TRUE, SDL_MapRGB( surface->format, 0x92, 0x27, 0x8F ) ); //0x92 0x27 0x8F es el color del divisor de mario.
     texturas.textura = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
     SDL_RenderCopyEx(renderer, texturas.textura, &(frames_render.src_rect), &(frames_render.dest_rect), 0, NULL, texturas.flip);

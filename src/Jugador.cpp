@@ -9,7 +9,7 @@
 #define MAX_CORRIDA 12
 #define TICK_ACELERACION 4
 #define DECAIMIENTO_ACEL_Y 1
-#define DECAIMIENTO_ROZAMIENTO 1
+//#define DECAIMIENTO_ROZAMIENTO 1
 #define MAX_ACEL_GRAVEDAD 10
 #define ACELERACION_SALTO 20
 
@@ -21,7 +21,6 @@
 #define FRAME_SALTO 5
 #define FRAME_MOV_FINAL 3
 #define FRAME_AGACHADO 6
-#define MOV_CAMARA
 
 Jugador::Jugador(SDL_Renderer* renderer){
     path_to_image = "../res/MARIO_NORMAL.png";
@@ -66,10 +65,12 @@ void Jugador::cambiar_frame(SDL_Renderer* renderer, Camara* camara){
 
 void Jugador::acelerar_x(int direccion){
     if (direccion == DERECHA && aceleracion_x < max_acel && !agachado){
-        aceleracion_x += TICK_ACELERACION;
+        //aceleracion_x += TICK_ACELERACION;
+        aceleracion_x = MAX_ACELERACION;
     }
     else if (direccion == IZQUIERDA && aceleracion_x > -max_acel && !agachado){
-        aceleracion_x -= TICK_ACELERACION;
+        //aceleracion_x -= TICK_ACELERACION;
+        aceleracion_x = -MAX_ACELERACION;
     }
     acelerando = true;
 }
@@ -83,16 +84,18 @@ void Jugador::desplazar(){
     frames_render.dest_rect.x += aceleracion_x;
     aceleracion_gravitatoria();
     frames_render.dest_rect.y += aceleracion_y;
-    rozamiento();
+    //rozamiento();
     acelerando = false;
 }
 
+/*
 void Jugador::rozamiento(){
     if(aceleracion_x < 0 && !acelerando && !en_aire)
         aceleracion_x += DECAIMIENTO_ROZAMIENTO;
     else if (aceleracion_x > 0 && !acelerando && !en_aire)
         aceleracion_x -= DECAIMIENTO_ROZAMIENTO;
 }
+ */
 
 void Jugador::aceleracion_gravitatoria() {
     //IF !COLISION && ACEL < MAX_ACEL_GRAVEDAD (BAJA MENOS DE LO MAXIMO)
@@ -135,6 +138,12 @@ void Jugador::recibir_evento(SDL_Event evento) {
         switch(evento.key.keysym.sym) {
             case (SDLK_DOWN):
                 agachado = false;
+                break;
+            case (SDLK_LEFT):
+                aceleracion_x = 0;
+                break;
+            case (SDLK_RIGHT):
+                aceleracion_x = 0;
                 break;
             /*case (KMOD_RCTRL):
                 max_acel = MAX_ACELERACION;

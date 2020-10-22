@@ -8,6 +8,7 @@
 #include "Koopa.h"
 #include "Tortuga.h"
 #include "Camara.h"
+#include "Background.h"
 
 #define ERROR -1
 
@@ -25,6 +26,7 @@ Juego::Juego() {
     estado_error = Juego::inicializar_ventana();
     jugador = new Jugador(renderer);
     camara = new Camara();
+    background = new Background(renderer);
     enemigos[0] = new Koopa(renderer, 0, 0);
     enemigos[1] = new Tortuga(renderer, 400, 0);
     cant_enemigos = 2;
@@ -51,15 +53,14 @@ int Juego::inicializar_ventana(){
         SDL_Quit();
         return ERROR;
     }
-    // Carga del icono
     std::string fileName = "../res/icono_mario.png";
     SDL_Surface* icono_surface = IMG_Load(fileName.c_str());
     if(icono_surface == NULL){
         std::cout << "No cargo el Icono " << std::endl;
         return ERROR;
     }
-    SDL_SetRenderDrawColor(renderer, 144, 202, 249, 255);
-    SDL_SetColorKey( icono_surface, SDL_TRUE, SDL_MapRGB( icono_surface->format, 0xFF, 0xFF, 0xFF ) );
+    //SDL_SetRenderDrawColor(renderer, 144, 202, 249, 255);
+    //SDL_SetColorKey( icono_surface, SDL_TRUE, SDL_MapRGB( icono_surface->format, 0xFF, 0xFF, 0xFF ) );
     SDL_SetWindowIcon(ventana,icono_surface);
     SDL_FreeSurface(icono_surface);
 
@@ -95,9 +96,10 @@ void Juego::update(SDL_Event evento) {
 
 void Juego::render(){
     SDL_RenderClear(renderer);
-    jugador->cambiar_frame(renderer, camara);
+    camara->scroll_background(background, renderer);
     for (int i=0; i<cant_enemigos; i++){
         enemigos[i]->cambiar_frame(renderer, camara);
     }
+    jugador->cambiar_frame(renderer, camara);
     SDL_RenderPresent(renderer);
 }

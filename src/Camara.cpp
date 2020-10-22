@@ -1,10 +1,11 @@
 #include "Camara.h"
-
 #include "Renderer.h"
+#include "Background.h"
 
 #define MARGEN_CAMARA 600*5/6
 
 Camara::Camara(){
+    velocidad_camara = 0;
 }
 
 void Camara::check_movimiento(Renderer* renderizado, int aceleracion_jugador){
@@ -26,4 +27,8 @@ void Camara::check_movimiento(Renderer* renderizado, int aceleracion_jugador){
 void Camara::acomodar_a_imagen(Renderer* renderizado){
     if(debo_mover_camara)
         renderizado->set_dest_rect_x(renderizado->get_dest_rect_x() - velocidad_camara);
+}
+
+void Camara::scroll_background(Background* background, SDL_Renderer* renderer){
+    background->scroll(velocidad_camara, renderer);
 }
