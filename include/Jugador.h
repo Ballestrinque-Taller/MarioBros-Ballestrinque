@@ -22,8 +22,8 @@ class Jugador: public Renderer{
         bool en_aire;
         bool agachado;
 
-        int aceleracion_x;
-        int aceleracion_y;
+        int velocidad_x;
+        int velocidad_y;
         int max_acel;
         int frame_actual;
         int tick_actual;

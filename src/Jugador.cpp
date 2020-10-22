@@ -26,8 +26,8 @@ Jugador::Jugador(SDL_Renderer* renderer){
     path_to_image = "../res/MARIO_NORMAL.png";
     set_dest_rect(0,0,150,75);
     set_src_rect(0,0,ALTO_FRAME,ANCHO_FRAME);
-    aceleracion_x = 0;
-    aceleracion_y = 0;
+    velocidad_x = 0;
+    velocidad_y = 0;
     max_acel = MAX_ACELERACION;
     frame_actual = 0;
     agachado = false;
@@ -39,7 +39,7 @@ Jugador::Jugador(SDL_Renderer* renderer){
 
 void Jugador::cambiar_frame(SDL_Renderer* renderer, Camara* camara){
     tick_actual++;
-    if (tick_actual >= TIEMPO_FRAME && aceleracion_x != 0 && !en_aire){
+    if (tick_actual >= TIEMPO_FRAME && velocidad_x!= 0 && !en_aire){
         tick_actual = 0;
         frame_actual++;
             if(frame_actual > FRAME_MOV_FINAL)
@@ -53,59 +53,59 @@ void Jugador::cambiar_frame(SDL_Renderer* renderer, Camara* camara){
         tick_actual = 0;
         frame_actual = FRAME_SALTO;
     }
-    else if (aceleracion_x == 0 && !en_aire){
+    else if (velocidad_x == 0 && !en_aire){
         tick_actual = 0;
         frame_actual = 0;
     }
     set_src_rect(frame_actual*ANCHO_FRAME,0,ALTO_FRAME,ANCHO_FRAME);
-    camara->check_movimiento(this, aceleracion_x);
+    camara->check_movimiento(this, velocidad_x);
     camara->acomodar_a_imagen(this);
     SDL_RenderCopyEx(renderer, texturas.textura, &(frames_render.src_rect), &(frames_render.dest_rect), 0, NULL, texturas.flip);
 }
 
 void Jugador::acelerar_x(int direccion){
-    if (direccion == DERECHA && aceleracion_x < max_acel && !agachado){
-        //aceleracion_x += TICK_ACELERACION;
-        aceleracion_x = MAX_ACELERACION;
+    if (direccion == DERECHA && velocidad_x < max_acel && !agachado){
+        //velocidad_x += TICK_ACELERACION;
+        velocidad_x = MAX_ACELERACION;
     }
-    else if (direccion == IZQUIERDA && aceleracion_x > -max_acel && !agachado){
-        //aceleracion_x -= TICK_ACELERACION;
-        aceleracion_x = -MAX_ACELERACION;
+    else if (direccion == IZQUIERDA && velocidad_x > -max_acel && !agachado){
+        //velocidad_x -= TICK_ACELERACION;
+        velocidad_x = -MAX_ACELERACION;
     }
     acelerando = true;
 }
 
 void Jugador::saltar() {
-    if (aceleracion_y == 0 && !en_aire)
-        aceleracion_y = -ACELERACION_SALTO;
+    if (velocidad_y == 0 && !en_aire)
+        velocidad_y = -ACELERACION_SALTO;
 }
 
 void Jugador::desplazar(){
-    frames_render.dest_rect.x += aceleracion_x;
+    frames_render.dest_rect.x += velocidad_x;
     aceleracion_gravitatoria();
-    frames_render.dest_rect.y += aceleracion_y;
+    frames_render.dest_rect.y += velocidad_y;
     //rozamiento();
     acelerando = false;
 }
 
 /*
 void Jugador::rozamiento(){
-    if(aceleracion_x < 0 && !acelerando && !en_aire)
-        aceleracion_x += DECAIMIENTO_ROZAMIENTO;
-    else if (aceleracion_x > 0 && !acelerando && !en_aire)
-        aceleracion_x -= DECAIMIENTO_ROZAMIENTO;
+    if(velocidad_x < 0 && !acelerando && !en_aire)
+        velocidad_x += DECAIMIENTO_ROZAMIENTO;
+    else if (velocidad_x > 0 && !acelerando && !en_aire)
+        velocidad_x -= DECAIMIENTO_ROZAMIENTO;
 }
  */
 
 void Jugador::aceleracion_gravitatoria() {
     //IF !COLISION && ACEL < MAX_ACEL_GRAVEDAD (BAJA MENOS DE LO MAXIMO)
-    if (aceleracion_y < MAX_ACEL_GRAVEDAD && frames_render.dest_rect.y < 600 - frames_render.dest_rect.h) {
-        aceleracion_y += DECAIMIENTO_ACEL_Y;
+    if (velocidad_y < MAX_ACEL_GRAVEDAD && frames_render.dest_rect.y < 600 - frames_render.dest_rect.h) {
+        velocidad_y += DECAIMIENTO_ACEL_Y;
         en_aire = true;
     }
     //IF COLISION && ACEL PARA ABAJO (POSITIVA)
-    else if (aceleracion_y > 0 && frames_render.dest_rect.y >= 600 - frames_render.dest_rect.h) {
-        aceleracion_y = 0;
+    else if (velocidad_y > 0 && frames_render.dest_rect.y >= 600 - frames_render.dest_rect.h) {
+        velocidad_y = 0;
         en_aire = false;
     }
 }
@@ -140,10 +140,10 @@ void Jugador::recibir_evento(SDL_Event evento) {
                 agachado = false;
                 break;
             case (SDLK_LEFT):
-                aceleracion_x = 0;
+                velocidad_x = 0;
                 break;
             case (SDLK_RIGHT):
-                aceleracion_x = 0;
+                velocidad_x = 0;
                 break;
             /*case (KMOD_RCTRL):
                 max_acel = MAX_ACELERACION;
@@ -157,6 +157,6 @@ void Jugador::agacharse(){
     if (!en_aire){
         //BAJAR HITBOX A LA MITAD
         agachado = true;
-        aceleracion_x=0;
+        velocidad_x=0;
     }
 }
