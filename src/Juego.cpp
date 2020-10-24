@@ -5,7 +5,7 @@
 #include "Jugador.h"
 #include "Juego.h"
 #include "Enemigo.h"
-#include "Koopa.h"
+#include "Goomba.h"
 #include "Tortuga.h"
 #include "Camara.h"
 #include "Background.h"
@@ -30,16 +30,16 @@ Juego::Juego() {
     jugador = new Jugador(renderer);
     camara = new Camara();
     background = new Background(renderer);
-    enemigos[0] = new Koopa(renderer, 0, 0);
-    enemigos[1] = new Tortuga(renderer, 400, 0);
-    cant_enemigos = 2;
-    cant_escenarios = 4;
+  //  enemigos.push_back(new Koopa(renderer, 0, 0));
+   // enemigos.push_back(new Tortuga(renderer, 400, 0));
 
+    lectorXml = new LectorXML(renderer);
+    lectorXml->generar_nivel(enemigos,escenarios,"nivel1");
     for(int i=0; i<2; i++) {
-        escenarios[i] = new Ladrillo(renderer, i*80+200, 200);
+        escenarios.push_back(new Ladrillo(renderer, i*80+200, 200));
     }
-    escenarios[2] = new Moneda(renderer, 200, 0);
-    escenarios[3] = new Sorpresa(renderer, 400, 300);
+    escenarios.push_back(new Moneda(renderer, 200, 0));
+    escenarios.push_back(new Sorpresa(renderer, 400, 300));
 }
 
 
@@ -108,11 +108,11 @@ void Juego::update(SDL_Event evento) {
 void Juego::render(){
     SDL_RenderClear(renderer);
     camara->scroll_background(background, renderer);
-    for (int i=0; i<cant_enemigos; i++){
-        enemigos[i]->cambiar_frame(renderer, camara);
+    for (size_t i=0; i<enemigos.size(); i++){
+        enemigos.at(i)->cambiar_frame(renderer, camara);
     }
-    for (int i=0; i<cant_escenarios; i++){
-        escenarios[i]->cambiar_frame(renderer, camara);
+    for (size_t i=0; i<escenarios.size(); i++){
+        escenarios.at(i)->cambiar_frame(renderer, camara);
     }
     jugador->cambiar_frame(renderer, camara);
     SDL_RenderPresent(renderer);

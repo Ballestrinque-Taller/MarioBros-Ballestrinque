@@ -1,0 +1,16 @@
+<configuracion>
+    <nivel1>
+        <enemigos>
+            <enemigo>
+                <tipo>goomba</tipo>
+                <imagen>../res/Goomba.png</imagen>
+                <cantidad>5</cantidad>
+            </enemigo>
+            <enemigo>
+                <tipo>troopa</tipo>
+                <imagen>../res/TORTUGA.png</imagen>
+                <cantidad>4</cantidad>
+            </enemigo>
+        </enemigos>
+    </nivel1>
+</configuracion>
