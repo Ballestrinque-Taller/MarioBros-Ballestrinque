@@ -1,10 +1,18 @@
 #dir_path = $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
+flags = -std=c++11 -Wall
+OBJS = Background.o Camara.o Enemigo.o Escenario.o Juego.o Jugador.o Koopa.o Ladrillo.o main.o Moneda.o Renderer.o Sorpresa.o Tortuga.o
+ifeq ($(OS),Windows_NT)
+	libs = -lmingw32 -lSDL2main -lSDL2_image -lSDL2
+else
+	libs = -lSDL2_image -lSDL2
+endif
 
-default:
-	@echo "usar 'make all_win' para compilar en windows y 'make all_linux' para Linux"
+all: $(OBJS)
+	g++ $(OBJS) $(libs) $(flags) -I./include  -o ./bin/app.exe
 
-all_win:
-	g++ ./src/*.cpp -I./include -lmingw32 -lSDL2_image -lSDL2main -lSDL2 -std=c++11 -o ./bin/app.exe -Wall
-	
-all_linux:
-	g++ ./src/*.cpp -I./include -lSDL2_image -lSDL2 -std=c++11 -o ./bin/app.exe -Wall
+%.o: ./src/%.cpp
+	g++ $(libs_win) $(libs) $(flags) -I./include -c $^ -o $@
+
+.PHONY: clear
+clear: 
+	rm ./*.o

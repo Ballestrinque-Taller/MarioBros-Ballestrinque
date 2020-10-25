@@ -36,15 +36,18 @@ para descargar los archivos _.dll_ necesarios. Este paso solo debe hacerse una v
 Una vez terminado con esto, cerrar la ventana para luego abrir un entorno de MSYS MinGW64 (MSYS MinGW 64-bit).  
 
 Cambiar el directorio de trabajo al directorio del projecto y ejecutar:  
-`make all_win`  
+`make` u opcionalmente con el flag `-j NUCLEOS` donde `NUCLEOS` es el numero de nucleos de la computadora (recomendado poner x1.5 o x2 veces el numero de nucleos físicos)  
+  ej: `make -j 12`
 
 Luego de que termine de ejecutarse, el ejecutable se encuentra en el directorio del projecto bin/app.exe 
+
 
 ### Compilación en Linux
 
 *Tener instalados SDL2 y SDL2_image
 *Compilar con:
-  '''make all_linux'''
+  `make` u opcionalmente con el flag `-j NUCLEOS` donde `NUCLEOS` es el numero de nucleos de la computadora (recomendado poner x1.5 o x2 veces el numero de nucleos físicos)  
+  ej: `make -j 12`
 
 *En el directorio principal y el ejecutable 'app' se genera en bin/
 
