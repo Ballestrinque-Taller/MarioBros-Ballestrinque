@@ -30,11 +30,11 @@ Juego::Juego() {
     jugador = new Jugador(renderer);
     camara = new Camara();
     background = new Background(renderer);
-  //  enemigos.push_back(new Koopa(renderer, 0, 0));
-   // enemigos.push_back(new Tortuga(renderer, 400, 0));
+    //enemigos.push_back(new Goomba(renderer, 0, 0,"../res/Goomba.png"));
+    //enemigos.push_back(new Tortuga(renderer, 400, 0,"../res/TORTUGA.png"));
 
     lectorXml = new LectorXML(renderer);
-    lectorXml->generar_nivel(enemigos,escenarios,"nivel1");
+    lectorXml->generar_nivel(&enemigos,escenarios,std::string("nivel1"));
     for(int i=0; i<2; i++) {
         escenarios.push_back(new Ladrillo(renderer, i*80+200, 200));
     }

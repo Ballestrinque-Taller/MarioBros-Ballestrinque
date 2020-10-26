@@ -19,36 +19,39 @@ LectorXML::LectorXML(SDL_Renderer* renderer){
 }
 
 //genera todos los enemigos del nivel.
-void LectorXML::generar_enemigos(xml_node<>* nivel, std::vector<Enemigo*> enemigos){
+void LectorXML::generar_enemigos(xml_node<>* nivel, std::vector<Enemigo*>* enemigos){
     xml_node<>* nodo_de_enemigos = nivel->first_node(CAMPO_ENEMIGOS);
 
     //dentro del campo enemigos en el xml, recorro cada enemigo (goomba, troopa, etc)
-    for (xml_node<> *enemigo = nodo_de_enemigos->first_node();enemigo; enemigo = nodo_de_enemigos->next_sibling()){
-        std::string tipo_enemigo = enemigo->first_attribute("tipo")->value();
-        std::string path_a_imagen = enemigo->first_attribute("imagen")->value();
-        int cantidad = std::stoi(enemigo->first_attribute("cantidad")->value());
+    xml_node<>* enemigo = nodo_de_enemigos->first_node();
+
+   while(enemigo != nullptr){
+        std::string tipo_enemigo = enemigo->first_node("tipo")->value();
+        std::string path_a_imagen = enemigo->first_node("imagen")->value();
+        int cantidad = std::stoi(enemigo->first_node("cantidad")->value());
 
         generar_enemigos_particulares(tipo_enemigo,path_a_imagen,cantidad,enemigos);
-    }
+        enemigo = enemigo->next_sibling();
+   }
 
 }
 
 //genera todos los enemigos de UN SOLO tipo en particular. Ejemplo: genera TODOS los troopas.
-void LectorXML::generar_enemigos_particulares(std::string tipo_enemigo, std::string path_to_image, int cantidad, std::vector<Enemigo*> enemigos){
+void LectorXML::generar_enemigos_particulares(std::string tipo_enemigo, std::string path_to_image, int cantidad, std::vector<Enemigo*>* enemigos){
     if(tipo_enemigo.compare("troopa") == 0){
         for(int i=0;i<cantidad;i++){
-            enemigos.push_back(new Tortuga(renderer,rand() % (ANCHO_IMAGEN * RATIO_ASPECTO) ,0,path_to_image));
+            enemigos->push_back(new Tortuga(renderer,rand() % (ANCHO_IMAGEN) ,150,path_to_image));
         }
     }
     else if(tipo_enemigo.compare("goomba") == 0){
         for(int i=0;i<cantidad;i++){
-            enemigos.push_back(new Goomba(renderer,rand() % (ANCHO_IMAGEN * RATIO_ASPECTO) ,0,path_to_image));
+            enemigos->push_back(new Goomba(renderer,rand() % (ANCHO_IMAGEN) ,150,path_to_image));
         }
     }
 }
 
-void LectorXML::generar_nivel(std::vector<Enemigo*> enemigos, std::vector<Escenario*> escenarios, std::string nivel){
-    enemigos.clear();
+void LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*> escenarios, std::string nivel){
+    enemigos->clear();
     escenarios.clear();
     xml_node<>* nodo_del_nivel = documento.first_node(nivel.c_str());
     generar_enemigos(nodo_del_nivel,enemigos);
