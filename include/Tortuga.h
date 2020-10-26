@@ -8,7 +8,7 @@
 
 class Tortuga: public Enemigo{
     public:
-        Tortuga(SDL_Renderer* renderer, int pos_x, int pos_y);
+        Tortuga(SDL_Renderer* renderer, int pos_x, int pos_y,std::string path_to_image);
         void cambiar_frame(SDL_Renderer *renderer, Camara* camara) override;
 
     private:

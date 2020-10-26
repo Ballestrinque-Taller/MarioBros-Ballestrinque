@@ -1,0 +1,14 @@
+<nivel1>
+    <bloques>
+        <bloque x="0" y="200" cantidad="10" tipo="Ladrillo" imagen="./res/LADRILLO.png">
+        </bloque>
+        <bloque x="500" y="200" cantidad="10" tipo="Sorpresa" imagen="./res/SORPRESA.png">
+        </bloque>
+    </bloques>
+    <enemigos>
+        <enemigo tipo="troopa" imagen="./res/TORTUGA.png" cantidad="4">
+        </enemigo>
+        <enemigo tipo="goomba" imagen="./res/Goomba.png" cantidad="5">
+        </enemigo>
+    </enemigos>
+</nivel1>

@@ -16,7 +16,7 @@ Background::Background(SDL_Renderer* renderer){
     set_src_rect(POS_X_INIC, POS_Y, HEIGHT_SRC, WIDTH_SRC);
     set_dest_rect(POS_X_INIC, POS_Y, HEIGHT, WIDTH);
     texturas.flip = SDL_FLIP_NONE;
-    path_to_image = "../res/BACKGROUND.png";
+    path_to_image = "./res/BACKGROUND.png";
     pos_x_actual = 0;
     renderizar(renderer);
 }
