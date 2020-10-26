@@ -91,7 +91,6 @@ void Juego::game_loop() {
         if(FRAME_DELAY>frame_time)
             SDL_Delay(FRAME_DELAY-frame_time);
     }
-    lectorXml->free_archivo();
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(ventana);
     SDL_Quit();

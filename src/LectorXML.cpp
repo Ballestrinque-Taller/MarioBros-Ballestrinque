@@ -1,7 +1,5 @@
 #include "LectorXML.h"
 #include <time.h>
-#include <cstring>
-#include <string>
 
 #define CAMPO_ENEMIGOS "enemigos"
 #define WIDTH 800
@@ -16,18 +14,9 @@ using namespace rapidxml;
 LectorXML::LectorXML(SDL_Renderer* renderer){
     srand(time(NULL));
     rapidxml::file<> xmlFile("./res/config.xml");
-    archivo_data = (char*)malloc(sizeof(xmlFile.data()));
-    strcpy(archivo_data, xmlFile.data());
-    documento.parse<0>(archivo_data);
+    archivo_data = xmlFile.data();
+    documento.parse<0>((char*)archivo_data.c_str());
     this->renderer = renderer;
-}
-
-int size_string(char* string){
-    int i=0;
-    while (string[i] != '\0'){
-        i++;
-    }
-    return i;
 }
 
 //genera todos los enemigos del nivel.
@@ -69,8 +58,4 @@ void LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escen
     escenarios.clear();
     xml_node<>* nodo_del_nivel = documento.first_node(nivel.c_str());
     generar_enemigos(nodo_del_nivel,enemigos);
-}
-
-void LectorXML::free_archivo(){
-    free(archivo_data);
 }

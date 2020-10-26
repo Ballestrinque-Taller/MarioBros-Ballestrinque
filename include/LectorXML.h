@@ -20,7 +20,7 @@ class LectorXML{
         void free_archivo();
    private:
         xml_document<> documento;
-        char* archivo_data;
+        std::string archivo_data;
         SDL_Renderer* renderer;
         void generar_enemigos(xml_node<>* nivel, std::vector<Enemigo*>* enemigos);
         void generar_enemigos_particulares(std::string tipo_enemigo, std::string path_a_imagen, int cantidad, std::vector<Enemigo*>* enemigos);
