@@ -34,12 +34,13 @@ Juego::Juego() {
     //enemigos.push_back(new Tortuga(renderer, 400, 0,"../res/TORTUGA.png"));
 
     lectorXml = new LectorXML(renderer);
-    lectorXml->generar_nivel(&enemigos,escenarios,std::string("nivel1"));
-    for(int i=0; i<2; i++) {
+    lectorXml->generar_nivel(&enemigos,&escenarios,std::string("nivel1"));
+    /*for(int i=0; i<2; i++) {
         escenarios.push_back(new Ladrillo(renderer, i*80+200, 200));
     }
     escenarios.push_back(new Moneda(renderer, 200, 0));
     escenarios.push_back(new Sorpresa(renderer, 400, 300));
+    */
 }
 
 

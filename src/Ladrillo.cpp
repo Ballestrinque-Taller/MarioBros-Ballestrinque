@@ -9,19 +9,12 @@
 
 #define POS_INICIAL_X_FRAME 0
 #define POS_INICIAL_Y_FRAME 0
-#define ALTO_LADRILLO_PANTALLA 80
-#define ANCHO_LADRILLO_PANTALLA 80
 
-Ladrillo::Ladrillo(SDL_Renderer* renderer, int pos_x, int pos_y): Escenario(){
-    //for(int i=0; i<3; i++) {
+Ladrillo::Ladrillo(SDL_Renderer* renderer, int pos_x, int pos_y, std::string path): Escenario(){
         set_dest_rect(pos_x, pos_y, ALTO_LADRILLO_PANTALLA, ANCHO_LADRILLO_PANTALLA);
         set_src_rect(POS_INICIAL_X_FRAME, POS_INICIAL_Y_FRAME, ALTO_FRAME, ANCHO_FRAME);
-        path_to_image = "./res/LADRILLO.png";
+        path_to_image = path;
         renderizar(renderer);
-    //}
-    //ANCHO_LADRILLO_PANTALLA*i +
-
-
 }
 
 void Ladrillo::cambiar_frame(SDL_Renderer* renderer, Camara* camara){

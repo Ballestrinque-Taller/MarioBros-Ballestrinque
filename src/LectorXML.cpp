@@ -2,6 +2,7 @@
 #include <time.h>
 
 #define CAMPO_ENEMIGOS "enemigos"
+#define CAMPO_BLOQUES "bloques"
 #define WIDTH 800
 #define WIDTH_SRC 304
 #define RATIO_ASPECTO WIDTH_SRC/WIDTH
@@ -53,9 +54,41 @@ void LectorXML::generar_enemigos_particulares(std::string tipo_enemigo, std::str
     }
 }
 
-void LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*> escenarios, std::string nivel){
+void LectorXML::generar_escenario(std::vector<Escenario*>* escenarios, xml_node<>* nivel){
+    xml_node<>* nodo_de_bloques = nivel->first_node(CAMPO_BLOQUES);
+    xml_node<>* bloque = nodo_de_bloques->first_node();
+
+    while(bloque != nullptr){
+        int pos_x = std::stoi(bloque->first_attribute("x")->value());
+        int pos_y = std::stoi(bloque->first_attribute("y")->value());
+        int cantidad = std::stoi(bloque->first_attribute("cantidad")->value());
+        std::string tipo = bloque->first_attribute("tipo")->value();
+        std::string path = bloque->first_attribute("imagen")->value();
+
+        generar_bloques_particulares(tipo, cantidad, pos_x, pos_y, path, escenarios);
+        bloque = bloque->next_sibling();
+    }
+}
+
+void LectorXML::generar_bloques_particulares(std::string tipo, int cantidad, int x, int y, std::string path, std::vector<Escenario*>* escenarios){
+    if (tipo.compare("Ladrillo") == 0){
+        for (int i=0; i<cantidad; i++){
+            escenarios->push_back(new Ladrillo(renderer,x+i*ANCHO_LADRILLO_PANTALLA,y, path));
+        }
+    }
+    else if(tipo.compare("Sorpresa") == 0){
+        for (int i=0; i<cantidad; i++){
+            escenarios->push_back(new Sorpresa(renderer,x+i*ANCHO_SORPRESA_PANTALLA,y, path));
+        }
+    }
+}
+
+void LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, std::string nivel){
+
     enemigos->clear();
-    escenarios.clear();
+    escenarios->clear();
     xml_node<>* nodo_del_nivel = documento.first_node(nivel.c_str());
     generar_enemigos(nodo_del_nivel,enemigos);
+    generar_escenario(escenarios, nodo_del_nivel);
+
 }
