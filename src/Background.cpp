@@ -1,11 +1,11 @@
 #define WIDTH 800
 #define HEIGHT 600
 #define WIDTH_SRC 304
-#define HEIGHT_SRC 228
+#define HEIGHT_SRC 224
 #define RATIO_ASPECTO WIDTH_SRC/WIDTH
 #define POS_Y 0
 #define POS_X_INIC 0
-#define ANCHO_IMAGEN 3396
+#define ANCHO_IMAGEN 3392
 
 #include "Background.h"
 #include <SDL2/SDL.h>
@@ -16,7 +16,7 @@ Background::Background(SDL_Renderer* renderer){
     set_src_rect(POS_X_INIC, POS_Y, HEIGHT_SRC, WIDTH_SRC);
     set_dest_rect(POS_X_INIC, POS_Y, HEIGHT, WIDTH);
     texturas.flip = SDL_FLIP_NONE;
-    path_to_image = "./res/BACKGROUND.png";
+    path_to_image = "./res/Nivel_1_sinTuberia.png";
     pos_x_actual = 0;
     renderizar(renderer);
 }

@@ -14,7 +14,7 @@
 #define ACELERACION_SALTO 20
 
 #define ANCHO_FRAME 17
-#define ALTO_FRAME 34
+#define ALTO_FRAME 32
 #define ANCHO_IMAGEN 358
 
 #define TIEMPO_FRAME 5
@@ -25,7 +25,7 @@
 Jugador::Jugador(SDL_Renderer* renderer){
     path_to_image = "./res/MARIO_NORMAL.png";
     set_dest_rect(0,0,150,75);
-    set_src_rect(0,0,ALTO_FRAME,ANCHO_FRAME);
+    set_src_rect(1,1,ALTO_FRAME,ANCHO_FRAME);
     velocidad_x = 0;
     velocidad_y = 0;
     max_acel = MAX_ACELERACION;
@@ -106,6 +106,7 @@ void Jugador::aceleracion_gravitatoria() {
     //IF COLISION && ACEL PARA ABAJO (POSITIVA)
     else if (velocidad_y > 0 && frames_render.dest_rect.y >= 600 - frames_render.dest_rect.h) {
         velocidad_y = 0;
+        frames_render.dest_rect.y = 600 - frames_render.dest_rect.h;
         en_aire = false;
     }
 }
