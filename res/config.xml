@@ -1,14 +1,8 @@
 <nivel1>
     <enemigos>
-        <enemigo>
-            <tipo>goomba</tipo>
-            <imagen>../res/Goomba.png</imagen>
-            <cantidad>5</cantidad>
+        <enemigo tipo="troopa" imagen="./res/TORTUGA.png" cantidad="4">
         </enemigo>
-        <enemigo>
-            <tipo>troopa</tipo>
-            <imagen>../res/TORTUGA.png</imagen>
-            <cantidad>4</cantidad>
+        <enemigo tipo="goomba" imagen="./res/Goomba.png" cantidad="5">
         </enemigo>
     </enemigos>
 </nivel1>

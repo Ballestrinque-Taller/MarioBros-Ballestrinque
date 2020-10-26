@@ -1,5 +1,7 @@
 #include "LectorXML.h"
 #include <time.h>
+#include <cstring>
+#include <string>
 
 #define CAMPO_ENEMIGOS "enemigos"
 #define WIDTH 800
@@ -13,9 +15,19 @@ using namespace rapidxml;
 
 LectorXML::LectorXML(SDL_Renderer* renderer){
     srand(time(NULL));
-    rapidxml::file<> xmlFile("../res/config.xml");
-    documento.parse<0>(xmlFile.data());
+    rapidxml::file<> xmlFile("./res/config.xml");
+    archivo_data = (char*)malloc(sizeof(xmlFile.data()));
+    strcpy(archivo_data, xmlFile.data());
+    documento.parse<0>(archivo_data);
     this->renderer = renderer;
+}
+
+int size_string(char* string){
+    int i=0;
+    while (string[i] != '\0'){
+        i++;
+    }
+    return i;
 }
 
 //genera todos los enemigos del nivel.
@@ -26,9 +38,9 @@ void LectorXML::generar_enemigos(xml_node<>* nivel, std::vector<Enemigo*>* enemi
     xml_node<>* enemigo = nodo_de_enemigos->first_node();
 
    while(enemigo != nullptr){
-        std::string tipo_enemigo = enemigo->first_node("tipo")->value();
-        std::string path_a_imagen = enemigo->first_node("imagen")->value();
-        int cantidad = std::stoi(enemigo->first_node("cantidad")->value());
+        std::string tipo_enemigo = enemigo->first_attribute("tipo")->value();
+        std::string path_a_imagen = (enemigo->first_attribute("imagen")->value());
+        int cantidad = std::stoi(enemigo->first_attribute("cantidad")->value());
 
         generar_enemigos_particulares(tipo_enemigo,path_a_imagen,cantidad,enemigos);
         enemigo = enemigo->next_sibling();
@@ -40,12 +52,14 @@ void LectorXML::generar_enemigos(xml_node<>* nivel, std::vector<Enemigo*>* enemi
 void LectorXML::generar_enemigos_particulares(std::string tipo_enemigo, std::string path_to_image, int cantidad, std::vector<Enemigo*>* enemigos){
     if(tipo_enemigo.compare("troopa") == 0){
         for(int i=0;i<cantidad;i++){
-            enemigos->push_back(new Tortuga(renderer,rand() % (ANCHO_IMAGEN) ,150,path_to_image));
+            Enemigo* enemigo = new Tortuga(renderer,rand() % (ANCHO_IMAGEN) ,0,path_to_image);
+            enemigos->push_back(enemigo);
         }
     }
     else if(tipo_enemigo.compare("goomba") == 0){
         for(int i=0;i<cantidad;i++){
-            enemigos->push_back(new Goomba(renderer,rand() % (ANCHO_IMAGEN) ,150,path_to_image));
+            Enemigo* enemigo = new Goomba(renderer,rand() % (ANCHO_IMAGEN) ,0,path_to_image);
+            enemigos->push_back(enemigo);
         }
     }
 }
@@ -55,4 +69,8 @@ void LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escen
     escenarios.clear();
     xml_node<>* nodo_del_nivel = documento.first_node(nivel.c_str());
     generar_enemigos(nodo_del_nivel,enemigos);
+}
+
+void LectorXML::free_archivo(){
+    free(archivo_data);
 }

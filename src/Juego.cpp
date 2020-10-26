@@ -64,7 +64,7 @@ int Juego::inicializar_ventana(){
         return ERROR;
     }
     // Carga del icono
-    std::string fileName = "../res/icono_mario.png";
+    std::string fileName = "./res/icono_mario.png";
     SDL_Surface* icono_surface = IMG_Load(fileName.c_str());
     if(icono_surface == NULL){
         std::cout << "No cargo el Icono " << std::endl;
@@ -91,6 +91,7 @@ void Juego::game_loop() {
         if(FRAME_DELAY>frame_time)
             SDL_Delay(FRAME_DELAY-frame_time);
     }
+    lectorXml->free_archivo();
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(ventana);
     SDL_Quit();

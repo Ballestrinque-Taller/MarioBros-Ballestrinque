@@ -23,7 +23,7 @@
 #define FRAME_AGACHADO 6
 
 Jugador::Jugador(SDL_Renderer* renderer){
-    path_to_image = "../res/MARIO_NORMAL.png";
+    path_to_image = "./res/MARIO_NORMAL.png";
     set_dest_rect(0,0,150,75);
     set_src_rect(0,0,ALTO_FRAME,ANCHO_FRAME);
     velocidad_x = 0;
