@@ -30,17 +30,8 @@ Juego::Juego() {
     jugador = new Jugador(renderer);
     camara = new Camara();
     background = new Background(renderer);
-    //enemigos.push_back(new Goomba(renderer, 0, 0,"../res/Goomba.png"));
-    //enemigos.push_back(new Tortuga(renderer, 400, 0,"../res/TORTUGA.png"));
-
     lectorXml = new LectorXML(renderer);
     lectorXml->generar_nivel(&enemigos,&escenarios,std::string("nivel1"));
-    /*for(int i=0; i<2; i++) {
-        escenarios.push_back(new Ladrillo(renderer, i*80+200, 200));
-    }
-    escenarios.push_back(new Moneda(renderer, 200, 0));
-    escenarios.push_back(new Sorpresa(renderer, 400, 300));
-    */
 }
 
 
@@ -64,7 +55,6 @@ int Juego::inicializar_ventana(){
         SDL_Quit();
         return ERROR;
     }
-    // Carga del icono
     std::string fileName = "./res/icono_mario.png";
     SDL_Surface* icono_surface = IMG_Load(fileName.c_str());
     if(icono_surface == NULL){

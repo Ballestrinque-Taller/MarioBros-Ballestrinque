@@ -1,10 +1,36 @@
 #dir_path = $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
+CXX := g++
+SRC_DIR := src
+OBJ_DIR := obj
+BIN_DIR := bin
+INC_DIR := include
+flags := -I$(INC_DIR) -MMD -MP -std=c++11 -Wall -g
+SOURCES := $(wildcard $(SRC_DIR)/*.cpp)
+#OBJS = Background.o Camara.o Enemigo.o Escenario.o Juego.o Jugador.o Koopa.o Ladrillo.o main.o Moneda.o Renderer.o Sorpresa.o Tortuga.o
+OBJS := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 
-default:
-	@echo "usar 'make all_win' para compilar en windows y 'make all_linux' para Linux"
+ifeq ($(OS),Windows_NT)
+	libs = -lmingw32 -lSDL2main -lSDL2_image -lSDL2
+else
+	libs = -lSDL2_image -lSDL2
+endif
 
-all_win:
-	g++ ./src/*.cpp -I./include -lmingw32 -lSDL2_image -lSDL2main -lSDL2 -std=c++11 -o app.exe -Wall -g
-	
-all_linux:
-	g++ ./src/*.cpp -I./include -lSDL2_image -lSDL2 -std=c++11 -o app -Wall
+
+.PHONY: all clear
+
+all: app.exe
+
+app.exe: $(OBJS)
+	$(CXX) $^ $(libs) -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	$(CXX) -c $< $(flags) -o $@
+
+$(OBJ_DIR):
+	mkdir -p $@
+
+clear:
+	@$(RM) -rv $(OBJ_DIR)
+	@$(RM) $(BIN_DIR)/app.exe
+
+-include $(OBJS:.o=.d)
