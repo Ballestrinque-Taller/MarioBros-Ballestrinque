@@ -27,11 +27,11 @@
 
 Juego::Juego() {
     estado_error = Juego::inicializar_ventana();
-    jugador = new Jugador(renderer);
     camara = new Camara();
-    background = new Background(renderer);
+    //background = new Background(renderer);
     lectorXml = new LectorXML(renderer);
-    lectorXml->generar_nivel(&enemigos,&escenarios,std::string("nivel1"));
+    jugador = new Jugador(renderer);
+    lectorXml->generar_nivel(&enemigos,&escenarios, &background, std::string("nivel2"));
 }
 
 

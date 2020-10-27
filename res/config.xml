@@ -1,16 +1,38 @@
-<nivel1>
-    <monedas cantidad="20" imagen="./res/MONEDA.png">
-    </monedas>
-    <bloques>
-        <bloque x="0" y="200" cantidad="10" tipo="Ladrillo" imagen="./res/LADRILLO.png">
-        </bloque>
-        <bloque x="500" y="200" cantidad="10" tipo="Sorpresa" imagen="./res/SORPRESA.png">
-        </bloque>
-    </bloques>
-    <enemigos>
-        <enemigo tipo="troopa" imagen="./res/TORTUGA.png" cantidad="4">
-        </enemigo>
-        <enemigo tipo="goomba" imagen="./res/Goomba.png" cantidad="5">
-        </enemigo>
-    </enemigos>
-</nivel1>
+<config>
+    <nivel1>
+        <background imagen="./res/Nivel_1_sinTuberia.png" ancho="3392" alto="224">
+        </background>
+        <monedas cantidad="20" imagen="./res/MONEDA.png">
+        </monedas>
+        <bloques>
+            <bloque x="0" y="200" cantidad="10" tipo="Ladrillo" imagen="./res/LADRILLO.png">
+            </bloque>
+            <bloque x="500" y="200" cantidad="10" tipo="Sorpresa" imagen="./res/SORPRESA.png">
+            </bloque>
+        </bloques>
+        <enemigos>
+            <enemigo tipo="troopa" imagen="./res/TORTUGA.png" cantidad="4">
+            </enemigo>
+            <enemigo tipo="goomba" imagen="./res/Goomba.png" cantidad="5">
+            </enemigo>
+        </enemigos>
+    </nivel1>
+    <nivel2>
+        <background imagen="./res/Nivel_2sinTuberia.png" ancho="3072" alto="224">
+        </background>
+        <monedas cantidad="20" imagen="./res/MONEDA.png">
+        </monedas>
+        <bloques>
+            <bloque x="0" y="200" cantidad="10" tipo="Ladrillo" imagen="./res/LADRILLO2.png">
+            </bloque>
+            <bloque x="500" y="200" cantidad="10" tipo="Sorpresa" imagen="./res/SORPRESA.png">
+            </bloque>
+        </bloques>
+        <enemigos>
+            <enemigo tipo="troopa" imagen="./res/TORTUGA2.png" cantidad="4">
+            </enemigo>
+            <enemigo tipo="goomba" imagen="./res/Goomba2.png" cantidad="5">
+            </enemigo>
+        </enemigos>
+    </nivel2>
+</config>
