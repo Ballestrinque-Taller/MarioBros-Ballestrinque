@@ -13,8 +13,8 @@
 
 #define POS_INICIAL_X_FRAME 0
 #define POS_INICIAL_Y_FRAME 0
-#define ALTO_ENEMIGO_PANTALLA 100
-#define ANCHO_ENEMIGO_PANTALLA 100
+#define ALTO_ENEMIGO_PANTALLA 40
+#define ANCHO_ENEMIGO_PANTALLA 40
 
 Goomba::Goomba(SDL_Renderer* renderer, int pos_x, int pos_y,std::string path_to_image):Enemigo(){
     set_dest_rect(pos_x, pos_y, ALTO_ENEMIGO_PANTALLA, ANCHO_ENEMIGO_PANTALLA);

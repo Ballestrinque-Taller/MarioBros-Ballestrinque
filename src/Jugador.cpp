@@ -17,6 +17,9 @@
 #define ALTO_FRAME 32
 #define ANCHO_IMAGEN 358
 
+#define ANCHO_PANTALLA 40
+#define ALTO_PANTALLA 80
+
 #define TIEMPO_FRAME 5
 #define FRAME_SALTO 5
 #define FRAME_MOV_FINAL 3
@@ -24,7 +27,7 @@
 
 Jugador::Jugador(SDL_Renderer* renderer){
     path_to_image = "./res/MARIO_NORMAL.png";
-    set_dest_rect(0,0,150,75);
+    set_dest_rect(0,0,ALTO_PANTALLA,ANCHO_PANTALLA);
     set_src_rect(1,1,ALTO_FRAME,ANCHO_FRAME);
     velocidad_x = 0;
     velocidad_y = 0;
@@ -99,14 +102,14 @@ void Jugador::rozamiento(){
 
 void Jugador::aceleracion_gravitatoria() {
     //IF !COLISION && ACEL < MAX_ACEL_GRAVEDAD (BAJA MENOS DE LO MAXIMO)
-    if (velocidad_y < MAX_ACEL_GRAVEDAD && frames_render.dest_rect.y < 600 - frames_render.dest_rect.h) {
+    if (velocidad_y < MAX_ACEL_GRAVEDAD && frames_render.dest_rect.y < 535 - frames_render.dest_rect.h) {
         velocidad_y += DECAIMIENTO_ACEL_Y;
         en_aire = true;
     }
     //IF COLISION && ACEL PARA ABAJO (POSITIVA)
-    else if (velocidad_y > 0 && frames_render.dest_rect.y >= 600 - frames_render.dest_rect.h) {
+    else if (velocidad_y > 0 && frames_render.dest_rect.y >= 535 - frames_render.dest_rect.h) {
         velocidad_y = 0;
-        frames_render.dest_rect.y = 600 - frames_render.dest_rect.h;
+        frames_render.dest_rect.y = 535 - frames_render.dest_rect.h;
         en_aire = false;
     }
 }
