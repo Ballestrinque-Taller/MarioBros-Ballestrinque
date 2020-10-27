@@ -1,4 +1,6 @@
 <nivel1>
+    <monedas cantidad="20" imagen="./res/MONEDA.png">
+    </monedas>
     <bloques>
         <bloque x="0" y="200" cantidad="10" tipo="Ladrillo" imagen="./res/LADRILLO.png">
         </bloque>

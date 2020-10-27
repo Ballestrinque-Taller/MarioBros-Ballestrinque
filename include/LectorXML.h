@@ -11,6 +11,7 @@
 #include "Sorpresa.h"
 #include "Ladrillo.h"
 #include "Escenario.h"
+#include "Moneda.h"
 #include <vector>
 
 using namespace rapidxml;
@@ -26,6 +27,7 @@ class LectorXML{
         xml_document<> documento;
         std::string archivo_data;
         SDL_Renderer* renderer;
+        void generar_monedas(xml_node<>* nivel, std::vector<Escenario*>* escenarios);
         void generar_enemigos(xml_node<>* nivel, std::vector<Enemigo*>* enemigos);
         void generar_escenario(std::vector<Escenario*>* escenarios, xml_node<>* nivel);
         void generar_enemigos_particulares(std::string tipo_enemigo, std::string path_a_imagen, int cantidad, std::vector<Enemigo*>* enemigos);

@@ -3,10 +3,12 @@
 
 #define CAMPO_ENEMIGOS "enemigos"
 #define CAMPO_BLOQUES "bloques"
+#define CAMPO_MONEDAS "monedas"
 #define WIDTH 800
 #define WIDTH_SRC 304
 #define RATIO_ASPECTO WIDTH_SRC/WIDTH
 #define ANCHO_IMAGEN 3396
+#define ANCHO_AJUSTADO ANCHO_IMAGEN*WIDTH/WIDTH_SRC
 
 using namespace rapidxml;
 
@@ -42,13 +44,13 @@ void LectorXML::generar_enemigos(xml_node<>* nivel, std::vector<Enemigo*>* enemi
 void LectorXML::generar_enemigos_particulares(std::string tipo_enemigo, std::string path_to_image, int cantidad, std::vector<Enemigo*>* enemigos){
     if(tipo_enemigo.compare("troopa") == 0){
         for(int i=0;i<cantidad;i++){
-            Enemigo* enemigo = new Tortuga(renderer,rand() % (ANCHO_IMAGEN) ,0,path_to_image);
+            Enemigo* enemigo = new Tortuga(renderer,rand() % (ANCHO_AJUSTADO) ,0,path_to_image);
             enemigos->push_back(enemigo);
         }
     }
     else if(tipo_enemigo.compare("goomba") == 0){
         for(int i=0;i<cantidad;i++){
-            Enemigo* enemigo = new Goomba(renderer,rand() % (ANCHO_IMAGEN) ,0,path_to_image);
+            Enemigo* enemigo = new Goomba(renderer,rand() % (ANCHO_AJUSTADO) ,0,path_to_image);
             enemigos->push_back(enemigo);
         }
     }
@@ -83,6 +85,15 @@ void LectorXML::generar_bloques_particulares(std::string tipo, int cantidad, int
     }
 }
 
+void LectorXML::generar_monedas(xml_node<>* nivel, std::vector<Escenario*>* escenarios){
+    xml_node<>* nodo_de_monedas = nivel->first_node(CAMPO_MONEDAS);
+    int cantidad = std::stoi(nodo_de_monedas->first_attribute("cantidad")->value());
+    std::string path = nodo_de_monedas->first_attribute("imagen")->value();
+    for (int i=0; i<cantidad; i++){
+        escenarios->push_back(new Moneda(renderer,rand() % (ANCHO_AJUSTADO),350, path));
+    }
+}
+
 void LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, std::string nivel){
 
     enemigos->clear();
@@ -90,5 +101,6 @@ void LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escen
     xml_node<>* nodo_del_nivel = documento.first_node(nivel.c_str());
     generar_enemigos(nodo_del_nivel,enemigos);
     generar_escenario(escenarios, nodo_del_nivel);
+    generar_monedas(nodo_del_nivel, escenarios);
 
 }
