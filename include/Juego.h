@@ -9,6 +9,7 @@
 #include "Escenario.h"
 #include "LectorXML.h"
 #include <vector>
+#include "Temporizador.h"
 
 
 class Juego {
@@ -24,6 +25,7 @@ class Juego {
         int inicializar_ventana();
         std::vector<Enemigo*> enemigos;
         std::vector<Escenario*> escenarios;
+        Temporizador* temporizador;
 
     public:
         void update(SDL_Event evento);

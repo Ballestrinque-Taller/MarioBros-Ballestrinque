@@ -31,6 +31,8 @@ Juego::Juego() {
     lectorXml = new LectorXML(renderer);
     jugador = new Jugador(renderer);
     lectorXml->generar_nivel(&enemigos,&escenarios, &background, std::string("nivel1"));
+    temporizador = new Temporizador(400);
+
 }
 
 Juego::~Juego(){
@@ -89,6 +91,7 @@ void Juego::game_loop() {
         quit = true;
     while (!quit){
         while (!background->es_fin_nivel() && !quit) {
+            temporizador->update();
             int frame_start = SDL_GetTicks();
             update(evento);
             render();
