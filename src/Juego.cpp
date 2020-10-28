@@ -88,8 +88,8 @@ void Juego::game_loop() {
     if (estado_error == ERROR)
         quit = true;
     while (!quit){
-        int frame_start = SDL_GetTicks();
         while (!background->es_fin_nivel() && !quit) {
+            int frame_start = SDL_GetTicks();
             update(evento);
             render();
             int frame_time = SDL_GetTicks() - frame_start;
@@ -107,7 +107,7 @@ void Juego::game_loop() {
 
 void Juego::update(SDL_Event evento) {
     jugador->desplazar();
-    for (int i=0;i<enemigos.size();i++){
+    for (size_t i=0;i<enemigos.size();i++){
         enemigos.at(i)->desplazar();
     }
     while (SDL_PollEvent(&evento) != 0) {

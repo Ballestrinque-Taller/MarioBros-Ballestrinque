@@ -60,7 +60,7 @@ void Jugador::cambiar_frame(SDL_Renderer* renderer, Camara* camara){
         tick_actual = 0;
         frame_actual = 0;
     }
-    set_src_rect(frame_actual*ANCHO_FRAME,0,ALTO_FRAME,ANCHO_FRAME);
+    set_src_rect(frame_actual*ANCHO_FRAME,1,ALTO_FRAME,ANCHO_FRAME);
     camara->check_movimiento(this, velocidad_x);
     camara->acomodar_a_imagen(this);
     SDL_RenderCopyEx(renderer, texturas.textura, &(frames_render.src_rect), &(frames_render.dest_rect), 0, NULL, texturas.flip);
