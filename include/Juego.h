@@ -16,11 +16,9 @@ class Juego {
         SDL_Window * ventana = nullptr;
         SDL_Renderer * renderer = nullptr;
         LectorXML* lectorXml = nullptr;
-        Background* background;
+        Background* background = nullptr;
         Camara* camara;
         Jugador* jugador;
-        Enemigo* enemigo;
-        Escenario* escenario;
         bool quit = false;
         int estado_error;
         int inicializar_ventana();
@@ -31,6 +29,7 @@ class Juego {
         void update(SDL_Event evento);
         void render();
         Juego();
+        ~Juego();
         void game_loop();
 };
 

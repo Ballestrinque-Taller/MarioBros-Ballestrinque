@@ -34,3 +34,6 @@ void Renderer::set_dest_rect_x(int x){
 int Renderer::get_dest_rect_x(){
     return frames_render.dest_rect.x;
 }
+
+Renderer::~Renderer(){
+}

@@ -18,3 +18,6 @@ Enemigo::Enemigo(){
     muerto = false;
     tick_actual = 0;
 }
+
+Enemigo::~Enemigo(){
+}

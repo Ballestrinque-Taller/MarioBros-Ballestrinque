@@ -11,6 +11,7 @@ int main(int args, char** argc){
 
     Juego* juego = new Juego();
     juego->game_loop();
+    delete(juego);
 	return 0;
 }
 

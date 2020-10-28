@@ -28,12 +28,25 @@
 Juego::Juego() {
     estado_error = Juego::inicializar_ventana();
     camara = new Camara();
-    //background = new Background(renderer);
     lectorXml = new LectorXML(renderer);
     jugador = new Jugador(renderer);
     lectorXml->generar_nivel(&enemigos,&escenarios, &background, std::string("nivel2"));
 }
 
+Juego::~Juego(){
+    delete(camara);
+    delete(lectorXml);
+    delete(jugador);
+    delete(background);
+    for (size_t i=0; i<enemigos.size(); i++){ //Recorro el vector y deleteo cada enemigo
+        delete(enemigos.at(i));
+    };
+    enemigos.clear();
+    for (size_t i=0; i<escenarios.size(); i++){
+        delete(escenarios.at(i));
+    };
+    escenarios.clear();
+}
 
 int Juego::inicializar_ventana(){
     if (SDL_Init(SDL_INIT_VIDEO) != 0){

@@ -15,6 +15,7 @@ typedef struct frames{
 
 class Renderer {
     public:
+        virtual ~Renderer();
         void renderizar(SDL_Renderer* renderer);
         virtual void cambiar_frame(SDL_Renderer* renderer, Camara* camara){};
         void set_dest_rect_x(int x);

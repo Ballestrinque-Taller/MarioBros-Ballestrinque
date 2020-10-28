@@ -107,8 +107,15 @@ void LectorXML::generar_background(xml_node<>* nivel, Background** background){
 
 void LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, Background** background, std::string nivel){
 
+    for (size_t i=0; i<enemigos->size(); i++){ //Recorro el vector y deleteo cada enemigo
+        delete(enemigos->at(i));
+    }
+    for (size_t i=0; i<escenarios->size(); i++){
+        delete(escenarios->at(i));
+    };
     enemigos->clear();
     escenarios->clear();
+    delete(*background);
     xml_node<>* nodo_del_nivel = documento.first_node()->first_node(nivel.c_str());
     generar_background(nodo_del_nivel, background);
     generar_escenario(escenarios, nodo_del_nivel);

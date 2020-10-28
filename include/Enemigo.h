@@ -8,6 +8,7 @@
 class Enemigo: public Renderer{
     public:
         Enemigo();
+        virtual ~Enemigo();
         virtual void cambiar_frame(SDL_Renderer* renderer, Camara* camara){};
 
     protected:
