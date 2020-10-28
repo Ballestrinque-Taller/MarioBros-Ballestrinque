@@ -101,7 +101,8 @@ void Juego::game_loop() {
         }
         camara->stop_scrolling();
         jugador->reset_posicion();
-        lectorXml->generar_nivel(&enemigos,&escenarios, &background, std::string("nivel2"));
+        if(lectorXml->generar_nivel(&enemigos,&escenarios, &background, std::string("nivel2")) == false)
+            break;
     }
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(ventana);

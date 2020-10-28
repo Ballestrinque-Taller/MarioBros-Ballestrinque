@@ -20,7 +20,7 @@ class LectorXML{
 
     public:
         LectorXML(SDL_Renderer* renderer);
-        void generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, Background** background, std::string nivel);
+        bool generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, Background** background, std::string nivel);
         void free_archivo();
 
    private:

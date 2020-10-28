@@ -1,7 +1,3 @@
-//
-// Created by ramiro on 28/10/20.
-//
-
 #include "Temporizador.h"
 
 

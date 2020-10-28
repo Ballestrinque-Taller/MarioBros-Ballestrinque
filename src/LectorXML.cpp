@@ -105,7 +105,7 @@ void LectorXML::generar_background(xml_node<>* nivel, Background** background){
 
 //void LectorXML::generar_jugador(nivel, Jugador* jugador){}
 
-void LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, Background** background, std::string nivel){
+bool LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, Background** background, std::string nivel){
 
     for (size_t i=0; i<enemigos->size(); i++){ //Recorro el vector y deleteo cada enemigo
         delete(enemigos->at(i));
@@ -117,9 +117,12 @@ void LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escen
     escenarios->clear();
     delete(*background);
     xml_node<>* nodo_del_nivel = documento.first_node()->first_node(nivel.c_str());
+    if(!nodo_del_nivel)
+        return false;
     generar_background(nodo_del_nivel, background);
     generar_escenario(escenarios, nodo_del_nivel);
     generar_enemigos(nodo_del_nivel,enemigos);
     generar_monedas(nodo_del_nivel, escenarios);
     //generar_timer(nodo_del_nivel, timer);
+    return true;
 }

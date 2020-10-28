@@ -36,4 +36,5 @@ int Renderer::get_dest_rect_x(){
 }
 
 Renderer::~Renderer(){
+    SDL_DestroyTexture(texturas.textura);
 }
