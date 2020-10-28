@@ -32,3 +32,9 @@ void Camara::acomodar_a_imagen(Renderer* renderizado){
 void Camara::scroll_background(Background* background, SDL_Renderer* renderer){
     background->scroll(velocidad_camara, renderer);
 }
+
+void Camara::stop_scrolling(){
+    velocidad_camara = 0;
+}
+
+

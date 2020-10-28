@@ -164,3 +164,8 @@ void Jugador::agacharse(){
         velocidad_x=0;
     }
 }
+
+void Jugador::reset_posicion(){
+    set_dest_rect(0,0,ALTO_PANTALLA,ANCHO_PANTALLA);
+    velocidad_x = 0;
+}

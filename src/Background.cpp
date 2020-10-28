@@ -9,6 +9,7 @@
 Background::Background(SDL_Renderer* renderer, std::string path, int ancho, int alto){
     ancho_imagen = ancho;
     alto_imagen = alto;
+    fin_nivel = ancho_imagen - alto_imagen*4/3;
     set_src_rect(POS_X_INIC, POS_Y, alto_imagen, alto_imagen*RATIO_ASPECTO);
     set_dest_rect(POS_X_INIC, POS_Y, HEIGHT, WIDTH);
     texturas.flip = SDL_FLIP_NONE;
@@ -24,5 +25,9 @@ void Background::scroll(int velocidad_scroll, SDL_Renderer* renderer){
     pos_x_actual += velocidad_scroll*ancho_imagen_en_pantalla/WIDTH;
     set_src_rect(pos_x_actual, POS_Y, alto_imagen, alto_imagen*4/3);
     SDL_RenderCopyEx(renderer, texturas.textura, &(frames_render.src_rect), &(frames_render.dest_rect), 0, NULL, texturas.flip);
+}
+
+bool Background::es_fin_nivel(){
+    return ((fin_nivel-pos_x_actual)<=0);
 }
 

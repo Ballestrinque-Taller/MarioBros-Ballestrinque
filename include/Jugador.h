@@ -14,6 +14,7 @@ class Jugador: public Renderer{
         void cambiar_frame(SDL_Renderer* renderer, Camara* camara) override;
         void recibir_evento(SDL_Event evento);
         void agacharse();
+        void reset_posicion();
 
     private:
         SDL_Texture* textura_actual;

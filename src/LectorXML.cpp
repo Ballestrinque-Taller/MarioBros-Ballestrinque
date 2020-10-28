@@ -121,5 +121,5 @@ void LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escen
     generar_escenario(escenarios, nodo_del_nivel);
     generar_enemigos(nodo_del_nivel,enemigos);
     generar_monedas(nodo_del_nivel, escenarios);
-
+    //generar_timer(nodo_del_nivel, timer);
 }

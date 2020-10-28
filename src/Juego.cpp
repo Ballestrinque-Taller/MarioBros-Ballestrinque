@@ -30,7 +30,7 @@ Juego::Juego() {
     camara = new Camara();
     lectorXml = new LectorXML(renderer);
     jugador = new Jugador(renderer);
-    lectorXml->generar_nivel(&enemigos,&escenarios, &background, std::string("nivel2"));
+    lectorXml->generar_nivel(&enemigos,&escenarios, &background, std::string("nivel1"));
 }
 
 Juego::~Juego(){
@@ -89,11 +89,16 @@ void Juego::game_loop() {
         quit = true;
     while (!quit){
         int frame_start = SDL_GetTicks();
-        update(evento);
-        render();
-        int frame_time = SDL_GetTicks()-frame_start;
-        if(FRAME_DELAY>frame_time)
-            SDL_Delay(FRAME_DELAY-frame_time);
+        while (!background->es_fin_nivel() && !quit) {
+            update(evento);
+            render();
+            int frame_time = SDL_GetTicks() - frame_start;
+            if (FRAME_DELAY > frame_time)
+                SDL_Delay(FRAME_DELAY - frame_time);
+        }
+        camara->stop_scrolling();
+        jugador->reset_posicion();
+        lectorXml->generar_nivel(&enemigos,&escenarios, &background, std::string("nivel2"));
     }
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(ventana);
@@ -102,6 +107,9 @@ void Juego::game_loop() {
 
 void Juego::update(SDL_Event evento) {
     jugador->desplazar();
+    for (int i=0;i<enemigos.size();i++){
+        enemigos.at(i)->desplazar();
+    }
     while (SDL_PollEvent(&evento) != 0) {
         if (evento.type == SDL_QUIT)
             quit = true;

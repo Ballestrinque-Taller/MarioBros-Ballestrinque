@@ -5,17 +5,24 @@
 #include "Renderer.h"
 #include "Camara.h"
 
+#define VELOCIDAD_ENEMIGOS 2
+
 class Enemigo: public Renderer{
     public:
         Enemigo();
         virtual ~Enemigo();
         virtual void cambiar_frame(SDL_Renderer* renderer, Camara* camara){};
+        void desplazar();
+        void cambiar_direccion();
 
     protected:
-        int aceleracion_x;
+        bool en_aire;
+        int velocidad_x;
+        int velocidad_y;
         int tick_actual;
         int frame_actual;
         bool muerto;
+        void aceleracion_gravitatoria();
 };
 
 #endif /*MARIOBROS_BALLESTRINQUE_ENEMIGO_H*/

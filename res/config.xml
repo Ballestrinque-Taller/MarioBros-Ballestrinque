@@ -1,5 +1,7 @@
 <config>
     <nivel1>
+        <tiempo cantidad="500">
+        </tiempo>
         <background imagen="./res/Nivel_1_sinTuberia.png" ancho="3392" alto="224">
         </background>
         <monedas cantidad="20" imagen="./res/MONEDA.png">
@@ -18,6 +20,8 @@
         </enemigos>
     </nivel1>
     <nivel2>
+        <tiempo cantidad="500">
+        </tiempo>
         <background imagen="./res/Nivel_2sinTuberia.png" ancho="3072" alto="224">
         </background>
         <monedas cantidad="20" imagen="./res/MONEDA.png">
