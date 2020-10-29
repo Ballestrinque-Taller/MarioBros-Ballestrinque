@@ -10,9 +10,9 @@ SOURCES := $(wildcard $(SRC_DIR)/*.cpp)
 OBJS := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 
 ifeq ($(OS),Windows_NT)
-	libs = -lmingw32 -lSDL2main -lSDL2_image -lSDL2
+	libs = -lmingw32 -lSDL2main -lSDL2_image -lSDL2 -lSDL2_ttf
 else
-	libs = -lSDL2_image -lSDL2
+	libs = -lSDL2_image -lSDL2 -lSDL2_ttf
 endif
 
 

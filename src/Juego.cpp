@@ -31,8 +31,7 @@ Juego::Juego() {
     lectorXml = new LectorXML(renderer);
     jugador = new Jugador(renderer);
     lectorXml->generar_nivel(&enemigos,&escenarios, &background, std::string("nivel1"));
-    temporizador = new Temporizador(400);
-
+   // temporizador = new Temporizador(400);
 }
 
 Juego::~Juego(){
@@ -40,6 +39,7 @@ Juego::~Juego(){
     delete(lectorXml);
     delete(jugador);
     delete(background);
+    delete(temporizador);
     for (size_t i=0; i<enemigos.size(); i++){ //Recorro el vector y deleteo cada enemigo
         delete(enemigos.at(i));
     };
@@ -110,6 +110,7 @@ void Juego::game_loop() {
 }
 
 void Juego::update(SDL_Event evento) {
+   // temporizador->update();
     jugador->desplazar();
     for (size_t i=0;i<enemigos.size();i++){
         enemigos.at(i)->desplazar();
@@ -123,6 +124,7 @@ void Juego::update(SDL_Event evento) {
 
 void Juego::render(){
     SDL_RenderClear(renderer);
+    //temporizador->render(renderer);
     camara->scroll_background(background, renderer);
     for (size_t i=0; i<enemigos.size(); i++){
         enemigos.at(i)->cambiar_frame(renderer, camara);

@@ -9,15 +9,16 @@ class Temporizador: public Renderer{
 
 public:
 
-    Temporizador(int tiempo_duracion);
+    Temporizador(size_t tiempo_duracion);
     ~Temporizador(){}
 
     void update();
+    void render(SDL_Renderer* renderer);
 
 
 private:
-    time_t temp;
-    time_t initial_time;
+    size_t tiempo_restante;
+    size_t tiempo_inicial;
 };
 
 
