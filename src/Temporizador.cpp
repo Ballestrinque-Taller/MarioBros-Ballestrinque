@@ -3,34 +3,33 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 
-Temporizador :: Temporizador(size_t tiempo_duracion_nivel){
+#define POS_X 0
+#define POS_Y 0
+#define WIDTH_MSG 90
+#define HEIGHT_MSG  30
 
+Temporizador :: Temporizador(size_t tiempo_duracion_nivel){
     tiempo_inicial = SDL_GetTicks();
     tiempo_restante = tiempo_duracion_nivel;
+    tiempo_parametro = tiempo_duracion_nivel;
+    set_msg_rect(POS_X,POS_Y,HEIGHT_MSG,WIDTH_MSG);
+}
 
+void Temporizador::reiniciar(size_t tiempo){
+    tiempo_inicial = SDL_GetTicks();
+    tiempo_restante = tiempo;
+    tiempo_parametro = tiempo;
 }
 
 void Temporizador :: update(){
     size_t tiempo_actual = SDL_GetTicks();
     size_t diferencia_de_tiempo =  tiempo_actual - tiempo_inicial;
-    tiempo_restante -= diferencia_de_tiempo/1000;
-    tiempo_inicial = tiempo_actual; //Para que en la siguiente iteracion se calcule bien la diferencia de tiempo.
+    tiempo_restante = tiempo_parametro - diferencia_de_tiempo/1000;
 }
 
 void Temporizador::render(SDL_Renderer* renderer){
-    TTF_Font* fuente = TTF_OpenFont("./res/Fuente_texto.ttf", 24); //setear fuente
-    SDL_Color White = {255, 255, 255}; //setear color
-    SDL_Surface* surfaceMessage = TTF_RenderText_Solid( fuente, "Time", White );
-    SDL_Texture* Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-    SDL_Rect Message_rect; //create a rect
-    Message_rect.x = 0;  //controls the rect's x coordinate
-    Message_rect.y = 0; // controls the rect's y coordinte
-    Message_rect.w = 100; // controls the width of the rect
-    Message_rect.h = 100; // controls the height of the rect
+    TextWriter::write_text((std::string("TIME ")+std::to_string(tiempo_restante)).c_str(), renderer);
+}
 
-    SDL_RenderCopy(renderer, Message, NULL, &Message_rect); //you put the renderer's name first, the Message, the crop size(you can ignore this if you don't want to dabble with cropping), and the rect which is the size and coordinate of your texture
-
-//Don't forget to free your surface and texture
-    SDL_FreeSurface(surfaceMessage);
-    SDL_DestroyTexture(Message);
+Temporizador::~Temporizador(){
 }

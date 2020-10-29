@@ -24,14 +24,22 @@
 #define FPS 60
 #define FRAME_DELAY 1000/FPS
 
+#define POS_X_TEXTO 800
+#define POS_Y_TEXTO 0
+#define HEIGHT_TEXTO 30
+#define WIDTH_TEXTO 90
+
 
 Juego::Juego() {
     estado_error = Juego::inicializar_ventana();
     camara = new Camara();
     lectorXml = new LectorXML(renderer);
     jugador = new Jugador(renderer);
-    lectorXml->generar_nivel(&enemigos,&escenarios, &background, std::string("nivel1"));
-   // temporizador = new Temporizador(400);
+    lectorXml->generar_nivel(&enemigos,&escenarios, &background, &temporizador, std::string("nivel1"));
+
+    nivel_actual = 1;
+    nivel_label = new TextWriter();
+    nivel_label->set_msg_rect(POS_X_TEXTO-WIDTH_TEXTO, POS_Y_TEXTO, HEIGHT_TEXTO, WIDTH_TEXTO);
 }
 
 Juego::~Juego(){
@@ -91,7 +99,6 @@ void Juego::game_loop() {
         quit = true;
     while (!quit){
         while (!background->es_fin_nivel() && !quit) {
-            temporizador->update();
             int frame_start = SDL_GetTicks();
             update(evento);
             render();
@@ -99,10 +106,14 @@ void Juego::game_loop() {
             if (FRAME_DELAY > frame_time)
                 SDL_Delay(FRAME_DELAY - frame_time);
         }
-        camara->stop_scrolling();
-        jugador->reset_posicion();
-        if(lectorXml->generar_nivel(&enemigos,&escenarios, &background, std::string("nivel2")) == false)
-            break;
+        if(!quit) {
+            nivel_actual++;
+            camara->stop_scrolling();
+            jugador->reset_posicion();
+            std::string nivel_str = (std::string("nivel")+std::to_string(nivel_actual));
+            if (lectorXml->generar_nivel(&enemigos, &escenarios, &background, &temporizador, nivel_str) == false)
+                quit = true;
+        }
     }
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(ventana);
@@ -110,7 +121,7 @@ void Juego::game_loop() {
 }
 
 void Juego::update(SDL_Event evento) {
-   // temporizador->update();
+    temporizador->update();
     jugador->desplazar();
     for (size_t i=0;i<enemigos.size();i++){
         enemigos.at(i)->desplazar();
@@ -124,7 +135,6 @@ void Juego::update(SDL_Event evento) {
 
 void Juego::render(){
     SDL_RenderClear(renderer);
-    //temporizador->render(renderer);
     camara->scroll_background(background, renderer);
     for (size_t i=0; i<enemigos.size(); i++){
         enemigos.at(i)->cambiar_frame(renderer, camara);
@@ -133,5 +143,7 @@ void Juego::render(){
         escenarios.at(i)->cambiar_frame(renderer, camara);
     }
     jugador->cambiar_frame(renderer, camara);
+    temporizador->render(renderer);
+    nivel_label->write_text((std::string("Nivel ") + std::to_string(nivel_actual)).c_str(), renderer);
     SDL_RenderPresent(renderer);
 }

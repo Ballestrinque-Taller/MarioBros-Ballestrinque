@@ -4,19 +4,20 @@
 
 #include <time.h>
 #include "Renderer.h"
+#include "TextWriter.h"
 
-class Temporizador: public Renderer{
+class Temporizador: public TextWriter{
 
 public:
-
     Temporizador(size_t tiempo_duracion);
-    ~Temporizador(){}
-
+    ~Temporizador();
+    void reiniciar(size_t tiempo);
     void update();
     void render(SDL_Renderer* renderer);
 
 
 private:
+    size_t tiempo_parametro;
     size_t tiempo_restante;
     size_t tiempo_inicial;
 };
