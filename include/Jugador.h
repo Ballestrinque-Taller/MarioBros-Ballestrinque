@@ -17,7 +17,6 @@ class Jugador: public Renderer{
         void reset_posicion();
 
     private:
-        SDL_Texture* textura_actual;
 
         bool acelerando;
         bool en_aire;

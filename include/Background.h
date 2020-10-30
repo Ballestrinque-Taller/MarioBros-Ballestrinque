@@ -2,6 +2,8 @@
 #define MARIOBROS_BALLESTRINQUE_BACKGROUND_H
 
 #include "Renderer.h"
+#include "TextWriter.h"
+
 #define WIDTH 800
 #define HEIGHT 600
 #define RATIO_ASPECTO WIDTH/HEIGHT
@@ -13,6 +15,7 @@ class Background:public Renderer{
         bool es_fin_nivel();
 
     private:
+
         float pos_x_actual;
         int alto_imagen;
         int ancho_imagen;

@@ -14,6 +14,8 @@
 
 class Juego {
     private:
+        TextWriter* nivel_label;
+        int nivel_actual;
         SDL_Window * ventana = nullptr;
         SDL_Renderer * renderer = nullptr;
         LectorXML* lectorXml = nullptr;
@@ -25,7 +27,7 @@ class Juego {
         int inicializar_ventana();
         std::vector<Enemigo*> enemigos;
         std::vector<Escenario*> escenarios;
-        Temporizador* temporizador;
+        Temporizador* temporizador = nullptr;
 
     public:
         void update(SDL_Event evento);

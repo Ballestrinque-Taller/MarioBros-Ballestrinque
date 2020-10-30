@@ -3,8 +3,11 @@
 #include <SDL2/SDL_image.h>
 #include "Texturas.h"
 
+
 #define POS_Y 0
 #define POS_X_INIC 0
+
+
 
 Background::Background(SDL_Renderer* renderer, std::string path, int ancho, int alto){
     ancho_imagen = ancho;
@@ -15,6 +18,7 @@ Background::Background(SDL_Renderer* renderer, std::string path, int ancho, int 
     texturas.flip = SDL_FLIP_NONE;
     path_to_image = path;
     pos_x_actual = 0;
+
     renderizar(renderer);
 }
 
