@@ -110,8 +110,8 @@ void Juego::game_loop() {
 
 void Juego::update(SDL_Event evento) {
     jugador->desplazar();
-    for (size_t i=0;i<enemigos.size();i++){
-        enemigos.at(i)->desplazar();
+    for (auto & enemigo : enemigos){
+        enemigo->desplazar();
     }
     while (SDL_PollEvent(&evento) != 0) {
         if (evento.type == SDL_QUIT)
@@ -123,12 +123,15 @@ void Juego::update(SDL_Event evento) {
 void Juego::render(){
     SDL_RenderClear(renderer);
     camara->scroll_background(background, renderer);
-    for (size_t i=0; i<enemigos.size(); i++){
-        enemigos.at(i)->cambiar_frame(renderer, camara);
+
+    for (auto & enemigo : enemigos) {
+        enemigo->cambiar_frame(renderer, camara);
     }
-    for (size_t i=0; i<escenarios.size(); i++){
-        escenarios.at(i)->cambiar_frame(renderer, camara);
+    
+    for (auto & escenario : escenarios) {
+        escenario->cambiar_frame(renderer, camara);
     }
+
     jugador->cambiar_frame(renderer, camara);
     SDL_RenderPresent(renderer);
 }
