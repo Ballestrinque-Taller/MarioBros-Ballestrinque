@@ -50,7 +50,6 @@ class Log {
         
         Log& operator=(const Log&) = delete;
 
-        //void operator=(const Log&) = delete;
 };
 
 #endif

@@ -19,7 +19,7 @@ using namespace rapidxml;
 // FALTA IMPLEMENTAR EN CASO DE ERRORES
 
 LectorXML::LectorXML(SDL_Renderer* renderer){
-    //testeo de logger
+    //TODO: Se tiene que leer el valor de logging del xml y setearlo ahi
     SET_LOGGING_LEVEL(Log::INFO)
 
     srand(time(NULL));
@@ -123,12 +123,12 @@ void LectorXML::generar_timer(xml_node<>* nivel, Temporizador** timer){
 
 bool LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, Background** background, Temporizador** temporizador, std::string nivel){
 
-    for (size_t i=0; i<enemigos->size(); i++){ //Recorro el vector y deleteo cada enemigo
-        delete(enemigos->at(i));
+    for (auto & enemigo : (*enemigos)) {
+        delete enemigo;
     }
-    for (size_t i=0; i<escenarios->size(); i++){
-        delete(escenarios->at(i));
-    };
+    for (auto & escenario : (*escenarios)){
+        delete escenario;
+    }
     enemigos->clear();
     escenarios->clear();
     delete(*background);
