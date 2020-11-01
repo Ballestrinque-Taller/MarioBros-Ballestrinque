@@ -1,4 +1,5 @@
 #include "LectorXML.h"
+#include "Log.h"
 #include <time.h>
 
 #define CAMPO_ENEMIGOS "enemigos"
@@ -12,14 +13,21 @@
 
 using namespace rapidxml;
 
+
+
+
 // FALTA IMPLEMENTAR EN CASO DE ERRORES
 
 LectorXML::LectorXML(SDL_Renderer* renderer){
+    //testeo de logger
+    SET_LOGGING_LEVEL(Log::INFO)
+
     srand(time(NULL));
     rapidxml::file<> xmlFile("./res/config.xml");
     archivo_data = xmlFile.data();
     documento.parse<0>((char*)archivo_data.c_str());
     this->renderer = renderer;
+
 }
 
 //genera todos los enemigos del nivel.

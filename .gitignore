@@ -3,3 +3,6 @@ bin/app.exe
 app.exe
 .idea/
 obj/
+.vscode/
+*.code-workspace
+logfile.txt

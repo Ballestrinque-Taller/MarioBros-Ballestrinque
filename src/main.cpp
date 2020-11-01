@@ -1,11 +1,14 @@
 #include <string>
 
 #include "Juego.h"
+#include "Log.h"
 
 std::string calcular_path(char* rawPath);
 
 int main(int args, char** argc){
-    
+
+    SET_LOG_FILE(std::string("logfile.txt"))
+
     //esta constante contiene el path de la carpeta que contiene a bin/
     const std::string path_to_project = calcular_path(argc[0]);
 

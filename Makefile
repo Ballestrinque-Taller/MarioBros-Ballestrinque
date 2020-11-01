@@ -31,6 +31,6 @@ $(OBJ_DIR):
 
 clear:
 	@$(RM) -rv $(OBJ_DIR)
-	@$(RM) $(BIN_DIR)/app.exe
+	@$(RM) app.exe
 
 -include $(OBJS:.o=.d)
