@@ -51,4 +51,24 @@
             </enemigo>
         </enemigos>
     </nivel2>
+    <nivel3>
+        <tiempo cantidad="500">
+        </tiempo>
+        <background imagen="./res/Nivel_3.png" ancho="3552" alto="224">
+        </background>
+        <monedas cantidad="20" imagen="./res/MONEDA.png">
+        </monedas>
+        <bloques>
+            <bloque x="0" y="200" cantidad="10" tipo="Ladrillo" imagen="./res/LADRILLO.png">
+            </bloque>
+            <bloque x="500" y="200" cantidad="10" tipo="Sorpresa" imagen="./res/SORPRESA.png">
+            </bloque>
+        </bloques>
+        <enemigos>
+            <enemigo tipo="troopa" imagen="./res/TORTUGA.png" cantidad="4">
+            </enemigo>
+            <enemigo tipo="goomba" imagen="./res/Goomba.png" cantidad="5">
+            </enemigo>
+        </enemigos>
+    </nivel3>
 </config>
