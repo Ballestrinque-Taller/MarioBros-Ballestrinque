@@ -5,14 +5,14 @@
 
 std::string calcular_path(char* rawPath);
 
-int main(int args, char** argc){
+int main(int argc, char* argv[]){
 
     SET_LOG_FILE(std::string("logfile.txt"))
 
     //esta constante contiene el path de la carpeta que contiene a bin/
-    const std::string path_to_project = calcular_path(argc[0]);
+    const std::string path_to_project = calcular_path(argv[0]);
 
-    Juego* juego = new Juego();
+    Juego* juego = new Juego(argv[1]);
     juego->game_loop();
     delete(juego);
 	return 0;

@@ -1,4 +1,16 @@
 <config>
+    <log nivel="DEBUG">
+    </log>
+    <jugadores>
+        <jugador1 path="./res/MARIO_NORMAL.png">
+        </jugador1>
+        <jugador2 path="./res/LUIGI.png">
+        </jugador2>
+        <jugador3 path="./res/MARIO_ESTRELLA.png">
+        </jugador3>
+        <jugador4 path="./res/FLOR_DE_FUEGO.png">
+        </jugador4>
+    </jugadores>
     <nivel1>
         <tiempo cantidad="500">
         </tiempo>

@@ -7,7 +7,7 @@
 
 class Jugador: public Renderer{
     public:
-        Jugador(SDL_Renderer* renderer);
+        Jugador(SDL_Renderer* renderer, std::string path);
         void acelerar_x(int direccion);
         void saltar();
         void desplazar();

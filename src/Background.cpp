@@ -17,6 +17,7 @@ Background::Background(SDL_Renderer* renderer, std::string path, int ancho, int 
     set_dest_rect(POS_X_INIC, POS_Y, HEIGHT, WIDTH);
     texturas.flip = SDL_FLIP_NONE;
     path_to_image = path;
+    default_path = "./res/Nivel_1_sinTuberia.png";
     pos_x_actual = 0;
 
     renderizar(renderer);
@@ -24,7 +25,6 @@ Background::Background(SDL_Renderer* renderer, std::string path, int ancho, int 
 
 
 void Background::scroll(int velocidad_scroll, SDL_Renderer* renderer){
-    //if ((pos_x_actual + velocidad_scroll + WIDTH_SRC)<=ANCHO_IMAGEN);
     float ancho_imagen_en_pantalla = alto_imagen*4/3;
     pos_x_actual += velocidad_scroll*ancho_imagen_en_pantalla/WIDTH;
     set_src_rect(pos_x_actual, POS_Y, alto_imagen, alto_imagen*4/3);

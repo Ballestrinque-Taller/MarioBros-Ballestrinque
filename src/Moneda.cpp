@@ -20,6 +20,7 @@ Moneda::Moneda(SDL_Renderer* renderer, int pos_x, int pos_y, std::string path): 
     set_dest_rect(pos_x, pos_y, ALTO_MONEDA_PANTALLA, ANCHO_MONEDA_PANTALLA);
     set_src_rect(POS_INICIAL_X_FRAME, POS_INICIAL_Y_FRAME, ALTO_FRAME, ANCHO_FRAME);
     path_to_image = path;
+    default_path = ("./res/MONEDA.png");
     renderizar(renderer);
 }
 

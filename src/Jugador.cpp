@@ -25,8 +25,9 @@
 #define FRAME_MOV_FINAL 3
 #define FRAME_AGACHADO 6
 
-Jugador::Jugador(SDL_Renderer* renderer){
-    path_to_image = "./res/MARIO_NORMAL.png";
+Jugador::Jugador(SDL_Renderer* renderer, std::string path){
+    path_to_image = path;
+    default_path = "./res/MARIO_NORMAL.png";
     set_dest_rect(0,0,ALTO_PANTALLA,ANCHO_PANTALLA);
     set_src_rect(1,1,ALTO_FRAME,ANCHO_FRAME);
     velocidad_x = 0;

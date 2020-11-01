@@ -2,7 +2,6 @@
 #define MARIOBROS_BALLESTRINQUE_XMLREADER_H
 
 #include "XML/rapidxml.hpp"
-//#include "XML/rapidxml_iterators.hpp"
 #include "XML/rapidxml_print.hpp"
 #include "XML/rapidxml_utils.hpp"
 #include "Enemigo.h"
@@ -13,27 +12,34 @@
 #include "Escenario.h"
 #include "Moneda.h"
 #include "Temporizador.h"
+#include "Jugador.h"
 #include <vector>
+
+#define ERROR_XML -1
+#define PASO 0
+#define QUIT 1
 
 using namespace rapidxml;
 
 class LectorXML{
 
     public:
-        LectorXML(SDL_Renderer* renderer);
-        bool generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, Background** background, Temporizador** temporizador, std::string nivel);
+        LectorXML(SDL_Renderer* renderer, std::string path_to_xml);
+        int generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, Background** background, Temporizador** temporizador, std::string nivel);
         void free_archivo();
+        bool generar_jugador(std::vector<Jugador*>* jugadores);
+        void set_default();
 
    private:
         xml_document<> documento;
         int ancho_ajustado;
         std::string archivo_data;
         SDL_Renderer* renderer;
-        void generar_timer(xml_node<>* nivel, Temporizador** timer);
-        void generar_background(xml_node<>* nivel, Background** background);
-        void generar_monedas(xml_node<>* nivel, std::vector<Escenario*>* escenarios);
-        void generar_enemigos(xml_node<>* nivel, std::vector<Enemigo*>* enemigos);
-        void generar_escenario(std::vector<Escenario*>* escenarios, xml_node<>* nivel);
+        bool generar_timer(xml_node<>* nivel, Temporizador** timer);
+        bool generar_background(xml_node<>* nivel, Background** background);
+        bool generar_monedas(xml_node<>* nivel, std::vector<Escenario*>* escenarios);
+        bool generar_enemigos(xml_node<>* nivel, std::vector<Enemigo*>* enemigos);
+        bool generar_escenario(std::vector<Escenario*>* escenarios, xml_node<>* nivel);
         void generar_enemigos_particulares(std::string tipo_enemigo, std::string path_a_imagen, int cantidad, std::vector<Enemigo*>* enemigos);
         void generar_bloques_particulares(std::string tipo, int cantidad, int x, int y, std::string path,std::vector<Escenario*>* escenarios);
 

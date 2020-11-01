@@ -21,7 +21,7 @@ class Juego {
         LectorXML* lectorXml = nullptr;
         Background* background = nullptr;
         Camara* camara;
-        Jugador* jugador;
+        std::vector<Jugador*> jugadores;
         bool quit = false;
         int estado_error;
         int inicializar_ventana();
@@ -32,7 +32,7 @@ class Juego {
     public:
         void update(SDL_Event evento);
         void render();
-        Juego();
+        Juego(std::string path_xml);
         ~Juego();
         void game_loop();
 };

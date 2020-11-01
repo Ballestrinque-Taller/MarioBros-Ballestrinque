@@ -22,6 +22,7 @@ class Renderer {
         int get_dest_rect_x();
 
     protected:
+        std::string default_path;
         std::string path_to_image;
         void set_dest_rect(int x,int y,int height,int width);
         void set_src_rect(int x,int y,int height,int width);
