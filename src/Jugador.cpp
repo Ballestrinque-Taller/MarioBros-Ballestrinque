@@ -27,7 +27,7 @@
 
 Jugador::Jugador(SDL_Renderer* renderer, std::string path){
     path_to_image = path;
-    default_path = "./res/MARIO_NORMAL.png";
+    default_path = "./res/Mario_default.png";
     set_dest_rect(0,0,ALTO_PANTALLA,ANCHO_PANTALLA);
     set_src_rect(1,1,ALTO_FRAME,ANCHO_FRAME);
     velocidad_x = 0;

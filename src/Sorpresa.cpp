@@ -18,6 +18,7 @@ Sorpresa::Sorpresa(SDL_Renderer* renderer, int pos_x, int pos_y, std::string pat
     set_dest_rect(pos_x, pos_y, ALTO_SORPRESA_PANTALLA, ANCHO_SORPRESA_PANTALLA);
     set_src_rect(POS_INICIAL_X_FRAME, POS_INICIAL_Y_FRAME, ALTO_FRAME, ANCHO_FRAME);
     path_to_image = path;
+    default_path = ("./res/Sorpresa_default.png");
     renderizar(renderer);
 }
 

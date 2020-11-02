@@ -17,7 +17,7 @@ Background::Background(SDL_Renderer* renderer, std::string path, int ancho, int 
     set_dest_rect(POS_X_INIC, POS_Y, HEIGHT, WIDTH);
     texturas.flip = SDL_FLIP_NONE;
     path_to_image = path;
-    default_path = "./res/Nivel_1_sinTuberia.png";
+    default_path = "./res/Fondo_default.png";
     pos_x_actual = 0;
 
     renderizar(renderer);
