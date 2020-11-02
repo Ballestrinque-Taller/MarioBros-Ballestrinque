@@ -117,9 +117,10 @@ bool chequear_atributos_bloque(xml_node<>* bloque){
 
 bool LectorXML::generar_escenario(std::vector<Escenario*>* escenarios, xml_node<>* nivel){
     xml_node<>* nodo_de_bloques = nivel->first_node(CAMPO_BLOQUES);
-    if (nodo_de_bloques != nullptr)
-        LOG(Log::INFO)<<"Leyendo los bloques del nivel. Valor del puntero: " << nodo_de_bloques << std::endl;
-    else {
+    if (nodo_de_bloques != nullptr) {
+        LOG(Log::INFO)<<"Leyendo los bloques del nivel." << std::endl;
+        LOG(Log::DEBUG) << "Valor del puntero a bloques: " << nodo_de_bloques << std::endl;
+    } else {
         LOG(Log::ERROR) << "No se encontraron los bloques del nivel. Valor del puntero: " << nodo_de_bloques << std::endl;
         return false;
     }

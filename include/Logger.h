@@ -4,6 +4,7 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
+#include <fstream>
 
 
 class Logger {
@@ -15,6 +16,8 @@ class Logger {
         int log_level;
 
         std::stringstream log_stream;
+
+        std::fstream log_file;
 
     public:
     
@@ -32,6 +35,7 @@ class Logger {
 
         Logger& operator()(int loglvl);
 
+        ~Logger();
 
     private:
 

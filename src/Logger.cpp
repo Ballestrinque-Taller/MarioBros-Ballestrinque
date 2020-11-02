@@ -7,7 +7,7 @@
 #include <ctime>
 #include <chrono>
 
-Logger::Logger() : log_level(1) {};
+Logger::Logger() : file_path("logfile.txt"), log_level(0) {}
 
 void Logger::set_file_path(std::string path_to_log_file) {
     this->file_path = path_to_log_file;
@@ -34,10 +34,10 @@ Logger& Logger::operator()(int loglvl) {
 }
 
 void Logger::write(std::string text) {
-    std::fstream logFile;
-    logFile.open(Logger::file_path, std::fstream::out | std::fstream::app);
-    logFile << text << std::endl;
-    logFile.close();
+    if (!this->log_file.is_open())
+        this->log_file.open(Logger::file_path, std::fstream::out | std::fstream::app);
+    this->log_file << text << std::endl;
+    this->log_file.flush();
 }
 
 void Logger::make_header() {
@@ -65,5 +65,9 @@ void Logger::make_header() {
 
     this->write(message);
 
+}
+
+Logger::~Logger() {
+    this->log_file.close();
 }
 

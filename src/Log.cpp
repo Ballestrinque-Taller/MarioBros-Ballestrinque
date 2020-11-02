@@ -13,10 +13,11 @@ void Log::setLoggingLevel(Log::logLevel lvl){
 }
 
 Log::logLevel Log::getLoggingLevel(){
-    if (logger)
-        return global_log_level;
-    else logger = std::unique_ptr<Logger>(new Logger());
-    return Log::DEBUG; //¯\_(ツ)_/¯
+    if (!logger){
+        logger = std::unique_ptr<Logger>(new Logger());
+        global_log_level = Log::ERROR;
+    }
+    return global_log_level;
 }
 
 Logger& Log::get(Log::logLevel lvl) {
@@ -25,13 +26,9 @@ Logger& Log::get(Log::logLevel lvl) {
 }
 
 void Log::set_path(std::string path) {
-    if (logger){
-        logger->set_file_path(path);
-    }
-    else {
+    if (!logger)
         logger = std::unique_ptr<Logger>(new Logger());
-        logger->set_file_path(path);
-    }
+    logger->set_file_path(path);
 }
 
 
