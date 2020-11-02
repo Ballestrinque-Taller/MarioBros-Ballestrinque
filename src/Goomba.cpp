@@ -20,7 +20,7 @@ Goomba::Goomba(SDL_Renderer* renderer, int pos_x, int pos_y,std::string path_to_
     set_dest_rect(pos_x, pos_y, ALTO_ENEMIGO_PANTALLA, ANCHO_ENEMIGO_PANTALLA);
     set_src_rect(POS_INICIAL_X_FRAME, POS_INICIAL_Y_FRAME, ALTO_FRAME, ANCHO_FRAME);
     this->path_to_image = path_to_image;
-    default_path = ("./res/Goomba.png");
+    default_path = ("./res/Goomba_default.png");
     renderizar(renderer);
 }
 
