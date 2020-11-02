@@ -41,5 +41,6 @@ int Renderer::get_dest_rect_x(){
 }
 
 Renderer::~Renderer(){
+    LOG(Log::DEBUG)<<"Destruyendo renderer..."<<std::endl;
     SDL_DestroyTexture(texturas.textura);
 }

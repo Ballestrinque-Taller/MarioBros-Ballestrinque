@@ -1,4 +1,5 @@
 #include "TextWriter.h"
+#include "Log.h"
 
 
 TextWriter::TextWriter(){
@@ -23,5 +24,6 @@ void TextWriter::write_text(const char* texto, SDL_Renderer* renderer){
 }
 
 TextWriter::~TextWriter(){
+    LOG(Log::DEBUG)<<"Destruyendo texto en pantalla..."<<std::endl;
     TTF_Quit();
 }
