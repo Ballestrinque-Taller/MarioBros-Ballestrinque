@@ -8,6 +8,7 @@
 #define CAMPO_BACKGROUND "background"
 #define CAMPO_TIMER "tiempo"
 #define WIDTH 800
+#define ALTO_VENTANA 600
 #define RANGO_MONEDAS 200
 #define POS_MIN_MONEDAS 275
 
@@ -73,6 +74,10 @@ bool LectorXML::generar_enemigos(xml_node<>* nivel, std::vector<Enemigo*>* enemi
 
         int cantidad = std::stoi(enemigo->first_attribute("cantidad")->value());
         LOG(Log::DEBUG)<<"Cantidad a generar: "<< cantidad << std::endl;
+        if (cantidad < 0){
+            LOG(Log::ERROR)<<"Cantidad invalida. No puede ser negativa, no se generaran enemigos de tipo "<<tipo_enemigo<<"."<<std::endl;
+            cantidad = 0;
+        }
 
         generar_enemigos_particulares(tipo_enemigo,path_a_imagen,cantidad,enemigos);
         enemigo = enemigo->next_sibling();
@@ -133,17 +138,42 @@ bool LectorXML::generar_escenario(std::vector<Escenario*>* escenarios, xml_node<
         if(!chequear_atributos_bloque(bloque)){
             return false;
         }
-        int pos_x = std::stoi(bloque->first_attribute("x")->value());
-        LOG(Log::DEBUG)<<"Cargando posicion en x. Valor: "<<pos_x<<std::endl;
-
-        int pos_y = std::stoi(bloque->first_attribute("y")->value());
-        LOG(Log::DEBUG)<<"Cargando posicion en y. Valor: "<<pos_y<<std::endl;
-
-        int cantidad = std::stoi(bloque->first_attribute("cantidad")->value());
-        LOG(Log::DEBUG)<<"Cargando cantidad de bloques consecutivos. Cantidad: "<<cantidad<<std::endl;
 
         std::string tipo = bloque->first_attribute("tipo")->value();
         LOG(Log::DEBUG)<<"Tipo de bloque : "<<tipo<<std::endl;
+        int cantidad = std::stoi(bloque->first_attribute("cantidad")->value());
+        LOG(Log::DEBUG)<<"Cargando cantidad de bloques consecutivos. Cantidad: "<<cantidad<<std::endl;
+        if (cantidad < 0){
+            LOG(Log::ERROR)<<"La cantidad de bloques indicada es negativa, y no es valida. Se generaran 0 bloques de tipo "<<tipo<<std::endl;
+            cantidad = 0;
+        }
+
+        int pos_x = std::stoi(bloque->first_attribute("x")->value());
+        LOG(Log::DEBUG)<<"Cargando posicion en x. Valor: "<<pos_x<<std::endl;
+        if (pos_x < 0){
+            LOG(Log::ERROR)<<"Posicion en x invalida para el bloque, generandolo en la posicion x=0"<<std::endl;
+            pos_x = 0;
+        }
+        else if (pos_x > ancho_ajustado){
+            LOG(Log::ERROR)<<"Posicion invalida en x, supera el limite del nivel. Seteandolo en el final del nivel."<<std::endl;
+            pos_x = ancho_ajustado - 16*cantidad;
+        }
+
+        int pos_y = std::stoi(bloque->first_attribute("y")->value());
+        if (pos_y < 0){
+            LOG(Log::ERROR)<<"Posicion en y invalida para el bloque, generandolo en la posicion y=0"<<std::endl;
+            pos_y = 0;
+        }
+        else if (pos_y > ALTO_VENTANA){
+            LOG(Log::ERROR)<<"Posicion en y invalida, supera el limite del nivel. Seteandolo en el limite inferior de la ventana."<<std::endl;
+            pos_y = ALTO_VENTANA - 16;
+        }
+
+        LOG(Log::DEBUG)<<"Cargando posicion en y. Valor: "<<pos_y<<std::endl;
+        if (pos_y < 0){
+            LOG(Log::ERROR)<<"Posicion en y invalida para el bloque, generandolo en la posicion y=0"<<std::endl;
+            pos_y = 0;
+        }
 
         std::string path = bloque->first_attribute("imagen")->value();
         LOG(Log::DEBUG)<<"Path al bloque a renderizar: "<<path<<std::endl;
@@ -180,6 +210,10 @@ bool LectorXML::generar_monedas(xml_node<>* nivel, std::vector<Escenario*>* esce
         return false;
     }
     int cantidad = std::stoi(nodo_de_monedas->first_attribute("cantidad")->value());
+    if (cantidad < 0){
+        LOG(Log::ERROR) << "No puede haber menos de 0 monedas. Setteando cantidad a 0." << std::endl;
+        cantidad = 0;
+    }
     LOG(Log::DEBUG) << "Cantidad de monedas a generar: " << cantidad << std::endl;
     std::string path = nodo_de_monedas->first_attribute("imagen")->value();
     for (int i=0; i<cantidad; i++){
@@ -214,7 +248,15 @@ bool LectorXML::generar_background(xml_node<>* nivel, Background** background){
     LOG(Log::DEBUG)<<"Path a background leido. Valor: "<<path<<std::endl;
     int ancho = std::stoi (nodo_de_background->first_attribute("ancho")->value());
     LOG(Log::DEBUG)<<"Ancho de background leido. Valor: "<<ancho<<std::endl;
+    if (ancho <= 0){
+        LOG(Log::ERROR)<<"Ancho de background invalido. No puede ser menor o igual a 0."<<std::endl;
+        return false;
+    }
     int alto = std::stoi (nodo_de_background->first_attribute("alto")->value());
+    if (alto <= 0){
+        LOG(Log::ERROR)<<"Alto de background invalido. No puede ser menor o igual a 0."<<std::endl;
+        return false;
+    }
     LOG(Log::DEBUG)<<"Alto de background leido. Valor: "<<alto<<std::endl;
     ancho_ajustado = ancho*WIDTH/(alto*RATIO_ASPECTO);
     (*background) = new Background(renderer, path, ancho, alto);
@@ -233,6 +275,10 @@ bool LectorXML::generar_timer(xml_node<>* nivel, Temporizador** timer){
     }
     int cantidad = std::stoi(nodo_de_timer->first_attribute("cantidad")->value());
     LOG(Log::DEBUG)<<"Tiempo de timer leido. Valor: "<<cantidad<<std::endl;
+    if (cantidad <= 0){
+        LOG(Log::ERROR)<<"Tiempo invalido por ser menor o igual a 0. Seteando al tiempo default: 500"<<std::endl;
+        cantidad = 500;
+    }
     if((*timer) == nullptr) {
         LOG(Log::DEBUG) << "Creando e inicializando primer temporizador." << std::endl;
         (*timer) = new Temporizador(cantidad);

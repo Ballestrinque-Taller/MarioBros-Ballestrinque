@@ -65,7 +65,7 @@ Juego::~Juego(){
 }
 
 int Juego::inicializar_ventana(){
-    LOG(Log::INFO) << "Inicializando ventana de la aplicacion." << std::endl;
+    //LOG(Log::INFO) << "Inicializando ventana de la aplicacion." << std::endl;
     if (SDL_Init(SDL_INIT_VIDEO) != 0){
         LOG(Log::ERROR) << "SDL_Init Error: " << SDL_GetError() << std::endl;
         return ERROR_JUEGO;

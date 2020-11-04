@@ -12,22 +12,22 @@
         </jugador4>
     </jugadores>
     <nivel1>
-        <tiempo cantidad="500">
+        <tiempo cantidad="-500">
         </tiempo>
         <background imagen="./res/Nivel_1_sinTuberia.png" ancho="3392" alto="224">
         </background>
-        <monedas cantidad="20" imagen="./res/MONEDA.png">
+        <monedas cantidad="-20" imagen="./res/MONEDA.png">
         </monedas>
         <bloques>
-            <bloque x="0" y="200" cantidad="10" tipo="Ladrillo" imagen="./res/LADRILLO.png">
+            <bloque x="-10" y="-200" cantidad="180" tipo="Ladrillo" imagen="./res/LADRILLO.png">
             </bloque>
-            <bloque x="500" y="200" cantidad="10" tipo="Sorpresa" imagen="./res/SORPRESA.png">
+            <bloque x="5000" y="2000" cantidad="170" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
         </bloques>
         <enemigos>
-            <enemigo tipo="troopa" imagen="./res/TORTUGA.png" cantidad="3">
+            <enemigo tipo="troopa" imagen="./res/TORTUGA.png" cantidad="-3">
             </enemigo>
-            <enemigo tipo="goomba" imagen="./res/Goomba.png" cantidad="4">
+            <enemigo tipo="goomba" imagen="./res/Goomba.png" cantidad="-4">
             </enemigo>
         </enemigos>
     </nivel1>
