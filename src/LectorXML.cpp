@@ -160,6 +160,7 @@ bool LectorXML::generar_escenario(std::vector<Escenario*>* escenarios, xml_node<
         }
 
         int pos_y = std::stoi(bloque->first_attribute("y")->value());
+        LOG(Log::DEBUG)<<"Cargando posicion en y. Valor: "<<pos_y<<std::endl;
         if (pos_y < 0){
             LOG(Log::ERROR)<<"Posicion en y invalida para el bloque, generandolo en la posicion y=0"<<std::endl;
             pos_y = 0;
@@ -167,12 +168,6 @@ bool LectorXML::generar_escenario(std::vector<Escenario*>* escenarios, xml_node<
         else if (pos_y > ALTO_VENTANA){
             LOG(Log::ERROR)<<"Posicion en y invalida, supera el limite del nivel. Seteandolo en el limite inferior de la ventana."<<std::endl;
             pos_y = ALTO_VENTANA - 16;
-        }
-
-        LOG(Log::DEBUG)<<"Cargando posicion en y. Valor: "<<pos_y<<std::endl;
-        if (pos_y < 0){
-            LOG(Log::ERROR)<<"Posicion en y invalida para el bloque, generandolo en la posicion y=0"<<std::endl;
-            pos_y = 0;
         }
 
         std::string path = bloque->first_attribute("imagen")->value();
