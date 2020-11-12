@@ -1,16 +1,18 @@
+cmake_minimum_required(VERSION 3.17)
+
 project(MarioBros-Ballestrinque)
 
-cmake_minimum_required(VERSION 2.8)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(SOURCES ./src/*.cpp)
+aux_source_directory(./src/ SRC_LIST)
+include_directories(./include/)
+add_executable(MarioBros-Ballestrinque ./src/main.cpp)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
-
-add_executable(${PROJECT_NAME} ${SOURCES})
-
-INCLUDE(FindPkgConfig)
-PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
-PKG_SEARCH_MODULE(SDL2_image REQUIRED sdl2_image)
-PKG_SEARCH_MODULE(SDL2_ttf REQUIRED sdl2_ttf)
-INCLUDE_DIRECTORIES(${SDL2_INCLUDE_DIRS} ${SDL2IMAGE_INCLUDE_DIR})
-TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2IMAGE_LIBRARY})
+find_package(SDL2 REQUIRED)
+include_directories(${SDL2_INCLUDE_DIRS})
+find_package(SDL2_IMAGE REQUIRED)
+include_directories(${SDL2_IMAGE_INCLUDE_DIRS})
+find_package(SDL2_TTF REQUIRED)
+include_directories(${SDL2_TTF_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2IMAGE_LIBRARY} ${SDL2TTF_LIBRARY})
