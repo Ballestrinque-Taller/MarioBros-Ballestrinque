@@ -1,3 +1,5 @@
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}")
+
 cmake_minimum_required(VERSION 3.17)
 
 project(MarioBros-Ballestrinque)
@@ -13,7 +15,7 @@ add_executable(MarioBros-Ballestrinque ${MBB_SRC})
 
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)
-find_package(SDL2_ttf REQUIRED)
-include_directories(${SDL2_TTF_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS} ${SDL2_INCLUDE_DIRS} ./include/)
+find_package(SDL2TTF REQUIRED)
+include_directories(${SDL2TTF_INCLUDE_DIR} ${SDL2_IMAGE_INCLUDE_DIRS} ${SDL2_INCLUDE_DIRS} ./include/)
 
-target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} ${SDL2_TTF_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} ${SDL2TTF_LIBRARY})
