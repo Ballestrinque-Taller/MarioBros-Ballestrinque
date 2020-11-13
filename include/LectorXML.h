@@ -24,7 +24,7 @@ using namespace rapidxml;
 class LectorXML{
 
     public:
-        LectorXML(SDL_Renderer* renderer, std::string path_to_xml);
+        LectorXML(std::string path_to_xml);
         int generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, Background** background, Temporizador** temporizador, std::string nivel);
         void free_archivo();
         bool generar_jugador(std::vector<Jugador*>* jugadores);
@@ -34,7 +34,6 @@ class LectorXML{
         xml_document<> documento;
         int ancho_ajustado;
         std::string archivo_data;
-        SDL_Renderer* renderer;
         bool generar_timer(xml_node<>* nivel, Temporizador** timer);
         bool generar_background(xml_node<>* nivel, Background** background);
         bool generar_monedas(xml_node<>* nivel, std::vector<Escenario*>* escenarios);

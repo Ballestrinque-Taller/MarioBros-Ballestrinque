@@ -25,7 +25,7 @@
 #define FRAME_MOV_FINAL 3
 #define FRAME_AGACHADO 6
 
-Jugador::Jugador(SDL_Renderer* renderer, std::string path){
+Jugador::Jugador(std::string path){
     path_to_image = path;
     default_path = "./res/Mario_default.png";
     set_dest_rect(0,0,ALTO_PANTALLA,ANCHO_PANTALLA);
@@ -38,10 +38,12 @@ Jugador::Jugador(SDL_Renderer* renderer, std::string path){
     en_aire = true;
     tick_actual = TIEMPO_FRAME;
     texturas.flip = SDL_FLIP_NONE;
-    Jugador::renderizar(renderer);
 }
 
 void Jugador::cambiar_frame(SDL_Renderer* renderer, Camara* camara){
+    if(!renderizado){
+        renderizar(renderer);
+    }
     tick_actual++;
     if (tick_actual >= TIEMPO_FRAME && velocidad_x!= 0 && !en_aire){
         tick_actual = 0;

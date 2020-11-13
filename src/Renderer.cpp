@@ -21,6 +21,7 @@ void Renderer::set_dest_rect(int x,int y,int height,int width){
 }
 
 void Renderer::renderizar(SDL_Renderer* renderer){
+    renderizado = true;
     SDL_Surface* surface =  IMG_Load(path_to_image.c_str());
     if (surface == nullptr){
         LOG(Log::ERROR) << "No se encontro el archivo: " << path_to_image << ". Cargando textura por defecto..." << std::endl;

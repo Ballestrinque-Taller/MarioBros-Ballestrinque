@@ -17,16 +17,18 @@
 #define FRAME_CAPARAZON 2
 #define FRAME_MUERTO 3
 
-Tortuga::Tortuga(SDL_Renderer* renderer, int pos_x, int pos_y,std::string path_to_image):Enemigo(){
+Tortuga::Tortuga(int pos_x, int pos_y,std::string path_to_image):Enemigo(){
     set_dest_rect(pos_x, pos_y, ALTO_ENEMIGO_PANTALLA, ANCHO_ENEMIGO_PANTALLA);
     set_src_rect(POS_INICIAL_X_FRAME, POS_INICIAL_Y_FRAME, ALTO_FRAME, ANCHO_FRAME);
     this->path_to_image = path_to_image;
     default_path = ("./res/Tortuga_default.png");
     encaparazonado = false;
-    renderizar(renderer);
 }
 
 void Tortuga::cambiar_frame(SDL_Renderer* renderer, Camara* camara){
+    if(!renderizado){
+        renderizar(renderer);
+    }
     tick_actual++;
     if(tick_actual>MAXIMO_TICKS && !muerto && !encaparazonado){
         tick_actual = 0;

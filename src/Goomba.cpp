@@ -16,15 +16,17 @@
 #define ALTO_ENEMIGO_PANTALLA 40
 #define ANCHO_ENEMIGO_PANTALLA 40
 
-Goomba::Goomba(SDL_Renderer* renderer, int pos_x, int pos_y,std::string path_to_image):Enemigo(){
+Goomba::Goomba(int pos_x, int pos_y,std::string path_to_image):Enemigo(){
     set_dest_rect(pos_x, pos_y, ALTO_ENEMIGO_PANTALLA, ANCHO_ENEMIGO_PANTALLA);
     set_src_rect(POS_INICIAL_X_FRAME, POS_INICIAL_Y_FRAME, ALTO_FRAME, ANCHO_FRAME);
     this->path_to_image = path_to_image;
     default_path = ("./res/Goomba_default.png");
-    renderizar(renderer);
 }
 
 void Goomba::cambiar_frame(SDL_Renderer* renderer, Camara* camara){
+    if(!renderizado){
+        renderizar(renderer);
+    }
     tick_actual++;
     if(tick_actual>MAXIMO_TICKS){
         tick_actual = 0;

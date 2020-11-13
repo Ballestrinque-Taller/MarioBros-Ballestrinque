@@ -24,14 +24,13 @@ class Juego {
         std::vector<Jugador*> jugadores;
         bool quit = false;
         int estado_error;
-        int inicializar_ventana();
         std::vector<Enemigo*> enemigos;
         std::vector<Escenario*> escenarios;
         Temporizador* temporizador = nullptr;
 
     public:
-        void update(SDL_Event evento);
-        void render();
+        void update();
+        void render(SDL_Renderer** renderer_cliente);
         Juego(std::string path_xml);
         ~Juego();
         void game_loop();

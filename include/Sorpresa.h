@@ -11,7 +11,7 @@
 
 class Sorpresa: public Escenario{
     public:
-        Sorpresa(SDL_Renderer* renderer, int pos_x, int pos_y, std::string path);
+        Sorpresa(int pos_x, int pos_y, std::string path);
         void cambiar_frame(SDL_Renderer* renderer, Camara* camara) override;
     private:
         int tick_actual = 0;

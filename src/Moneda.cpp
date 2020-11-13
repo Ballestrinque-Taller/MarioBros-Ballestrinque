@@ -16,15 +16,17 @@
 #define ALTO_MONEDA_PANTALLA 40
 #define ANCHO_MONEDA_PANTALLA 40
 
-Moneda::Moneda(SDL_Renderer* renderer, int pos_x, int pos_y, std::string path): Escenario(){
+Moneda::Moneda(int pos_x, int pos_y, std::string path): Escenario(){
     set_dest_rect(pos_x, pos_y, ALTO_MONEDA_PANTALLA, ANCHO_MONEDA_PANTALLA);
     set_src_rect(POS_INICIAL_X_FRAME, POS_INICIAL_Y_FRAME, ALTO_FRAME, ANCHO_FRAME);
     path_to_image = path;
     default_path = ("./res/Moneda_default.png");
-    renderizar(renderer);
 }
 
 void Moneda::cambiar_frame(SDL_Renderer* renderer, Camara* camara){
+    if (!renderizado){
+        renderizar(renderer);
+    }
     tick_actual++;
     if(tick_actual>MAXIMO_TICKS){
         tick_actual = 0;

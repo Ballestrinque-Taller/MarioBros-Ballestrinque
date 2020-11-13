@@ -14,19 +14,17 @@
 
 using namespace rapidxml;
 
-LectorXML::LectorXML(SDL_Renderer* renderer, std::string path_to_xml){
+LectorXML::LectorXML(std::string path_to_xml){
     SET_LOGGING_LEVEL(Log::ERROR); //No puede ser mas baja que error por defecto.
     srand(time(NULL));
     if (!std::ifstream(path_to_xml)){
         LOG(Log::ERROR)<<"No se encontro el archivo xml del siguiente path: "<<path_to_xml<<std::endl;
         set_default();
-        this->renderer=renderer;
         return;
     }
     rapidxml::file<> xmlFile(path_to_xml.c_str());
     archivo_data = xmlFile.data();
     documento.parse<0>((char*)archivo_data.c_str());
-    this->renderer = renderer;
 
 }
 
@@ -89,13 +87,13 @@ bool LectorXML::generar_enemigos(xml_node<>* nivel, std::vector<Enemigo*>* enemi
 void LectorXML::generar_enemigos_particulares(std::string tipo_enemigo, std::string path_to_image, int cantidad, std::vector<Enemigo*>* enemigos){
     if(tipo_enemigo.compare("troopa") == 0){
         for(int i=0;i<cantidad;i++){
-            Enemigo* enemigo = new Tortuga(renderer, rand() % (ancho_ajustado-WIDTH)+WIDTH ,0,path_to_image);
+            Enemigo* enemigo = new Tortuga(rand() % (ancho_ajustado-WIDTH)+WIDTH ,0,path_to_image);
             enemigos->push_back(enemigo);
         }
     }
     else if(tipo_enemigo.compare("goomba") == 0){
         for(int i=0;i<cantidad;i++){
-            Enemigo* enemigo = new Goomba(renderer,rand() % (ancho_ajustado-WIDTH)+WIDTH ,0,path_to_image);
+            Enemigo* enemigo = new Goomba(rand() % (ancho_ajustado-WIDTH)+WIDTH ,0,path_to_image);
             enemigos->push_back(enemigo);
         }
     }
@@ -182,12 +180,12 @@ bool LectorXML::generar_escenario(std::vector<Escenario*>* escenarios, xml_node<
 void LectorXML::generar_bloques_particulares(std::string tipo, int cantidad, int x, int y, std::string path, std::vector<Escenario*>* escenarios){
     if (tipo.compare("Ladrillo") == 0){
         for (int i=0; i<cantidad; i++){
-            escenarios->push_back(new Ladrillo(renderer,x+i*ANCHO_LADRILLO_PANTALLA,y, path));
+            escenarios->push_back(new Ladrillo(x+i*ANCHO_LADRILLO_PANTALLA,y, path));
         }
     }
     else if(tipo.compare("Sorpresa") == 0){
         for (int i=0; i<cantidad; i++){
-            escenarios->push_back(new Sorpresa(renderer,x+i*ANCHO_SORPRESA_PANTALLA,y, path));
+            escenarios->push_back(new Sorpresa(x+i*ANCHO_SORPRESA_PANTALLA,y, path));
         }
     }
 }
@@ -212,7 +210,7 @@ bool LectorXML::generar_monedas(xml_node<>* nivel, std::vector<Escenario*>* esce
     LOG(Log::DEBUG) << "Cantidad de monedas a generar: " << cantidad << std::endl;
     std::string path = nodo_de_monedas->first_attribute("imagen")->value();
     for (int i=0; i<cantidad; i++){
-        escenarios->push_back(new Moneda(renderer,rand() % (ancho_ajustado),rand()%RANGO_MONEDAS+POS_MIN_MONEDAS, path));
+        escenarios->push_back(new Moneda(rand() % (ancho_ajustado),rand()%RANGO_MONEDAS+POS_MIN_MONEDAS, path));
     }
     return true;
 }
@@ -254,7 +252,7 @@ bool LectorXML::generar_background(xml_node<>* nivel, Background** background){
     }
     LOG(Log::DEBUG)<<"Alto de background leido. Valor: "<<alto<<std::endl;
     ancho_ajustado = ancho*WIDTH/(alto*RATIO_ASPECTO);
-    (*background) = new Background(renderer, path, ancho, alto);
+    (*background) = new Background(path, ancho, alto);
     return true;
 }
 
@@ -350,7 +348,7 @@ bool LectorXML::generar_jugador(std::vector<Jugador*>* jugadores){
         LOG(Log::INFO) << "Leyendo jugador #"<<(jugadores->size()+1)<<std::endl;
         std::string jugador = std::string("jugador")+std::to_string((jugadores->size()+1));
         std::string path_imagen = nodo_de_jugadores->first_node()->first_attribute()->value();
-        jugadores->push_back(new Jugador(renderer, path_imagen));
+        jugadores->push_back(new Jugador(path_imagen));
         return true;
     }
 }
