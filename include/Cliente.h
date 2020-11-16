@@ -29,7 +29,7 @@ class Cliente{
         SDL_Window * ventana = nullptr;
         SDL_Renderer * renderer = nullptr;
         int inicializar_ventana();
-        Jugador* jugador = nullptr;
+        void render();
     public:
         Cliente();
         void bucle_juego();

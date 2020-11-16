@@ -4,6 +4,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include "Log.h"
+#include "Mensajes.h"
 
 Cliente::Cliente(){
     inicializar_ventana();
@@ -11,7 +12,7 @@ Cliente::Cliente(){
     SET_LOGGING_LEVEL(Log::DEBUG);
 }
 
-//VER COMO IMPLEMENTAR LOGIN Y QUE EN EL LOGIN TE ASIGNE UN JUGADOR AL LOGGEARTE.
+//VER COMO IMPLEMENTAR LOGIN.
 
 int Cliente::inicializar_ventana(){
     LOG(Log::INFO) << "Inicializando ventana de la aplicacion." << std::endl;
@@ -46,15 +47,27 @@ int Cliente::inicializar_ventana(){
     return 0;
 }
 
+//TODO:
 void Cliente::bucle_juego(){
     SDL_Event evento;
     while (!quit){
+        //CORRE EN UN THREAD INDEPENDIENTE AL RENDER
         while (SDL_PollEvent(&evento) != 0) {
             if (evento.type == SDL_QUIT)
                 quit = true;
-            jugador->recibir_evento(evento);
+            //ENVIAR EVENTO AL SERVIDOR
         }
-        //ENVIAR EVENTO AL SERVIDOR
-        //PEDIR AL SERVIDOR EL RENDER
+        //HACER QUE EL RENDER ESTE EN UN THREAD Y QUE ESE THREAD SE RALENTICE POR EL TIEMPO DELAY
+        render();
+
     }
+}
+
+//TODO:
+void Cliente::render(){
+    int frame_start = SDL_GetTicks();
+    //PEDIR AL SERVIDOR EL RENDER Y RENDERIZAR
+    int frame_time = SDL_GetTicks() - frame_start;
+    if (FRAME_DELAY > frame_time)
+        SDL_Delay(FRAME_DELAY - frame_time);
 }

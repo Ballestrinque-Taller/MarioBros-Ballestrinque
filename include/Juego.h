@@ -12,9 +12,11 @@
 #include "Temporizador.h"
 
 
+
+
 class Juego {
     private:
-        TextWriter* nivel_label;
+      /*  TextWriter* nivel_label;
         int nivel_actual;
         SDL_Window * ventana = nullptr;
         SDL_Renderer * renderer = nullptr;
@@ -26,12 +28,11 @@ class Juego {
         int estado_error;
         std::vector<Enemigo*> enemigos;
         std::vector<Escenario*> escenarios;
-        Temporizador* temporizador = nullptr;
+        Temporizador* temporizador = nullptr;*/
 
     public:
-        void update();
-        void render(SDL_Renderer** renderer_cliente);
-        Juego(std::string path_xml);
+        void render(SDL_Renderer** renderer_cliente); //VER QUE PASA CON ESTO
+        //Juego(std::string path_xml);
         ~Juego();
         void game_loop();
 };
