@@ -6,6 +6,8 @@
 #include <SDL2/SDL_ttf.h>
 #include <sys/socket.h>
 #include "Jugador.h"
+#include "Dibujador.h"
+#include "Mensajes.h"
 
 #define ERROR_JUEGO -1
 
@@ -25,11 +27,16 @@
 
 class Cliente{
     private:
+        int socket_svr;
+        std::vector<entidad_t> entidades;
         bool quit = false;
         SDL_Window * ventana = nullptr;
         SDL_Renderer * renderer = nullptr;
         int inicializar_ventana();
         void render();
+        Dibujador* dibujador;
+        void recibir_renders_del_servidor();
+        void enviar_evento_a_servidor(mensaje_cliente_a_servidor_t* mensaje_ptr);
     public:
         Cliente();
         void bucle_juego();

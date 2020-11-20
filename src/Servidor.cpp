@@ -3,6 +3,7 @@
 #include "Mensajes.h"
 #define ERROR_SVR -1
 #define MAX_CONEXIONES 10
+#define PUERTO 5000
 
 
 #define ERROR_JUEGO -1
@@ -36,7 +37,7 @@ Servidor::Servidor(){
     }
     svr_address.sin_family = AF_INET;
     svr_address.sin_addr.s_addr = INADDR_ANY;
-    svr_address.sin_port = 0;
+    svr_address.sin_port = PUERTO;
     if(bind(socket_svr, (sockaddr*)&svr_address, sizeof(struct sockaddr)) == ERROR_SVR){
         LOG(Log::ERROR)<<"No se pudo bindear el socket."<<std::endl;
         exit(ERROR_SVR);
@@ -61,28 +62,62 @@ int Servidor::generar_conexion(sockaddr* client_address){
     return 0;
 }
 
-//TODO:
-void Servidor::enviar_mensaje(int sock_cliente){
-    //Armar el mensaje de todas las cosas de render
-    mensaje_servidor_a_cliente_t mensaje = obtener_mensaje();
-    if(send(sock_cliente, mensaje, size_mensaje, 0)==ERROR_SVR){
-        LOG(Log::ERROR)<<"No se pudo enviar el mensaje al socket de cliente: "<<sock_cliente<<std::endl;
+void Servidor::enviar_mensaje(int num_cliente){
+    Jugador* jugador_final;
+    std::vector<entidad_t> mensajes;
+
+    mensajes.push_back(obtener_mensaje(background));
+
+    for (auto & escenario:escenarios){
+        mensajes.push_back(obtener_mensaje(escenario));
+    }
+
+    for (auto & enemigo: enemigos){
+        mensajes.push_back(obtener_mensaje(enemigo));
+    }
+
+    for(int i=0; i<jugadores.size(); i++){
+        if (i==num_cliente){
+            jugador_final = jugadores[i];
+        }else{
+            mensajes.push_back(obtener_mensaje(jugadores[i]));
+        }
+    }
+
+    mensajes.push_back(obtener_mensaje(jugador_final));
+    for (auto & mensaje : mensajes) {
+        bucle_send(&mensaje, conexiones.at(num_cliente));
     }
 }
-//TODO:
-mensaje_servidor_a_cliente_t Servidor::obtener_mensaje(){
-    /*typedef struct mensaje_servidor_a_cliente{
-        std::vector<Jugador> jugadores;
-        std::vector<Enemigo> enemigos;
-        std::vector<Escenario> escenarios;
-        Background background;
-        Camara camara;
-        Temporizador temporizador;
-    }mensaje_servidor_a_cliente_t;*/
-    mensaje_servidor_a_cliente_t mensaje;
-    for (auto & jugador: jugadores){
-        mensaje.
+
+int Servidor::bucle_send(entidad_t* mensaje_ptr, int socket){
+    int bytes_struct = sizeof(entidad_t);
+    int total_bytes_enviados = 0;
+    int bytes_enviados = 0;
+    bool enviando = true;
+
+    while((bytes_struct>total_bytes_enviados) &&(enviando)) {
+        bytes_enviados = send(socket, (mensaje_ptr+total_bytes_enviados), (sizeof(mensaje_servidor_a_cliente_t)-total_bytes_enviados), MSG_NOSIGNAL);
+        if (bytes_enviados < 0) {
+            LOG(Log::ERROR) << "No se pudo enviar el mensaje al cliente: "<<socket<<". Error number: " << errno <<  std::endl;
+            return EXIT_GAME;
+        } else if (bytes_enviados == 0) {
+            enviando = false;
+        } else {
+            total_bytes_enviados += bytes_enviados;
+        }
     }
+    return 0;
+}
+
+entidad_t Servidor::obtener_mensaje(Renderer* render){
+    entidad_t entidad;
+    entidad.path_textura = render->get_path_img();
+    entidad.default_path = render->get_def_path();
+    entidad.dest_rect = render->get_dest_rect();
+    entidad.src_rect = render->get_src_rect();
+    entidad.flip = render->get_flip();
+    return entidad;
 }
 
 void Servidor::intercambiar_mensajes(Servidor* servidor){

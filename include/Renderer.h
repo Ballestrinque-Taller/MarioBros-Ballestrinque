@@ -20,6 +20,11 @@ class Renderer {
         virtual void cambiar_frame(SDL_Renderer* renderer, Camara* camara){};
         void set_dest_rect_x(int x);
         int get_dest_rect_x();
+        SDL_Rect get_src_rect();
+        SDL_Rect get_dest_rect();
+        std::string get_path_img();
+        std::string get_def_path();
+        SDL_RendererFlip get_flip();
 
     protected:
         bool renderizado = false;

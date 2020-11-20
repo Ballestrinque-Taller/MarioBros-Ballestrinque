@@ -14,14 +14,18 @@ typedef struct mensaje_cliente_a_servidor{
     SDL_Event evento;
 }mensaje_cliente_a_servidor_t;
 
-//TODO:
+typedef struct entidad{
+    std::string path_textura;
+    std::string default_path;
+    SDL_RendererFlip flip;
+    SDL_Rect src_rect;
+    SDL_Rect dest_rect;
+}entidad_t;
+
 typedef struct mensaje_servidor_a_cliente{
-    std::vector<Jugador> jugadores;
-    std::vector<Enemigo> enemigos;
-    std::vector<Escenario> escenarios;
-    Background* background;
-    Camara* camara;
-    Temporizador* temporizador;
+    entidad_t entidad;
+    int num_nivel;
+    int cantidad_entidades;
 }mensaje_servidor_a_cliente_t;
 
 

@@ -8,6 +8,7 @@
 
 Cliente::Cliente(){
     inicializar_ventana();
+    dibujador = new Dibujador(renderer);
     //mostrar_login();
     SET_LOGGING_LEVEL(Log::DEBUG);
 }
@@ -47,6 +48,24 @@ int Cliente::inicializar_ventana(){
     return 0;
 }
 
+void Cliente::enviar_evento_a_servidor(mensaje_cliente_a_servidor_t* mensaje_ptr){
+    int bytes_struct = sizeof(mensaje_cliente_a_servidor_t);
+    int total_bytes_enviados = 0;
+    size_t bytes_enviados = 0;
+    bool enviando = true;
+
+    while((bytes_struct>total_bytes_enviados) &&(enviando)) {
+        bytes_enviados = send(socket_svr, (mensaje_ptr+total_bytes_enviados), (sizeof(mensaje_cliente_a_servidor_t)-total_bytes_enviados), MSG_NOSIGNAL);
+        if (bytes_enviados < 0) {
+            LOG(Log::ERROR) << "No se pudo enviar el mensaje al cliente: "<<socket<<". Error number: " << errno <<  std::endl;
+        } else if (bytes_enviados == 0) {
+            enviando = false;
+        } else {
+            total_bytes_enviados += bytes_enviados;
+        }
+    }
+}
+
 //TODO:
 void Cliente::bucle_juego(){
     SDL_Event evento;
@@ -55,19 +74,52 @@ void Cliente::bucle_juego(){
         while (SDL_PollEvent(&evento) != 0) {
             if (evento.type == SDL_QUIT)
                 quit = true;
-            //ENVIAR EVENTO AL SERVIDOR
+            mensaje_cliente_a_servidor_t mensaje;
+            mensaje.evento = evento;
+            enviar_evento_a_servidor(&mensaje);
         }
-        //HACER QUE EL RENDER ESTE EN UN THREAD Y QUE ESE THREAD SE RALENTICE POR EL TIEMPO DELAY
         render();
+    }
+}
 
+void Cliente::recibir_renders_del_servidor(){
+    int total_bytes_recibidos = 0;
+    int bytes_recibidos = 0;
+    int bytes_struct = sizeof(mensaje_servidor_a_cliente_t);
+    int cantidad_entidades_recibidas = 0;
+    int cantidad_entidades_a_recibir = 1;
+    bool recibiendo = true;
+    while(cantidad_entidades_recibidas < cantidad_entidades_a_recibir) {
+        char *buffer = (char *) malloc(bytes_struct);
+        while ((bytes_struct > total_bytes_recibidos) && (recibiendo)) {
+            bytes_recibidos = recv(socket_svr, (buffer + total_bytes_recibidos),
+                                   (bytes_struct - total_bytes_recibidos), MSG_NOSIGNAL);
+            if (bytes_recibidos < 0) {
+                LOG(Log::ERROR) << "No se pudo recibir el mensaje. Error number: " << errno << std::endl;
+            } else if (bytes_recibidos == 0) {
+                recibiendo = false;
+            } else {
+                total_bytes_recibidos += bytes_recibidos;
+            }
+        }
+
+        //PROCESAMIENTO DEL MENSAJE
+        if (total_bytes_recibidos == bytes_struct) {
+            cantidad_entidades_recibidas++;
+            entidades.push_back(((mensaje_servidor_a_cliente_t *) buffer)->entidad); //PUEDE LLEGAR A ROMPER
+            if(cantidad_entidades_a_recibir == 1)
+                cantidad_entidades_a_recibir = ((mensaje_servidor_a_cliente_t *) buffer)->cantidad_entidades;
+        }
+        free(buffer);
     }
 }
 
 //TODO:
 void Cliente::render(){
-    int frame_start = SDL_GetTicks();
-    //PEDIR AL SERVIDOR EL RENDER Y RENDERIZAR
-    int frame_time = SDL_GetTicks() - frame_start;
+    size_t frame_start = SDL_GetTicks();
+    recibir_renders_del_servidor();
+    dibujador->dibujar(entidades);
+    size_t frame_time = SDL_GetTicks() - frame_start;
     if (FRAME_DELAY > frame_time)
         SDL_Delay(FRAME_DELAY - frame_time);
 }

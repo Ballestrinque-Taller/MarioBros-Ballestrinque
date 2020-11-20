@@ -6,6 +6,7 @@
 #include <netinet/in.h>
 #include <vector>
 #include "Mensajes.h"
+#include "Renderer.h"
 #include "Jugador.h"
 #include "Enemigo.h"
 #include "Camara.h"
@@ -41,7 +42,8 @@ class Servidor{
         int socket_svr;
         sockaddr_in svr_address;
         std::vector<int> conexiones;
-        mensaje_servidor_a_cliente_t obtener_mensaje();
+        entidad_t obtener_mensaje(Renderer* render);
+        int bucle_send(entidad_t* entidad, int socket);
 
         //Cosas de Threads
         std::vector<pthread_t*> threads;
