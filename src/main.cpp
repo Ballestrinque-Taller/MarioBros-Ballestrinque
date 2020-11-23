@@ -4,7 +4,7 @@
 #include "Log.h"
 
 std::string calcular_path(char* rawPath);
-
+/*
 int main(int argc, char* argv[]){
 
     SET_LOG_FILE(std::string("logfile.txt"))
@@ -17,7 +17,7 @@ int main(int argc, char* argv[]){
     delete(juego);
 	return 0;
 }
-
+*/
     //la idea es que las clases que cargan imagenes, etc usen la
     //constante para que funcione independientemente de 
     //donde se ejecute la aplicacion.

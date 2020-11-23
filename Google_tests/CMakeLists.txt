@@ -3,9 +3,19 @@ add_subdirectory(lib)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 file(GLOB TEST_SRC "*.cpp")
-add_executable(Google_Tests_run ${TEST_SRC})
+file(GLOB MARIO_SRC
+        "../src/*.cpp"
+        "../include/*.h"
+        )
+add_executable(Google_Tests_run ${TEST_SRC} ${MARIO_SRC})
 
 # linking Google_Tests_run with lib to be tested
-#target_link_libraries(Google_Tests_run DateConverter_lib)
+
+find_package(SDL2 REQUIRED)
+find_package(SDL2_image REQUIRED)
+find_package(SDL2TTF REQUIRED)
+include_directories(${SDL2TTF_INCLUDE_DIR} ${SDL2_IMAGE_INCLUDE_DIRS} ${SDL2_INCLUDE_DIRS})
+
+target_link_libraries(Google_Tests_run ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} ${SDL2TTF_LIBRARY})
 
 target_link_libraries(Google_Tests_run gtest gtest_main)

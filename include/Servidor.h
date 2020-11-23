@@ -15,10 +15,6 @@
 #include <vector>
 #include "Temporizador.h"
 
-struct Mensaje{
-    //WEA A IMPLEMENTAR
-}mensaje_t;
-
 class Servidor{
     private:
         //Cosas de Juego
@@ -54,10 +50,12 @@ class Servidor{
 
     public:
         //Cosas de sockets
-        Servidor();
-        int generar_conexion(sockaddr* client_address);
+        Servidor(std::string ip, int puerto);
+        ~Servidor();
+        int generar_conexion();
         int recibir_mensaje(int sock_cliente);
         void enviar_mensaje(int sock_cliente);
+        in_addr_t get_ip();
 
         //Cosas de Threads
         int get_cantidad_de_conexiones();

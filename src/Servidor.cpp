@@ -1,9 +1,10 @@
 #include "Servidor.h"
 #include "Log.h"
 #include "Mensajes.h"
+#include <arpa/inet.h>
 #define ERROR_SVR -1
 #define MAX_CONEXIONES 10
-#define PUERTO 5000
+
 
 
 #define ERROR_JUEGO -1
@@ -28,7 +29,7 @@
 #define NO_RECIBIENDO_MENSAJES -2
 
 
-Servidor::Servidor(){
+Servidor::Servidor(std::string ip, int puerto){
     SET_LOGGING_LEVEL(Log::DEBUG);
     socket_svr = socket(AF_INET,SOCK_STREAM,0);
     if (socket_svr == ERROR_SVR){
@@ -37,7 +38,8 @@ Servidor::Servidor(){
     }
     svr_address.sin_family = AF_INET;
     svr_address.sin_addr.s_addr = INADDR_ANY;
-    svr_address.sin_port = PUERTO;
+    //svr_address.sin_addr.s_addr = inet_addr(ip.c_str());
+    svr_address.sin_port = puerto;
     if(bind(socket_svr, (sockaddr*)&svr_address, sizeof(struct sockaddr)) == ERROR_SVR){
         LOG(Log::ERROR)<<"No se pudo bindear el socket."<<std::endl;
         exit(ERROR_SVR);
@@ -49,8 +51,8 @@ Servidor::Servidor(){
     pthread_mutex_init(&mutex_desplazamiento, nullptr);
 }
 
-int Servidor::generar_conexion(sockaddr* client_address){
-    conexiones.push_back(accept(socket_svr, client_address, (socklen_t*)(sizeof(struct sockaddr))));
+int Servidor::generar_conexion(){
+    conexiones.push_back(accept(socket_svr, nullptr,0));
     if(conexiones.back() == ERROR_SVR){
         LOG(Log::ERROR)<<"No se pudo aceptar la conexión del client_adress"<<std::endl;
         conexiones.pop_back();
@@ -237,3 +239,15 @@ void Servidor::game_loop() {
     }
     finalizar_juego();
 }
+
+Servidor::~Servidor() {
+    for(auto & thread:threads){
+        pthread_join(*thread,0);
+        free(thread);
+    }
+}
+
+in_addr_t Servidor::get_ip(){
+    return svr_address.sin_addr.s_addr;
+}
+
