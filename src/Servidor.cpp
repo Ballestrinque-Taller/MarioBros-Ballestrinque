@@ -36,12 +36,20 @@ Servidor::Servidor(std::string ip, int puerto){
         LOG(Log::ERROR)<<"No se pudo crear el socket."<<std::endl;
         exit(ERROR_SVR);
     }
+    int enable=1;
+    if (setsockopt(socket_svr, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(int)) < 0) {
+        LOG(Log::ERROR) << "setsockopt(SO_REUSEADDR) failed" << std::endl;
+    }
+    int optval = 1;
+    if(setsockopt(socket_svr, SOL_SOCKET, SO_REUSEPORT, &optval, sizeof(optval)) < 0){
+        LOG(Log::ERROR) << "setsockopt(SO_REUSEPORT) failed" << std::endl;
+    }
     svr_address.sin_family = AF_INET;
     svr_address.sin_addr.s_addr = INADDR_ANY;
     //svr_address.sin_addr.s_addr = inet_addr(ip.c_str());
     svr_address.sin_port = puerto;
     if(bind(socket_svr, (sockaddr*)&svr_address, sizeof(struct sockaddr)) == ERROR_SVR){
-        LOG(Log::ERROR)<<"No se pudo bindear el socket."<<std::endl;
+        LOG(Log::ERROR)<<"No se pudo bindear el socket. errno: "<<errno<<std::endl;
         exit(ERROR_SVR);
     }
     if(listen(socket_svr, MAX_CONEXIONES) == ERROR_SVR){
@@ -165,10 +173,12 @@ int Servidor::recibir_mensaje(int num_cliente){
 
     //PROCESAMIENTO DEL MENSAJE
     if (total_bytes_recibidos == bytes_struct) {
-        Jugador* jugador = jugadores.at(num_cliente);
-        pthread_mutex_lock(&mutex_desplazamiento);
-        jugador->recibir_evento(((mensaje_cliente_a_servidor_t *) buffer)->evento);
-        pthread_mutex_unlock(&mutex_desplazamiento);
+        if(jugadores.size()>num_cliente) {
+            Jugador *jugador = jugadores.at(num_cliente);
+            pthread_mutex_lock(&mutex_desplazamiento);
+            jugador->recibir_evento(((mensaje_cliente_a_servidor_t *) buffer)->evento);
+            pthread_mutex_unlock(&mutex_desplazamiento);
+        }
     }
     free(buffer);
     if ((((mensaje_cliente_a_servidor_t *) buffer)->evento).type==SDL_QUIT)
@@ -242,7 +252,8 @@ void Servidor::game_loop() {
 
 Servidor::~Servidor() {
     for(auto & thread:threads){
-        pthread_join(*thread,0);
+        pthread_cancel(*thread);
+        pthread_join(*thread,nullptr);
         free(thread);
     }
 }
