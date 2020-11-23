@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 file(GLOB MBB_SRC
         "./src/*.cpp"
-        "./include/.h"
+        "./include/*.h"
         )
 add_executable(MarioBros-Ballestrinque ${MBB_SRC})
 
@@ -19,3 +19,5 @@ find_package(SDL2TTF REQUIRED)
 include_directories(${SDL2TTF_INCLUDE_DIR} ${SDL2_IMAGE_INCLUDE_DIRS} ${SDL2_INCLUDE_DIRS} ./include/)
 
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} ${SDL2TTF_LIBRARY})
+
+add_subdirectory(Google_tests)
