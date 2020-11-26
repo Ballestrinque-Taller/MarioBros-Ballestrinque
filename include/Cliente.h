@@ -5,9 +5,11 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <sys/socket.h>
+#include <arpa/inet.h>
 #include "Jugador.h"
 #include "Dibujador.h"
 #include "Mensajes.h"
+#include <unistd.h>
 
 #define ERROR_JUEGO -1
 
@@ -17,7 +19,7 @@
 #define DERECHA 1
 #define IZQUIERDA -1
 
-#define FPS 60
+#define FPS 30
 #define FRAME_DELAY 1000/FPS
 
 #define POS_X_TEXTO 800
@@ -27,19 +29,30 @@
 
 class Cliente{
     private:
-        int socket_svr;
+        int socket_cliente;
+        int nivel_recibido;
+        int nivel_actual=0;
         std::vector<entidad_t> entidades;
         bool quit = false;
         SDL_Window * ventana = nullptr;
         SDL_Renderer * renderer = nullptr;
         int inicializar_ventana();
-        void render();
         Dibujador* dibujador;
-        void recibir_renders_del_servidor();
         void enviar_evento_a_servidor(mensaje_cliente_a_servidor_t* mensaje_ptr);
+        pthread_t thread_render;
+        int login(std::string ip, int puerto);
+        bool render_iniciado = false;
+
     public:
-        Cliente();
+        Cliente(std::string, int puerto);
         void bucle_juego();
+        static void render_thread(Cliente* cliente);
+        void render();
+        ~Cliente();
+        void recibir_renders_del_servidor();
+
+        //FINES DE TESTING
+        std::vector<entidad_t> get_entidades();
 
 };
 

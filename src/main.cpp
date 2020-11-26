@@ -1,23 +1,41 @@
 #include <string>
 
-#include "Juego.h"
+#include "Cliente.h"
+#include "Servidor.h"
 #include "Log.h"
 
+
 std::string calcular_path(char* rawPath);
-/*
+
 int main(int argc, char* argv[]){
-
-    SET_LOG_FILE(std::string("logfile.txt"))
-
     //esta constante contiene el path de la carpeta que contiene a bin/
-    const std::string path_to_project = calcular_path(argv[0]);
+    //const std::string path_to_project = calcular_path(argv[0]);
 
-    Juego* juego = new Juego(argv[1]);
-    juego->game_loop();
-    delete(juego);
+
+    //Cliente/Servidor, IP, Puerto, PathXml <- ARGS
+    if(strcmp(argv[1], "c") == 0 && argc==4){
+        SET_LOG_FILE(std::string("logfile_cliente.txt"))
+        Cliente* cliente = new Cliente(argv[2], atoi(argv[3]));
+        cliente->bucle_juego();
+        delete(cliente);
+    }
+    else if (strcmp(argv[1], "s") == 0 && argc==5){
+        SET_LOG_FILE(std::string("logfile_servidor.txt"))
+        Servidor* servidor = new Servidor(argv[2], atoi(argv[3]), argv[4]);
+        while(servidor->aceptando_conexiones){
+
+        }
+        servidor->iniciar_juego(argv[4]);
+        delete(servidor);
+    }
+    else{
+        SET_LOG_FILE(std::string("logfile.txt"))
+        LOG(Log::ERROR)<<"Argumentos Invalidos para iniciar cliente/servidor. Deben introducirse c/s, IP, Puerto, PathXml(En servidor)."<<std::endl;
+        exit(-1);
+    }
 	return 0;
 }
-*/
+
     //la idea es que las clases que cargan imagenes, etc usen la
     //constante para que funcione independientemente de 
     //donde se ejecute la aplicacion.
@@ -43,6 +61,4 @@ std::string calcular_path(char* rawPath) {
     projectPath = projectPath + "/../";
     return projectPath;
 }
-
-
 

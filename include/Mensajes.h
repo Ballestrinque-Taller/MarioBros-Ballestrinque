@@ -15,8 +15,8 @@ typedef struct mensaje_cliente_a_servidor{
 }mensaje_cliente_a_servidor_t;
 
 typedef struct entidad{
-    std::string path_textura;
-    std::string default_path;
+    char path_textura[256];
+    char default_path[256];
     SDL_RendererFlip flip;
     SDL_Rect src_rect;
     SDL_Rect dest_rect;

@@ -18,13 +18,14 @@
 #include <unistd.h>
 
 //PARAMETROS SVR
-#define MAX_CONEXIONES 4
-#define TIEMPO_MAX_SIN_CONEXION 2
+#define MAX_CONEXIONES 1
+#define TIEMPO_MAX_SIN_CONEXION 15000
 
 //ESTADOS MENSAJES
 #define EXIT_GAME -1
 #define RECIBIENDO_MENSAJES 0
 #define NO_RECIBIENDO_MENSAJES -2
+#define JUEGO_INICIADO 3
 
 //ERRORES
 #define ERROR_SVR -1
@@ -33,13 +34,13 @@ class Servidor{
     private:
         //Cosas de Juego
         bool juego_iniciado = false;
-        TextWriter* nivel_label;
+        TextWriter* nivel_label = nullptr;
         int nivel_actual;
         SDL_Window * ventana = nullptr;
         SDL_Renderer * renderer = nullptr;
         LectorXML* lectorXml = nullptr;
         Background* background = nullptr;
-        Camara* camara;
+        Camara* camara = nullptr;
         std::vector<Jugador*> jugadores;
         bool quit = false;
         int estado_error;
@@ -58,23 +59,29 @@ class Servidor{
 
         //Cosas de Threads
         std::vector<pthread_t*> threads;
+        pthread_t thread_conexiones;
+        bool cambiando_nivel = false;
         pthread_mutex_t mutex_desplazamiento;
+
 
         static void intercambiar_mensajes(Servidor* servidor);
 
 
     public:
         //Cosas de sockets
-        Servidor(std::string ip, int puerto);
+        Servidor(std::string ip, int puerto, std::string path_to_xml);
         ~Servidor();
         int aceptar_conexion();
         int recibir_mensaje(int sock_cliente);
         void enviar_mensaje(int sock_cliente);
         in_addr_t get_ip();
-        int bucle_send(mensaje_servidor_a_cliente_t* entidad, int socket);
+        int bucle_send(mensaje_servidor_a_cliente_t* entidad, int num_cliente);
 
         //Cosas de Threads
         int get_cantidad_de_conexiones();
+        static void aceptar_conexiones_thread(Servidor* servidor);
+        void set_aceptando_conexiones_false();
+        bool aceptando_conexiones;
 
         //Cosas de juego
         void iniciar_juego(std::string path_xml);

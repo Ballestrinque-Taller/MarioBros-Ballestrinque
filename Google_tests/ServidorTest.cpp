@@ -11,10 +11,11 @@ TEST(ServidorTest,test01GenerarConexionConElServidor){
     int sock = socket(AF_INET,SOCK_STREAM,0);
 
     sockaddr_in addr;
-    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000);
+    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000," ");
     addr.sin_addr.s_addr = servidor->get_ip();
     addr.sin_port = 5000;
     addr.sin_family = AF_INET;
+    servidor->set_aceptando_conexiones_false();
     int estadoConexion = connect(sock,(struct sockaddr *)&addr , sizeof(addr));
     int conexion_gen = servidor->aceptar_conexion();
     servidor->set_juego_iniciado();
@@ -32,12 +33,14 @@ TEST(ServidorTest,test02RecibirUnEventoEnElServidorYSeRecibeLaTotalidadDeBytes){
     int sock = socket(AF_INET,SOCK_STREAM,0);
 
     sockaddr_in addr;
-    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000);
+    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000, " ");
     addr.sin_addr.s_addr = servidor->get_ip();
     addr.sin_port = 5000;
     addr.sin_family = AF_INET;
     int estadoConexion = connect(sock,(struct sockaddr *)&addr , sizeof(addr));
-    int conexion_gen = servidor->aceptar_conexion();
+    //int conexion_gen = servidor->aceptar_conexion();
+    sleep(1);
+    servidor->set_aceptando_conexiones_false();
     send(sock, &mensaje, sizeof(mensaje), 0);
     int recibiendo_mensajes = servidor->recibir_mensaje(0);
     servidor->set_juego_iniciado();
@@ -50,12 +53,14 @@ TEST(ServidorTest,test02RecibirUnEventoEnElServidorYSeRecibeLaTotalidadDeBytes){
 TEST(ServidorTest,test03IntentoRecibirUnMensajeEnServidorQueNoHayYDevuelveNO_RECIBIENDO_MENSAJES){
     int sock = socket(AF_INET,SOCK_STREAM,0);
     sockaddr_in addr;
-    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000);
+    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000, " ");
     addr.sin_addr.s_addr = servidor->get_ip();
     addr.sin_port = 5000;
     addr.sin_family = AF_INET;
     int estadoConexion = connect(sock,(struct sockaddr *)&addr , sizeof(addr));
-    int conexion_gen = servidor->aceptar_conexion();
+    //int conexion_gen = servidor->aceptar_conexion();
+    sleep(1);
+    servidor->set_aceptando_conexiones_false();
     int recibiendo_mensajes = servidor->recibir_mensaje(0);
     servidor->set_juego_iniciado();
     delete(servidor);
@@ -67,13 +72,15 @@ TEST(ServidorTest,test03IntentoRecibirUnMensajeEnServidorQueNoHayYDevuelveNO_REC
 TEST(ServidorTest,test04IntentoRecibirUnMensajeEnServidorConUnSocketCerradoYDevuelveNO_RECIBIENDO_MENSAJES){
     int sock = socket(AF_INET,SOCK_STREAM,0);
     sockaddr_in addr;
-    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000);
+    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000, " ");
     addr.sin_addr.s_addr = servidor->get_ip();
     addr.sin_port = 5000;
     addr.sin_family = AF_INET;
     int estadoConexion = connect(sock,(struct sockaddr *)&addr , sizeof(addr));
-    int conexion_gen = servidor->aceptar_conexion();
+    //int conexion_gen = servidor->aceptar_conexion();
+    sleep(1);
     close(sock);
+    servidor->set_aceptando_conexiones_false();
     int recibiendo_mensajes = servidor->recibir_mensaje(0);
     servidor->set_juego_iniciado();
     delete(servidor);
@@ -84,7 +91,7 @@ TEST(ServidorTest,test04IntentoRecibirUnMensajeEnServidorConUnSocketCerradoYDevu
 
 TEST(ServidorTest, test05RealizamosMultiplesConexionesPermitidasYEstasSeConectan) {
     sockaddr_in addr[4];
-    Servidor *servidor = new Servidor(SERVIDOR_LOCAL, 5000);
+    Servidor *servidor = new Servidor(SERVIDOR_LOCAL, 5000, " ");
 
     int sock[4];
     for (int i = 0; i < 4; i++) {
@@ -93,8 +100,10 @@ TEST(ServidorTest, test05RealizamosMultiplesConexionesPermitidasYEstasSeConectan
         addr[i].sin_family = AF_INET;
         sock[i] = socket(AF_INET, SOCK_STREAM, 0);
         int estadoConexion = connect(sock[i], (struct sockaddr *) &(addr[i]), sizeof(addr));
-        int conexion_gen = servidor->aceptar_conexion();
+        //int conexion_gen = servidor->aceptar_conexion();
     }
+    sleep(1);
+    servidor->set_aceptando_conexiones_false();
     int cant_conex = servidor->get_cantidad_de_conexiones();
     servidor->set_juego_iniciado();
     delete (servidor);
@@ -105,9 +114,9 @@ TEST(ServidorTest, test05RealizamosMultiplesConexionesPermitidasYEstasSeConectan
     EXPECT_EQ(cant_conex,4);
 }
 
-TEST(ServidorTest, test06RealizamosMasDeLasConexionesPermitidasYLaNoPermitidaRetornaError){
+TEST(ServidorTest, test06RealizamosMasDeLasConexionesPermitidasYLaNoPermitidaRetornaJuegoIniciado){
     sockaddr_in addr[5];
-    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000);
+    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000, " ");
 
     int sock[5];
     for (int i=0; i<4; i++){
@@ -116,14 +125,15 @@ TEST(ServidorTest, test06RealizamosMasDeLasConexionesPermitidasYLaNoPermitidaRet
         addr[i].sin_family = AF_INET;
         sock[i] = socket(AF_INET,SOCK_STREAM,0);
         int estadoConexion = connect(sock[i],(struct sockaddr *)&(addr[i]) , sizeof(addr));
-        int conexion_gen = servidor->aceptar_conexion();
-        EXPECT_EQ(conexion_gen, 0);
+        //int conexion_gen = servidor->aceptar_conexion();
+        //EXPECT_EQ(conexion_gen, 0);
     }
     addr[4].sin_addr.s_addr = servidor->get_ip();
     addr[4].sin_port = 5000;
     addr[4].sin_family = AF_INET;
     sock[4] = socket(AF_INET,SOCK_STREAM,0);
     int estadoConexion = connect(sock[4],(struct sockaddr *)&(addr[4]) , sizeof(addr));
+    sleep(1);
     int conexion_gen = servidor->aceptar_conexion();
     servidor->set_juego_iniciado();
     delete(servidor);
@@ -131,12 +141,12 @@ TEST(ServidorTest, test06RealizamosMasDeLasConexionesPermitidasYLaNoPermitidaRet
         shutdown(sock[i], STOP_RECEPTION_AND_TRANSMISSION);
         close(sock[i]);
     }
-    EXPECT_EQ(conexion_gen, ERROR_SVR);
+    EXPECT_EQ(conexion_gen, JUEGO_INICIADO);
 }
 
 TEST(ServidorTest, test07RealizandoMasConexionesQueLasPermitidasSoloQuedan4Conectadas){
     sockaddr_in addr[5];
-    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000);
+    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000, " ");
 
     int sock[5];
     for (int i=0; i<4; i++){
@@ -145,14 +155,15 @@ TEST(ServidorTest, test07RealizandoMasConexionesQueLasPermitidasSoloQuedan4Conec
         addr[i].sin_family = AF_INET;
         sock[i] = socket(AF_INET,SOCK_STREAM,0);
         int estadoConexion = connect(sock[i],(struct sockaddr *)&(addr[i]) , sizeof(addr));
-        int conexion_gen = servidor->aceptar_conexion();
-        EXPECT_EQ(conexion_gen, 0);
+        //int conexion_gen = servidor->aceptar_conexion();
+        //EXPECT_EQ(conexion_gen, 0);
     }
     addr[4].sin_addr.s_addr = servidor->get_ip();
     addr[4].sin_port = 5000;
     addr[4].sin_family = AF_INET;
     sock[4] = socket(AF_INET,SOCK_STREAM,0);
     int estadoConexion = connect(sock[4],(struct sockaddr *)&(addr[4]) , sizeof(addr));
+    sleep(1);
     int conexion_gen = servidor->aceptar_conexion();
     int cantidad_conexiones = servidor->get_cantidad_de_conexiones();
     servidor->set_juego_iniciado();
@@ -164,23 +175,6 @@ TEST(ServidorTest, test07RealizandoMasConexionesQueLasPermitidasSoloQuedan4Conec
     EXPECT_EQ(cantidad_conexiones, MAX_CONEXIONES);
 }
 
-mensaje_servidor_a_cliente_t recibir_mensaje(int socket){
-    mensaje_servidor_a_cliente_t mensaje_recibido;
-    int total_bytes_recibidos = 0;
-    int bytes_struct = sizeof(mensaje_servidor_a_cliente_t);
-    char *buffer = (char *) malloc(bytes_struct);
-    while ((bytes_struct > total_bytes_recibidos)) {
-        total_bytes_recibidos += recv(socket, (buffer + total_bytes_recibidos), (bytes_struct - total_bytes_recibidos), 0);
-    }
-    //PROCESAMIENTO DEL MENSAJE
-    if (total_bytes_recibidos == bytes_struct) {
-        mensaje_recibido.entidad = ((mensaje_servidor_a_cliente_t *) buffer)->entidad;
-        mensaje_recibido.cantidad_entidades = ((mensaje_servidor_a_cliente_t *)buffer)->cantidad_entidades;
-        mensaje_recibido.num_nivel = ((mensaje_servidor_a_cliente_t *)buffer)->num_nivel;
-    }
-    free(buffer);
-}
-
 TEST(ServidorTest, test08AlEnviarUnMensajeSeEnviaCorrectamenteAlCliente){
     SDL_Rect rect;
     rect.h = 2; rect.w=3; rect.x = 4; rect.y = 5;
@@ -190,25 +184,40 @@ TEST(ServidorTest, test08AlEnviarUnMensajeSeEnviaCorrectamenteAlCliente){
     mensaje.entidad.src_rect = rect;
     mensaje.entidad.dest_rect = rect;
     mensaje.num_nivel = 1;
-    mensaje.entidad.path_textura = "Path_textura";
-    mensaje.entidad.default_path = "Default_path";
+    strcpy(mensaje.entidad.path_textura, "Path_textura");
+    strcpy(mensaje.entidad.default_path, "Default_path");
     mensaje.entidad.flip = SDL_FLIP_NONE;
 
     int sock = socket(AF_INET,SOCK_STREAM,0);
 
     sockaddr_in addr;
-    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5001);
+    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000, " ");
     addr.sin_addr.s_addr = servidor->get_ip();
-    addr.sin_port = 5001;
+    addr.sin_port = 5000;
     addr.sin_family = AF_INET;
     int estadoConexion = connect(sock,(struct sockaddr *)&addr , sizeof(addr));
-    int conexion_gen = servidor->aceptar_conexion();
+    //int conexion_gen = servidor->aceptar_conexion();
+    sleep(1);
+    servidor->set_aceptando_conexiones_false();
 
     int envio_bien = servidor->bucle_send(&mensaje,0);
 
     EXPECT_EQ(envio_bien, 0);
 
-    mensaje_recibido = recibir_mensaje(sock);
+    //RECIBIMOS EL MENSAJE
+    int total_bytes_recibidos = 0;
+    int bytes_struct = sizeof(mensaje_servidor_a_cliente_t);
+    char *buffer = (char *) malloc(bytes_struct);
+    while ((bytes_struct > total_bytes_recibidos)) {
+        total_bytes_recibidos += recv(sock, (buffer + total_bytes_recibidos), (bytes_struct - total_bytes_recibidos), 0);
+    }
+    //PROCESAMIENTO DEL MENSAJE
+    if (total_bytes_recibidos == bytes_struct) {
+        mensaje_recibido.entidad = ((mensaje_servidor_a_cliente_t *) buffer)->entidad;
+        mensaje_recibido.cantidad_entidades = ((mensaje_servidor_a_cliente_t *)buffer)->cantidad_entidades;
+        mensaje_recibido.num_nivel = ((mensaje_servidor_a_cliente_t *)buffer)->num_nivel;
+    }
+    free(buffer);
 
     servidor->set_juego_iniciado();
     shutdown(sock, STOP_RECEPTION_AND_TRANSMISSION);
