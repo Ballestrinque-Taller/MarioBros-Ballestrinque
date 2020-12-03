@@ -275,6 +275,8 @@ void Servidor::iniciar_juego(std::string path_xml){
 }
 
 void Servidor::finalizar_juego(){
+    std::cout<<"Juego Finalizado. Procediendo al cierre del servidor."<<std::endl;
+    LOG(Log::INFO)<<"Juego Finalizado. Cerrando el servidor."<<std::endl;
     juego_iniciado = false;
     LOG(Log::DEBUG) << "Finalizando juego" << std::endl;
     if (camara != nullptr)
