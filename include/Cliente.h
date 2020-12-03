@@ -42,6 +42,7 @@ class Cliente{
         pthread_t thread_render;
         int login(std::string ip, int puerto);
         bool render_iniciado = false;
+        pthread_mutex_t mutex_render;
 
     public:
         Cliente(std::string, int puerto);

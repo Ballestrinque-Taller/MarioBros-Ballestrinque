@@ -4,6 +4,8 @@
 #include "Renderer.h"
 #include "Camara.h"
 
+#define MAX_ACELERACION 8
+
 
 class Jugador: public Renderer{
     public:

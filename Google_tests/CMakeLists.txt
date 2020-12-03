@@ -4,7 +4,10 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 file(GLOB TEST_SRC "*.cpp")
 file(GLOB MARIO_SRC
-        "../src/*.cpp"
+        "../src/Background.cpp" "../src/Camara.cpp" "../src/Cliente.cpp" "../src/Dibujador.cpp" "../src/Enemigo.cpp" "../src/Escenario.cpp"
+        "../src/Goomba.cpp" "../src/Jugador.cpp" "../src/Ladrillo.cpp" "../src/LectorXML.cpp" "../src/Log.cpp" "../src/Logger.cpp"
+        "../src/Moneda.cpp" "../src/Renderer.cpp" "../src/Servidor.cpp" "../src/Sorpresa.cpp" "../src/Temporizador.cpp"
+        "../src/TextWriter.cpp" "../src/Tortuga.cpp"
         "../include/*.h"
         )
 add_executable(Google_Tests_run ${TEST_SRC} ${MARIO_SRC})

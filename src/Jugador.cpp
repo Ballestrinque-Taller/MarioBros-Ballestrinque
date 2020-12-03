@@ -5,7 +5,7 @@
 #define DERECHA 1
 #define IZQUIERDA -1
 
-#define MAX_ACELERACION 8
+
 #define MAX_CORRIDA 12
 #define TICK_ACELERACION 4
 #define DECAIMIENTO_ACEL_Y 1

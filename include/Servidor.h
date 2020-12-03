@@ -62,6 +62,7 @@ class Servidor{
         pthread_t thread_conexiones;
         bool cambiando_nivel = false;
         pthread_mutex_t mutex_desplazamiento;
+        pthread_mutex_t mutex_render;
 
 
         static void intercambiar_mensajes(Servidor* servidor);
@@ -81,6 +82,7 @@ class Servidor{
         int get_cantidad_de_conexiones();
         static void aceptar_conexiones_thread(Servidor* servidor);
         void set_aceptando_conexiones_false();
+        static void enviar_mensaje_thread(std::vector<void*>* parametros);
         bool aceptando_conexiones;
 
         //Cosas de juego

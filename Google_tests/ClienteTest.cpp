@@ -21,7 +21,6 @@ TEST(ClienteTest, test01AlRecibirUnMensajeDelServidorEsteSeRecibeBien){
 
     Servidor* servidor = new Servidor(SERVIDOR_LOCAL, 5000, " ");
     Cliente* cliente = new Cliente(SERVIDOR_LOCAL, 5000);
-    //servidor->aceptar_conexion();
     sleep(1);
     servidor->set_aceptando_conexiones_false();
     servidor->bucle_send(&mensaje, 0);
@@ -32,8 +31,8 @@ TEST(ClienteTest, test01AlRecibirUnMensajeDelServidorEsteSeRecibeBien){
     delete(servidor);
     delete(cliente);
 
-    EXPECT_EQ(entidad.path_textura, "Path_textura");
-    EXPECT_EQ(entidad.default_path, "Default_path");
+    EXPECT_EQ(strcmp(entidad.path_textura, "Path_textura"), 0);
+    EXPECT_EQ(strcmp(entidad.default_path, "Default_path"), 0);
     EXPECT_EQ(entidad.flip, SDL_FLIP_NONE);
     EXPECT_EQ(entidad.src_rect.h, 2); EXPECT_EQ(entidad.src_rect.w, 3);
     EXPECT_EQ(entidad.src_rect.x, 4); EXPECT_EQ(entidad.src_rect.y, 5);

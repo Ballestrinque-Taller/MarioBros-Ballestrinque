@@ -17,6 +17,7 @@ void Dibujador::crear_texturas(std::vector<entidad_t> entidades_a_texturizar, SD
     for (auto & textura : texturas){
         SDL_DestroyTexture(textura);
     }
+    texturas.clear();
     for (auto & entidad : entidades_a_texturizar){
         std::cout<<"Haciendo textura: "<<entidad.path_textura<<std::endl;
         SDL_Surface* surface = IMG_Load(entidad.path_textura);

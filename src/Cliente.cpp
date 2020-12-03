@@ -18,6 +18,7 @@ Cliente::Cliente(std::string ip, int puerto){
     }
     //mostrar_login();
     login(ip, puerto); //Se fleta cuando tengamos la UI porque lo va a enviar el boton
+    pthread_mutex_init(&mutex_render, nullptr);
 }
 
 int Cliente::login(std::string ip, int puerto){
@@ -89,8 +90,9 @@ void Cliente::bucle_juego(){
         render_iniciado = true;
         //CORRE EN UN THREAD INDEPENDIENTE AL RENDER QUE SE RALENTIZA A LOS FPS
         while (SDL_PollEvent(&evento) != 0) {
-            if (evento.type == SDL_QUIT)
+            if (evento.type == SDL_QUIT) {
                 quit = true;
+            }
             mensaje.evento = evento;
             enviar_evento_a_servidor(&mensaje);
         }
@@ -104,6 +106,7 @@ void Cliente::recibir_renders_del_servidor(){
     int cantidad_entidades_recibidas = 0;
     int cantidad_entidades_a_recibir = 1;
     bool recibiendo = true;
+    pthread_mutex_lock(&mutex_render);
     entidades.clear();
     while(cantidad_entidades_recibidas < cantidad_entidades_a_recibir) {
         char* buffer = (char*)malloc(bytes_struct);
@@ -122,9 +125,7 @@ void Cliente::recibir_renders_del_servidor(){
 
         //PROCESAMIENTO DEL MENSAJE
         if (total_bytes_recibidos == bytes_struct) {
-            int nivel = ((mensaje_servidor_a_cliente_t*)buffer)->num_nivel;
-
-            LOG(Log::DEBUG) << "Mensaje recibido. Bytes: " << total_bytes_recibidos << std::endl;
+            //LOG(Log::DEBUG) << "Mensaje recibido. Bytes: " << total_bytes_recibidos << std::endl;
             cantidad_entidades_recibidas++;
             entidades.push_back(((mensaje_servidor_a_cliente_t*)buffer)->entidad);
             if(cantidad_entidades_a_recibir == 1)
@@ -132,6 +133,7 @@ void Cliente::recibir_renders_del_servidor(){
             nivel_recibido = (((mensaje_servidor_a_cliente_t*)buffer)->num_nivel);
             total_bytes_recibidos = 0;
         }
+        pthread_mutex_unlock(&mutex_render);
         free(buffer);
     }
 }
@@ -147,10 +149,14 @@ void Cliente::render(){
         size_t frame_start = SDL_GetTicks();
         recibir_renders_del_servidor();
         if (nivel_recibido > nivel_actual && dibujador != nullptr) {
+            pthread_mutex_lock(&mutex_render);
             dibujador->crear_texturas(entidades, renderer);
+            pthread_mutex_unlock(&mutex_render);
             nivel_actual = nivel_recibido;
         }
+        pthread_mutex_lock(&mutex_render);
         dibujador->dibujar(entidades, renderer);
+        pthread_mutex_unlock(&mutex_render);
         size_t frame_time = SDL_GetTicks() - frame_start;
         if (FRAME_DELAY > frame_time)
             SDL_Delay(FRAME_DELAY - frame_time);

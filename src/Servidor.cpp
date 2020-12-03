@@ -95,9 +95,7 @@ void Servidor::enviar_mensaje(int num_cliente){
     int num_entidades = 0;
     Jugador* jugador_final = nullptr;
     std::vector<mensaje_servidor_a_cliente_t> mensajes;
-    while(cambiando_nivel){
-        sleep(2);
-    }
+    pthread_mutex_lock(&mutex_render);
     if (background != nullptr) {
         mensajes.push_back(obtener_mensaje(background));
         num_entidades++;
@@ -123,6 +121,7 @@ void Servidor::enviar_mensaje(int num_cliente){
     }
     if (jugador_final != nullptr)
         mensajes.push_back(obtener_mensaje(jugador_final));
+    pthread_mutex_unlock(&mutex_render);
     for (auto &mensaje : mensajes) {
         mensaje.cantidad_entidades = num_entidades;
         bucle_send(&mensaje, num_cliente);
@@ -161,14 +160,27 @@ mensaje_servidor_a_cliente_t Servidor::obtener_mensaje(Renderer* render){
 }
 
 void Servidor::intercambiar_mensajes(Servidor* servidor){
+    bool inicie_thread_enviar = false;
     int conexion = RECIBIENDO_MENSAJES;
     int cliente = servidor->get_cantidad_de_conexiones() - 1;
     size_t tiempo_sin_reconexion = 0;
     size_t primer_tiempo_sin_reconexion = 0;
 
+    pthread_t thread_enviar;
+    std::vector<void*> parametros_thread;
+    parametros_thread.push_back(servidor);
+    parametros_thread.push_back(&cliente);
+
+
     while(conexion == RECIBIENDO_MENSAJES || ((conexion == NO_RECIBIENDO_MENSAJES) && (tiempo_sin_reconexion < TIEMPO_MAX_SIN_CONEXION))) {
         if (servidor->juego_iniciado) {
-            servidor->enviar_mensaje(cliente);
+            if (!inicie_thread_enviar) {
+                pthread_create(&thread_enviar, nullptr, reinterpret_cast<void *(*)(void *)>(enviar_mensaje_thread),
+                               &parametros_thread);
+                inicie_thread_enviar = true;
+            }
+            //servidor->enviar_mensaje(cliente);
+            //El otro thread esta enviando
             conexion = servidor->recibir_mensaje(cliente);
             if (conexion == NO_RECIBIENDO_MENSAJES && primer_tiempo_sin_reconexion == 0) {
                 primer_tiempo_sin_reconexion = time(nullptr);
@@ -179,6 +191,18 @@ void Servidor::intercambiar_mensajes(Servidor* servidor){
             }
         }
     }
+    if (inicie_thread_enviar)
+        pthread_join(thread_enviar, nullptr);
+    pthread_exit(nullptr);
+}
+
+void Servidor:: enviar_mensaje_thread(std::vector<void*>* parametros){
+    Servidor* servidor = (Servidor*)((*parametros).at(0));
+    int cliente = (*(int*)((*parametros).at(1)));
+    while (servidor->juego_iniciado) {
+        servidor->enviar_mensaje(cliente);
+    }
+    pthread_exit(nullptr);
 }
 
 int Servidor::get_cantidad_de_conexiones(){
@@ -191,7 +215,7 @@ int Servidor::recibir_mensaje(int num_cliente){
     int bytes_struct = sizeof(mensaje_cliente_a_servidor_t);
     char* buffer = (char*)malloc(bytes_struct);
     bool recibiendo = true;
-    while((bytes_struct>total_bytes_recibidos) &&(recibiendo)) {
+    while((bytes_struct>total_bytes_recibidos) && (recibiendo)) {
         bytes_recibidos = recv(conexiones.at(num_cliente), (buffer + total_bytes_recibidos), (bytes_struct - total_bytes_recibidos), MSG_NOSIGNAL);
         if (bytes_recibidos < 0 && errno != TIMEOUT) {
             LOG(Log::ERROR) << "No se pudo recibir el mensaje. Error number: " << errno <<  std::endl;
@@ -208,13 +232,12 @@ int Servidor::recibir_mensaje(int num_cliente){
         if ((((mensaje_cliente_a_servidor_t *) buffer)->evento).type==SDL_QUIT)
             return EXIT_GAME;
         if(jugadores.size()>num_cliente) {
-            Jugador *jugador = jugadores.at(num_cliente);
             pthread_mutex_lock(&mutex_desplazamiento);
+            Jugador *jugador = jugadores.at(num_cliente);
             jugador->recibir_evento(((mensaje_cliente_a_servidor_t *) buffer)->evento);
             pthread_mutex_unlock(&mutex_desplazamiento);
         }
     }
-
     free(buffer);
     if(recibiendo)
         return RECIBIENDO_MENSAJES;
@@ -224,8 +247,10 @@ int Servidor::recibir_mensaje(int num_cliente){
 void Servidor::update() {
     //temporizador->update();
     for (auto & jugador : jugadores) {
+        pthread_mutex_lock(&mutex_desplazamiento);
         jugador->cambiar_frame(renderer, camara);
         jugador->desplazar();
+        pthread_mutex_unlock(&mutex_desplazamiento);
     }
     for (auto & enemigo : enemigos){
         enemigo->cambiar_frame(renderer, camara);
@@ -291,12 +316,14 @@ void Servidor::game_loop() {
         if(!quit) {
             nivel_actual++;
             cambiando_nivel = true;
+            pthread_mutex_lock(&mutex_render);
             camara->stop_scrolling();
             for (auto & jugador : jugadores)
                 jugador->reset_posicion();
             std::string nivel_str = (std::string("nivel")+std::to_string(nivel_actual));
             if (lectorXml->generar_nivel(&enemigos, &escenarios, &background, &temporizador, nivel_str) == QUIT)
                 quit = true;
+            pthread_mutex_unlock(&mutex_render);
             cambiando_nivel = false;
         }
     }
