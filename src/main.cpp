@@ -21,7 +21,7 @@ int main(int argc, char* argv[]){
     }
     else if (strcmp(argv[1], "s") == 0 && argc==5){
         SET_LOG_FILE(std::string("logfile_servidor.txt"))
-        Servidor* servidor = new Servidor(argv[2], atoi(argv[3]), argv[4]);
+        Servidor* servidor = new Servidor(argv[2], atoi(argv[3]));
         while(servidor->aceptando_conexiones){
 
         }

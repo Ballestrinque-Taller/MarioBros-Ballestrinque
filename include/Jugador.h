@@ -13,7 +13,7 @@ class Jugador: public Renderer{
         void acelerar_x(int direccion);
         void saltar();
         void desplazar();
-        void cambiar_frame(SDL_Renderer* renderer, Camara* camara) override;
+        void cambiar_frame(Camara* camara) override;
         void recibir_evento(SDL_Event evento);
         void agacharse();
         void reset_posicion();

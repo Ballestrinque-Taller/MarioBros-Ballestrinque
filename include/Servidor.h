@@ -34,7 +34,6 @@ class Servidor{
     private:
         //Cosas de Juego
         bool juego_iniciado = false;
-        TextWriter* nivel_label = nullptr;
         int nivel_actual;
         SDL_Window * ventana = nullptr;
         SDL_Renderer * renderer = nullptr;
@@ -60,7 +59,6 @@ class Servidor{
         //Cosas de Threads
         std::vector<pthread_t*> threads;
         pthread_t thread_conexiones;
-        bool cambiando_nivel = false;
         pthread_mutex_t mutex_desplazamiento;
         pthread_mutex_t mutex_render;
 
@@ -70,7 +68,7 @@ class Servidor{
 
     public:
         //Cosas de sockets
-        Servidor(std::string ip, int puerto, std::string path_to_xml);
+        Servidor(std::string ip, int puerto);
         ~Servidor();
         int aceptar_conexion();
         int recibir_mensaje(int sock_cliente);

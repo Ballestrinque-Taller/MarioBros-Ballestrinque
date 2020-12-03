@@ -10,13 +10,11 @@
 
 class Dibujador{
     public:
-        Dibujador(SDL_Renderer* renderer_sdl);
-        void dibujar(std::vector<entidad_t> entidades_a_dibujar, SDL_Renderer* renderer);
+        void dibujar(std::vector<entidad_t> entidades_a_dibujar, TextWriter* nivel_label, int nivel_actual, TextWriter* temporizador_label, int tiempo_restante, SDL_Renderer* renderer);
         void crear_texturas(std::vector<entidad_t> entidades_a_texturizar, SDL_Renderer* renderer);
         ~Dibujador();
 
     private:
-        //SDL_Renderer* renderer;
         std::vector<SDL_Texture*> texturas;
 };
 

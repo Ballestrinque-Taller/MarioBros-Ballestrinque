@@ -26,6 +26,7 @@ typedef struct mensaje_servidor_a_cliente{
     entidad_t entidad;
     int num_nivel;
     int cantidad_entidades;
+    int tiempo_restante;
 }mensaje_servidor_a_cliente_t;
 
 

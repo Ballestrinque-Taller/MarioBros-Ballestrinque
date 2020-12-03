@@ -10,8 +10,8 @@
 class Enemigo: public Renderer{
     public:
         Enemigo();
-        virtual ~Enemigo();
-        virtual void cambiar_frame(SDL_Renderer* renderer, Camara* camara){};
+        virtual ~Enemigo(){};
+        virtual void cambiar_frame(Camara* camara){};
         void desplazar();
         void cambiar_direccion();
 

@@ -11,7 +11,7 @@ TEST(ServidorTest,test01GenerarConexionConElServidor){
     int sock = socket(AF_INET,SOCK_STREAM,0);
 
     sockaddr_in addr;
-    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000," ");
+    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000);
     addr.sin_addr.s_addr = servidor->get_ip();
     addr.sin_port = 5000;
     addr.sin_family = AF_INET;
@@ -33,15 +33,16 @@ TEST(ServidorTest,test02RecibirUnEventoEnElServidorYSeRecibeLaTotalidadDeBytes){
     int sock = socket(AF_INET,SOCK_STREAM,0);
 
     sockaddr_in addr;
-    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000, " ");
+    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5001);
     addr.sin_addr.s_addr = servidor->get_ip();
-    addr.sin_port = 5000;
+    addr.sin_port = 5001;
     addr.sin_family = AF_INET;
     int estadoConexion = connect(sock,(struct sockaddr *)&addr , sizeof(addr));
     //int conexion_gen = servidor->aceptar_conexion();
     sleep(1);
     servidor->set_aceptando_conexiones_false();
     send(sock, &mensaje, sizeof(mensaje), 0);
+    sleep(1);
     int recibiendo_mensajes = servidor->recibir_mensaje(0);
     servidor->set_juego_iniciado();
     delete(servidor);
@@ -54,7 +55,7 @@ TEST(ServidorTest,test02RecibirUnEventoEnElServidorYSeRecibeLaTotalidadDeBytes){
 TEST(ServidorTest,test03IntentoRecibirUnMensajeEnServidorQueNoHayYDevuelveNO_RECIBIENDO_MENSAJES){
     int sock = socket(AF_INET,SOCK_STREAM,0);
     sockaddr_in addr;
-    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000, " ");
+    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5002);
     addr.sin_addr.s_addr = servidor->get_ip();
     addr.sin_port = 5000;
     addr.sin_family = AF_INET;
@@ -73,9 +74,9 @@ TEST(ServidorTest,test03IntentoRecibirUnMensajeEnServidorQueNoHayYDevuelveNO_REC
 TEST(ServidorTest,test04IntentoRecibirUnMensajeEnServidorConUnSocketCerradoYDevuelveNO_RECIBIENDO_MENSAJES){
     int sock = socket(AF_INET,SOCK_STREAM,0);
     sockaddr_in addr;
-    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000, " ");
+    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5003);
     addr.sin_addr.s_addr = servidor->get_ip();
-    addr.sin_port = 5000;
+    addr.sin_port = 5003;
     addr.sin_family = AF_INET;
     int estadoConexion = connect(sock,(struct sockaddr *)&addr , sizeof(addr));
     //int conexion_gen = servidor->aceptar_conexion();
@@ -92,12 +93,12 @@ TEST(ServidorTest,test04IntentoRecibirUnMensajeEnServidorConUnSocketCerradoYDevu
 
 TEST(ServidorTest, test05RealizamosMultiplesConexionesPermitidasYEstasSeConectan) {
     sockaddr_in addr[MAX_CONEXIONES];
-    Servidor *servidor = new Servidor(SERVIDOR_LOCAL, 5000, " ");
+    Servidor *servidor = new Servidor(SERVIDOR_LOCAL, 5004);
 
     int sock[MAX_CONEXIONES];
     for (int i = 0; i < MAX_CONEXIONES; i++) {
         addr[i].sin_addr.s_addr = servidor->get_ip();
-        addr[i].sin_port = 5000;
+        addr[i].sin_port = 5004;
         addr[i].sin_family = AF_INET;
         sock[i] = socket(AF_INET, SOCK_STREAM, 0);
         int estadoConexion = connect(sock[i], (struct sockaddr *) &(addr[i]), sizeof(addr));
@@ -117,22 +118,22 @@ TEST(ServidorTest, test05RealizamosMultiplesConexionesPermitidasYEstasSeConectan
 
 TEST(ServidorTest, test06RealizamosMasDeLasConexionesPermitidasYLaNoPermitidaRetornaJuegoIniciado){
     sockaddr_in addr[MAX_CONEXIONES+1];
-    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000, " ");
+    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5005);
 
     int sock[MAX_CONEXIONES+1];
     for (int i=0; i<MAX_CONEXIONES; i++){
         addr[i].sin_addr.s_addr = servidor->get_ip();
-        addr[i].sin_port = 5000;
+        addr[i].sin_port = 5005;
         addr[i].sin_family = AF_INET;
         sock[i] = socket(AF_INET,SOCK_STREAM,0);
         int estadoConexion = connect(sock[i],(struct sockaddr *)&(addr[i]) , sizeof(addr));
-        //int conexion_gen = servidor->aceptar_conexion();
-        //EXPECT_EQ(conexion_gen, 0);
+        sleep(1);
     }
     addr[MAX_CONEXIONES].sin_addr.s_addr = servidor->get_ip();
-    addr[MAX_CONEXIONES].sin_port = 5000;
+    addr[MAX_CONEXIONES].sin_port = 5005;
     addr[MAX_CONEXIONES].sin_family = AF_INET;
     sock[MAX_CONEXIONES] = socket(AF_INET,SOCK_STREAM,0);
+    servidor->set_aceptando_conexiones_false();
     int estadoConexion = connect(sock[MAX_CONEXIONES],(struct sockaddr *)&(addr[MAX_CONEXIONES]) , sizeof(addr));
     sleep(1);
     int conexion_gen = servidor->aceptar_conexion();
@@ -147,20 +148,21 @@ TEST(ServidorTest, test06RealizamosMasDeLasConexionesPermitidasYLaNoPermitidaRet
 
 TEST(ServidorTest, test07RealizandoMasConexionesQueLasPermitidasSoloQuedan4Conectadas){
     sockaddr_in addr[MAX_CONEXIONES+1];
-    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000, " ");
+    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5006);
 
     int sock[MAX_CONEXIONES+1];
     for (int i=0; i<MAX_CONEXIONES; i++){
         addr[i].sin_addr.s_addr = servidor->get_ip();
-        addr[i].sin_port = 5000;
+        addr[i].sin_port = 5006;
         addr[i].sin_family = AF_INET;
         sock[i] = socket(AF_INET,SOCK_STREAM,0);
         int estadoConexion = connect(sock[i],(struct sockaddr *)&(addr[i]) , sizeof(addr));
         //int conexion_gen = servidor->aceptar_conexion();
         //EXPECT_EQ(conexion_gen, 0);
+        sleep(1);
     }
     addr[MAX_CONEXIONES+1].sin_addr.s_addr = servidor->get_ip();
-    addr[MAX_CONEXIONES+1].sin_port = 5000;
+    addr[MAX_CONEXIONES+1].sin_port = 5006;
     addr[MAX_CONEXIONES+1].sin_family = AF_INET;
     sock[MAX_CONEXIONES+1] = socket(AF_INET,SOCK_STREAM,0);
     int estadoConexion = connect(sock[MAX_CONEXIONES],(struct sockaddr *)&(addr[MAX_CONEXIONES]) , sizeof(addr));
@@ -188,13 +190,14 @@ TEST(ServidorTest, test08AlEnviarUnMensajeSeEnviaCorrectamenteAlCliente){
     strcpy(mensaje.entidad.path_textura, "Path_textura");
     strcpy(mensaje.entidad.default_path, "Default_path");
     mensaje.entidad.flip = SDL_FLIP_NONE;
+    mensaje.tiempo_restante = 10;
 
     int sock = socket(AF_INET,SOCK_STREAM,0);
 
     sockaddr_in addr;
-    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5000, " ");
+    Servidor* servidor = new Servidor(SERVIDOR_LOCAL,5007);
     addr.sin_addr.s_addr = servidor->get_ip();
-    addr.sin_port = 5000;
+    addr.sin_port = 5007;
     addr.sin_family = AF_INET;
     int estadoConexion = connect(sock,(struct sockaddr *)&addr , sizeof(addr));
     //int conexion_gen = servidor->aceptar_conexion();
@@ -209,6 +212,7 @@ TEST(ServidorTest, test08AlEnviarUnMensajeSeEnviaCorrectamenteAlCliente){
     int total_bytes_recibidos = 0;
     int bytes_struct = sizeof(mensaje_servidor_a_cliente_t);
     char *buffer = (char *) malloc(bytes_struct);
+    sleep(1);
     while ((bytes_struct > total_bytes_recibidos)) {
         total_bytes_recibidos += recv(sock, (buffer + total_bytes_recibidos), (bytes_struct - total_bytes_recibidos), MSG_NOSIGNAL);
     }
@@ -218,6 +222,7 @@ TEST(ServidorTest, test08AlEnviarUnMensajeSeEnviaCorrectamenteAlCliente){
         mensaje_recibido.entidad = ((mensaje_servidor_a_cliente_t *) buffer)->entidad;
         mensaje_recibido.cantidad_entidades = ((mensaje_servidor_a_cliente_t *)buffer)->cantidad_entidades;
         mensaje_recibido.num_nivel = ((mensaje_servidor_a_cliente_t *)buffer)->num_nivel;
+        mensaje_recibido.tiempo_restante =((mensaje_servidor_a_cliente_t*)buffer)->tiempo_restante;
     }
     free(buffer);
 
@@ -239,5 +244,6 @@ TEST(ServidorTest, test08AlEnviarUnMensajeSeEnviaCorrectamenteAlCliente){
     EXPECT_EQ(mensaje_recibido.entidad.flip, SDL_FLIP_NONE);
     EXPECT_EQ(strcmp(mensaje_recibido.entidad.default_path, "Default_path"), 0);
     EXPECT_EQ(strcmp(mensaje_recibido.entidad.path_textura, "Path_textura"), 0);
+    EXPECT_EQ(mensaje_recibido.tiempo_restante, 10);
 }
 

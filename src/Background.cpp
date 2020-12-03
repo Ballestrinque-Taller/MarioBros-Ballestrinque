@@ -22,14 +22,10 @@ Background::Background(std::string path, int ancho, int alto){
 }
 
 
-void Background::scroll(int velocidad_scroll, SDL_Renderer* renderer){
-    if (!renderizado){
-        renderizar(renderer);
-    }
+void Background::scroll(int velocidad_scroll){
     float ancho_imagen_en_pantalla = alto_imagen*4/3;
     pos_x_actual += velocidad_scroll*ancho_imagen_en_pantalla/WIDTH;
     set_src_rect(pos_x_actual, POS_Y, alto_imagen, alto_imagen*4/3);
-    SDL_RenderCopyEx(renderer, texturas.textura, &(frames_render.src_rect), &(frames_render.dest_rect), 0, NULL, texturas.flip);
 }
 
 bool Background::es_fin_nivel(){

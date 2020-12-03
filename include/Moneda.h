@@ -9,7 +9,7 @@
 class Moneda: public Escenario{
     public:
         Moneda(int pos_x, int pos_y, std::string path);
-        void cambiar_frame(SDL_Renderer* renderer, Camara* camara) override;
+        void cambiar_frame(Camara* camara) override;
     private:
         int tick_actual = 0;
 };

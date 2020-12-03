@@ -85,7 +85,7 @@ void Cliente::bucle_juego(){
     SDL_Event evento;
     mensaje_cliente_a_servidor_t mensaje;
     pthread_create(&thread_render, nullptr, reinterpret_cast<void *(*)(void *)>(Cliente::render_thread), this);
-
+    LOG(Log::INFO)<<"Iniciando Bucle de Juego."<<std::endl;
     while (!quit){
         render_iniciado = true;
         //CORRE EN UN THREAD INDEPENDIENTE AL RENDER QUE SE RALENTIZA A LOS FPS
@@ -131,6 +131,7 @@ void Cliente::recibir_renders_del_servidor(){
             if(cantidad_entidades_a_recibir == 1)
                 cantidad_entidades_a_recibir = ((mensaje_servidor_a_cliente_t *) buffer)->cantidad_entidades;
             nivel_recibido = (((mensaje_servidor_a_cliente_t*)buffer)->num_nivel);
+            tiempo_restante_timer = (((mensaje_servidor_a_cliente_t*)buffer)->tiempo_restante);
             total_bytes_recibidos = 0;
         }
         pthread_mutex_unlock(&mutex_render);
@@ -144,18 +145,26 @@ void Cliente::render_thread(Cliente* cliente){
 
 void Cliente::render(){
     inicializar_ventana();
-    dibujador = new Dibujador(renderer);
+    dibujador = new Dibujador();
     while(!quit) {
         size_t frame_start = SDL_GetTicks();
         recibir_renders_del_servidor();
         if (nivel_recibido > nivel_actual && dibujador != nullptr) {
+            if (nivel_label != nullptr)
+                delete(nivel_label);
+            if (temporizador_label != nullptr)
+                delete(temporizador_label);
+            nivel_label = new TextWriter();
+            temporizador_label = new TextWriter();
+            nivel_label->set_msg_rect(POS_X_TEXTO-WIDTH_TEXTO, POS_Y_TEXTO, HEIGHT_TEXTO, WIDTH_TEXTO);
+            temporizador_label->set_msg_rect(POS_X_TEMP,POS_Y_TEMP,HEIGHT_MSG_TEMP,WIDTH_MSG_TEMP);
             pthread_mutex_lock(&mutex_render);
             dibujador->crear_texturas(entidades, renderer);
             pthread_mutex_unlock(&mutex_render);
             nivel_actual = nivel_recibido;
         }
         pthread_mutex_lock(&mutex_render);
-        dibujador->dibujar(entidades, renderer);
+        dibujador->dibujar(entidades, nivel_label, nivel_actual, temporizador_label, tiempo_restante_timer, renderer);
         pthread_mutex_unlock(&mutex_render);
         size_t frame_time = SDL_GetTicks() - frame_start;
         if (FRAME_DELAY > frame_time)
@@ -164,7 +173,10 @@ void Cliente::render(){
 }
 
 Cliente::~Cliente(){
-    delete(dibujador);
+    if (dibujador != nullptr)
+        delete(dibujador);
+    if (nivel_label != nullptr)
+        delete(nivel_label);
     if (render_iniciado) {
         pthread_cancel(thread_render);
         pthread_join(thread_render, nullptr);

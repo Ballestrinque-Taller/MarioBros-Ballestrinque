@@ -337,7 +337,7 @@ int LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escena
     return PASO;
 }
 
-bool LectorXML::generar_jugador(std::vector<Jugador*>* jugadores){
+bool LectorXML::generar_jugador(std::vector<Jugador*>* jugadores, int cant_jugadores){
 
     xml_node<>* nodo_de_jugadores = documento.first_node()->first_node("jugadores");
     if (nodo_de_jugadores == nullptr){
@@ -345,10 +345,13 @@ bool LectorXML::generar_jugador(std::vector<Jugador*>* jugadores){
          return false;
     }
     else{
-        LOG(Log::INFO) << "Leyendo jugador #"<<(jugadores->size()+1)<<std::endl;
-        std::string jugador = std::string("jugador")+std::to_string((jugadores->size()+1));
-        std::string path_imagen = nodo_de_jugadores->first_node()->first_attribute()->value();
-        jugadores->push_back(new Jugador(path_imagen));
+        LOG (Log::INFO) << "Cantidad de jugadores a generar: " << cant_jugadores << std::endl;
+        for (int i=0; i<cant_jugadores; i++) {
+            LOG(Log::INFO) << "Leyendo jugador #" << (jugadores->size() + 1) << std::endl;
+            std::string jugador = std::string("jugador") + std::to_string((jugadores->size() + 1));
+            std::string path_imagen = nodo_de_jugadores->first_node(jugador.c_str())->first_attribute()->value();
+            jugadores->push_back(new Jugador(path_imagen));
+        }
         return true;
     }
 }

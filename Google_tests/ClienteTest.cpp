@@ -19,7 +19,7 @@ TEST(ClienteTest, test01AlRecibirUnMensajeDelServidorEsteSeRecibeBien){
     strcpy(mensaje.entidad.default_path, "Default_path");
     mensaje.entidad.flip = SDL_FLIP_NONE;
 
-    Servidor* servidor = new Servidor(SERVIDOR_LOCAL, 5000, " ");
+    Servidor* servidor = new Servidor(SERVIDOR_LOCAL, 5000);
     Cliente* cliente = new Cliente(SERVIDOR_LOCAL, 5000);
     sleep(1);
     servidor->set_aceptando_conexiones_false();

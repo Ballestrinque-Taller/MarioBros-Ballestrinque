@@ -1,15 +1,13 @@
 #include <Log.h>
 #include "Dibujador.h"
 
-Dibujador::Dibujador(SDL_Renderer* renderer_sdl){
-    //this->renderer = renderer_sdl;
-}
-
-void Dibujador::dibujar(std::vector<entidad_t> entidades_a_dibujar, SDL_Renderer* renderer){
+void Dibujador::dibujar(std::vector<entidad_t> entidades_a_dibujar, TextWriter* nivel_label, int nivel_actual, TextWriter* temporizador_label, int tiempo_restante, SDL_Renderer* renderer){
     SDL_RenderClear(renderer);
     for (int i=0;i<=entidades_a_dibujar.size()-1;i++){
         SDL_RenderCopyEx(renderer, texturas.at(i), &(entidades_a_dibujar.at(i).src_rect), &(entidades_a_dibujar.at(i).dest_rect), 0, nullptr, entidades_a_dibujar.at(i).flip);
     }
+    nivel_label->write_text((std::string("Nivel ") + std::to_string(nivel_actual)).c_str(), renderer);
+    temporizador_label->write_text((std::string("TIME ")+std::to_string(tiempo_restante)).c_str(), renderer);
     SDL_RenderPresent(renderer);
 }
 

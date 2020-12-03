@@ -9,27 +9,24 @@
 #define HEIGHT_MSG  30
 
 Temporizador :: Temporizador(size_t tiempo_duracion_nivel){
-    tiempo_inicial = SDL_GetTicks();
+    tiempo_inicial = time(nullptr);
     tiempo_restante = tiempo_duracion_nivel;
     tiempo_parametro = tiempo_duracion_nivel;
     set_msg_rect(POS_X,POS_Y,HEIGHT_MSG,WIDTH_MSG);
 }
 
 void Temporizador::reiniciar(size_t tiempo){
-    tiempo_inicial = SDL_GetTicks();
+    tiempo_inicial = time(nullptr);
     tiempo_restante = tiempo;
     tiempo_parametro = tiempo;
 }
 
 void Temporizador :: update(){
-    size_t tiempo_actual = SDL_GetTicks();
+    size_t tiempo_actual = time(nullptr);
     size_t diferencia_de_tiempo =  tiempo_actual - tiempo_inicial;
-    tiempo_restante = tiempo_parametro - diferencia_de_tiempo/1000;
+    tiempo_restante = tiempo_parametro - diferencia_de_tiempo;
 }
 
-void Temporizador::render(SDL_Renderer* renderer){
-    TextWriter::write_text((std::string("TIME ")+std::to_string(tiempo_restante)).c_str(), renderer);
-}
-
-Temporizador::~Temporizador(){
+int Temporizador :: get_tiempo_restante(){
+    return tiempo_restante;
 }

@@ -12,7 +12,7 @@
 class Ladrillo: public Escenario{
     public:
         Ladrillo(int pos_x, int pos_y, std::string path);
-        void cambiar_frame(SDL_Renderer* renderer, Camara* camara) override;
+        void cambiar_frame(Camara* camara) override;
 };
 
 #endif //MARIOBROS_BALLESTRINQUE_LADRILLO_H

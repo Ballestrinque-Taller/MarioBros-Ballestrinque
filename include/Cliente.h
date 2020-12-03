@@ -19,7 +19,7 @@
 #define DERECHA 1
 #define IZQUIERDA -1
 
-#define FPS 30
+#define FPS 60
 #define FRAME_DELAY 1000/FPS
 
 #define POS_X_TEXTO 800
@@ -27,8 +27,16 @@
 #define HEIGHT_TEXTO 30
 #define WIDTH_TEXTO 90
 
+#define POS_X_TEMP 0
+#define POS_Y_TEMP 0
+#define WIDTH_MSG_TEMP 90
+#define HEIGHT_MSG_TEMP  30
+
 class Cliente{
     private:
+        int tiempo_restante_timer = 0;
+        TextWriter* nivel_label = nullptr;
+        TextWriter* temporizador_label = nullptr;
         int socket_cliente;
         int nivel_recibido;
         int nivel_actual=0;

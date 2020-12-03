@@ -23,10 +23,7 @@ Moneda::Moneda(int pos_x, int pos_y, std::string path): Escenario(){
     default_path = ("./res/Moneda_default.png");
 }
 
-void Moneda::cambiar_frame(SDL_Renderer* renderer, Camara* camara){
-    if (!renderizado){
-        renderizar(renderer);
-    }
+void Moneda::cambiar_frame(Camara* camara){
     tick_actual++;
     if(tick_actual>MAXIMO_TICKS){
         tick_actual = 0;
@@ -39,5 +36,4 @@ void Moneda::cambiar_frame(SDL_Renderer* renderer, Camara* camara){
     }
     set_src_rect(frame_actual*ANCHO_FRAME,0,ALTO_FRAME,ANCHO_FRAME);
     camara->acomodar_a_imagen(this);
-    SDL_RenderCopyEx(renderer, texturas.textura, &(frames_render.src_rect), &(frames_render.dest_rect), 0, NULL, texturas.flip);
 }

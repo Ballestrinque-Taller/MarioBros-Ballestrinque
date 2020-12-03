@@ -3,8 +3,6 @@
 #include "Mensajes.h"
 #include <arpa/inet.h>
 
-
-
 #define ERROR_JUEGO -1
 
 #define ANCHO_VENTANA 800
@@ -16,17 +14,12 @@
 #define FPS 60
 #define FRAME_DELAY 1000/FPS
 
-#define POS_X_TEXTO 800
-#define POS_Y_TEXTO 0
-#define HEIGHT_TEXTO 30
-#define WIDTH_TEXTO 90
-
 #define TIMEOUT 11
 
 #define STOP_RECEPTION_AND_TRANSMISSION 2
 
 
-Servidor::Servidor(std::string ip, int puerto, std::string path_to_xml){
+Servidor::Servidor(std::string ip, int puerto){
     SET_LOGGING_LEVEL(Log::DEBUG);
     socket_svr = socket(AF_INET,SOCK_STREAM,0);
     if (socket_svr == ERROR_SVR){
@@ -126,6 +119,7 @@ void Servidor::enviar_mensaje(int num_cliente){
         mensaje.cantidad_entidades = num_entidades;
         bucle_send(&mensaje, num_cliente);
     }
+    usleep(17000);
 }
 
 int Servidor::bucle_send(mensaje_servidor_a_cliente_t* mensaje_ptr, int num_cliente){
@@ -156,6 +150,7 @@ mensaje_servidor_a_cliente_t Servidor::obtener_mensaje(Renderer* render){
     mensaje.entidad.src_rect = render->get_src_rect();
     mensaje.entidad.flip = render->get_flip();
     mensaje.num_nivel = nivel_actual;
+    mensaje.tiempo_restante = temporizador->get_tiempo_restante();
     return mensaje;
 }
 
@@ -245,21 +240,21 @@ int Servidor::recibir_mensaje(int num_cliente){
 }
 
 void Servidor::update() {
-    //temporizador->update();
+    temporizador->update();
     for (auto & jugador : jugadores) {
         pthread_mutex_lock(&mutex_desplazamiento);
-        jugador->cambiar_frame(renderer, camara);
+        jugador->cambiar_frame(camara);
         jugador->desplazar();
         pthread_mutex_unlock(&mutex_desplazamiento);
     }
     for (auto & enemigo : enemigos){
-        enemigo->cambiar_frame(renderer, camara);
+        enemigo->cambiar_frame(camara);
         enemigo->desplazar();
     }
     for (auto & escenario: escenarios){
-        escenario->cambiar_frame(renderer, camara);
+        escenario->cambiar_frame(camara);
     }
-    camara->scroll_background(background, renderer);
+    camara->scroll_background(background);
     usleep(15000);
 }
 
@@ -271,11 +266,10 @@ void Servidor::iniciar_juego(std::string path_xml){
         lectorXml->set_default();
         lectorXml->generar_nivel(&enemigos,&escenarios, &background, &temporizador, std::string("nivel1"));
     }
-    lectorXml->generar_jugador(&jugadores);
+    lectorXml->generar_jugador(&jugadores, conexiones.size());
 
     nivel_actual = 1;
-    //nivel_label = new TextWriter();
-    //nivel_label->set_msg_rect(POS_X_TEXTO-WIDTH_TEXTO, POS_Y_TEXTO, HEIGHT_TEXTO, WIDTH_TEXTO);
+
     juego_iniciado=true;
     game_loop();
 }
@@ -315,7 +309,6 @@ void Servidor::game_loop() {
         }
         if(!quit) {
             nivel_actual++;
-            cambiando_nivel = true;
             pthread_mutex_lock(&mutex_render);
             camara->stop_scrolling();
             for (auto & jugador : jugadores)
@@ -324,7 +317,6 @@ void Servidor::game_loop() {
             if (lectorXml->generar_nivel(&enemigos, &escenarios, &background, &temporizador, nivel_str) == QUIT)
                 quit = true;
             pthread_mutex_unlock(&mutex_render);
-            cambiando_nivel = false;
         }
     }
     finalizar_juego();

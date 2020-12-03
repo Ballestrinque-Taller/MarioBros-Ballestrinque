@@ -10,10 +10,9 @@ class Temporizador: public TextWriter{
 
 public:
     Temporizador(size_t tiempo_duracion);
-    ~Temporizador();
     void reiniciar(size_t tiempo);
     void update();
-    void render(SDL_Renderer* renderer);
+    int get_tiempo_restante();
 
 
 private:

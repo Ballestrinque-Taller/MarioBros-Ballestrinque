@@ -13,7 +13,7 @@ class Camara {
         Camara();
         void check_movimiento(Renderer* renderizado, int aceleracion_jugador);
         void acomodar_a_imagen(Renderer* renderizado);
-        void scroll_background(Background* background, SDL_Renderer* renderer);
+        void scroll_background(Background* background);
         void stop_scrolling();
 };
 

@@ -17,10 +17,6 @@ Ladrillo::Ladrillo(int pos_x, int pos_y, std::string path): Escenario(){
     default_path = ("./res/Ladrillo_default.png");
 }
 
-void Ladrillo::cambiar_frame(SDL_Renderer* renderer, Camara* camara){
-    if (!renderizado){
-        renderizar(renderer);
-    }
+void Ladrillo::cambiar_frame(Camara* camara){
     camara->acomodar_a_imagen(this);
-    SDL_RenderCopyEx(renderer, texturas.textura, &(frames_render.src_rect), &(frames_render.dest_rect), 0, NULL, texturas.flip);
 }
