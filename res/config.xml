@@ -1,7 +1,7 @@
 <config>
     <log nivel="INFO">
     </log>
-    <jugadores cantidad = "2">
+    <jugadores cantidad = "3">
         <jugador1 path="./res/MARIO_NORMAL.png">
         </jugador1>
         <jugador2 path="./res/LUIGI.png">
