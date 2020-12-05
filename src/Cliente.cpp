@@ -167,8 +167,9 @@ void Cliente::render(){
         dibujador->dibujar(entidades, nivel_label, nivel_actual, temporizador_label, tiempo_restante_timer, renderer);
         pthread_mutex_unlock(&mutex_render);
         size_t frame_time = SDL_GetTicks() - frame_start;
-        if (FRAME_DELAY > frame_time)
+        /*if (FRAME_DELAY > frame_time)
             SDL_Delay(FRAME_DELAY - frame_time);
+        */
     }
 }
 

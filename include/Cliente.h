@@ -19,7 +19,7 @@
 #define DERECHA 1
 #define IZQUIERDA -1
 
-#define FPS 60
+#define FPS 30
 #define FRAME_DELAY 1000/FPS
 
 #define POS_X_TEXTO 800
