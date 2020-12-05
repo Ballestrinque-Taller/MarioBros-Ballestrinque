@@ -27,10 +27,12 @@ class LectorXML{
         LectorXML(std::string path_to_xml);
         int generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, Background** background, Temporizador** temporizador, std::string nivel);
         void free_archivo();
-        bool generar_jugador(std::vector<Jugador*>* jugadores, int cant_jugadores);
+        bool generar_jugador(std::vector<Jugador*>* jugadores);
+        int get_cantidad_jugadores();
         void set_default();
 
    private:
+        int cant_jugadores = 0;
         xml_document<> documento;
         int ancho_ajustado;
         std::string archivo_data;

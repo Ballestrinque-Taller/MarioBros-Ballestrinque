@@ -19,7 +19,8 @@
 #define STOP_RECEPTION_AND_TRANSMISSION 2
 
 
-Servidor::Servidor(std::string ip, int puerto){
+Servidor::Servidor(std::string ip, int puerto, std::string path_xml){
+    lectorXml = new LectorXML(path_xml);
     SET_LOGGING_LEVEL(Log::DEBUG);
     socket_svr = socket(AF_INET,SOCK_STREAM,0);
     if (socket_svr == ERROR_SVR){
@@ -42,18 +43,21 @@ Servidor::Servidor(std::string ip, int puerto){
         LOG(Log::ERROR)<<"No se pudo bindear el socket. errno: "<<errno<<std::endl;
         exit(ERROR_SVR);
     }
-    if(listen(socket_svr, MAX_CONEXIONES) == ERROR_SVR){
+    if(listen(socket_svr, lectorXml->get_cantidad_jugadores()) == ERROR_SVR){
         LOG(Log::ERROR)<<"No se pudo poner a escuchar al socket."<<std::endl;
         exit(ERROR_SVR);
+    }
+    while((float)FPS/1000*delay_envio_render_ms<(float)1){
+        delay_envio_render_ms++;
     }
     pthread_mutex_init(&mutex_desplazamiento, nullptr);
     pthread_create(&thread_conexiones, nullptr, reinterpret_cast<void *(*)(void *)>(aceptar_conexiones_thread), this);
     aceptando_conexiones = true;
-    std::cout<<"Servidor Generado. IP: "<<ip << ", Puerto: "<<puerto<<". Cantidad MAX Jugadores: "<< MAX_CONEXIONES<<std::endl;
+    std::cout << "Servidor Generado. IP: " << ip << ", Puerto: " << puerto << ". Cantidad MAX Jugadores: " << lectorXml->get_cantidad_jugadores() << std::endl;
 }
 
 void Servidor::aceptar_conexiones_thread(Servidor* servidor){
-    while (servidor->get_cantidad_de_conexiones() < MAX_CONEXIONES && servidor->aceptando_conexiones) {
+    while (servidor->get_cantidad_de_conexiones() < servidor->get_cantidad_jugadores() && servidor->aceptando_conexiones) {
         int retorno = servidor->aceptar_conexion();
         if (retorno == JUEGO_INICIADO || retorno == ERROR_SVR) {
             break;
@@ -68,7 +72,7 @@ void Servidor::set_aceptando_conexiones_false() {
 }
 
 int Servidor::aceptar_conexion(){
-    if(conexiones.size() == MAX_CONEXIONES) {
+    if(conexiones.size() == lectorXml->get_cantidad_jugadores()) {
         return JUEGO_INICIADO;
     }
     conexiones.push_back(accept(socket_svr, nullptr, nullptr));
@@ -119,7 +123,7 @@ void Servidor::enviar_mensaje(int num_cliente){
         mensaje.cantidad_entidades = num_entidades;
         bucle_send(&mensaje, num_cliente);
     }
-    usleep(17000);
+    usleep(delay_envio_render_ms*1000);
 }
 
 int Servidor::bucle_send(mensaje_servidor_a_cliente_t* mensaje_ptr, int num_cliente){
@@ -258,15 +262,14 @@ void Servidor::update() {
     usleep(15000);
 }
 
-void Servidor::iniciar_juego(std::string path_xml){
+void Servidor::iniciar_juego(){
     std::cout << "Iniciando juego..."<< std::endl;
     camara = new Camara();
-    lectorXml = new LectorXML(path_xml);
     if (lectorXml->generar_nivel(&enemigos,&escenarios, &background, &temporizador, std::string("nivel1")) == ERROR_XML){
         lectorXml->set_default();
         lectorXml->generar_nivel(&enemigos,&escenarios, &background, &temporizador, std::string("nivel1"));
     }
-    lectorXml->generar_jugador(&jugadores, conexiones.size());
+    lectorXml->generar_jugador(&jugadores);
 
     nivel_actual = 1;
 
@@ -350,5 +353,9 @@ void Servidor::set_juego_iniciado(){
 
 int Servidor::get_socket(){
     return socket_svr;
+}
+
+int Servidor::get_cantidad_jugadores(){
+    return lectorXml->get_cantidad_jugadores();
 }
 

@@ -18,7 +18,6 @@
 #include <unistd.h>
 
 //PARAMETROS SVR
-#define MAX_CONEXIONES 1
 #define TIEMPO_MAX_SIN_CONEXION 15000
 
 //ESTADOS MENSAJES
@@ -35,9 +34,9 @@ class Servidor{
         //Cosas de Juego
         bool juego_iniciado = false;
         int nivel_actual;
+        LectorXML* lectorXml = nullptr;
         SDL_Window * ventana = nullptr;
         SDL_Renderer * renderer = nullptr;
-        LectorXML* lectorXml = nullptr;
         Background* background = nullptr;
         Camara* camara = nullptr;
         std::vector<Jugador*> jugadores;
@@ -57,6 +56,7 @@ class Servidor{
 
 
         //Cosas de Threads
+        int delay_envio_render_ms = 0;
         std::vector<pthread_t*> threads;
         pthread_t thread_conexiones;
         pthread_mutex_t mutex_desplazamiento;
@@ -68,7 +68,7 @@ class Servidor{
 
     public:
         //Cosas de sockets
-        Servidor(std::string ip, int puerto);
+        Servidor(std::string ip, int puerto, std::string path_xml);
         ~Servidor();
         int aceptar_conexion();
         int recibir_mensaje(int sock_cliente);
@@ -84,7 +84,8 @@ class Servidor{
         bool aceptando_conexiones;
 
         //Cosas de juego
-        void iniciar_juego(std::string path_xml);
+        int get_cantidad_jugadores();
+        void iniciar_juego();
         void finalizar_juego();
 
         //TESTING. SOLO UTILIZAR EN TESTS

@@ -25,7 +25,14 @@ LectorXML::LectorXML(std::string path_to_xml){
     rapidxml::file<> xmlFile(path_to_xml.c_str());
     archivo_data = xmlFile.data();
     documento.parse<0>((char*)archivo_data.c_str());
-
+    xml_attribute<>* cantidad_jugadores = documento.first_node()->first_node("jugadores")->first_attribute("cantidad");
+    if (!cantidad_jugadores){
+        LOG(Log::ERROR)<< "No esta establecida la cantidad  de jugadores. Se settea en 2."<<std::endl;
+        cant_jugadores = 2;
+    }
+    else {
+        cant_jugadores = std::stoi(cantidad_jugadores->value());
+    }
 }
 
 bool chequear_atributos_enemigo(xml_node<>* enemigo){
@@ -296,7 +303,6 @@ void set_log_level(std::string level){
 }
 
 int LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, Background** background, Temporizador** temporizador, std::string nivel) {
-
     for (auto &enemigo : (*enemigos)) {
         delete enemigo;
     }
@@ -337,8 +343,7 @@ int LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escena
     return PASO;
 }
 
-bool LectorXML::generar_jugador(std::vector<Jugador*>* jugadores, int cant_jugadores){
-
+bool LectorXML::generar_jugador(std::vector<Jugador*>* jugadores){
     xml_node<>* nodo_de_jugadores = documento.first_node()->first_node("jugadores");
     if (nodo_de_jugadores == nullptr){
          LOG(Log::ERROR) << "Jugadores no encontrados en el XML." << std::endl;
@@ -346,6 +351,7 @@ bool LectorXML::generar_jugador(std::vector<Jugador*>* jugadores, int cant_jugad
     }
     else{
         LOG (Log::INFO) << "Cantidad de jugadores a generar: " << cant_jugadores << std::endl;
+
         for (int i=0; i<cant_jugadores; i++) {
             LOG(Log::INFO) << "Leyendo jugador #" << (jugadores->size() + 1) << std::endl;
             std::string jugador = std::string("jugador") + std::to_string((jugadores->size() + 1));
@@ -361,4 +367,8 @@ void LectorXML::set_default(){
     rapidxml::file<> xmlFile("./res/config.xml");
     archivo_data = xmlFile.data();
     documento.parse<0>((char*)archivo_data.c_str());
+}
+
+int LectorXML::get_cantidad_jugadores() {
+    return cant_jugadores;
 }
