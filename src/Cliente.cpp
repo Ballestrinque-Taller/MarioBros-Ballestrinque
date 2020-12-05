@@ -62,7 +62,7 @@ void Cliente::mostrar_login(std::string ip, int puerto) {
     auto *usuario = new TextWriter();
     auto *campo_password = new TextWriter();
     auto *password = new TextWriter();
-    auto *credenciales_invalidas = new TextWriter();
+    auto *retorno_servidor = new TextWriter();
     SDL_Texture* logo_t;
     SDL_Texture* background_t;
     SDL_Rect dest_rect_logo;
@@ -77,7 +77,7 @@ void Cliente::mostrar_login(std::string ip, int puerto) {
     inputs.push_back(std::string(""));
     campo_usuario->set_msg_rect(100, 300, 50, 160);
     campo_password->set_msg_rect(100, 420, 50, 160);
-    credenciales_invalidas->set_msg_rect(400-580/2,530,50, 580);
+    retorno_servidor->set_msg_rect(400 - 580 / 2, 530, 50, 580);
     int string_seleccionado = 0;
     SDL_Event evento_input;
     while(estado_conexion != CONECTADO && estado_conexion != JUEGO_LLENO && !quit) {
@@ -128,7 +128,10 @@ void Cliente::mostrar_login(std::string ip, int puerto) {
         password->write_text(inputs.at(1).c_str(), renderer);
 
         if(estado_conexion == CREDENCIALES_INVALIDAS){
-            credenciales_invalidas->write_text("Error: Credenciales Invalidas", renderer);
+            retorno_servidor->write_text("Error: Credenciales Invalidas", renderer);
+        }
+        if(estado_conexion == CONECTADO){
+            retorno_servidor->write_text("Esperando Jugadores", renderer);
         }
 
         SDL_RenderPresent(renderer);
