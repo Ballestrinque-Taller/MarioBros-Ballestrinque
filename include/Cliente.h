@@ -19,7 +19,7 @@
 #define DERECHA 1
 #define IZQUIERDA -1
 
-#define FPS 30
+#define FPS 60
 #define FRAME_DELAY 1000/FPS
 
 #define POS_X_TEXTO 800
@@ -34,6 +34,9 @@
 
 class Cliente{
     private:
+        int recibir_estado_conex_servidor();
+        void mostrar_login(std::string, int puerto);
+        void enviar_credenciales(std::string usuario, std::string password);
         int tiempo_restante_timer = 0;
         TextWriter* nivel_label = nullptr;
         TextWriter* temporizador_label = nullptr;

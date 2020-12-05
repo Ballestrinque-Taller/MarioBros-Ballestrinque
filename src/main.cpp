@@ -16,7 +16,7 @@ int main(int argc, char* argv[]){
     if(strcmp(argv[1], "c") == 0 && argc==4){
         SET_LOG_FILE(std::string("logfile_cliente.txt"))
         Cliente* cliente = new Cliente(argv[2], atoi(argv[3]));
-        cliente->bucle_juego();
+        //cliente->bucle_juego();
         delete(cliente);
     }
     else if (strcmp(argv[1], "s") == 0 && argc==5){

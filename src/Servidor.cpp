@@ -43,7 +43,7 @@ Servidor::Servidor(std::string ip, int puerto, std::string path_xml){
         LOG(Log::ERROR)<<"No se pudo bindear el socket. errno: "<<errno<<std::endl;
         exit(ERROR_SVR);
     }
-    if(listen(socket_svr, lectorXml->get_cantidad_jugadores()) == ERROR_SVR){
+    if(listen(socket_svr, lectorXml->get_cantidad_jugadores()+1) == ERROR_SVR){
         LOG(Log::ERROR)<<"No se pudo poner a escuchar al socket."<<std::endl;
         exit(ERROR_SVR);
     }
@@ -59,12 +59,84 @@ Servidor::Servidor(std::string ip, int puerto, std::string path_xml){
 void Servidor::aceptar_conexiones_thread(Servidor* servidor){
     while (servidor->get_cantidad_de_conexiones() < servidor->get_cantidad_jugadores() && servidor->aceptando_conexiones) {
         int retorno = servidor->aceptar_conexion();
-        if (retorno == JUEGO_INICIADO || retorno == ERROR_SVR) {
+        if (retorno == ERROR_SVR) {
             break;
+        }
+        if(servidor->chequear_credenciales_validas(servidor->get_cantidad_de_conexiones()-1)) {
+            servidor->enviar_retorno_conexion(servidor->get_cantidad_de_conexiones()-1, CONECTADO);
+        }else{
+            servidor->enviar_retorno_conexion(servidor->get_cantidad_de_conexiones()-1, CREDENCIALES_INVALIDAS);
         }
     }
     servidor->set_aceptando_conexiones_false();
+    while (servidor->juego_iniciado){
+        int retorno = servidor->aceptar_conexion();
+        servidor->enviar_retorno_conexion(servidor->get_cantidad_de_conexiones()-1,JUEGO_LLENO);
+    }
+
     pthread_exit(nullptr);
+}
+
+bool Servidor::chequear_credenciales_validas(int cliente){
+    credenciales_t credenciales = recibir_credenciales(conexiones.at(cliente));
+    return lectorXml->posee_credenciales(credenciales);
+}
+
+void Servidor::enviar_retorno_conexion(int cliente, int retorno){
+    if(retorno == CONECTADO) {
+        pthread_t *thread_cliente = (pthread_t *) malloc(sizeof(pthread_t));
+        pthread_create(thread_cliente, nullptr, reinterpret_cast<void *(*)(void *)>(Servidor::intercambiar_mensajes),
+                       this);
+        threads.push_back(thread_cliente);
+    }
+
+    mensaje_retorno_conexion_t mensaje;
+    mensaje.estado_conexion = retorno;
+    int bytes_struct = sizeof(mensaje_retorno_conexion_t);
+    int total_bytes_enviados = 0;
+    int bytes_enviados = 0;
+    bool enviando = true;
+
+    while((bytes_struct>total_bytes_enviados) &&(enviando)) {
+        bytes_enviados = send(conexiones.at(cliente), ((char*)&retorno)+total_bytes_enviados, (sizeof(mensaje_retorno_conexion_t)-total_bytes_enviados),MSG_NOSIGNAL);
+        if (bytes_enviados < 0) {
+            LOG(Log::DEBUG) << "No se pudo enviar el mensaje de conexion al cliente: "<<socket<<". Error number: " << errno <<  std::endl;
+        } else if (bytes_enviados == 0) {
+            enviando = false;
+        } else {
+            total_bytes_enviados += bytes_enviados;
+        }
+    }
+    if(retorno == CREDENCIALES_INVALIDAS){
+        int sock = conexiones.at(cliente);
+        close(conexiones.at(cliente));
+        conexiones.erase(conexiones.begin()+cliente);
+        std::cout<<"Conexion rechazada del socket: "<<sock<<std::endl;
+    }
+}
+
+credenciales_t Servidor::recibir_credenciales(int socket){
+    credenciales_t credenciales;
+    int total_bytes_recibidos = 0;
+    int bytes_recibidos = 0;
+    int bytes_struct = sizeof(credenciales_t);
+    char* buffer = (char*)malloc(bytes_struct);
+    bool recibiendo = true;
+    while((bytes_struct>total_bytes_recibidos) && (recibiendo)) {
+        bytes_recibidos = recv(socket, (buffer + total_bytes_recibidos), (bytes_struct - total_bytes_recibidos), MSG_NOSIGNAL);
+        if (bytes_recibidos < 0 && errno != TIMEOUT) {
+            LOG(Log::ERROR) << "No se pudo recibir el mensaje. Error number: " << errno <<  std::endl;
+            return credenciales;
+        } else if (bytes_recibidos == 0 || errno == TIMEOUT) {
+            recibiendo = false;
+        } else {
+            total_bytes_recibidos += bytes_recibidos;
+        }
+    }
+    strcpy(credenciales.usuario, ((credenciales_t*)buffer)->usuario);
+    strcpy(credenciales.password, ((credenciales_t*)buffer)->password);
+    free (buffer);
+    return credenciales;
 }
 
 void Servidor::set_aceptando_conexiones_false() {
@@ -82,9 +154,6 @@ int Servidor::aceptar_conexion(){
         return ERROR_SVR;
     }
     std::cout << "Conexion aceptada del socket: " << conexiones.back() << std::endl;
-    pthread_t* thread_cliente = (pthread_t*)malloc(sizeof(pthread_t));
-    pthread_create(thread_cliente, nullptr, reinterpret_cast<void *(*)(void *)>(Servidor::intercambiar_mensajes), this);
-    threads.push_back(thread_cliente);
     return 0;
 }
 

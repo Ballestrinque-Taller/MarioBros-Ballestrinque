@@ -53,6 +53,9 @@ class Servidor{
         sockaddr_in svr_address;
         std::vector<int> conexiones;
         mensaje_servidor_a_cliente_t obtener_mensaje(Renderer* render);
+        credenciales_t recibir_credenciales(int socket);
+        void enviar_retorno_conexion(int socket, int retorno);
+
 
 
         //Cosas de Threads
@@ -68,6 +71,7 @@ class Servidor{
 
     public:
         //Cosas de sockets
+        bool chequear_credenciales_validas(int socket);
         Servidor(std::string ip, int puerto, std::string path_xml);
         ~Servidor();
         int aceptar_conexion();

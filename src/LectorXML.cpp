@@ -372,3 +372,17 @@ void LectorXML::set_default(){
 int LectorXML::get_cantidad_jugadores() {
     return cant_jugadores;
 }
+
+bool LectorXML::posee_credenciales(credenciales_t credenciales){
+    bool posee = false;
+    xml_node<>* nodo_de_credenciales = documento.first_node()->first_node("credenciales");
+    xml_node<>* nodo_credencial = nodo_de_credenciales->first_node();
+    while(nodo_credencial != nullptr && !posee){
+        std::string usuario = nodo_credencial->first_attribute("usuario")->value();
+        std::string password = nodo_credencial->first_attribute("password")->value();
+        if (strcmp(credenciales.password,password.c_str())==0 && strcmp(credenciales.usuario,usuario.c_str())==0)
+            posee = true;
+        nodo_credencial = nodo_credencial->next_sibling();
+    }
+    return posee;
+}

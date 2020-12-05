@@ -13,6 +13,7 @@
 #include "Moneda.h"
 #include "Temporizador.h"
 #include "Jugador.h"
+#include "Mensajes.h"
 #include <vector>
 
 #define ERROR_XML -1
@@ -30,6 +31,7 @@ class LectorXML{
         bool generar_jugador(std::vector<Jugador*>* jugadores);
         int get_cantidad_jugadores();
         void set_default();
+        bool posee_credenciales(credenciales_t credenciales);
 
    private:
         int cant_jugadores = 0;
