@@ -24,7 +24,7 @@ typedef struct entidad{
     SDL_RendererFlip flip;
     SDL_Rect src_rect;
     SDL_Rect dest_rect;
-    bool esta_desconectado;
+    bool es_jugador;
 }entidad_t;
 
 typedef struct mensaje_servidor_a_cliente{

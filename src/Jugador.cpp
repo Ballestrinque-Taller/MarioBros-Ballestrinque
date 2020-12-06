@@ -180,6 +180,7 @@ void Jugador::grisar(){
             path_to_image.erase(path_to_image.size() - 1);
         path_to_image += "_GRISADO.png";
     }
+    velocidad_x = 0;
     desconectado = true;
 }
 

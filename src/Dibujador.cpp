@@ -4,7 +4,7 @@
 void Dibujador::dibujar(std::vector<entidad_t> entidades_a_dibujar, TextWriter* nivel_label, int nivel_actual, TextWriter* temporizador_label, int tiempo_restante, SDL_Renderer* renderer){
     SDL_RenderClear(renderer);
     for (int i=0;i<=entidades_a_dibujar.size()-1;i++){
-        if(entidades_a_dibujar.at(i).esta_desconectado) {
+        if(entidades_a_dibujar.at(i).es_jugador) {
             SDL_DestroyTexture(texturas.at(i));
             texturas.at(i) = crear_textura(entidades_a_dibujar.at(i), renderer);
         }

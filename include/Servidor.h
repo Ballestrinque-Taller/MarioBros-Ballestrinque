@@ -32,6 +32,7 @@
 class Servidor{
     private:
         //Cosas de Juego
+        int cant_clientes_exit=0;
         bool juego_iniciado = false;
         int nivel_actual;
         LectorXML* lectorXml = nullptr;

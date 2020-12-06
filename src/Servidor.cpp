@@ -15,6 +15,7 @@
 #define FRAME_DELAY 1000/FPS
 
 #define TIMEOUT 11
+#define INTERRUPT 4
 
 #define STOP_RECEPTION_AND_TRANSMISSION 2
 
@@ -223,7 +224,7 @@ mensaje_servidor_a_cliente_t Servidor::obtener_mensaje(Renderer* render){
     mensaje.entidad.dest_rect = render->get_dest_rect();
     mensaje.entidad.src_rect = render->get_src_rect();
     mensaje.entidad.flip = render->get_flip();
-    mensaje.entidad.esta_desconectado = false;
+    mensaje.entidad.es_jugador = false;
     mensaje.num_nivel = nivel_actual;
     mensaje.tiempo_restante = temporizador->get_tiempo_restante();
     return mensaje;
@@ -231,7 +232,7 @@ mensaje_servidor_a_cliente_t Servidor::obtener_mensaje(Renderer* render){
 
 mensaje_servidor_a_cliente_t Servidor::obtener_mensaje_jugador(Jugador* jugador){
     mensaje_servidor_a_cliente_t mensaje = obtener_mensaje(jugador);
-    mensaje.entidad.esta_desconectado = jugador->esta_desconectado();
+    mensaje.entidad.es_jugador = true;
     return mensaje;
 }
 
@@ -247,6 +248,7 @@ void Servidor::intercambiar_mensajes(Servidor* servidor){
     bool inicie_thread_enviar = false;
     int conexion = RECIBIENDO_MENSAJES;
     int cliente = servidor->get_cantidad_de_conexiones() - 1;
+    bool cliente_conectado = true;
     size_t tiempo_sin_reconexion = 0;
     size_t primer_tiempo_sin_reconexion = 0;
 
@@ -263,18 +265,27 @@ void Servidor::intercambiar_mensajes(Servidor* servidor){
                                &parametros_thread);
                 inicie_thread_enviar = true;
             }
-            //servidor->enviar_mensaje(cliente);
             //El otro thread esta enviando
             conexion = servidor->recibir_mensaje(cliente);
-            if (conexion == NO_RECIBIENDO_MENSAJES && primer_tiempo_sin_reconexion == 0) {
-                primer_tiempo_sin_reconexion = time(nullptr);
-            }else if(tiempo_sin_reconexion > TIEMPO_MAX_SIN_CONEXION || conexion == EXIT_GAME){
-                servidor->grisar_jugador(cliente);
-            }else if (conexion == NO_RECIBIENDO_MENSAJES) {
-                tiempo_sin_reconexion = time(nullptr) - primer_tiempo_sin_reconexion;
-            } else {
+
+            if (conexion == RECIBIENDO_MENSAJES) {
                 primer_tiempo_sin_reconexion = 0;
-                servidor->reconectar_jugador(cliente);
+                tiempo_sin_reconexion = 0;
+                if (!cliente_conectado) {
+                    servidor->reconectar_jugador(cliente);
+                    LOG(Log::INFO) << "Cliente reconectado: " << cliente <<std::endl;
+                    cliente_conectado = true;
+                }
+            }else if((tiempo_sin_reconexion >= TIEMPO_MAX_SIN_CONEXION && conexion == NO_RECIBIENDO_MENSAJES) || conexion == EXIT_GAME){
+                if(cliente_conectado) {
+                    servidor->grisar_jugador(cliente);
+                    LOG(Log::INFO) << "Cliente desconectado: " << cliente << std::endl;
+                    cliente_conectado = false;
+                }
+            }else if (conexion == NO_RECIBIENDO_MENSAJES && primer_tiempo_sin_reconexion > 0) {
+                tiempo_sin_reconexion = time(nullptr) - primer_tiempo_sin_reconexion;
+            }else{ //conexion == NO_RECIBIENDO_MENSAJES && primer_tiempo_sin_reconexion == 0
+                primer_tiempo_sin_reconexion = time(nullptr);
             }
         }
     }
@@ -302,12 +313,18 @@ int Servidor::recibir_mensaje(int num_cliente){
     int bytes_struct = sizeof(mensaje_cliente_a_servidor_t);
     char* buffer = (char*)malloc(bytes_struct);
     bool recibiendo = true;
+    //SET TIMEOUT
+    struct timeval timeout;
+    timeout.tv_sec = 1;
+    timeout.tv_usec = 0;
+    if (setsockopt (conexiones.at(num_cliente), SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout,sizeof(timeout)) < 0)
+        LOG(Log::ERROR)<< "No se pudo establecer el timeout en: "<<timeout.tv_sec<<" para el socket: "<<conexiones.at(num_cliente)<<std::endl;
     while((bytes_struct>total_bytes_recibidos) && (recibiendo)) {
         bytes_recibidos = recv(conexiones.at(num_cliente), (buffer + total_bytes_recibidos), (bytes_struct - total_bytes_recibidos), MSG_NOSIGNAL);
-        if (bytes_recibidos < 0 && errno != TIMEOUT) {
+        if (bytes_recibidos < 0 && errno != TIMEOUT && errno != INTERRUPT) {
             LOG(Log::ERROR) << "No se pudo recibir el mensaje. Error number: " << errno <<  std::endl;
             return EXIT_GAME;
-        } else if (bytes_recibidos == 0 || errno == TIMEOUT) {
+        } else if (bytes_recibidos == 0 || (bytes_recibidos < 0 && (errno == TIMEOUT || errno == INTERRUPT))) {
             recibiendo = false;
         } else {
             total_bytes_recibidos += bytes_recibidos;
@@ -316,8 +333,10 @@ int Servidor::recibir_mensaje(int num_cliente){
 
     //PROCESAMIENTO DEL MENSAJE
     if (total_bytes_recibidos == bytes_struct) {
-        if ((((mensaje_cliente_a_servidor_t *) buffer)->evento).type==SDL_QUIT)
+        if ((((mensaje_cliente_a_servidor_t *) buffer)->evento).type==SDL_QUIT){
+            cant_clientes_exit++;
             return EXIT_GAME;
+        }
         if(jugadores.size()>num_cliente) {
             pthread_mutex_lock(&mutex_desplazamiento);
             Jugador *jugador = jugadores.at(num_cliente);
@@ -401,6 +420,8 @@ void Servidor::game_loop() {
         while (!background->es_fin_nivel() && !quit) {
             //LOS THREADS YA ESTAN RECIBIENDO Y ENVIANDO POR CADA CLIENTE
             update();
+            if(cant_clientes_exit == jugadores.size())
+                quit = true;
         }
         if(!quit) {
             nivel_actual++;
@@ -429,7 +450,7 @@ Servidor::~Servidor() {
         pthread_join(*thread,nullptr);
         free(thread);
     }
-    finalizar_juego();
+    //finalizar_juego();
 }
 
 in_addr_t Servidor::get_ip(){
