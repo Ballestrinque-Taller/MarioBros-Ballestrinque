@@ -25,7 +25,14 @@ Cliente::Cliente(std::string ip, int puerto){
     pthread_mutex_init(&mutex_render, nullptr);
     inicializar_ventana();
     mostrar_login(ip, puerto);
-    login(ip, puerto);
+    //login(ip, puerto);
+    struct timeval timeout;
+    timeout.tv_sec = 5;
+    timeout.tv_usec = 0;
+    if (setsockopt (socket_cliente, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout,sizeof(timeout)) < 0)
+        LOG(Log::ERROR)<<"No se pudo settear el timeout del cliente recv a 5"<<std::endl;
+    if (setsockopt (socket_cliente, SOL_SOCKET, SO_SNDTIMEO, (char *)&timeout,sizeof(timeout)) < 0)
+        LOG(Log::ERROR)<<"No se pudo settear el timeout del cliente send a 5"<<std::endl;
 }
 
 void generar_textura_logo(SDL_Texture** textura_logo, SDL_Rect* dest_rect_logo, SDL_Rect* src_rect_logo, SDL_Renderer* renderer){
@@ -77,7 +84,7 @@ void Cliente::mostrar_login(std::string ip, int puerto) {
     inputs.push_back(std::string(""));
     campo_usuario->set_msg_rect(100, 300, 50, 160);
     campo_password->set_msg_rect(100, 420, 50, 160);
-    retorno_servidor->set_msg_rect(400 - 580 / 2, 530, 50, 580);
+    retorno_servidor->set_msg_rect(400 - 580 / 2, 550, 50, 580);
     int string_seleccionado = 0;
     SDL_Event evento_input;
     while(estado_conexion != CONECTADO && estado_conexion != JUEGO_LLENO && !quit) {
@@ -117,23 +124,32 @@ void Cliente::mostrar_login(std::string ip, int puerto) {
         SDL_RenderCopy(renderer, background_t, &src_rect_bg, &dest_rect_bg);
         SDL_RenderCopy(renderer, logo_t, &src_rect_logo, &dest_rect_logo);
 
-        campo_usuario->write_text("Usuario: ", renderer);
+        if(string_seleccionado == 0) {
+            campo_usuario->write_text(">Usuario: ", renderer);
+        }else{
+            campo_usuario->write_text("Usuario: ", renderer);
+        }
 
         usuario->set_msg_rect(260, 300, 50, inputs.at(0).size()*20);
         usuario->write_text(inputs.at(0).c_str(), renderer);
-
-        campo_password->write_text("Password: ", renderer);
+        if(string_seleccionado == 1) {
+            campo_password->write_text(">Password: ", renderer);
+        }else{
+            campo_password->write_text("Password: ", renderer);
+        }
 
         password->set_msg_rect(260, 420, 50, inputs.at(1).size()*20);
         password->write_text(inputs.at(1).c_str(), renderer);
 
         if(estado_conexion == CREDENCIALES_INVALIDAS){
-            retorno_servidor->write_text("Error: Credenciales Invalidas", renderer);
+            retorno_servidor->write_text("Error: Credenciales Invalidas.", renderer);
         }
         if(estado_conexion == CONECTADO){
-            retorno_servidor->write_text("Esperando Jugadores", renderer);
+            retorno_servidor->write_text("Esperando Jugadores...", renderer);
         }
-
+        if(estado_conexion == TIMEOUT){
+            retorno_servidor->write_text("Error: Connection Timeout.", renderer);
+        }
         SDL_RenderPresent(renderer);
         pthread_mutex_unlock(&mutex_render);
     }
@@ -157,12 +173,13 @@ void Cliente::enviar_credenciales(std::string usuario, std::string password){
     strcpy(credenciales.usuario, usuario.c_str());
     int bytes_struct = sizeof(credenciales_t);
     int total_bytes_enviados = 0;
-    size_t bytes_enviados = 0;
+    int bytes_enviados = 0;
     bool enviando = true;
     while((bytes_struct>total_bytes_enviados)) {
         bytes_enviados = send(socket_cliente, ((char*)&credenciales)+total_bytes_enviados, sizeof(credenciales_t)-total_bytes_enviados, MSG_NOSIGNAL);
         if (bytes_enviados < 0) {
             LOG(Log::ERROR) << "No se pudo enviar las credenciales al servidor: "<<socket<<". Error number: " << errno <<  std::endl;
+            break;
         } else if (bytes_enviados == 0) {
             enviando = false;
         } else {
@@ -177,17 +194,18 @@ int Cliente::recibir_estado_conex_servidor(){
     int bytes_struct = sizeof(mensaje_retorno_conexion_t);
     bool recibiendo = true;
     char* buffer = (char*)malloc(bytes_struct);
+    mensaje_retorno_conexion_t mensaje;
     while ((bytes_struct > total_bytes_recibidos)) {
         bytes_recibidos = recv(socket_cliente, (buffer + total_bytes_recibidos),(bytes_struct - total_bytes_recibidos), MSG_NOSIGNAL);
         if (bytes_recibidos < 0) {
             LOG(Log::ERROR) << "No se pudo recibir el mensaje. Error number: " << errno << std::endl;
+            return TIMEOUT;
         } else if (bytes_recibidos == 0) {
             recibiendo = false;
         } else {
             total_bytes_recibidos += bytes_recibidos;
         }
     }
-    mensaje_retorno_conexion_t mensaje;
     mensaje.estado_conexion = (((mensaje_retorno_conexion_t*)buffer)->estado_conexion);
     free(buffer);
     return mensaje.estado_conexion;

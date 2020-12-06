@@ -194,7 +194,7 @@ void Servidor::enviar_mensaje(int num_cliente){
         mensaje.cantidad_entidades = num_entidades;
         bucle_send(&mensaje, num_cliente);
     }
-    usleep(delay_envio_render_ms*1000);
+    usleep(delay_envio_render_ms*1500);
 }
 
 int Servidor::bucle_send(mensaje_servidor_a_cliente_t* mensaje_ptr, int num_cliente){
@@ -267,7 +267,6 @@ void Servidor::intercambiar_mensajes(Servidor* servidor){
             }
             //El otro thread esta enviando
             conexion = servidor->recibir_mensaje(cliente);
-
             if (conexion == RECIBIENDO_MENSAJES) {
                 primer_tiempo_sin_reconexion = 0;
                 tiempo_sin_reconexion = 0;
