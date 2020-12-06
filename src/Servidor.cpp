@@ -84,6 +84,7 @@ bool Servidor::chequear_credenciales_validas(int cliente){
 
 void Servidor::enviar_retorno_conexion(int cliente, int retorno){
     if(retorno == CONECTADO) {
+        std::cout << "Conexion aceptada del socket: " << conexiones.at(cliente) << std::endl;
         pthread_t *thread_cliente = (pthread_t *) malloc(sizeof(pthread_t));
         pthread_create(thread_cliente, nullptr, reinterpret_cast<void *(*)(void *)>(Servidor::intercambiar_mensajes),
                        this);
@@ -107,7 +108,7 @@ void Servidor::enviar_retorno_conexion(int cliente, int retorno){
             total_bytes_enviados += bytes_enviados;
         }
     }
-    if(retorno == CREDENCIALES_INVALIDAS){
+    if(retorno == CREDENCIALES_INVALIDAS || retorno == JUEGO_LLENO){
         int sock = conexiones.at(cliente);
         close(conexiones.at(cliente));
         conexiones.erase(conexiones.begin()+cliente);
@@ -153,12 +154,12 @@ int Servidor::aceptar_conexion(){
         conexiones.pop_back();
         return ERROR_SVR;
     }
-    std::cout << "Conexion aceptada del socket: " << conexiones.back() << std::endl;
     return 0;
 }
 
 void Servidor::enviar_mensaje(int num_cliente){
     int num_entidades = 0;
+    bool algun_jugador_desconectado = false;
     Jugador* jugador_final = nullptr;
     std::vector<mensaje_servidor_a_cliente_t> mensajes;
     pthread_mutex_lock(&mutex_render);
@@ -181,12 +182,12 @@ void Servidor::enviar_mensaje(int num_cliente){
         if (i == num_cliente) {
             jugador_final = jugadores[i];
         } else {
-            mensajes.push_back(obtener_mensaje(jugadores[i]));
+            mensajes.push_back(obtener_mensaje_jugador(jugadores[i]));
         }
         num_entidades++;
     }
     if (jugador_final != nullptr)
-        mensajes.push_back(obtener_mensaje(jugador_final));
+        mensajes.push_back(obtener_mensaje_jugador(jugador_final));
     pthread_mutex_unlock(&mutex_render);
     for (auto &mensaje : mensajes) {
         mensaje.cantidad_entidades = num_entidades;
@@ -222,9 +223,24 @@ mensaje_servidor_a_cliente_t Servidor::obtener_mensaje(Renderer* render){
     mensaje.entidad.dest_rect = render->get_dest_rect();
     mensaje.entidad.src_rect = render->get_src_rect();
     mensaje.entidad.flip = render->get_flip();
+    mensaje.entidad.esta_desconectado = false;
     mensaje.num_nivel = nivel_actual;
     mensaje.tiempo_restante = temporizador->get_tiempo_restante();
     return mensaje;
+}
+
+mensaje_servidor_a_cliente_t Servidor::obtener_mensaje_jugador(Jugador* jugador){
+    mensaje_servidor_a_cliente_t mensaje = obtener_mensaje(jugador);
+    mensaje.entidad.esta_desconectado = jugador->esta_desconectado();
+    return mensaje;
+}
+
+void Servidor::grisar_jugador(int num_cliente){
+    jugadores.at(num_cliente)->grisar();
+}
+
+void Servidor::reconectar_jugador(int num_cliente){
+    jugadores.at(num_cliente)->reconectar();
 }
 
 void Servidor::intercambiar_mensajes(Servidor* servidor){
@@ -239,8 +255,8 @@ void Servidor::intercambiar_mensajes(Servidor* servidor){
     parametros_thread.push_back(servidor);
     parametros_thread.push_back(&cliente);
 
-
-    while(conexion == RECIBIENDO_MENSAJES || ((conexion == NO_RECIBIENDO_MENSAJES) && (tiempo_sin_reconexion < TIEMPO_MAX_SIN_CONEXION))) {
+    //&& (tiempo_sin_reconexion < TIEMPO_MAX_SIN_CONEXION)
+    while(conexion == RECIBIENDO_MENSAJES || ((conexion == NO_RECIBIENDO_MENSAJES) )) {
         if (servidor->juego_iniciado) {
             if (!inicie_thread_enviar) {
                 pthread_create(&thread_enviar, nullptr, reinterpret_cast<void *(*)(void *)>(enviar_mensaje_thread),
@@ -252,10 +268,13 @@ void Servidor::intercambiar_mensajes(Servidor* servidor){
             conexion = servidor->recibir_mensaje(cliente);
             if (conexion == NO_RECIBIENDO_MENSAJES && primer_tiempo_sin_reconexion == 0) {
                 primer_tiempo_sin_reconexion = time(nullptr);
-            } else if (conexion == NO_RECIBIENDO_MENSAJES) {
+            }else if(tiempo_sin_reconexion > TIEMPO_MAX_SIN_CONEXION || conexion == EXIT_GAME){
+                servidor->grisar_jugador(cliente);
+            }else if (conexion == NO_RECIBIENDO_MENSAJES) {
                 tiempo_sin_reconexion = time(nullptr) - primer_tiempo_sin_reconexion;
             } else {
                 primer_tiempo_sin_reconexion = 0;
+                servidor->reconectar_jugador(cliente);
             }
         }
     }
@@ -314,6 +333,7 @@ int Servidor::recibir_mensaje(int num_cliente){
 
 void Servidor::update() {
     temporizador->update();
+    camara->check_movimiento(jugadores);
     for (auto & jugador : jugadores) {
         pthread_mutex_lock(&mutex_desplazamiento);
         jugador->cambiar_frame(camara);
@@ -328,6 +348,7 @@ void Servidor::update() {
         escenario->cambiar_frame(camara);
     }
     camara->scroll_background(background);
+    camara->stop_scrolling();
     usleep(15000);
 }
 

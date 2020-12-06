@@ -16,6 +16,7 @@ class Dibujador{
 
     private:
         std::vector<SDL_Texture*> texturas;
+        SDL_Texture* crear_textura(entidad_t entidad, SDL_Renderer* renderer);
 };
 
 #endif //MARIOBROS_BALLESTRINQUE_DIBUJADOR_H

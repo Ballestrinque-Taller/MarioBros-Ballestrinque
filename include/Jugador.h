@@ -9,6 +9,9 @@
 
 class Jugador: public Renderer{
     public:
+        int get_velocidad_x();
+        void grisar();
+        void reconectar();
         Jugador(std::string path);
         void acelerar_x(int direccion);
         void saltar();
@@ -17,9 +20,10 @@ class Jugador: public Renderer{
         void recibir_evento(SDL_Event evento);
         void agacharse();
         void reset_posicion();
+        bool esta_desconectado();
 
     private:
-
+        bool desconectado;
         bool acelerando;
         bool en_aire;
         bool agachado;

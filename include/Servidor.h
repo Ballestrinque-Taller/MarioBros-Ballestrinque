@@ -18,7 +18,7 @@
 #include <unistd.h>
 
 //PARAMETROS SVR
-#define TIEMPO_MAX_SIN_CONEXION 15000
+#define TIEMPO_MAX_SIN_CONEXION 5
 
 //ESTADOS MENSAJES
 #define EXIT_GAME -1
@@ -53,6 +53,7 @@ class Servidor{
         sockaddr_in svr_address;
         std::vector<int> conexiones;
         mensaje_servidor_a_cliente_t obtener_mensaje(Renderer* render);
+        mensaje_servidor_a_cliente_t obtener_mensaje_jugador(Jugador* jugador);
         credenciales_t recibir_credenciales(int socket);
         void enviar_retorno_conexion(int socket, int retorno);
 
@@ -88,6 +89,8 @@ class Servidor{
         bool aceptando_conexiones;
 
         //Cosas de juego
+        void reconectar_jugador(int num_cliente);
+        void grisar_jugador(int num_cliente);
         int get_cantidad_jugadores();
         void iniciar_juego();
         void finalizar_juego();

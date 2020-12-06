@@ -61,8 +61,12 @@ void Jugador::cambiar_frame(Camara* camara){
         frame_actual = 0;
     }
     set_src_rect(frame_actual*ANCHO_FRAME,1,ALTO_FRAME,ANCHO_FRAME);
-    camara->check_movimiento(this, velocidad_x);
+    //camara->check_movimiento(this, velocidad_x);
     camara->acomodar_a_imagen(this);
+}
+
+int Jugador::get_velocidad_x(){
+    return velocidad_x;
 }
 
 void Jugador::acelerar_x(int direccion){
@@ -167,4 +171,29 @@ void Jugador::agacharse(){
 void Jugador::reset_posicion(){
     set_dest_rect(0,0,ALTO_PANTALLA,ANCHO_PANTALLA);
     velocidad_x = 0;
+}
+
+void Jugador::grisar(){
+    if(!desconectado) {
+        std::string png_str(".png");
+        for (int i = 0; i < png_str.size(); i++)
+            path_to_image.erase(path_to_image.size() - 1);
+        path_to_image += "_GRISADO.png";
+    }
+    desconectado = true;
+}
+
+void Jugador::reconectar(){
+    if (desconectado){
+        std::string grisado("_GRISADO.png");
+        for (int i=0; i<grisado.size(); i++)
+            path_to_image.erase(path_to_image.size()-1);
+        path_to_image += ".png";
+    }
+    desconectado = false;
+
+}
+
+bool Jugador::esta_desconectado(){
+    return desconectado;
 }
