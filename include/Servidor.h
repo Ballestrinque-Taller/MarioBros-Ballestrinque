@@ -34,6 +34,7 @@ class Servidor{
         //Cosas de Juego
         int cant_clientes_exit=0;
         bool juego_iniciado = false;
+        bool quit = false;
         int nivel_actual;
         LectorXML* lectorXml = nullptr;
         SDL_Window * ventana = nullptr;
@@ -41,7 +42,7 @@ class Servidor{
         Background* background = nullptr;
         Camara* camara = nullptr;
         std::vector<Jugador*> jugadores;
-        bool quit = false;
+        std::vector<std::string> usuarios;
         int estado_error;
         std::vector<Enemigo*> enemigos;
         std::vector<Escenario*> escenarios;
@@ -90,6 +91,7 @@ class Servidor{
         bool aceptando_conexiones;
 
         //Cosas de juego
+        bool juego_finalizado();
         void reconectar_jugador(int num_cliente);
         void grisar_jugador(int num_cliente);
         int get_cantidad_jugadores();

@@ -15,6 +15,10 @@ class Dibujador{
         ~Dibujador();
 
     private:
+        int cantidad_de_jugadores;
+        bool genere_identificadores=false;
+        std::vector<TextWriter*> text_writers;
+        void generar_identificador_jugador();
         std::vector<SDL_Texture*> texturas;
         SDL_Texture* crear_textura(entidad_t entidad, SDL_Renderer* renderer);
 };

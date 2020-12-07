@@ -19,12 +19,13 @@ typedef struct mensaje_cliente_a_servidor{
 }mensaje_cliente_a_servidor_t;
 
 typedef struct entidad{
-    char path_textura[256];
-    char default_path[256];
+    char path_textura[128];
+    char default_path[128];
     SDL_RendererFlip flip;
     SDL_Rect src_rect;
     SDL_Rect dest_rect;
     bool es_jugador;
+    char usuario[100];
 }entidad_t;
 
 typedef struct mensaje_servidor_a_cliente{

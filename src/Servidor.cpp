@@ -70,7 +70,7 @@ void Servidor::aceptar_conexiones_thread(Servidor* servidor){
         }
     }
     servidor->set_aceptando_conexiones_false();
-    while (servidor->juego_iniciado){
+    while (!servidor->juego_finalizado()){
         int retorno = servidor->aceptar_conexion();
         servidor->enviar_retorno_conexion(servidor->get_cantidad_de_conexiones()-1,JUEGO_LLENO);
     }
@@ -78,9 +78,16 @@ void Servidor::aceptar_conexiones_thread(Servidor* servidor){
     pthread_exit(nullptr);
 }
 
+bool Servidor::juego_finalizado(){
+    return quit;
+}
+
 bool Servidor::chequear_credenciales_validas(int cliente){
     credenciales_t credenciales = recibir_credenciales(conexiones.at(cliente));
-    return lectorXml->posee_credenciales(credenciales);
+    bool cred_validas = lectorXml->posee_credenciales(credenciales);
+    if(cred_validas)
+        usuarios.push_back(credenciales.usuario);
+    return cred_validas;
 }
 
 void Servidor::enviar_retorno_conexion(int cliente, int retorno){
@@ -146,10 +153,10 @@ void Servidor::set_aceptando_conexiones_false() {
 }
 
 int Servidor::aceptar_conexion(){
+    conexiones.push_back(accept(socket_svr, nullptr, nullptr));
     if(conexiones.size() == lectorXml->get_cantidad_jugadores()) {
         return JUEGO_INICIADO;
     }
-    conexiones.push_back(accept(socket_svr, nullptr, nullptr));
     if(conexiones.back() == ERROR_SVR){
         LOG(Log::ERROR)<<"No se pudo aceptar la conexión del client_adress"<<std::endl;
         conexiones.pop_back();
@@ -184,11 +191,14 @@ void Servidor::enviar_mensaje(int num_cliente){
             jugador_final = jugadores[i];
         } else {
             mensajes.push_back(obtener_mensaje_jugador(jugadores[i]));
+            strcpy(mensajes.back().entidad.usuario, usuarios[i].c_str());
         }
         num_entidades++;
     }
-    if (jugador_final != nullptr)
+    if (jugador_final != nullptr) {
         mensajes.push_back(obtener_mensaje_jugador(jugador_final));
+        strcpy(mensajes.back().entidad.usuario, usuarios[num_cliente].c_str());
+    }
     pthread_mutex_unlock(&mutex_render);
     for (auto &mensaje : mensajes) {
         mensaje.cantidad_entidades = num_entidades;
@@ -390,24 +400,31 @@ void Servidor::finalizar_juego(){
     LOG(Log::INFO)<<"Juego Finalizado. Cerrando el servidor."<<std::endl;
     juego_iniciado = false;
     LOG(Log::DEBUG) << "Finalizando juego" << std::endl;
+    LOG(Log::DEBUG)<<"Eliminando Camara"<<std::endl;
     if (camara != nullptr)
         delete(camara);
+    LOG(Log::DEBUG)<<"Eliminando Lector"<<std::endl;
     if (lectorXml != nullptr)
         delete(lectorXml);
+    LOG(Log::DEBUG)<<"Eliminando Jugadores"<<std::endl;
     for (auto & jugador : jugadores)
         delete(jugador);
+    LOG(Log::DEBUG)<<"Eliminando Background"<<std::endl;
     if (background != nullptr)
         delete(background);
+    LOG(Log::DEBUG)<<"Eliminando Temporizador"<<std::endl;
     if(temporizador != nullptr)
         delete(temporizador);
+    LOG(Log::DEBUG)<<"Eliminando Enemigos"<<std::endl;
     for (size_t i=0; i<enemigos.size(); i++){
         delete(enemigos.at(i));
-    };
+    }
     if (!enemigos.empty())
         enemigos.clear();
+    LOG(Log::DEBUG)<<"Eliminando Escenarios"<<std::endl;
     for (size_t i=0; i<escenarios.size(); i++){
         delete(escenarios.at(i));
-    };
+    }
     if (!escenarios.empty())
         escenarios.clear();
 }

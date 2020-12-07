@@ -87,7 +87,7 @@ void Cliente::mostrar_login(std::string ip, int puerto) {
     retorno_servidor->set_msg_rect(400 - 580 / 2, 550, 50, 580);
     int string_seleccionado = 0;
     SDL_Event evento_input;
-    while(estado_conexion != CONECTADO && estado_conexion != JUEGO_LLENO && !quit) {
+    while(estado_conexion != CONECTADO && !quit) {
         while (SDL_PollEvent(&evento_input) != 0) {
             if (evento_input.type == SDL_QUIT){
                 quit = true;
@@ -103,7 +103,7 @@ void Cliente::mostrar_login(std::string ip, int puerto) {
                     login(ip, puerto);
                     enviar_credenciales(inputs.at(0), inputs.at(1));
                     estado_conexion = recibir_estado_conex_servidor();
-                    if(estado_conexion == CREDENCIALES_INVALIDAS){
+                    if(estado_conexion == CREDENCIALES_INVALIDAS || estado_conexion == JUEGO_LLENO){
                         close(socket_cliente);
                         socket_cliente = socket(AF_INET,SOCK_STREAM,0);
                     }
@@ -149,6 +149,9 @@ void Cliente::mostrar_login(std::string ip, int puerto) {
         }
         if(estado_conexion == TIMEOUT){
             retorno_servidor->write_text("Error: Connection Timeout.", renderer);
+        }
+        if(estado_conexion == JUEGO_LLENO){
+            retorno_servidor->write_text("El juego esta lleno.", renderer);
         }
         SDL_RenderPresent(renderer);
         pthread_mutex_unlock(&mutex_render);
@@ -317,7 +320,10 @@ void Cliente::recibir_renders_del_servidor(){
         if (total_bytes_recibidos == bytes_struct) {
             //LOG(Log::DEBUG) << "Mensaje recibido. Bytes: " << total_bytes_recibidos << std::endl;
             cantidad_entidades_recibidas++;
-            entidades.push_back(((mensaje_servidor_a_cliente_t*)buffer)->entidad);
+            entidad_t entidad = ((mensaje_servidor_a_cliente_t*)buffer)->entidad;
+            if(entidad.es_jugador)
+                strcpy(entidad.usuario, (((mensaje_servidor_a_cliente_t*)buffer)->entidad).usuario);
+            entidades.push_back(entidad);
             if(cantidad_entidades_a_recibir == 1)
                 cantidad_entidades_a_recibir = ((mensaje_servidor_a_cliente_t *) buffer)->cantidad_entidades;
             nivel_recibido = (((mensaje_servidor_a_cliente_t*)buffer)->num_nivel);

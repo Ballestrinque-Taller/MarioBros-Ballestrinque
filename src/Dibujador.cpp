@@ -1,15 +1,35 @@
 #include <Log.h>
 #include "Dibujador.h"
 
+#define ANCHO_ID 75
+#define ALTO_ID 50
+#define ANCHO_PJ 25
+#define ALTO_PJ 50
+
 void Dibujador::dibujar(std::vector<entidad_t> entidades_a_dibujar, TextWriter* nivel_label, int nivel_actual, TextWriter* temporizador_label, int tiempo_restante, SDL_Renderer* renderer){
+    cantidad_de_jugadores = 0;
     SDL_RenderClear(renderer);
     for (int i=0;i<=entidades_a_dibujar.size()-1;i++){
         if(entidades_a_dibujar.at(i).es_jugador) {
             SDL_DestroyTexture(texturas.at(i));
             texturas.at(i) = crear_textura(entidades_a_dibujar.at(i), renderer);
+            if(!genere_identificadores) {
+                generar_identificador_jugador();
+            }
+            SDL_Rect dest_rect;
+            dest_rect.x = (cantidad_de_jugadores)*(ANCHO_ID+2*ANCHO_PJ)+ANCHO_ID+ANCHO_PJ;
+            dest_rect.y = 600-ALTO_PJ;
+            dest_rect.h = ALTO_PJ;
+            dest_rect.w = ANCHO_PJ;
+            SDL_Rect src_rect = entidades_a_dibujar.at(i).src_rect;
+            src_rect.x = 0;
+            SDL_RenderCopyEx(renderer, texturas.at(i), &(src_rect), &(dest_rect), 0, nullptr, SDL_FLIP_NONE);
+            text_writers.at(cantidad_de_jugadores)->write_text(entidades_a_dibujar.at(i).usuario, renderer);
+            cantidad_de_jugadores++;
         }
         SDL_RenderCopyEx(renderer, texturas.at(i), &(entidades_a_dibujar.at(i).src_rect), &(entidades_a_dibujar.at(i).dest_rect), 0, nullptr, entidades_a_dibujar.at(i).flip);
     }
+    genere_identificadores = true;
     nivel_label->write_text((std::string("Nivel ") + std::to_string(nivel_actual)).c_str(), renderer);
     temporizador_label->write_text((std::string("TIME ")+std::to_string(tiempo_restante)).c_str(), renderer);
     SDL_RenderPresent(renderer);
@@ -42,8 +62,19 @@ SDL_Texture* Dibujador::crear_textura(entidad_t entidad, SDL_Renderer* renderer)
     return textura;
 }
 
+void Dibujador::generar_identificador_jugador(){
+    TextWriter* text_writer_pj = new TextWriter();
+    text_writer_pj->set_msg_rect((cantidad_de_jugadores)*(ANCHO_ID+2*ANCHO_PJ)+ANCHO_PJ,600-ALTO_ID,ALTO_ID, ANCHO_ID);
+    text_writers.push_back(text_writer_pj);
+}
+
 Dibujador::~Dibujador(){
     for (auto & textura : texturas){
         SDL_DestroyTexture(textura);
     }
+    texturas.clear();
+    for (auto & text_writer: text_writers){
+        delete(text_writer);
+    }
+    text_writers.clear();
 }
