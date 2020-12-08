@@ -10,12 +10,25 @@ Camara::Camara(){
     debo_mover_camara = false;
 }
 
-void Camara::check_movimiento(std::vector<Jugador*>jugadores){
+int Camara::check_movimiento(std::vector<Jugador*>jugadores){
+    bool todos_los_jugadores_en_fin = true;
+    bool jugadores_en_fin[jugadores.size()];
+    int i = 0;
     for (auto &jugador: jugadores){
         if (jugador->get_dest_rect_x() <= 0 && !jugador->esta_desconectado()) {
             puedo_mover_camara = false;
         }
+        if (jugador->get_dest_rect_x() >= MARGEN_CAMARA || jugador->esta_desconectado()){
+            jugadores_en_fin[i] = true;
+        }
+        i++;
     }
+    for (auto j_en_fin: jugadores_en_fin){
+        if (!j_en_fin)
+            todos_los_jugadores_en_fin = false;
+    }
+    if(fin_nivel)
+        puedo_mover_camara = false;
     for (auto &jugador: jugadores){
         if(jugador->get_dest_rect_x() > MARGEN_CAMARA && puedo_mover_camara){
             if (jugador->get_velocidad_x() > velocidad_camara)
@@ -25,8 +38,13 @@ void Camara::check_movimiento(std::vector<Jugador*>jugadores){
                 jugador->set_dest_rect_x(MARGEN_CAMARA);
         }else if (jugador->get_dest_rect_x() <= 0){
             jugador->set_dest_rect_x(0);
+        }else if(jugador->get_dest_rect_x() > MARGEN_CAMARA && fin_nivel){
+            jugador->set_dest_rect_x(MARGEN_CAMARA);
         }
     }
+    if (fin_nivel && todos_los_jugadores_en_fin)
+        return FIN_NIVEL;
+    return NIVEL_EN_CURSO;
 }
 
 void Camara::acomodar_a_imagen(Renderer* renderizado){
@@ -43,6 +61,10 @@ void Camara::stop_scrolling(){
     velocidad_camara = 0;
     puedo_mover_camara = true;
     debo_mover_camara = false;
+}
+
+void Camara::set_fin_nivel(bool es_fin_nivel) {
+    fin_nivel = es_fin_nivel;
 }
 
 

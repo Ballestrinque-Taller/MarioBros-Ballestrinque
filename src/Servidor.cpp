@@ -423,7 +423,8 @@ int Servidor::recibir_mensaje(int num_cliente){
 
 void Servidor::update() {
     temporizador->update();
-    camara->check_movimiento(jugadores);
+    //camara->set_fin_nivel(background->es_fin_nivel());
+    //camara->check_movimiento(jugadores);
     for (auto & jugador : jugadores) {
         pthread_mutex_lock(&mutex_desplazamiento);
         jugador->cambiar_frame(camara);
@@ -495,11 +496,12 @@ void Servidor::game_loop() {
     if (estado_error == ERROR_JUEGO)
         quit = true;
     while (!quit){
-        while (!background->es_fin_nivel() && !quit) {
+        while (camara->check_movimiento(jugadores) != FIN_NIVEL && !quit) {
             //LOS THREADS YA ESTAN RECIBIENDO Y ENVIANDO POR CADA CLIENTE
             update();
             if(cant_clientes_exit == jugadores.size())
                 quit = true;
+            camara->set_fin_nivel(background->es_fin_nivel());
         }
         if(!quit) {
             nivel_actual++;
