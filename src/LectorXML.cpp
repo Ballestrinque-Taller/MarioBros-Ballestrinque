@@ -14,20 +14,25 @@
 
 using namespace rapidxml;
 
-LectorXML::LectorXML(SDL_Renderer* renderer, std::string path_to_xml){
+LectorXML::LectorXML(std::string path_to_xml){
     SET_LOGGING_LEVEL(Log::ERROR); //No puede ser mas baja que error por defecto.
     srand(time(NULL));
     if (!std::ifstream(path_to_xml)){
         LOG(Log::ERROR)<<"No se encontro el archivo xml del siguiente path: "<<path_to_xml<<std::endl;
         set_default();
-        this->renderer=renderer;
         return;
     }
     rapidxml::file<> xmlFile(path_to_xml.c_str());
     archivo_data = xmlFile.data();
     documento.parse<0>((char*)archivo_data.c_str());
-    this->renderer = renderer;
-
+    xml_attribute<>* cantidad_jugadores = documento.first_node()->first_node("jugadores")->first_attribute("cantidad");
+    if (!cantidad_jugadores){
+        LOG(Log::ERROR)<< "No esta establecida la cantidad  de jugadores. Se settea en 2."<<std::endl;
+        cant_jugadores = 2;
+    }
+    else {
+        cant_jugadores = std::stoi(cantidad_jugadores->value());
+    }
 }
 
 bool chequear_atributos_enemigo(xml_node<>* enemigo){
@@ -89,13 +94,13 @@ bool LectorXML::generar_enemigos(xml_node<>* nivel, std::vector<Enemigo*>* enemi
 void LectorXML::generar_enemigos_particulares(std::string tipo_enemigo, std::string path_to_image, int cantidad, std::vector<Enemigo*>* enemigos){
     if(tipo_enemigo.compare("troopa") == 0){
         for(int i=0;i<cantidad;i++){
-            Enemigo* enemigo = new Tortuga(renderer, rand() % (ancho_ajustado-WIDTH)+WIDTH ,0,path_to_image);
+            Enemigo* enemigo = new Tortuga(rand() % (ancho_ajustado-WIDTH)+WIDTH ,0,path_to_image);
             enemigos->push_back(enemigo);
         }
     }
     else if(tipo_enemigo.compare("goomba") == 0){
         for(int i=0;i<cantidad;i++){
-            Enemigo* enemigo = new Goomba(renderer,rand() % (ancho_ajustado-WIDTH)+WIDTH ,0,path_to_image);
+            Enemigo* enemigo = new Goomba(rand() % (ancho_ajustado-WIDTH)+WIDTH ,0,path_to_image);
             enemigos->push_back(enemigo);
         }
     }
@@ -182,12 +187,12 @@ bool LectorXML::generar_escenario(std::vector<Escenario*>* escenarios, xml_node<
 void LectorXML::generar_bloques_particulares(std::string tipo, int cantidad, int x, int y, std::string path, std::vector<Escenario*>* escenarios){
     if (tipo.compare("Ladrillo") == 0){
         for (int i=0; i<cantidad; i++){
-            escenarios->push_back(new Ladrillo(renderer,x+i*ANCHO_LADRILLO_PANTALLA,y, path));
+            escenarios->push_back(new Ladrillo(x+i*ANCHO_LADRILLO_PANTALLA,y, path));
         }
     }
     else if(tipo.compare("Sorpresa") == 0){
         for (int i=0; i<cantidad; i++){
-            escenarios->push_back(new Sorpresa(renderer,x+i*ANCHO_SORPRESA_PANTALLA,y, path));
+            escenarios->push_back(new Sorpresa(x+i*ANCHO_SORPRESA_PANTALLA,y, path));
         }
     }
 }
@@ -212,7 +217,7 @@ bool LectorXML::generar_monedas(xml_node<>* nivel, std::vector<Escenario*>* esce
     LOG(Log::DEBUG) << "Cantidad de monedas a generar: " << cantidad << std::endl;
     std::string path = nodo_de_monedas->first_attribute("imagen")->value();
     for (int i=0; i<cantidad; i++){
-        escenarios->push_back(new Moneda(renderer,rand() % (ancho_ajustado),rand()%RANGO_MONEDAS+POS_MIN_MONEDAS, path));
+        escenarios->push_back(new Moneda(rand() % (ancho_ajustado),rand()%RANGO_MONEDAS+POS_MIN_MONEDAS, path));
     }
     return true;
 }
@@ -254,7 +259,7 @@ bool LectorXML::generar_background(xml_node<>* nivel, Background** background){
     }
     LOG(Log::DEBUG)<<"Alto de background leido. Valor: "<<alto<<std::endl;
     ancho_ajustado = ancho*WIDTH/(alto*RATIO_ASPECTO);
-    (*background) = new Background(renderer, path, ancho, alto);
+    (*background) = new Background(path, ancho, alto);
     return true;
 }
 
@@ -298,7 +303,6 @@ void set_log_level(std::string level){
 }
 
 int LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, Background** background, Temporizador** temporizador, std::string nivel) {
-
     for (auto &enemigo : (*enemigos)) {
         delete enemigo;
     }
@@ -340,17 +344,20 @@ int LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escena
 }
 
 bool LectorXML::generar_jugador(std::vector<Jugador*>* jugadores){
-
     xml_node<>* nodo_de_jugadores = documento.first_node()->first_node("jugadores");
     if (nodo_de_jugadores == nullptr){
          LOG(Log::ERROR) << "Jugadores no encontrados en el XML." << std::endl;
          return false;
     }
     else{
-        LOG(Log::INFO) << "Leyendo jugador #"<<(jugadores->size()+1)<<std::endl;
-        std::string jugador = std::string("jugador")+std::to_string((jugadores->size()+1));
-        std::string path_imagen = nodo_de_jugadores->first_node()->first_attribute()->value();
-        jugadores->push_back(new Jugador(renderer, path_imagen));
+        LOG (Log::INFO) << "Cantidad de jugadores a generar: " << cant_jugadores << std::endl;
+
+        for (int i=0; i<cant_jugadores; i++) {
+            LOG(Log::INFO) << "Leyendo jugador #" << (jugadores->size() + 1) << std::endl;
+            std::string jugador = std::string("jugador") + std::to_string((jugadores->size() + 1));
+            std::string path_imagen = nodo_de_jugadores->first_node(jugador.c_str())->first_attribute()->value();
+            jugadores->push_back(new Jugador(path_imagen));
+        }
         return true;
     }
 }
@@ -360,4 +367,22 @@ void LectorXML::set_default(){
     rapidxml::file<> xmlFile("./res/config.xml");
     archivo_data = xmlFile.data();
     documento.parse<0>((char*)archivo_data.c_str());
+}
+
+int LectorXML::get_cantidad_jugadores() {
+    return cant_jugadores;
+}
+
+bool LectorXML::posee_credenciales(credenciales_t credenciales){
+    bool posee = false;
+    xml_node<>* nodo_de_credenciales = documento.first_node()->first_node("credenciales");
+    xml_node<>* nodo_credencial = nodo_de_credenciales->first_node();
+    while(nodo_credencial != nullptr && !posee){
+        std::string usuario = nodo_credencial->first_attribute("usuario")->value();
+        std::string password = nodo_credencial->first_attribute("password")->value();
+        if (strcmp(credenciales.password,password.c_str())==0 && strcmp(credenciales.usuario,usuario.c_str())==0)
+            posee = true;
+        nodo_credencial = nodo_credencial->next_sibling();
+    }
+    return posee;
 }

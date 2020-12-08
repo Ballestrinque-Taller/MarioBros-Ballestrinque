@@ -8,7 +8,7 @@
 class Escenario: public Renderer{
     public:
         Escenario();
-        virtual void cambiar_frame(SDL_Renderer* renderer, Camara* camara){};
+        virtual void cambiar_frame(Camara* camara){};
 
     protected:
         int frame_actual;

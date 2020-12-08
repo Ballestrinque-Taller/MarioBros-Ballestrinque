@@ -15,13 +15,17 @@ typedef struct frames{
 
 class Renderer {
     public:
-        virtual ~Renderer();
-        void renderizar(SDL_Renderer* renderer);
-        virtual void cambiar_frame(SDL_Renderer* renderer, Camara* camara){};
+        virtual void cambiar_frame(Camara* camara){};
         void set_dest_rect_x(int x);
         int get_dest_rect_x();
+        SDL_Rect get_src_rect();
+        SDL_Rect get_dest_rect();
+        std::string get_path_img();
+        std::string get_def_path();
+        SDL_RendererFlip get_flip();
 
     protected:
+        bool renderizado = false;
         std::string default_path;
         std::string path_to_image;
         void set_dest_rect(int x,int y,int height,int width);

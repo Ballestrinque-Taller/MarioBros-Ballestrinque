@@ -9,7 +9,7 @@
 
 
 
-Background::Background(SDL_Renderer* renderer, std::string path, int ancho, int alto){
+Background::Background(std::string path, int ancho, int alto){
     ancho_imagen = ancho;
     alto_imagen = alto;
     fin_nivel = ancho_imagen - alto_imagen*4/3;
@@ -19,16 +19,13 @@ Background::Background(SDL_Renderer* renderer, std::string path, int ancho, int 
     path_to_image = path;
     default_path = "./res/Fondo_default.png";
     pos_x_actual = 0;
-
-    renderizar(renderer);
 }
 
 
-void Background::scroll(int velocidad_scroll, SDL_Renderer* renderer){
+void Background::scroll(int velocidad_scroll){
     float ancho_imagen_en_pantalla = alto_imagen*4/3;
     pos_x_actual += velocidad_scroll*ancho_imagen_en_pantalla/WIDTH;
     set_src_rect(pos_x_actual, POS_Y, alto_imagen, alto_imagen*4/3);
-    SDL_RenderCopyEx(renderer, texturas.textura, &(frames_render.src_rect), &(frames_render.dest_rect), 0, NULL, texturas.flip);
 }
 
 bool Background::es_fin_nivel(){

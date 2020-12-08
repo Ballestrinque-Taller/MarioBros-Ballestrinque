@@ -13,6 +13,7 @@
 #include "Moneda.h"
 #include "Temporizador.h"
 #include "Jugador.h"
+#include "Mensajes.h"
 #include <vector>
 
 #define ERROR_XML -1
@@ -24,17 +25,19 @@ using namespace rapidxml;
 class LectorXML{
 
     public:
-        LectorXML(SDL_Renderer* renderer, std::string path_to_xml);
+        LectorXML(std::string path_to_xml);
         int generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, Background** background, Temporizador** temporizador, std::string nivel);
         void free_archivo();
         bool generar_jugador(std::vector<Jugador*>* jugadores);
+        int get_cantidad_jugadores();
         void set_default();
+        bool posee_credenciales(credenciales_t credenciales);
 
    private:
+        int cant_jugadores = 0;
         xml_document<> documento;
         int ancho_ajustado;
         std::string archivo_data;
-        SDL_Renderer* renderer;
         bool generar_timer(xml_node<>* nivel, Temporizador** timer);
         bool generar_background(xml_node<>* nivel, Background** background);
         bool generar_monedas(xml_node<>* nivel, std::vector<Escenario*>* escenarios);

@@ -5,7 +5,7 @@
 #define DERECHA 1
 #define IZQUIERDA -1
 
-#define MAX_ACELERACION 8
+
 #define MAX_CORRIDA 12
 #define TICK_ACELERACION 4
 #define DECAIMIENTO_ACEL_Y 1
@@ -25,7 +25,7 @@
 #define FRAME_MOV_FINAL 3
 #define FRAME_AGACHADO 6
 
-Jugador::Jugador(SDL_Renderer* renderer, std::string path){
+Jugador::Jugador(std::string path){
     path_to_image = path;
     default_path = "./res/Mario_default.png";
     set_dest_rect(0,0,ALTO_PANTALLA,ANCHO_PANTALLA);
@@ -38,10 +38,9 @@ Jugador::Jugador(SDL_Renderer* renderer, std::string path){
     en_aire = true;
     tick_actual = TIEMPO_FRAME;
     texturas.flip = SDL_FLIP_NONE;
-    Jugador::renderizar(renderer);
 }
 
-void Jugador::cambiar_frame(SDL_Renderer* renderer, Camara* camara){
+void Jugador::cambiar_frame(Camara* camara){
     tick_actual++;
     if (tick_actual >= TIEMPO_FRAME && velocidad_x!= 0 && !en_aire){
         tick_actual = 0;
@@ -62,9 +61,12 @@ void Jugador::cambiar_frame(SDL_Renderer* renderer, Camara* camara){
         frame_actual = 0;
     }
     set_src_rect(frame_actual*ANCHO_FRAME,1,ALTO_FRAME,ANCHO_FRAME);
-    camara->check_movimiento(this, velocidad_x);
+    //camara->check_movimiento(this, velocidad_x);
     camara->acomodar_a_imagen(this);
-    SDL_RenderCopyEx(renderer, texturas.textura, &(frames_render.src_rect), &(frames_render.dest_rect), 0, NULL, texturas.flip);
+}
+
+int Jugador::get_velocidad_x(){
+    return velocidad_x;
 }
 
 void Jugador::acelerar_x(int direccion){
@@ -169,4 +171,30 @@ void Jugador::agacharse(){
 void Jugador::reset_posicion(){
     set_dest_rect(0,0,ALTO_PANTALLA,ANCHO_PANTALLA);
     velocidad_x = 0;
+}
+
+void Jugador::grisar(){
+    if(!desconectado) {
+        std::string png_str(".png");
+        for (int i = 0; i < png_str.size(); i++)
+            path_to_image.erase(path_to_image.size() - 1);
+        path_to_image += "_GRISADO.png";
+    }
+    velocidad_x = 0;
+    desconectado = true;
+}
+
+void Jugador::reconectar(){
+    if (desconectado){
+        std::string grisado("_GRISADO.png");
+        for (int i=0; i<grisado.size(); i++)
+            path_to_image.erase(path_to_image.size()-1);
+        path_to_image += ".png";
+    }
+    desconectado = false;
+
+}
+
+bool Jugador::esta_desconectado(){
+    return desconectado;
 }

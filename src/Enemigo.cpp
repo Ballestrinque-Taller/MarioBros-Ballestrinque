@@ -21,9 +21,6 @@ Enemigo::Enemigo(){
     tick_actual = 0;
 }
 
-Enemigo::~Enemigo(){
-}
-
 void Enemigo::aceleracion_gravitatoria(){
     //IF !COLISION && ACEL < MAX_ACEL_GRAVEDAD (BAJA MENOS DE LO MAXIMO)
     if (velocidad_y < MAX_ACEL_GRAVEDAD && frames_render.dest_rect.y < 535 - frames_render.dest_rect.h) {

@@ -10,8 +10,8 @@
 
 class Background:public Renderer{
     public:
-        Background(SDL_Renderer* renderer, std::string path, int ancho, int alto);
-        void scroll(int velocidad_scroll, SDL_Renderer* renderer);
+        Background(std::string path, int ancho, int alto);
+        void scroll(int velocidad_scroll);
         bool es_fin_nivel();
 
     private:

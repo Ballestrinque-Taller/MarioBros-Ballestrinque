@@ -4,20 +4,26 @@
 #include "Renderer.h"
 #include "Camara.h"
 
+#define MAX_ACELERACION 8
+
 
 class Jugador: public Renderer{
     public:
-        Jugador(SDL_Renderer* renderer, std::string path);
+        int get_velocidad_x();
+        void grisar();
+        void reconectar();
+        Jugador(std::string path);
         void acelerar_x(int direccion);
         void saltar();
         void desplazar();
-        void cambiar_frame(SDL_Renderer* renderer, Camara* camara) override;
+        void cambiar_frame(Camara* camara) override;
         void recibir_evento(SDL_Event evento);
         void agacharse();
         void reset_posicion();
+        bool esta_desconectado();
 
     private:
-
+        bool desconectado;
         bool acelerando;
         bool en_aire;
         bool agachado;
