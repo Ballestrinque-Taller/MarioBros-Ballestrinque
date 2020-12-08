@@ -43,6 +43,8 @@ class Servidor{
         Camara* camara = nullptr;
         std::vector<Jugador*> jugadores;
         std::vector<std::string> usuarios;
+        std::vector<std::string> usuarios_desconectados;
+
         int estado_error;
         std::vector<Enemigo*> enemigos;
         std::vector<Escenario*> escenarios;
@@ -58,7 +60,8 @@ class Servidor{
         mensaje_servidor_a_cliente_t obtener_mensaje_jugador(Jugador* jugador);
         credenciales_t recibir_credenciales(int socket);
         void enviar_retorno_conexion(int socket, int retorno);
-
+        int encontrar_pos_usuario_a_reconectar(int cliente);
+        void reconectar_jugador_con_nuevo_cliente(int num_cliente);
 
 
         //Cosas de Threads
@@ -67,14 +70,17 @@ class Servidor{
         pthread_t thread_conexiones;
         pthread_mutex_t mutex_desplazamiento;
         pthread_mutex_t mutex_render;
+        int pos_de_conexion = -1;
 
 
         static void intercambiar_mensajes(Servidor* servidor);
+        static void intercambiar_mensajes_reconexion(Servidor *servidor);
+        int get_pos_de_conexion();
 
 
     public:
         //Cosas de sockets
-        bool chequear_credenciales_validas(int socket);
+        int chequear_credenciales_validas(int socket);
         Servidor(std::string ip, int puerto, std::string path_xml);
         ~Servidor();
         int aceptar_conexion();
@@ -82,6 +88,7 @@ class Servidor{
         void enviar_mensaje(int sock_cliente);
         in_addr_t get_ip();
         int bucle_send(mensaje_servidor_a_cliente_t* entidad, int num_cliente);
+        void set_pos_de_conexion(int pos);
 
         //Cosas de Threads
         int get_cantidad_de_conexiones();

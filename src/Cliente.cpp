@@ -103,7 +103,7 @@ void Cliente::mostrar_login(std::string ip, int puerto) {
                     login(ip, puerto);
                     enviar_credenciales(inputs.at(0), inputs.at(1));
                     estado_conexion = recibir_estado_conex_servidor();
-                    if(estado_conexion == CREDENCIALES_INVALIDAS || estado_conexion == JUEGO_LLENO){
+                    if(estado_conexion != CONECTADO){
                         close(socket_cliente);
                         socket_cliente = socket(AF_INET,SOCK_STREAM,0);
                     }
@@ -152,6 +152,9 @@ void Cliente::mostrar_login(std::string ip, int puerto) {
         }
         if(estado_conexion == JUEGO_LLENO){
             retorno_servidor->write_text("El juego esta lleno.", renderer);
+        }
+        if(estado_conexion == CREDENCIALES_YA_UTILIZADAS){
+            retorno_servidor->write_text("Usuario ya conectado.", renderer);
         }
         SDL_RenderPresent(renderer);
         pthread_mutex_unlock(&mutex_render);

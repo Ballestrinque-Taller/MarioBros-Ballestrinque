@@ -13,6 +13,7 @@
 #define CONECTADO 0
 #define JUEGO_LLENO 1
 #define CREDENCIALES_INVALIDAS 2
+#define CREDENCIALES_YA_UTILIZADAS 3
 
 typedef struct mensaje_cliente_a_servidor{
     SDL_Event evento;

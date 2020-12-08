@@ -63,31 +63,90 @@ void Servidor::aceptar_conexiones_thread(Servidor* servidor){
         if (retorno == ERROR_SVR) {
             break;
         }
-        if(servidor->chequear_credenciales_validas(servidor->get_cantidad_de_conexiones()-1)) {
-            servidor->enviar_retorno_conexion(servidor->get_cantidad_de_conexiones()-1, CONECTADO);
-        }else{
-            servidor->enviar_retorno_conexion(servidor->get_cantidad_de_conexiones()-1, CREDENCIALES_INVALIDAS);
-        }
+        servidor->set_pos_de_conexion(servidor->get_cantidad_de_conexiones()-1);
+        servidor->enviar_retorno_conexion(servidor->get_cantidad_de_conexiones()-1, servidor->chequear_credenciales_validas(servidor->get_cantidad_de_conexiones()-1));
     }
     servidor->set_aceptando_conexiones_false();
-    while (!servidor->juego_finalizado()){
+    while (!servidor->juego_finalizado()) {
         int retorno = servidor->aceptar_conexion();
-        servidor->enviar_retorno_conexion(servidor->get_cantidad_de_conexiones()-1,JUEGO_LLENO);
+        int pos_de_reconexion = servidor->encontrar_pos_usuario_a_reconectar(servidor->get_cantidad_de_conexiones()-1);
+        if(pos_de_reconexion != -1){
+            servidor->reconectar_jugador_con_nuevo_cliente(pos_de_reconexion);
+        }else{
+            servidor->enviar_retorno_conexion(servidor->get_cantidad_de_conexiones() - 1, JUEGO_LLENO);
+        }
     }
-
     pthread_exit(nullptr);
+}
+
+int Servidor::encontrar_pos_usuario_a_reconectar(int cliente){
+    credenciales_t credenciales = recibir_credenciales(conexiones.at(cliente));
+    bool encontre = false;
+    int pos = 0;
+    for (pos=0; pos<usuarios_desconectados.size(); pos++){
+        if(strcmp(usuarios_desconectados.at(pos).c_str(), credenciales.usuario) == 0){
+            encontre = true;
+            usuarios_desconectados.erase(usuarios_desconectados.begin()+pos);
+            break;
+        }
+    }
+    if(encontre) {
+        for (pos = 0; pos < usuarios.size(); pos++){
+            if(strcmp(usuarios.at(pos).c_str(),credenciales.usuario)==0){
+                break;
+            }
+        }
+    }
+    if(!encontre)
+        return -1;
+    return pos;
+}
+
+void Servidor::reconectar_jugador_con_nuevo_cliente(int num_cliente) {
+    cant_clientes_exit--;
+    int conexion_nueva = conexiones.at(conexiones.size()-1);
+    close(conexiones.at(num_cliente));
+    conexiones.erase(conexiones.begin()+conexiones.size()-1);
+    pthread_cancel(*(threads.at(num_cliente)));
+    pthread_join(*(threads.at(num_cliente)), nullptr);
+    free(threads.at(num_cliente));
+    threads.erase(threads.begin()+num_cliente);
+    pos_de_conexion = num_cliente;
+    //pthread_create(threads.at(num_cliente), nullptr, reinterpret_cast<void *(*)(void *)>(Servidor::intercambiar_mensajes_reconexion),this);
+    conexiones.emplace(conexiones.begin()+num_cliente, conexion_nueva);
+    conexiones.erase(conexiones.begin()+num_cliente+1);
+    enviar_retorno_conexion(num_cliente, CONECTADO);
+    reconectar_jugador(num_cliente);
+}
+
+void Servidor::set_pos_de_conexion(int pos){
+    pos_de_conexion = pos;
+}
+
+int Servidor::get_pos_de_conexion(){
+    return pos_de_conexion;
 }
 
 bool Servidor::juego_finalizado(){
     return quit;
 }
 
-bool Servidor::chequear_credenciales_validas(int cliente){
+int Servidor::chequear_credenciales_validas(int cliente){
     credenciales_t credenciales = recibir_credenciales(conexiones.at(cliente));
-    bool cred_validas = lectorXml->posee_credenciales(credenciales);
-    if(cred_validas)
+    int retorno_credenciales;
+    for (int i=0; i<usuarios.size();i++){
+        std::string usuario = usuarios.at(i);
+        if(strcmp(usuario.c_str(), credenciales.usuario) == 0)
+            retorno_credenciales = CREDENCIALES_YA_UTILIZADAS;
+    }
+    bool posee_credenciales = lectorXml->posee_credenciales(credenciales);
+    if (posee_credenciales && retorno_credenciales != CREDENCIALES_YA_UTILIZADAS){
+        retorno_credenciales = CONECTADO;
         usuarios.push_back(credenciales.usuario);
-    return cred_validas;
+    }else if(!posee_credenciales){
+        retorno_credenciales = CREDENCIALES_INVALIDAS;
+    }
+    return retorno_credenciales;
 }
 
 void Servidor::enviar_retorno_conexion(int cliente, int retorno){
@@ -96,7 +155,7 @@ void Servidor::enviar_retorno_conexion(int cliente, int retorno){
         pthread_t *thread_cliente = (pthread_t *) malloc(sizeof(pthread_t));
         pthread_create(thread_cliente, nullptr, reinterpret_cast<void *(*)(void *)>(Servidor::intercambiar_mensajes),
                        this);
-        threads.push_back(thread_cliente);
+        threads.emplace(threads.begin()+cliente,thread_cliente);
     }
 
     mensaje_retorno_conexion_t mensaje;
@@ -116,7 +175,7 @@ void Servidor::enviar_retorno_conexion(int cliente, int retorno){
             total_bytes_enviados += bytes_enviados;
         }
     }
-    if(retorno == CREDENCIALES_INVALIDAS || retorno == JUEGO_LLENO){
+    if(retorno != CONECTADO){
         int sock = conexiones.at(cliente);
         close(conexiones.at(cliente));
         conexiones.erase(conexiones.begin()+cliente);
@@ -257,7 +316,7 @@ void Servidor::reconectar_jugador(int num_cliente){
 void Servidor::intercambiar_mensajes(Servidor* servidor){
     bool inicie_thread_enviar = false;
     int conexion = RECIBIENDO_MENSAJES;
-    int cliente = servidor->get_cantidad_de_conexiones() - 1;
+    int cliente = servidor->get_pos_de_conexion();
     bool cliente_conectado = true;
     size_t tiempo_sin_reconexion = 0;
     size_t primer_tiempo_sin_reconexion = 0;
@@ -298,8 +357,10 @@ void Servidor::intercambiar_mensajes(Servidor* servidor){
             }
         }
     }
-    if (inicie_thread_enviar)
+    if (inicie_thread_enviar) {
+        pthread_cancel(thread_enviar);
         pthread_join(thread_enviar, nullptr);
+    }
     pthread_exit(nullptr);
 }
 
@@ -343,6 +404,7 @@ int Servidor::recibir_mensaje(int num_cliente){
     //PROCESAMIENTO DEL MENSAJE
     if (total_bytes_recibidos == bytes_struct) {
         if ((((mensaje_cliente_a_servidor_t *) buffer)->evento).type==SDL_QUIT){
+            usuarios_desconectados.push_back(usuarios.at(num_cliente));
             cant_clientes_exit++;
             return EXIT_GAME;
         }
