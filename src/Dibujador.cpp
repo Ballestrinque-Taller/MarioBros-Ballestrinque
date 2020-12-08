@@ -1,10 +1,11 @@
 #include <Log.h>
 #include "Dibujador.h"
 
-#define ANCHO_ID 75
-#define ALTO_ID 50
-#define ANCHO_PJ 25
-#define ALTO_PJ 50
+#define ANCHO_ID 40
+#define ALTO_BARRA_NIVEL 40
+#define ALTO_ID 30
+#define ANCHO_PJ 30
+#define ALTO_PJ 40
 
 void Dibujador::dibujar(std::vector<entidad_t> entidades_a_dibujar, TextWriter* nivel_label, int nivel_actual, TextWriter* temporizador_label, int tiempo_restante, SDL_Renderer* renderer){
     cantidad_de_jugadores = 0;
@@ -17,8 +18,8 @@ void Dibujador::dibujar(std::vector<entidad_t> entidades_a_dibujar, TextWriter* 
                 generar_identificador_jugador();
             }
             SDL_Rect dest_rect;
-            dest_rect.x = (cantidad_de_jugadores)*(ANCHO_ID+2*ANCHO_PJ)+ANCHO_ID+ANCHO_PJ;
-            dest_rect.y = 600-ALTO_PJ;
+            dest_rect.x = (cantidad_de_jugadores)*(ANCHO_ID+2*ANCHO_PJ)+ANCHO_ID;
+            dest_rect.y = ALTO_BARRA_NIVEL;
             dest_rect.h = ALTO_PJ;
             dest_rect.w = ANCHO_PJ;
             SDL_Rect src_rect = entidades_a_dibujar.at(i).src_rect;
@@ -57,6 +58,7 @@ SDL_Texture* Dibujador::crear_textura(entidad_t entidad, SDL_Renderer* renderer)
         surface = IMG_Load(entidad.default_path);
     }
     SDL_SetColorKey( surface, SDL_TRUE, SDL_MapRGB( surface->format, 0x92, 0x27, 0x8F ) ); //0x92 0x27 0x8F es el color del divisor de mario.
+    SDL_SetColorKey( surface, SDL_TRUE, SDL_MapRGB( surface->format, 0x47, 0x70, 0x4C ) );
     SDL_Texture* textura = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
     return textura;
@@ -64,7 +66,7 @@ SDL_Texture* Dibujador::crear_textura(entidad_t entidad, SDL_Renderer* renderer)
 
 void Dibujador::generar_identificador_jugador(){
     TextWriter* text_writer_pj = new TextWriter();
-    text_writer_pj->set_msg_rect((cantidad_de_jugadores)*(ANCHO_ID+2*ANCHO_PJ)+ANCHO_PJ,600-ALTO_ID,ALTO_ID, ANCHO_ID);
+    text_writer_pj->set_msg_rect((cantidad_de_jugadores)*(ANCHO_ID+2*ANCHO_PJ),ALTO_BARRA_NIVEL,ALTO_ID, ANCHO_ID);
     text_writers.push_back(text_writer_pj);
 }
 
