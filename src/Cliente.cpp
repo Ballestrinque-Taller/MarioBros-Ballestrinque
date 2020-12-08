@@ -27,7 +27,7 @@ Cliente::Cliente(std::string ip, int puerto){
     mostrar_login(ip, puerto);
     //login(ip, puerto);
     struct timeval timeout;
-    timeout.tv_sec = 5;
+    timeout.tv_sec = 1;
     timeout.tv_usec = 0;
     if (setsockopt (socket_cliente, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout,sizeof(timeout)) < 0)
         LOG(Log::ERROR)<<"No se pudo settear el timeout del cliente recv a 5"<<std::endl;
@@ -269,8 +269,10 @@ void Cliente::enviar_evento_a_servidor(mensaje_cliente_a_servidor_t* mensaje_ptr
         bytes_enviados = send(socket_cliente, (mensaje_ptr+total_bytes_enviados), (sizeof(mensaje_cliente_a_servidor_t)-total_bytes_enviados), MSG_NOSIGNAL);
         if (bytes_enviados < 0) {
             LOG(Log::ERROR) << "No se pudo enviar el mensaje al servidor: "<<socket<<". Error number: " << errno <<  std::endl;
+            quit = true;
         } else if (bytes_enviados == 0) {
             enviando = false;
+            quit = true;
         } else {
             total_bytes_enviados += bytes_enviados;
         }
@@ -293,6 +295,8 @@ void Cliente::bucle_juego(){
             enviar_evento_a_servidor(&mensaje);
         }
     }
+    pthread_cancel(thread_render);
+    pthread_join(thread_render, nullptr);
 }
 
 void Cliente::recibir_renders_del_servidor(){
@@ -306,14 +310,14 @@ void Cliente::recibir_renders_del_servidor(){
     entidades.clear();
     while(cantidad_entidades_recibidas < cantidad_entidades_a_recibir) {
         char* buffer = (char*)malloc(bytes_struct);
-
-
         while ((bytes_struct > total_bytes_recibidos)) {
             bytes_recibidos = recv(socket_cliente, (buffer + total_bytes_recibidos),(bytes_struct - total_bytes_recibidos), MSG_NOSIGNAL);
             if (bytes_recibidos < 0) {
                 LOG(Log::ERROR) << "No se pudo recibir el mensaje. Error number: " << errno << std::endl;
+                quit=true;
             } else if (bytes_recibidos == 0) {
                 recibiendo = false;
+                quit=true;
             } else {
                 total_bytes_recibidos += bytes_recibidos;
             }

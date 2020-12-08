@@ -58,7 +58,6 @@ SDL_Texture* Dibujador::crear_textura(entidad_t entidad, SDL_Renderer* renderer)
         surface = IMG_Load(entidad.default_path);
     }
     SDL_SetColorKey( surface, SDL_TRUE, SDL_MapRGB( surface->format, 0x92, 0x27, 0x8F ) ); //0x92 0x27 0x8F es el color del divisor de mario.
-    SDL_SetColorKey( surface, SDL_TRUE, SDL_MapRGB( surface->format, 0x47, 0x70, 0x4C ) );
     SDL_Texture* textura = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
     return textura;

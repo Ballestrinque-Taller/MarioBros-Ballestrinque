@@ -168,7 +168,7 @@ void Servidor::enviar_retorno_conexion(int cliente, int retorno){
     while((bytes_struct>total_bytes_enviados) &&(enviando)) {
         bytes_enviados = send(conexiones.at(cliente), ((char*)&retorno)+total_bytes_enviados, (sizeof(mensaje_retorno_conexion_t)-total_bytes_enviados),MSG_NOSIGNAL);
         if (bytes_enviados < 0) {
-            LOG(Log::DEBUG) << "No se pudo enviar el mensaje de conexion al cliente: "<<socket<<". Error number: " << errno <<  std::endl;
+            //LOG(Log::DEBUG) << "No se pudo enviar el mensaje de conexion al cliente: "<<socket<<". Error number: " << errno <<  std::endl;
         } else if (bytes_enviados == 0) {
             enviando = false;
         } else {
@@ -193,7 +193,7 @@ credenciales_t Servidor::recibir_credenciales(int socket){
     while((bytes_struct>total_bytes_recibidos) && (recibiendo)) {
         bytes_recibidos = recv(socket, (buffer + total_bytes_recibidos), (bytes_struct - total_bytes_recibidos), MSG_NOSIGNAL);
         if (bytes_recibidos < 0 && errno != TIMEOUT) {
-            LOG(Log::ERROR) << "No se pudo recibir el mensaje. Error number: " << errno <<  std::endl;
+            //LOG(Log::ERROR) << "No se pudo recibir el mensaje. Error number: " << errno <<  std::endl;
             return credenciales;
         } else if (bytes_recibidos == 0 || errno == TIMEOUT) {
             recibiendo = false;
@@ -217,7 +217,7 @@ int Servidor::aceptar_conexion(){
         return JUEGO_INICIADO;
     }
     if(conexiones.back() == ERROR_SVR){
-        LOG(Log::ERROR)<<"No se pudo aceptar la conexión del client_adress"<<std::endl;
+        LOG(Log::ERROR)<<"No se pudo aceptar la conexión del client_address"<<std::endl;
         conexiones.pop_back();
         return ERROR_SVR;
     }
@@ -517,18 +517,19 @@ void Servidor::game_loop() {
 }
 
 Servidor::~Servidor() {
+    LOG(Log::INFO)<<"Destruyendo servidor. Procediendo con el shutdown..."<<std::endl;
     shutdown(socket_svr, STOP_RECEPTION_AND_TRANSMISSION);
     close(socket_svr);
+    LOG(Log::INFO)<<"Destruyendo thread de aceptación de conexiones..."<<std::endl;
     if (aceptando_conexiones)
         pthread_cancel(thread_conexiones);
     pthread_join(thread_conexiones, nullptr);
-
+    LOG(Log::INFO)<<"Destruyendo threads de clientes..."<<std::endl;
     for(auto & thread:threads){
         pthread_cancel(*thread);
         pthread_join(*thread,nullptr);
         free(thread);
     }
-    //finalizar_juego();
 }
 
 in_addr_t Servidor::get_ip(){
