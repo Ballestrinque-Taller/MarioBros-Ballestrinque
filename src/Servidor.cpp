@@ -69,6 +69,8 @@ void Servidor::aceptar_conexiones_thread(Servidor* servidor){
     servidor->set_aceptando_conexiones_false();
     while (!servidor->juego_finalizado()) {
         int retorno = servidor->aceptar_conexion();
+        if(retorno == ERROR_SVR)
+            break;
         int pos_de_reconexion = servidor->encontrar_pos_usuario_a_reconectar(servidor->get_cantidad_de_conexiones()-1);
         if(pos_de_reconexion != -1){
             servidor->reconectar_jugador_con_nuevo_cliente(pos_de_reconexion);
