@@ -270,9 +270,11 @@ void Cliente::enviar_evento_a_servidor(mensaje_cliente_a_servidor_t* mensaje_ptr
         if (bytes_enviados < 0) {
             LOG(Log::ERROR) << "No se pudo enviar el mensaje al servidor: "<<socket<<". Error number: " << errno <<  std::endl;
             quit = true;
+            error_svr = true;
         } else if (bytes_enviados == 0) {
             enviando = false;
             quit = true;
+            error_svr = true;
         } else {
             total_bytes_enviados += bytes_enviados;
         }
@@ -297,6 +299,11 @@ void Cliente::bucle_juego(){
     }
     pthread_cancel(thread_render);
     pthread_join(thread_render, nullptr);
+    if (error_svr){
+        LOG(Log::ERROR)<<"El servidor se cerro. El cliente se cerrará"<<std::endl;
+        SDL_ShowSimpleMessageBox(0,"Error: Server Shutdown", "El servidor ha sido cerrado y se procede con el cierre del cliente.", ventana);
+        //sleep(5);
+    }
 }
 
 void Cliente::recibir_renders_del_servidor(){
@@ -314,10 +321,12 @@ void Cliente::recibir_renders_del_servidor(){
             bytes_recibidos = recv(socket_cliente, (buffer + total_bytes_recibidos),(bytes_struct - total_bytes_recibidos), MSG_NOSIGNAL);
             if (bytes_recibidos < 0) {
                 LOG(Log::ERROR) << "No se pudo recibir el mensaje. Error number: " << errno << std::endl;
-                quit=true;
+                quit = true;
+                error_svr = true;
             } else if (bytes_recibidos == 0) {
                 recibiendo = false;
                 quit=true;
+                error_svr = true;
             } else {
                 total_bytes_recibidos += bytes_recibidos;
             }

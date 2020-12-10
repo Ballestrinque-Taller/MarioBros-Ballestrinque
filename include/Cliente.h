@@ -34,6 +34,7 @@
 
 class Cliente{
     private:
+        bool error_svr = false;
         int recibir_estado_conex_servidor();
         void mostrar_login(std::string, int puerto);
         void enviar_credenciales(std::string usuario, std::string password);
