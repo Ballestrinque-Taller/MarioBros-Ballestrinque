@@ -7,7 +7,7 @@
 
 #include <vector>
 
-#define MARGEN_CAMARA 600*5/6
+#define MARGEN_CAMARA 800*4/6
 #define FIN_NIVEL 1
 #define NIVEL_EN_CURSO 0
 

@@ -20,24 +20,24 @@ typedef struct mensaje_cliente_a_servidor{
 }mensaje_cliente_a_servidor_t;
 
 typedef struct entidad{
-    char path_textura[128];
-    char default_path[128];
+    char path_textura[40];
+    char default_path[40];
     SDL_RendererFlip flip;
     SDL_Rect src_rect;
     SDL_Rect dest_rect;
     bool es_jugador;
-    char usuario[100];
+    char usuario[15];
 }entidad_t;
 
 typedef struct mensaje_servidor_a_cliente{
     entidad_t entidad;
-    int num_nivel;
-    int cantidad_entidades;
-    int tiempo_restante;
+    uint8_t num_nivel;
+    uint16_t cantidad_entidades;
+    uint16_t tiempo_restante;
 }mensaje_servidor_a_cliente_t;
 
 typedef struct credenciales{
-    char usuario[100];
+    char usuario[15];
     char password[100];
 }credenciales_t;
 
