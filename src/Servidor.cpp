@@ -8,7 +8,7 @@
 #define ANCHO_VENTANA 800
 #define ALTO_VENTANA 600
 
-#define ANCHO_ENTIDAD 16
+#define ANCHO_ENTIDAD -40
 
 #define DERECHA 1
 #define IZQUIERDA -1
