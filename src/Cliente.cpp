@@ -373,11 +373,12 @@ void Cliente::render(){
             nivel_label->set_msg_rect(POS_X_TEXTO-WIDTH_TEXTO, POS_Y_TEXTO, HEIGHT_TEXTO, WIDTH_TEXTO);
             temporizador_label->set_msg_rect(POS_X_TEMP,POS_Y_TEMP,HEIGHT_MSG_TEMP,WIDTH_MSG_TEMP);
             pthread_mutex_lock(&mutex_render);
-            dibujador->crear_texturas(entidades, renderer);
+            //dibujador->crear_texturas(entidades, renderer);
             pthread_mutex_unlock(&mutex_render);
             nivel_actual = nivel_recibido;
         }
         pthread_mutex_lock(&mutex_render);
+        dibujador->crear_texturas(entidades, renderer);
         dibujador->dibujar(entidades, nivel_label, nivel_actual, temporizador_label, tiempo_restante_timer, renderer);
         pthread_mutex_unlock(&mutex_render);
         size_t frame_time = SDL_GetTicks() - frame_start;

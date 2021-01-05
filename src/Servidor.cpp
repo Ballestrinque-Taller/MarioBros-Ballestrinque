@@ -11,7 +11,7 @@
 #define DERECHA 1
 #define IZQUIERDA -1
 
-#define FPS 60
+#define FPS 45
 #define FRAME_DELAY 1000/FPS
 
 #define TIMEOUT 11
@@ -238,13 +238,17 @@ void Servidor::enviar_mensaje(int num_cliente){
     }
 
     for (auto &escenario:escenarios) {
-        mensajes.push_back(obtener_mensaje(escenario));
-        num_entidades++;
+        if (escenario->get_dest_rect_x()<=ANCHO_VENTANA && escenario->get_dest_rect_x()>=0) {
+            mensajes.push_back(obtener_mensaje(escenario));
+            num_entidades++;
+        }
     }
 
     for (auto &enemigo: enemigos) {
-        mensajes.push_back(obtener_mensaje(enemigo));
-        num_entidades++;
+        if (enemigo->get_dest_rect_x()<=ANCHO_VENTANA && enemigo->get_dest_rect_x()>=0) {
+            mensajes.push_back(obtener_mensaje(enemigo));
+            num_entidades++;
+        }
     }
 
     for (int i = 0; i < jugadores.size(); i++) {
