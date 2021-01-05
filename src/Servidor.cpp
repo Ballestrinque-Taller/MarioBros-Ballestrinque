@@ -8,6 +8,8 @@
 #define ANCHO_VENTANA 800
 #define ALTO_VENTANA 600
 
+#define ANCHO_ENTIDAD 16
+
 #define DERECHA 1
 #define IZQUIERDA -1
 
@@ -238,14 +240,14 @@ void Servidor::enviar_mensaje(int num_cliente){
     }
 
     for (auto &escenario:escenarios) {
-        if (escenario->get_dest_rect_x()<=ANCHO_VENTANA && escenario->get_dest_rect_x()>=0) {
+        if (escenario->get_dest_rect_x()<=ANCHO_VENTANA && escenario->get_dest_rect_x()>=ANCHO_ENTIDAD) {
             mensajes.push_back(obtener_mensaje(escenario));
             num_entidades++;
         }
     }
 
     for (auto &enemigo: enemigos) {
-        if (enemigo->get_dest_rect_x()<=ANCHO_VENTANA && enemigo->get_dest_rect_x()>=0) {
+        if (enemigo->get_dest_rect_x()<=ANCHO_VENTANA && enemigo->get_dest_rect_x()>=ANCHO_ENTIDAD) {
             mensajes.push_back(obtener_mensaje(enemigo));
             num_entidades++;
         }
