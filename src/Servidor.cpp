@@ -13,7 +13,7 @@
 #define DERECHA 1
 #define IZQUIERDA -1
 
-#define FPS 45
+#define FPS 30
 #define FRAME_DELAY 1000/FPS
 
 #define TIMEOUT 11
