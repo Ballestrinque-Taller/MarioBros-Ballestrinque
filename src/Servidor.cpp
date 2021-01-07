@@ -23,6 +23,7 @@
 
 
 Servidor::Servidor(std::string ip, int puerto, std::string path_xml){
+    colisionador = new Colisionador();
     lectorXml = new LectorXML(path_xml);
     SET_LOGGING_LEVEL(Log::DEBUG);
     socket_svr = socket(AF_INET,SOCK_STREAM,0);
@@ -431,13 +432,34 @@ int Servidor::recibir_mensaje(int num_cliente){
 
 void Servidor::update() {
     temporizador->update();
-    //camara->set_fin_nivel(background->es_fin_nivel());
-    //camara->check_movimiento(jugadores);
+    colisionador->clear_entidades();
+    std::vector<Escenario*> bloques;
+    std::vector<Moneda*> monedas;
+    std::vector<Enemigo*> enemigos;
+    for(Escenario* escenario: escenarios){
+        if((escenario->get_dest_rect().x<ANCHO_VENTANA) && (escenario->get_dest_rect().x>(0-ANCHO_LADRILLO_PANTALLA))){
+            bloques.push_back(escenario);
+        }
+    }
+    /*for(Enemigo* enemigo: this->enemigos){
+        if((enemigo->get_dest_rect_x()<ANCHO_VENTANA) && (enemigo->get_dest_rect_x()>(ANCHO_VENTANA-ANCHO_LADRILLO_PANTALLA))){
+            enemigos.push_back(enemigo);
+        }
+    }*/
+    /*for(Moneda* moneda: monedas){
+        if(moneda->get_dest_rect_x()<ANCHO_VENTANA && moneda->get_dest_rect_x()>ANCHO_VENTANA-ANCHO_LADRILLO_PANTALLA){
+            monedas.push_back(moneda);
+        }
+    }*/
+    colisionador->agregar_bloques(bloques);
+    //colisionador->agregar_monedas(monedas);
+    //colisionador->agregar_enemigos(enemigos);
     for (auto & jugador : jugadores) {
         pthread_mutex_lock(&mutex_desplazamiento);
         jugador->cambiar_frame(camara);
         jugador->desplazar();
         pthread_mutex_unlock(&mutex_desplazamiento);
+        colisionador->jugador_colisionar(jugador);
     }
     for (auto & enemigo : enemigos){
         enemigo->cambiar_frame(camara);
@@ -449,6 +471,9 @@ void Servidor::update() {
     camara->scroll_background(background);
     camara->stop_scrolling();
     usleep(15000);
+    bloques.clear();
+    monedas.clear();
+    enemigos.clear();
 }
 
 void Servidor::iniciar_juego(){
@@ -459,7 +484,6 @@ void Servidor::iniciar_juego(){
         lectorXml->generar_nivel(&enemigos,&escenarios, &background, &temporizador, std::string("nivel1"));
     }
     lectorXml->generar_jugador(&jugadores);
-
     nivel_actual = 1;
 
     juego_iniciado=true;
@@ -474,6 +498,9 @@ void Servidor::finalizar_juego(){
     LOG(Log::DEBUG)<<"Eliminando Camara"<<std::endl;
     if (camara != nullptr)
         delete(camara);
+    LOG(Log::DEBUG)<<"Eliminando Colisionador"<<std::endl;
+    if(colisionador != nullptr)
+        delete(colisionador);
     LOG(Log::DEBUG)<<"Eliminando Lector"<<std::endl;
     if (lectorXml != nullptr)
         delete(lectorXml);

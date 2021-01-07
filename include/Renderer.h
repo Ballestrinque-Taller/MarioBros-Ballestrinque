@@ -17,6 +17,7 @@ class Renderer {
     public:
         virtual void cambiar_frame(Camara* camara){};
         void set_dest_rect_x(int x);
+        void set_dest_rect_y(int y);
         int get_dest_rect_x();
         SDL_Rect get_src_rect();
         SDL_Rect get_dest_rect();

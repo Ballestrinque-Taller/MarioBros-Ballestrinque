@@ -6,6 +6,16 @@
 
 #define MAX_ACELERACION 8
 
+#define COLISION_SUPERIOR 0
+#define COLISION_INFERIOR 1
+#define COLISION_IZQUIERDA 2
+#define COLISION_DERECHA 3
+#define NO_COLISIONA -1
+
+#define PUNTOS_MONEDAS 50
+
+#define MAX_VIDAS 3
+
 
 class Jugador: public Renderer{
     public:
@@ -21,8 +31,13 @@ class Jugador: public Renderer{
         void agacharse();
         void reset_posicion();
         bool esta_desconectado();
+        void colisionar_con_bloque(int direccion);
+        void colisionar_con_enemigo(int direccion);
+        void colisionar_con_moneda();
 
     private:
+        int puntos = 0;
+        int vidas = MAX_VIDAS;
         bool desconectado;
         bool acelerando;
         bool en_aire;

@@ -82,8 +82,10 @@ void Jugador::acelerar_x(int direccion){
 }
 
 void Jugador::saltar() {
-    if (velocidad_y == 0 && !en_aire)
+    if (velocidad_y == 0 && !en_aire) {
         velocidad_y = -ACELERACION_SALTO;
+        en_aire = true;
+    }
 }
 
 void Jugador::desplazar(){
@@ -105,16 +107,17 @@ void Jugador::rozamiento(){
 
 void Jugador::aceleracion_gravitatoria() {
     //IF !COLISION && ACEL < MAX_ACEL_GRAVEDAD (BAJA MENOS DE LO MAXIMO)
-    if (velocidad_y < MAX_ACEL_GRAVEDAD && frames_render.dest_rect.y < 535 - frames_render.dest_rect.h) {
+    //if (velocidad_y < MAX_ACEL_GRAVEDAD && frames_render.dest_rect.y < 535 - frames_render.dest_rect.h) {
+    if(velocidad_y < MAX_ACEL_GRAVEDAD && en_aire){
         velocidad_y += DECAIMIENTO_ACEL_Y;
-        en_aire = true;
+        //en_aire = true;
     }
     //IF COLISION && ACEL PARA ABAJO (POSITIVA)
-    else if (velocidad_y > 0 && frames_render.dest_rect.y >= 535 - frames_render.dest_rect.h) {
+    /*else if (velocidad_y > 0 && frames_render.dest_rect.y >= 535 - frames_render.dest_rect.h) {
         velocidad_y = 0;
         frames_render.dest_rect.y = 535 - frames_render.dest_rect.h;
         en_aire = false;
-    }
+    }*/
 }
 
 void Jugador::recibir_evento(SDL_Event evento) {
@@ -182,6 +185,45 @@ void Jugador::grisar(){
     }
     velocidad_x = 0;
     desconectado = true;
+}
+
+void Jugador::colisionar_con_bloque(int direccion_colision) {
+    switch(direccion_colision){
+        case COLISION_SUPERIOR:
+            std::cout<<"Colision superior"<<std::endl;
+            velocidad_y= 0;
+            en_aire = false;
+            break;
+        case COLISION_IZQUIERDA:
+            std::cout<<"Colision izq"<<std::endl;
+            velocidad_x = 0;
+            break;
+        case COLISION_DERECHA:
+            std::cout<<"Colision der"<<std::endl;
+            velocidad_x = 0;
+            break;
+        case COLISION_INFERIOR:
+            std::cout<<"Colision inf"<<std::endl;
+            velocidad_y = 0;
+            break;
+        case NO_COLISIONA:
+            std::cout<<"No colisiona"<<std::endl;
+            en_aire = true;
+            break;
+    }
+}
+
+void Jugador::colisionar_con_enemigo(int direccion_colision) {
+    switch(direccion_colision){
+        case COLISION_SUPERIOR:
+            break;
+        default:
+            vidas--;
+    }
+}
+
+void Jugador::colisionar_con_moneda(){
+    puntos += PUNTOS_MONEDAS;
 }
 
 void Jugador::reconectar(){

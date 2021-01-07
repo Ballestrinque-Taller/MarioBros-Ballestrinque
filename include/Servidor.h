@@ -16,6 +16,7 @@
 #include <vector>
 #include "Temporizador.h"
 #include <unistd.h>
+#include "Colisionador.h"
 
 //PARAMETROS SVR
 #define TIEMPO_MAX_SIN_CONEXION 5
@@ -32,6 +33,7 @@
 class Servidor{
     private:
         //Cosas de Juego
+        Colisionador* colisionador = nullptr;
         int cant_clientes_exit=0;
         bool juego_iniciado = false;
         bool quit = false;

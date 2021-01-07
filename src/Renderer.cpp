@@ -23,6 +23,10 @@ void Renderer::set_dest_rect_x(int x){
     frames_render.dest_rect.x=x;
 }
 
+void Renderer::set_dest_rect_y(int y) {
+    frames_render.dest_rect.y=y;
+}
+
 int Renderer::get_dest_rect_x(){
     return frames_render.dest_rect.x;
 }

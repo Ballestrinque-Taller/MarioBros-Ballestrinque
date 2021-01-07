@@ -1,7 +1,7 @@
 <config>
     <log nivel="DEBUG">
     </log>
-    <jugadores cantidad = "3">
+    <jugadores cantidad = "1">
         <jugador1 path="./res/MARIO_NORMAL.png">
         </jugador1>
         <jugador2 path="./res/LUIGI.png">
@@ -20,6 +20,8 @@
         </monedas>
         <bloques>
             <bloque x="0" y="200" cantidad="10" tipo="Ladrillo" imagen="./res/LADRILLO.png">
+            </bloque>
+            <bloque x="0" y="535" cantidad="500" tipo="Ladrillo" imagen="./res/LADRILLO.png">
             </bloque>
             <bloque x="500" y="200" cantidad="10" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
@@ -41,6 +43,8 @@
         <bloques>
             <bloque x="0" y="200" cantidad="10" tipo="Ladrillo" imagen="./res/LADRILLO2.png">
             </bloque>
+            <bloque x="0" y="535" cantidad="500" tipo="Ladrillo" imagen="./res/LADRILLO2.png">
+            </bloque>
             <bloque x="500" y="200" cantidad="10" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
         </bloques>
@@ -60,6 +64,8 @@
         </monedas>
         <bloques>
             <bloque x="0" y="200" cantidad="10" tipo="Ladrillo" imagen="./res/LADRILLO.png">
+            </bloque>
+            <bloque x="0" y="535" cantidad="500" tipo="Ladrillo" imagen="./res/LADRILLO.png">
             </bloque>
             <bloque x="500" y="200" cantidad="10" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
