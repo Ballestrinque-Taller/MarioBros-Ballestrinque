@@ -21,13 +21,19 @@
         <bloques>
             <bloque x="0" y="200" cantidad="10" tipo="Ladrillo" imagen="./res/LADRILLO.png">
             </bloque>
+            <bloque x="100" y="505" cantidad="1" tipo="Ladrillo" imagen="./res/LADRILLO.png">
+            </bloque>
+            <bloque x="100" y="475" cantidad="1" tipo="Ladrillo" imagen="./res/LADRILLO.png">
+            </bloque>
+            <bloque x="700" y="505" cantidad="4" tipo="Ladrillo" imagen="./res/LADRILLO.png">
+            </bloque>
             <bloque x="0" y="535" cantidad="500" tipo="Ladrillo" imagen="./res/LADRILLO.png">
             </bloque>
             <bloque x="500" y="200" cantidad="10" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
         </bloques>
         <enemigos>
-            <enemigo tipo="troopa" imagen="./res/TORTUGA.png" cantidad="3">
+            <enemigo tipo="troopa" imagen="./res/TORTUGA.png" cantidad="40">
             </enemigo>
             <enemigo tipo="goomba" imagen="./res/Goomba.png" cantidad="4">
             </enemigo>

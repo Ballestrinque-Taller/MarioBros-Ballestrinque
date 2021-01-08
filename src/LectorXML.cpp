@@ -197,7 +197,7 @@ void LectorXML::generar_bloques_particulares(std::string tipo, int cantidad, int
     }
 }
 
-bool LectorXML::generar_monedas(xml_node<>* nivel, std::vector<Escenario*>* escenarios){
+bool LectorXML::generar_monedas(xml_node<>* nivel, std::vector<Moneda*>* monedas){
     xml_node<>* nodo_de_monedas = nivel->first_node(CAMPO_MONEDAS);
     if(nodo_de_monedas != nullptr) {
         LOG(Log::INFO) << "Monedas leidas correctamente del archivo XML." << std::endl;
@@ -217,7 +217,7 @@ bool LectorXML::generar_monedas(xml_node<>* nivel, std::vector<Escenario*>* esce
     LOG(Log::DEBUG) << "Cantidad de monedas a generar: " << cantidad << std::endl;
     std::string path = nodo_de_monedas->first_attribute("imagen")->value();
     for (int i=0; i<cantidad; i++){
-        escenarios->push_back(new Moneda(rand() % (ancho_ajustado),rand()%RANGO_MONEDAS+POS_MIN_MONEDAS, path));
+        monedas->push_back(new Moneda(rand() % (ancho_ajustado),rand()%RANGO_MONEDAS+POS_MIN_MONEDAS, path));
     }
     return true;
 }
@@ -302,7 +302,7 @@ void set_log_level(std::string level){
     }
 }
 
-int LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escenario*>* escenarios, Background** background, Temporizador** temporizador, std::string nivel) {
+int LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Moneda*>* monedas, std::vector<Escenario*>* escenarios, Background** background, Temporizador** temporizador, std::string nivel) {
     for (auto &enemigo : (*enemigos)) {
         delete enemigo;
     }
@@ -334,7 +334,7 @@ int LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Escena
     if (!generar_enemigos(nodo_del_nivel, enemigos)) {
         return ERROR_XML;
     }
-    if (!generar_monedas(nodo_del_nivel, escenarios)){
+    if (!generar_monedas(nodo_del_nivel, monedas)){
         return ERROR_XML;
     }
     if(!generar_timer(nodo_del_nivel, temporizador)) {

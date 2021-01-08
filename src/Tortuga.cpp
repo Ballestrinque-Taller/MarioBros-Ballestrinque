@@ -23,6 +23,7 @@ Tortuga::Tortuga(int pos_x, int pos_y,std::string path_to_image):Enemigo(){
     this->path_to_image = path_to_image;
     default_path = ("./res/Tortuga_default.png");
     encaparazonado = false;
+    tipo_enemigo = TORTUGA;
 }
 
 void Tortuga::cambiar_frame(Camara* camara){

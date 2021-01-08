@@ -16,10 +16,13 @@
 
 #define MAX_VIDAS 3
 
+#define MAX_SEGS_INMUNE 3
+
 
 class Jugador: public Renderer{
     public:
         int get_velocidad_x();
+        int get_velocidad_y();
         void grisar();
         void reconectar();
         Jugador(std::string path);
@@ -31,9 +34,11 @@ class Jugador: public Renderer{
         void agacharse();
         void reset_posicion();
         bool esta_desconectado();
+        bool esta_inmune();
         void colisionar_con_bloque(int direccion);
         void colisionar_con_enemigo(int direccion);
         void colisionar_con_moneda();
+        void sumar_puntos(int tipo_enemigo);
 
     private:
         int puntos = 0;
@@ -42,6 +47,9 @@ class Jugador: public Renderer{
         bool acelerando;
         bool en_aire;
         bool agachado;
+        bool inmune = false;
+        int tiempo_inmune = 9900;
+        int TickDanio = 0;
 
         int velocidad_x;
         int velocidad_y;

@@ -30,6 +30,8 @@
 //ERRORES
 #define ERROR_SVR -1
 
+class Colisionador;
+
 class Servidor{
     private:
         //Cosas de Juego
@@ -50,6 +52,7 @@ class Servidor{
         int estado_error;
         std::vector<Enemigo*> enemigos;
         std::vector<Escenario*> escenarios;
+        std::vector<Moneda*> monedas;
         Temporizador* temporizador = nullptr;
         void update();
         void game_loop();
@@ -106,8 +109,11 @@ class Servidor{
         int get_cantidad_jugadores();
         void iniciar_juego();
         void finalizar_juego();
+        void consumir_moneda(SDL_Rect pos_moneda);
+        void matar_enemigo(SDL_Rect pos_enemigo);
 
-        //TESTING. SOLO UTILIZAR EN TESTS
+
+    //TESTING. SOLO UTILIZAR EN TESTS
         void set_juego_iniciado();
         int get_socket();
 };

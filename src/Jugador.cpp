@@ -1,6 +1,7 @@
 #include "Jugador.h"
 #include "Renderer.h"
 #include "Camara.h"
+#include "Enemigo.h"
 
 #define DERECHA 1
 #define IZQUIERDA -1
@@ -67,6 +68,10 @@ void Jugador::cambiar_frame(Camara* camara){
 
 int Jugador::get_velocidad_x(){
     return velocidad_x;
+}
+
+int Jugador::get_velocidad_y() {
+    return velocidad_y;
 }
 
 void Jugador::acelerar_x(int direccion){
@@ -190,35 +195,52 @@ void Jugador::grisar(){
 void Jugador::colisionar_con_bloque(int direccion_colision) {
     switch(direccion_colision){
         case COLISION_SUPERIOR:
-            std::cout<<"Colision superior"<<std::endl;
             velocidad_y= 0;
             en_aire = false;
             break;
         case COLISION_IZQUIERDA:
-            std::cout<<"Colision izq"<<std::endl;
             velocidad_x = 0;
             break;
         case COLISION_DERECHA:
-            std::cout<<"Colision der"<<std::endl;
             velocidad_x = 0;
             break;
         case COLISION_INFERIOR:
-            std::cout<<"Colision inf"<<std::endl;
             velocidad_y = 0;
             break;
         case NO_COLISIONA:
-            std::cout<<"No colisiona"<<std::endl;
             en_aire = true;
             break;
     }
 }
 
 void Jugador::colisionar_con_enemigo(int direccion_colision) {
+    tiempo_inmune = SDL_GetTicks() - TickDanio;
+    if (tiempo_inmune > MAX_SEGS_INMUNE*1000)
+        inmune = false;
     switch(direccion_colision){
         case COLISION_SUPERIOR:
             break;
+        case NO_COLISIONA:
+            break;
         default:
+            std::cout<<"Vidas: "<<vidas<<std::endl;
+            inmune = true;
             vidas--;
+            TickDanio = SDL_GetTicks();
+            break;
+    }
+}
+
+bool Jugador::esta_inmune(){
+    return inmune;
+}
+
+void Jugador::sumar_puntos(int tipo_enemigo){
+    switch(tipo_enemigo){
+        case GOOMBA:
+            puntos+=500;
+        case TORTUGA:
+            puntos+=1000;
     }
 }
 

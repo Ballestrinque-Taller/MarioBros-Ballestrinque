@@ -21,6 +21,7 @@ Goomba::Goomba(int pos_x, int pos_y,std::string path_to_image):Enemigo(){
     set_src_rect(POS_INICIAL_X_FRAME, POS_INICIAL_Y_FRAME, ALTO_FRAME, ANCHO_FRAME);
     this->path_to_image = path_to_image;
     default_path = ("./res/Goomba_default.png");
+    tipo_enemigo = GOOMBA;
 }
 
 void Goomba::cambiar_frame(Camara* camara){

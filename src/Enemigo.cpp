@@ -14,6 +14,8 @@
 #define ANCHO_ENEMIGO_PANTALLA 800
 #define ALTO_ENEMIGO_PANTALLA 128
 
+
+
 Enemigo::Enemigo(){
     texturas.flip = SDL_FLIP_NONE;
     velocidad_x = -VELOCIDAD_ENEMIGOS;
@@ -42,8 +44,19 @@ void Enemigo::desplazar(){
 }
 
 void Enemigo::cambiar_direccion(){
-    bool colision = false;
-    if(colision){
-        velocidad_x = -velocidad_x;
+    velocidad_x = -velocidad_x;
+    if(texturas.flip == SDL_FLIP_NONE){
+        texturas.flip = SDL_FLIP_HORIZONTAL;
+    }else{
+        texturas.flip = SDL_FLIP_NONE;
     }
+}
+
+void Enemigo::morir(){
+    muerto=true;
+    velocidad_x = 0;
+}
+
+bool Enemigo::esta_muerto(){
+    return muerto;
 }

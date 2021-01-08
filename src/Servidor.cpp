@@ -23,7 +23,7 @@
 
 
 Servidor::Servidor(std::string ip, int puerto, std::string path_xml){
-    colisionador = new Colisionador();
+    colisionador = new Colisionador(this);
     lectorXml = new LectorXML(path_xml);
     SET_LOGGING_LEVEL(Log::DEBUG);
     socket_svr = socket(AF_INET,SOCK_STREAM,0);
@@ -247,6 +247,13 @@ void Servidor::enviar_mensaje(int num_cliente){
         }
     }
 
+    for (auto &moneda:monedas){
+        if(moneda->get_dest_rect_x()<=ANCHO_VENTANA && moneda->get_dest_rect_x()>=ANCHO_ENTIDAD){
+            mensajes.push_back(obtener_mensaje(moneda));
+            num_entidades++;
+        }
+    }
+
     for (auto &enemigo: enemigos) {
         if (enemigo->get_dest_rect_x()<=ANCHO_VENTANA && enemigo->get_dest_rect_x()>=ANCHO_ENTIDAD) {
             mensajes.push_back(obtener_mensaje(enemigo));
@@ -434,26 +441,26 @@ void Servidor::update() {
     temporizador->update();
     colisionador->clear_entidades();
     std::vector<Escenario*> bloques;
-    std::vector<Moneda*> monedas;
-    std::vector<Enemigo*> enemigos;
+    std::vector<Moneda*> monedas_vec;
+    std::vector<Enemigo*> enemigos_vec;
     for(Escenario* escenario: escenarios){
         if((escenario->get_dest_rect().x<ANCHO_VENTANA) && (escenario->get_dest_rect().x>(0-ANCHO_LADRILLO_PANTALLA))){
             bloques.push_back(escenario);
         }
     }
-    /*for(Enemigo* enemigo: this->enemigos){
-        if((enemigo->get_dest_rect_x()<ANCHO_VENTANA) && (enemigo->get_dest_rect_x()>(ANCHO_VENTANA-ANCHO_LADRILLO_PANTALLA))){
-            enemigos.push_back(enemigo);
+    for(Enemigo* enemigo: enemigos){
+        if((enemigo->get_dest_rect_x()<ANCHO_VENTANA) && (enemigo->get_dest_rect_x()>(0-ANCHO_LADRILLO_PANTALLA))){
+            enemigos_vec.push_back(enemigo);
         }
-    }*/
-    /*for(Moneda* moneda: monedas){
-        if(moneda->get_dest_rect_x()<ANCHO_VENTANA && moneda->get_dest_rect_x()>ANCHO_VENTANA-ANCHO_LADRILLO_PANTALLA){
-            monedas.push_back(moneda);
+    }
+    for(Moneda* moneda: this->monedas){
+        if(moneda->get_dest_rect_x()<ANCHO_VENTANA && moneda->get_dest_rect_x()>0-ANCHO_LADRILLO_PANTALLA){
+            monedas_vec.push_back(moneda);
         }
-    }*/
+    }
     colisionador->agregar_bloques(bloques);
-    //colisionador->agregar_monedas(monedas);
-    //colisionador->agregar_enemigos(enemigos);
+    colisionador->agregar_monedas(monedas_vec);
+    colisionador->agregar_enemigos(enemigos_vec);
     for (auto & jugador : jugadores) {
         pthread_mutex_lock(&mutex_desplazamiento);
         jugador->cambiar_frame(camara);
@@ -464,24 +471,49 @@ void Servidor::update() {
     for (auto & enemigo : enemigos){
         enemigo->cambiar_frame(camara);
         enemigo->desplazar();
+        colisionador->enemigo_colisionar(enemigo);
     }
     for (auto & escenario: escenarios){
         escenario->cambiar_frame(camara);
+    }
+    for (auto & moneda: monedas){
+        moneda->cambiar_frame(camara);
     }
     camara->scroll_background(background);
     camara->stop_scrolling();
     usleep(15000);
     bloques.clear();
-    monedas.clear();
-    enemigos.clear();
+    monedas_vec.clear();
+    enemigos_vec.clear();
+}
+
+void Servidor::consumir_moneda(SDL_Rect pos_moneda){
+    for(int i=0;i<monedas.size();i++){
+        Moneda* moneda = monedas.at(i);
+        if(moneda->get_dest_rect().x == pos_moneda.x && moneda->get_dest_rect().y == pos_moneda.y){
+            delete(moneda);
+            monedas.erase(monedas.begin()+i);
+            break;
+        }
+    }
+}
+
+void Servidor::matar_enemigo(SDL_Rect pos_enemigo){
+    for(int i=0;i<enemigos.size();i++) {
+        Enemigo *enemigo = enemigos.at(i);
+        if (enemigo->get_dest_rect().x == pos_enemigo.x && enemigo->get_dest_rect().y == pos_enemigo.y){
+            enemigo->morir();
+        break;
+        }
+    }
 }
 
 void Servidor::iniciar_juego(){
     std::cout << "Iniciando juego..."<< std::endl;
     camara = new Camara();
-    if (lectorXml->generar_nivel(&enemigos,&escenarios, &background, &temporizador, std::string("nivel1")) == ERROR_XML){
+    if (lectorXml->generar_nivel(&enemigos, &monedas ,&escenarios, &background, &temporizador, std::string("nivel1")) == ERROR_XML){
         lectorXml->set_default();
-        lectorXml->generar_nivel(&enemigos,&escenarios, &background, &temporizador, std::string("nivel1"));
+        lectorXml->generar_nivel(&enemigos, &monedas, &escenarios, &background, &temporizador, std::string("nivel1"));
     }
     lectorXml->generar_jugador(&jugadores);
     nivel_actual = 1;
@@ -499,8 +531,10 @@ void Servidor::finalizar_juego(){
     if (camara != nullptr)
         delete(camara);
     LOG(Log::DEBUG)<<"Eliminando Colisionador"<<std::endl;
-    if(colisionador != nullptr)
-        delete(colisionador);
+    if(colisionador != nullptr) {
+        colisionador->clear_entidades();
+        delete (colisionador);
+    }
     LOG(Log::DEBUG)<<"Eliminando Lector"<<std::endl;
     if (lectorXml != nullptr)
         delete(lectorXml);
@@ -525,6 +559,12 @@ void Servidor::finalizar_juego(){
     }
     if (!escenarios.empty())
         escenarios.clear();
+    LOG (Log::DEBUG)<<"Eliminando Monedas."<<std::endl;
+    for (size_t i=0; i<monedas.size(); i++){
+        delete(monedas.at(i));
+    }
+    if (!monedas.empty())
+        monedas.clear();
 }
 
 void Servidor::game_loop() {
@@ -545,7 +585,7 @@ void Servidor::game_loop() {
             for (auto & jugador : jugadores)
                 jugador->reset_posicion();
             std::string nivel_str = (std::string("nivel")+std::to_string(nivel_actual));
-            if (lectorXml->generar_nivel(&enemigos, &escenarios, &background, &temporizador, nivel_str) == QUIT)
+            if (lectorXml->generar_nivel(&enemigos, &monedas, &escenarios, &background, &temporizador, nivel_str) == QUIT)
                 quit = true;
             pthread_mutex_unlock(&mutex_render);
         }
