@@ -19,19 +19,32 @@ Sorpresa::Sorpresa(int pos_x, int pos_y, std::string path): Escenario(){
     set_src_rect(POS_INICIAL_X_FRAME, POS_INICIAL_Y_FRAME, ALTO_FRAME, ANCHO_FRAME);
     path_to_image = path;
     default_path = ("./res/Sorpresa_default.png");
+    tipo_sorpresa = rand()%2;
+    tiene_sorpresa = true;
+    bloque_sorpresa = true;
 }
 
 void Sorpresa::cambiar_frame(Camara* camara){
     tick_actual++;
-    if(tick_actual>MAXIMO_TICKS){
+    if (tick_actual > MAXIMO_TICKS) {
         tick_actual = 0;
         frame_actual++;
-        if (frame_actual > MAX_FRAME && !usado)
+        if (frame_actual > MAX_FRAME && tiene_sorpresa)
             frame_actual = 0;
-    }
-    else if (usado){
+    } else if (!tiene_sorpresa) {
         frame_actual = FRAME_USADA;
     }
     set_src_rect(frame_actual*ANCHO_FRAME,0,ALTO_FRAME,ANCHO_FRAME);
     camara->acomodar_a_imagen(this);
+}
+
+int Sorpresa::get_tipo_premio() {
+    return tipo_sorpresa;
+}
+
+void Sorpresa::consumir_sorpresa(){
+    tiene_sorpresa = false;
+}
+bool Sorpresa::sorpresa_consumida(){
+    return !tiene_sorpresa;
 }

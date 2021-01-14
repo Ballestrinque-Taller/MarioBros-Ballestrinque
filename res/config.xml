@@ -31,6 +31,8 @@
             </bloque>
             <bloque x="1800" y="350" cantidad="15" tipo="Ladrillo" imagen="./res/LADRILLO.png">
             </bloque>
+            <bloque x="1400" y="350" cantidad="5" tipo="Sorpresa" imagen="./res/SORPRESA.png">
+            </bloque>
             <bloque x="270" y="200" cantidad="10" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
         </bloques>

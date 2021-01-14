@@ -21,9 +21,17 @@ Enemigo::Enemigo(){
     velocidad_x = -VELOCIDAD_ENEMIGOS;
     muerto = false;
     tick_actual = 0;
+    en_aire = true;
+    velocidad_y = 0;
 }
 
 void Enemigo::aceleracion_gravitatoria(){
+    if(!en_aire)
+        velocidad_y = 0;
+    if(velocidad_y < MAX_ACEL_GRAVEDAD && en_aire){
+        velocidad_y += DECAIMIENTO_ACEL_Y;
+    }
+    /*
     //IF !COLISION && ACEL < MAX_ACEL_GRAVEDAD (BAJA MENOS DE LO MAXIMO)
     if (velocidad_y < MAX_ACEL_GRAVEDAD && frames_render.dest_rect.y < 535 - frames_render.dest_rect.h) {
         velocidad_y += DECAIMIENTO_ACEL_Y;
@@ -34,7 +42,7 @@ void Enemigo::aceleracion_gravitatoria(){
         velocidad_y = 0;
         frames_render.dest_rect.y = 535 - frames_render.dest_rect.h;
         en_aire = false;
-    }
+    }*/
 }
 
 void Enemigo::desplazar(){
@@ -59,4 +67,10 @@ void Enemigo::morir(){
 
 bool Enemigo::esta_muerto(){
     return muerto;
+}
+
+void Enemigo::set_enemigo_en_aire(bool estado){
+    en_aire = estado;
+    if (!en_aire)
+        velocidad_y = 0;
 }

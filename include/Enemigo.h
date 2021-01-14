@@ -19,6 +19,7 @@ class Enemigo: public Renderer{
         void cambiar_direccion();
         bool esta_muerto();
         int tipo_enemigo;
+        void set_enemigo_en_aire(bool estado);
 
 
     protected:

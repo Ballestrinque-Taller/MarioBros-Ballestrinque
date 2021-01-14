@@ -18,6 +18,14 @@ void Colisionador::agregar_monedas(std::vector<Moneda*> monedas_recibidas) {
     monedas = std::move(monedas_recibidas);
 }
 
+void Colisionador::agregar_sorpresas(std::vector<Sorpresa*> sorpresas_recibidas){
+    sorpresas = std::move(sorpresas_recibidas);
+}
+
+void Colisionador::agregar_hongos(std::vector<Hongo*> hongos_recibidos){
+    hongos = std::move(hongos_recibidos);
+}
+
 void Colisionador::clear_entidades() {
     if(!monedas.empty())
         monedas.clear();
@@ -25,6 +33,10 @@ void Colisionador::clear_entidades() {
         enemigos.clear();
     if(!bloques.empty())
         bloques.clear();
+    if(!sorpresas.empty())
+        sorpresas.clear();
+    if(!hongos.empty())
+        hongos.clear();
 }
 
 bool colision_izquierda(Renderer* entidad_almacenada, Renderer* entidad_a_colisionar){
@@ -117,10 +129,36 @@ void Colisionador::jugador_colisiona_con_moneda(Jugador* jugador) {
     }
 }
 
+void Colisionador::jugador_colisiona_con_sorpresa(Jugador* jugador){
+    for(auto& sorpresa : sorpresas){
+        if(colision_abajo(sorpresa, jugador) && !sorpresa->sorpresa_consumida()){
+            if(sorpresa->get_tipo_premio() == SORPRESA_HONGO) {
+                servidor->spawn_hongo(sorpresa->get_dest_rect_x()+12,
+                                      sorpresa->get_dest_rect().y - ALTO_HONGO);
+            }else{
+                jugador->colisionar_con_moneda();
+            }
+            sorpresa->consumir_sorpresa();
+        }
+    }
+}
+
+void Colisionador::jugador_colisiona_con_hongo(Jugador* jugador){
+    for(auto& hongo: hongos){
+        if((colision_abajo(hongo, jugador) || colision_arriba(hongo,jugador) || colision_izquierda(hongo,jugador) ||
+        colision_derecha(hongo,jugador)) && !jugador->esta_crecido()){
+            jugador->crecer();
+            servidor->consumir_hongo(hongo->get_dest_rect());
+        }
+    }
+}
+
 void Colisionador::jugador_colisionar(Jugador* jugador) {
+    jugador_colisiona_con_sorpresa(jugador);
     jugador_colisiona_con_bloque(jugador);
     jugador_colisiona_con_moneda(jugador);
     jugador_colisiona_con_enemigo(jugador);
+    jugador_colisiona_con_hongo(jugador);
 }
 
 void Colisionador::enemigo_colisionar(Enemigo* enemigo){
@@ -128,12 +166,36 @@ void Colisionador::enemigo_colisionar(Enemigo* enemigo){
     enemigo_colisiona_con_bloque(enemigo);
 }
 
+void Colisionador::hongo_colisionar_con_pared(Hongo *hongo) {
+    bool colision_superior = false;
+    for(Escenario* escenario: bloques){
+        if(colision_izquierda(escenario, hongo) || colision_derecha(escenario, hongo)) {
+            hongo->cambiar_direccion();
+        }
+        else if (colision_arriba(escenario, hongo)){
+            hongo->set_hongo_en_aire(false);
+            hongo->set_dest_rect_y(escenario->get_dest_rect().y - hongo->get_dest_rect().h);
+            colision_superior = true;
+        }
+    }
+    if(!colision_superior)
+        hongo->set_hongo_en_aire(true);
+}
+
 void Colisionador::enemigo_colisiona_con_bloque(Enemigo* enemigo) {
+    bool colision_superior = false;
     for(Escenario* escenario: bloques){
         if(colision_izquierda(escenario, enemigo) || colision_derecha(escenario, enemigo)) {
             enemigo->cambiar_direccion();
         }
+        else if (colision_arriba(escenario, enemigo)){
+            enemigo->set_enemigo_en_aire(false);
+            enemigo->set_dest_rect_y(escenario->get_dest_rect().y - enemigo->get_dest_rect().h);
+            colision_superior = true;
+        }
     }
+    if(!colision_superior)
+        enemigo->set_enemigo_en_aire(true);
 }
 
 void Colisionador::enemigo_colisiona_con_enemigo(Enemigo* enemigo){
@@ -144,3 +206,4 @@ void Colisionador::enemigo_colisiona_con_enemigo(Enemigo* enemigo){
         }
     }
 }
+

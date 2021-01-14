@@ -35,9 +35,11 @@ class Jugador: public Renderer{
         void reset_posicion();
         bool esta_desconectado();
         bool esta_inmune();
+        bool esta_crecido();
         void colisionar_con_bloque(int direccion);
         void colisionar_con_enemigo(int direccion);
         void colisionar_con_moneda();
+        void crecer();
         void sumar_puntos(int tipo_enemigo);
 
     private:
@@ -47,6 +49,7 @@ class Jugador: public Renderer{
         bool acelerando;
         bool en_aire;
         bool agachado;
+        int estado_crecimiento;
         bool inmune = false;
         int tiempo_inmune = 9900;
         int TickDanio = 0;

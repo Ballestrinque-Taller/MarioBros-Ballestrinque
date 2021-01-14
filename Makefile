@@ -470,6 +470,33 @@ src/Goomba.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MarioBros-Ballestrinque.dir/build.make CMakeFiles/MarioBros-Ballestrinque.dir/src/Goomba.cpp.s
 .PHONY : src/Goomba.cpp.s
 
+src/Hongo.o: src/Hongo.cpp.o
+
+.PHONY : src/Hongo.o
+
+# target to build an object file
+src/Hongo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MarioBros-Ballestrinque.dir/build.make CMakeFiles/MarioBros-Ballestrinque.dir/src/Hongo.cpp.o
+.PHONY : src/Hongo.cpp.o
+
+src/Hongo.i: src/Hongo.cpp.i
+
+.PHONY : src/Hongo.i
+
+# target to preprocess a source file
+src/Hongo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MarioBros-Ballestrinque.dir/build.make CMakeFiles/MarioBros-Ballestrinque.dir/src/Hongo.cpp.i
+.PHONY : src/Hongo.cpp.i
+
+src/Hongo.s: src/Hongo.cpp.s
+
+.PHONY : src/Hongo.s
+
+# target to generate assembly for a file
+src/Hongo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MarioBros-Ballestrinque.dir/build.make CMakeFiles/MarioBros-Ballestrinque.dir/src/Hongo.cpp.s
+.PHONY : src/Hongo.cpp.s
+
 src/Juego.o: src/Juego.cpp.o
 
 .PHONY : src/Juego.o
@@ -890,6 +917,9 @@ help:
 	@echo "... src/Goomba.o"
 	@echo "... src/Goomba.i"
 	@echo "... src/Goomba.s"
+	@echo "... src/Hongo.o"
+	@echo "... src/Hongo.i"
+	@echo "... src/Hongo.s"
 	@echo "... src/Juego.o"
 	@echo "... src/Juego.i"
 	@echo "... src/Juego.s"

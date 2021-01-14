@@ -5,5 +5,8 @@
 
 Escenario::Escenario(){
     texturas.flip = SDL_FLIP_NONE;
-    usado = false;
+}
+
+bool Escenario::es_sorpresa() {
+    return bloque_sorpresa;
 }

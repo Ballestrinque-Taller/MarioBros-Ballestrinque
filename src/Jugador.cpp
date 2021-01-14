@@ -26,6 +26,9 @@
 #define FRAME_MOV_FINAL 3
 #define FRAME_AGACHADO 6
 
+#define CRECIDO 1
+#define NO_CRECIDO 0
+
 Jugador::Jugador(std::string path){
     path_to_image = path;
     default_path = "./res/Mario_default.png";
@@ -39,6 +42,7 @@ Jugador::Jugador(std::string path){
     en_aire = true;
     tick_actual = TIEMPO_FRAME;
     texturas.flip = SDL_FLIP_NONE;
+    estado_crecimiento = NO_CRECIDO;
 }
 
 void Jugador::cambiar_frame(Camara* camara){
@@ -61,8 +65,13 @@ void Jugador::cambiar_frame(Camara* camara){
         tick_actual = 0;
         frame_actual = 0;
     }
-    set_src_rect(frame_actual*ANCHO_FRAME,1,ALTO_FRAME,ANCHO_FRAME);
-    //camara->check_movimiento(this, velocidad_x);
+    if (estado_crecimiento == CRECIDO) {
+        set_src_rect(frame_actual * ANCHO_FRAME, 1, ALTO_FRAME, ANCHO_FRAME);
+        set_dest_rect(get_dest_rect().x, get_dest_rect().y, ALTO_PANTALLA, ANCHO_PANTALLA);
+    }else{
+        set_src_rect(frame_actual * ANCHO_FRAME, ALTO_FRAME+1, ALTO_FRAME/2, ANCHO_FRAME);
+        set_dest_rect(get_dest_rect().x,get_dest_rect().y, ALTO_PANTALLA/2, ANCHO_PANTALLA);
+    }
     camara->acomodar_a_imagen(this);
 }
 
@@ -101,28 +110,15 @@ void Jugador::desplazar(){
     acelerando = false;
 }
 
-/*
-void Jugador::rozamiento(){
-    if(velocidad_x < 0 && !acelerando && !en_aire)
-        velocidad_x += DECAIMIENTO_ROZAMIENTO;
-    else if (velocidad_x > 0 && !acelerando && !en_aire)
-        velocidad_x -= DECAIMIENTO_ROZAMIENTO;
-}
- */
-
 void Jugador::aceleracion_gravitatoria() {
-    //IF !COLISION && ACEL < MAX_ACEL_GRAVEDAD (BAJA MENOS DE LO MAXIMO)
-    //if (velocidad_y < MAX_ACEL_GRAVEDAD && frames_render.dest_rect.y < 535 - frames_render.dest_rect.h) {
     if(velocidad_y < MAX_ACEL_GRAVEDAD && en_aire){
         velocidad_y += DECAIMIENTO_ACEL_Y;
-        //en_aire = true;
     }
-    //IF COLISION && ACEL PARA ABAJO (POSITIVA)
-    /*else if (velocidad_y > 0 && frames_render.dest_rect.y >= 535 - frames_render.dest_rect.h) {
-        velocidad_y = 0;
-        frames_render.dest_rect.y = 535 - frames_render.dest_rect.h;
-        en_aire = false;
-    }*/
+}
+
+void Jugador::crecer(){
+    estado_crecimiento = CRECIDO;
+    set_dest_rect(get_dest_rect_x(), get_dest_rect().y-ALTO_PANTALLA/2, get_dest_rect().h, get_dest_rect().w);
 }
 
 void Jugador::recibir_evento(SDL_Event evento) {
@@ -142,11 +138,6 @@ void Jugador::recibir_evento(SDL_Event evento) {
                 case (SDLK_UP):
                     saltar();
                     break;
-                /*
-                case (KMOD_RCTRL):
-                    max_acel = MAX_CORRIDA;
-                    break;
-                */
         }
     }
     else if (evento.type == SDL_KEYUP){
@@ -160,9 +151,6 @@ void Jugador::recibir_evento(SDL_Event evento) {
             case (SDLK_RIGHT):
                 velocidad_x = 0;
                 break;
-            /*case (KMOD_RCTRL):
-                max_acel = MAX_ACELERACION;
-                break;*/
         }
 
     }
@@ -170,7 +158,6 @@ void Jugador::recibir_evento(SDL_Event evento) {
 
 void Jugador::agacharse(){
     if (!en_aire){
-        //BAJAR HITBOX A LA MITAD
         agachado = true;
         velocidad_x=0;
     }
@@ -225,7 +212,9 @@ void Jugador::colisionar_con_enemigo(int direccion_colision) {
         default:
             std::cout<<"Vidas: "<<vidas<<std::endl;
             inmune = true;
-            vidas--;
+            if(estado_crecimiento == NO_CRECIDO)
+                vidas--;
+            estado_crecimiento = NO_CRECIDO;
             TickDanio = SDL_GetTicks();
             break;
     }
@@ -233,6 +222,10 @@ void Jugador::colisionar_con_enemigo(int direccion_colision) {
 
 bool Jugador::esta_inmune(){
     return inmune;
+}
+
+bool Jugador::esta_crecido() {
+    return (estado_crecimiento == CRECIDO);
 }
 
 void Jugador::sumar_puntos(int tipo_enemigo){

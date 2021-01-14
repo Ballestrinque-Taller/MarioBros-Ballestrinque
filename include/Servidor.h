@@ -10,6 +10,7 @@
 #include "Renderer.h"
 #include "Jugador.h"
 #include "Enemigo.h"
+#include "Hongo.h"
 #include "Camara.h"
 #include "Escenario.h"
 #include "LectorXML.h"
@@ -48,6 +49,7 @@ class Servidor{
         std::vector<Jugador*> jugadores;
         std::vector<std::string> usuarios;
         std::vector<std::string> usuarios_desconectados;
+        std::vector<Hongo*> hongos;
 
         int estado_error;
         std::vector<Enemigo*> enemigos;
@@ -111,6 +113,8 @@ class Servidor{
         void finalizar_juego();
         void consumir_moneda(SDL_Rect pos_moneda);
         void matar_enemigo(SDL_Rect pos_enemigo);
+        void spawn_hongo(int x, int y);
+        void consumir_hongo(SDL_Rect pos_hongo);
 
 
     //TESTING. SOLO UTILIZAR EN TESTS

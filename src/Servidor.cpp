@@ -254,6 +254,13 @@ void Servidor::enviar_mensaje(int num_cliente){
         }
     }
 
+    for (auto &hongo: hongos) {
+        if (hongo->get_dest_rect_x()<=ANCHO_VENTANA && hongo->get_dest_rect_x()>=ANCHO_ENTIDAD) {
+            mensajes.push_back(obtener_mensaje(hongo));
+            num_entidades++;
+        }
+    }
+
     for (auto &enemigo: enemigos) {
         if (enemigo->get_dest_rect_x()<=ANCHO_VENTANA && enemigo->get_dest_rect_x()>=ANCHO_ENTIDAD) {
             mensajes.push_back(obtener_mensaje(enemigo));
@@ -443,24 +450,41 @@ void Servidor::update() {
     std::vector<Escenario*> bloques;
     std::vector<Moneda*> monedas_vec;
     std::vector<Enemigo*> enemigos_vec;
+    std::vector<Hongo*> hongos_vec;
+    std::vector<Sorpresa*> sorpresas_vec;
     for(Escenario* escenario: escenarios){
-        if((escenario->get_dest_rect().x<ANCHO_VENTANA) && (escenario->get_dest_rect().x>(0-ANCHO_LADRILLO_PANTALLA))){
-            bloques.push_back(escenario);
-        }
+        //if((escenario->get_dest_rect().x<ANCHO_VENTANA) && (escenario->get_dest_rect().x>(0-ANCHO_LADRILLO_PANTALLA))){
+        bloques.push_back(escenario);
+        //}
     }
     for(Enemigo* enemigo: enemigos){
-        if((enemigo->get_dest_rect_x()<ANCHO_VENTANA) && (enemigo->get_dest_rect_x()>(0-ANCHO_LADRILLO_PANTALLA))){
-            enemigos_vec.push_back(enemigo);
-        }
+        //if((enemigo->get_dest_rect_x()<ANCHO_VENTANA) && (enemigo->get_dest_rect_x()>(0-ANCHO_LADRILLO_PANTALLA))){
+        enemigos_vec.push_back(enemigo);
+        //}
     }
     for(Moneda* moneda: this->monedas){
         if(moneda->get_dest_rect_x()<ANCHO_VENTANA && moneda->get_dest_rect_x()>0-ANCHO_LADRILLO_PANTALLA){
             monedas_vec.push_back(moneda);
         }
     }
+    for(Hongo* hongo: this->hongos){
+        //if(hongo->get_dest_rect_x()<ANCHO_VENTANA && hongo->get_dest_rect_x()>-ANCHO_HONGO){
+        hongos_vec.push_back(hongo);
+        //}
+        hongo->desplazar();
+        camara->acomodar_a_imagen(hongo);
+
+    }
+    for(Escenario* escenario: this->escenarios){
+        if(escenario->es_sorpresa() && escenario->get_dest_rect_x()<ANCHO_VENTANA && escenario->get_dest_rect_x()>-ANCHO_SORPRESA_PANTALLA){
+            sorpresas_vec.push_back((Sorpresa*)escenario);
+        }
+    }
     colisionador->agregar_bloques(bloques);
     colisionador->agregar_monedas(monedas_vec);
     colisionador->agregar_enemigos(enemigos_vec);
+    colisionador->agregar_hongos(hongos_vec);
+    colisionador->agregar_sorpresas(sorpresas_vec);
     for (auto & jugador : jugadores) {
         pthread_mutex_lock(&mutex_desplazamiento);
         jugador->cambiar_frame(camara);
@@ -479,12 +503,17 @@ void Servidor::update() {
     for (auto & moneda: monedas){
         moneda->cambiar_frame(camara);
     }
+    for (auto & hongo: hongos){
+        colisionador->hongo_colisionar_con_pared(hongo);
+    }
     camara->scroll_background(background);
     camara->stop_scrolling();
     usleep(15000);
     bloques.clear();
     monedas_vec.clear();
     enemigos_vec.clear();
+    hongos_vec.clear();
+    sorpresas_vec.clear();
 }
 
 void Servidor::consumir_moneda(SDL_Rect pos_moneda){
@@ -504,6 +533,21 @@ void Servidor::matar_enemigo(SDL_Rect pos_enemigo){
         if (enemigo->get_dest_rect().x == pos_enemigo.x && enemigo->get_dest_rect().y == pos_enemigo.y){
             enemigo->morir();
         break;
+        }
+    }
+}
+
+void Servidor::spawn_hongo(int x, int y) {
+    hongos.push_back(new Hongo(x,y));
+}
+
+void Servidor::consumir_hongo(SDL_Rect pos_hongo){
+    for(int i=0;i<hongos.size();i++){
+        Hongo* hongo = hongos.at(i);
+        if(hongo->get_dest_rect().x == pos_hongo.x && hongo->get_dest_rect().y == pos_hongo.y){
+            delete(hongo);
+            hongos.erase(hongos.begin()+i);
+            break;
         }
     }
 }
@@ -565,6 +609,11 @@ void Servidor::finalizar_juego(){
     }
     if (!monedas.empty())
         monedas.clear();
+    if (!hongos.empty()) {
+        for (auto& hongo:hongos)
+            delete (hongo);
+        hongos.clear();
+    }
 }
 
 void Servidor::game_loop() {

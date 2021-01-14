@@ -7,7 +7,7 @@ file(GLOB MARIO_SRC
         "../src/Background.cpp" "../src/Camara.cpp" "../src/Cliente.cpp" "../src/Dibujador.cpp" "../src/Enemigo.cpp" "../src/Escenario.cpp"
         "../src/Goomba.cpp" "../src/Jugador.cpp" "../src/Ladrillo.cpp" "../src/LectorXML.cpp" "../src/Log.cpp" "../src/Logger.cpp"
         "../src/Moneda.cpp" "../src/Renderer.cpp" "../src/Servidor.cpp" "../src/Sorpresa.cpp" "../src/Temporizador.cpp"
-        "../src/TextWriter.cpp" "../src/Tortuga.cpp"
+        "../src/TextWriter.cpp" "../src/Tortuga.cpp" "../src/Colisionador.cpp"
         "../include/*.h"
         )
 add_executable(Google_Tests_run ${TEST_SRC} ${MARIO_SRC})

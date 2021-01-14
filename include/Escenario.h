@@ -9,10 +9,12 @@ class Escenario: public Renderer{
     public:
         Escenario();
         virtual void cambiar_frame(Camara* camara){};
+        bool es_sorpresa();
 
     protected:
         int frame_actual;
-        bool usado;
+        bool bloque_sorpresa = false;
+        bool usado = false;
 };
 
 #endif //MARIOBROS_BALLESTRINQUE_ESCENARIO_H
