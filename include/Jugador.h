@@ -3,6 +3,7 @@
 
 #include "Renderer.h"
 #include "Camara.h"
+#include "ReproductorDeSonido.h"
 
 #define MAX_ACELERACION 8
 
@@ -33,6 +34,8 @@ class Jugador: public Renderer{
         void recibir_evento(SDL_Event evento);
         void agacharse();
         void reset_posicion();
+        void set_sonido_a_reproducir(uint8_t sonido);
+        uint8_t get_sonido_a_reproducir();
         bool esta_desconectado();
         bool esta_inmune();
         bool esta_crecido();
@@ -53,6 +56,7 @@ class Jugador: public Renderer{
         bool inmune = false;
         int tiempo_inmune = 9900;
         int TickDanio = 0;
+        uint8_t sonido_a_reproducir = NO_HAY_SONIDO;
 
         int velocidad_x;
         int velocidad_y;

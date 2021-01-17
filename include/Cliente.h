@@ -10,6 +10,7 @@
 #include "Dibujador.h"
 #include "Mensajes.h"
 #include <unistd.h>
+#include "ReproductorDeSonido.h"
 
 #define ERROR_JUEGO -1
 
@@ -55,6 +56,7 @@ class Cliente{
         int login(std::string ip, int puerto);
         bool render_iniciado = false;
         pthread_mutex_t mutex_render;
+        ReproductorDeSonido* reproductorDeSonido;
 
     public:
         Cliente(std::string, int puerto);

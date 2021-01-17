@@ -1,4 +1,5 @@
 #include "Colisionador.h"
+#include "ReproductorDeSonido.h"
 
 #include <utility>
 
@@ -110,6 +111,7 @@ void Colisionador::jugador_colisiona_con_enemigo(Jugador* jugador) {
             jugador->colisionar_con_enemigo(COLISION_SUPERIOR);
             jugador->sumar_puntos(enemigo->tipo_enemigo);
             servidor->matar_enemigo(enemigo->get_dest_rect());
+            jugador->set_sonido_a_reproducir(SONIDO_PISAR_ENEMIGOS);
             hubo_colision = true;
         }
     }
@@ -125,6 +127,7 @@ void Colisionador::jugador_colisiona_con_moneda(Jugador* jugador) {
            colision_arriba(moneda, jugador) || colision_abajo(moneda, jugador)) {
             jugador->colisionar_con_moneda();
             servidor->consumir_moneda(moneda->get_dest_rect());
+            jugador->set_sonido_a_reproducir(SONIDO_MONEDA);
         }
     }
 }
@@ -135,8 +138,10 @@ void Colisionador::jugador_colisiona_con_sorpresa(Jugador* jugador){
             if(sorpresa->get_tipo_premio() == SORPRESA_HONGO) {
                 servidor->spawn_hongo(sorpresa->get_dest_rect_x()+12,
                                       sorpresa->get_dest_rect().y - ALTO_HONGO);
+                jugador->set_sonido_a_reproducir(SONIDO_HONGO);
             }else{
                 jugador->colisionar_con_moneda();
+                jugador->set_sonido_a_reproducir(SONIDO_MONEDA);
             }
             sorpresa->consumir_sorpresa();
         }
@@ -149,6 +154,7 @@ void Colisionador::jugador_colisiona_con_hongo(Jugador* jugador){
         colision_derecha(hongo,jugador)) && !jugador->esta_crecido()){
             jugador->crecer();
             servidor->consumir_hongo(hongo->get_dest_rect());
+            jugador->set_sonido_a_reproducir(SONIDO_CRECIMIENTO);
         }
     }
 }

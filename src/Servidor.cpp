@@ -273,12 +273,14 @@ void Servidor::enviar_mensaje(int num_cliente){
             jugador_final = jugadores[i];
         } else {
             mensajes.push_back(obtener_mensaje_jugador(jugadores[i]));
+            jugadores[i]->set_sonido_a_reproducir(NO_HAY_SONIDO);
             strcpy(mensajes.back().entidad.usuario, usuarios[i].c_str());
         }
         num_entidades++;
     }
     if (jugador_final != nullptr) {
         mensajes.push_back(obtener_mensaje_jugador(jugador_final));
+        jugador_final->set_sonido_a_reproducir(NO_HAY_SONIDO);
         strcpy(mensajes.back().entidad.usuario, usuarios[num_cliente].c_str());
     }
     pthread_mutex_unlock(&mutex_render);
@@ -325,6 +327,7 @@ mensaje_servidor_a_cliente_t Servidor::obtener_mensaje(Renderer* render){
 mensaje_servidor_a_cliente_t Servidor::obtener_mensaje_jugador(Jugador* jugador){
     mensaje_servidor_a_cliente_t mensaje = obtener_mensaje(jugador);
     mensaje.entidad.es_jugador = true;
+    mensaje.entidad.sonido_a_reproducir = jugador->get_sonido_a_reproducir();
     return mensaje;
 }
 

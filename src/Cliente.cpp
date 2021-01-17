@@ -24,6 +24,7 @@ Cliente::Cliente(std::string ip, int puerto){
     }
     pthread_mutex_init(&mutex_render, nullptr);
     inicializar_ventana();
+    reproductorDeSonido = new ReproductorDeSonido();
     mostrar_login(ip, puerto);
     //login(ip, puerto);
     struct timeval timeout;
@@ -166,6 +167,7 @@ void Cliente::mostrar_login(std::string ip, int puerto) {
     delete(campo_password);
     delete(password);
     if (estado_conexion == CONECTADO){
+        //reproductorDeSonido->reproducir_efecto_especial("EFECTO_MONEDA");
         bucle_juego();
     }
     else{
@@ -228,7 +230,7 @@ int Cliente::login(std::string ip, int puerto){
 
 int Cliente::inicializar_ventana(){
     LOG(Log::INFO) << "Inicializando ventana de la aplicacion." << std::endl;
-    if (SDL_Init(SDL_INIT_VIDEO) != 0){
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0){
         LOG(Log::ERROR) << "SDL_Init Error: " << SDL_GetError() << std::endl;
         return ERROR_JUEGO;
     }
@@ -286,6 +288,7 @@ void Cliente::bucle_juego(){
     mensaje_cliente_a_servidor_t mensaje;
     pthread_create(&thread_render, nullptr, reinterpret_cast<void *(*)(void *)>(Cliente::render_thread), this);
     LOG(Log::INFO)<<"Iniciando Bucle de Juego."<<std::endl;
+    reproductorDeSonido->reproducir_musica();
     while (!quit){
         render_iniciado = true;
         //CORRE EN UN THREAD INDEPENDIENTE AL RENDER QUE SE RALENTIZA A LOS FPS
@@ -337,8 +340,10 @@ void Cliente::recibir_renders_del_servidor(){
             //LOG(Log::DEBUG) << "Mensaje recibido. Bytes: " << total_bytes_recibidos << std::endl;
             cantidad_entidades_recibidas++;
             entidad_t entidad = ((mensaje_servidor_a_cliente_t*)buffer)->entidad;
-            if(entidad.es_jugador)
-                strcpy(entidad.usuario, (((mensaje_servidor_a_cliente_t*)buffer)->entidad).usuario);
+            if(entidad.es_jugador) {
+                strcpy(entidad.usuario, (((mensaje_servidor_a_cliente_t *) buffer)->entidad).usuario);
+                reproductorDeSonido->reproducir_sonido(entidad.sonido_a_reproducir);
+            }
             entidades.push_back(entidad);
             if(cantidad_entidades_a_recibir == 1)
                 cantidad_entidades_a_recibir = ((mensaje_servidor_a_cliente_t *) buffer)->cantidad_entidades;
@@ -398,6 +403,7 @@ Cliente::~Cliente(){
     }
     close(socket_cliente);
     shutdown(socket_cliente, STOP_RECEPTION_AND_TRANSMISSION);
+    delete(reproductorDeSonido);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(ventana);
     SDL_Quit();

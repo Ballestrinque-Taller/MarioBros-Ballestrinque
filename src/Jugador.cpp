@@ -3,6 +3,7 @@
 #include "Camara.h"
 #include "Enemigo.h"
 
+
 #define DERECHA 1
 #define IZQUIERDA -1
 
@@ -99,6 +100,7 @@ void Jugador::saltar() {
     if (velocidad_y == 0 && !en_aire) {
         velocidad_y = -ACELERACION_SALTO;
         en_aire = true;
+        sonido_a_reproducir = SONIDO_SALTO;
     }
 }
 
@@ -254,4 +256,12 @@ void Jugador::reconectar(){
 
 bool Jugador::esta_desconectado(){
     return desconectado;
+}
+
+void Jugador::set_sonido_a_reproducir(uint8_t sonido) {
+    sonido_a_reproducir = sonido;
+}
+
+uint8_t Jugador::get_sonido_a_reproducir() {
+    return sonido_a_reproducir;
 }

@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/137/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /opt/clion-2020.2.4/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/137/bin/cmake/linux/bin/cmake -E rm -f
+RM = /opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque
+CMAKE_SOURCE_DIR = /home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque
+CMAKE_BINARY_DIR = /home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,31 +79,31 @@ CMAKE_BINARY_DIR = /home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/snap/clion/137/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/snap/clion/137/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/snap/clion/137/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/snap/clion/137/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/137/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -114,7 +114,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/137/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -125,13 +125,13 @@ edit_cache/fast: edit_cache
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/snap/clion/137/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+	/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/snap/clion/137/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+	/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target list_install_components
@@ -146,9 +146,9 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/CMakeFiles /home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/CMakeFiles /home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -713,6 +713,33 @@ src/Renderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MarioBros-Ballestrinque.dir/build.make CMakeFiles/MarioBros-Ballestrinque.dir/src/Renderer.cpp.s
 .PHONY : src/Renderer.cpp.s
 
+src/ReproductorDeSonido.o: src/ReproductorDeSonido.cpp.o
+
+.PHONY : src/ReproductorDeSonido.o
+
+# target to build an object file
+src/ReproductorDeSonido.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MarioBros-Ballestrinque.dir/build.make CMakeFiles/MarioBros-Ballestrinque.dir/src/ReproductorDeSonido.cpp.o
+.PHONY : src/ReproductorDeSonido.cpp.o
+
+src/ReproductorDeSonido.i: src/ReproductorDeSonido.cpp.i
+
+.PHONY : src/ReproductorDeSonido.i
+
+# target to preprocess a source file
+src/ReproductorDeSonido.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MarioBros-Ballestrinque.dir/build.make CMakeFiles/MarioBros-Ballestrinque.dir/src/ReproductorDeSonido.cpp.i
+.PHONY : src/ReproductorDeSonido.cpp.i
+
+src/ReproductorDeSonido.s: src/ReproductorDeSonido.cpp.s
+
+.PHONY : src/ReproductorDeSonido.s
+
+# target to generate assembly for a file
+src/ReproductorDeSonido.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MarioBros-Ballestrinque.dir/build.make CMakeFiles/MarioBros-Ballestrinque.dir/src/ReproductorDeSonido.cpp.s
+.PHONY : src/ReproductorDeSonido.cpp.s
+
 src/Servidor.o: src/Servidor.cpp.o
 
 .PHONY : src/Servidor.o
@@ -944,6 +971,9 @@ help:
 	@echo "... src/Renderer.o"
 	@echo "... src/Renderer.i"
 	@echo "... src/Renderer.s"
+	@echo "... src/ReproductorDeSonido.o"
+	@echo "... src/ReproductorDeSonido.i"
+	@echo "... src/ReproductorDeSonido.s"
 	@echo "... src/Servidor.o"
 	@echo "... src/Servidor.i"
 	@echo "... src/Servidor.s"

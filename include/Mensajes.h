@@ -27,6 +27,7 @@ typedef struct entidad{
     SDL_Rect dest_rect;
     bool es_jugador;
     char usuario[15];
+    uint8_t sonido_a_reproducir;
 }entidad_t;
 
 typedef struct mensaje_servidor_a_cliente{
