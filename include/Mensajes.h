@@ -28,6 +28,8 @@ typedef struct entidad{
     bool es_jugador;
     char usuario[15];
     uint8_t sonido_a_reproducir;
+    size_t puntaje;
+    uint8_t vidas;
 }entidad_t;
 
 typedef struct mensaje_servidor_a_cliente{
@@ -35,6 +37,7 @@ typedef struct mensaje_servidor_a_cliente{
     uint8_t num_nivel;
     uint16_t cantidad_entidades;
     uint16_t tiempo_restante;
+
 }mensaje_servidor_a_cliente_t;
 
 typedef struct credenciales{

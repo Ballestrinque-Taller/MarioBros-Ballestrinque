@@ -328,6 +328,8 @@ mensaje_servidor_a_cliente_t Servidor::obtener_mensaje_jugador(Jugador* jugador)
     mensaje_servidor_a_cliente_t mensaje = obtener_mensaje(jugador);
     mensaje.entidad.es_jugador = true;
     mensaje.entidad.sonido_a_reproducir = jugador->get_sonido_a_reproducir();
+    mensaje.entidad.vidas = jugador->get_cantidad_vidas();
+    mensaje.entidad.puntaje = jugador->get_puntaje();
     return mensaje;
 }
 

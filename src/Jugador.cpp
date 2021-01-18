@@ -15,6 +15,8 @@
 #define MAX_ACEL_GRAVEDAD 10
 #define ACELERACION_SALTO 20
 
+#define VELOCIDAD_MATAR_ENEMIGO_SALTO 10
+
 #define ANCHO_FRAME 17
 #define ALTO_FRAME 32
 #define ANCHO_IMAGEN 358
@@ -208,6 +210,7 @@ void Jugador::colisionar_con_enemigo(int direccion_colision) {
         inmune = false;
     switch(direccion_colision){
         case COLISION_SUPERIOR:
+            velocidad_y = -VELOCIDAD_MATAR_ENEMIGO_SALTO;
             break;
         case NO_COLISIONA:
             break;
@@ -264,4 +267,12 @@ void Jugador::set_sonido_a_reproducir(uint8_t sonido) {
 
 uint8_t Jugador::get_sonido_a_reproducir() {
     return sonido_a_reproducir;
+}
+
+uint8_t Jugador::get_cantidad_vidas(){
+    return vidas;
+}
+
+size_t Jugador::get_puntaje(){
+    return puntos;
 }

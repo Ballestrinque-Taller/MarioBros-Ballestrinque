@@ -2090,3 +2090,5235 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 2021-01-17 20:14:03 [INFO]: Destruyendo threads de clientes...
 
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-17 22:44:29 [INFO]: Cargando nivel1...
+
+2021-01-17 22:44:29 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-17 22:44:29 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-17 22:44:29 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-17 22:44:29 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-17 22:44:29 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-17 22:44:29 [DEBUG]: Valor del puntero a bloques: 0x56445f7d6140
+
+2021-01-17 22:44:29 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:29 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:44:29 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-17 22:44:29 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-17 22:44:29 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:29 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:44:29 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-17 22:44:29 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-17 22:44:29 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:29 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:44:29 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-17 22:44:29 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-17 22:44:29 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:29 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:44:29 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-17 22:44:29 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-17 22:44:29 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:29 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:44:29 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-17 22:44:29 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-17 22:44:29 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:29 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:44:29 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-17 22:44:29 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-17 22:44:29 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:29 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-17 22:44:29 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-17 22:44:29 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-17 22:44:29 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:29 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-17 22:44:29 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-17 22:44:29 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-17 22:44:29 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-17 22:44:29 [INFO]: Generando enemigo... 
+
+2021-01-17 22:44:29 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-17 22:44:29 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-17 22:44:29 [DEBUG]: Cantidad a generar: 10
+
+2021-01-17 22:44:29 [INFO]: Generando enemigo... 
+
+2021-01-17 22:44:29 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-17 22:44:29 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-17 22:44:29 [DEBUG]: Cantidad a generar: 8
+
+2021-01-17 22:44:29 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-17 22:44:29 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-17 22:44:29 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-17 22:44:29 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-17 22:44:29 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-17 22:44:29 [INFO]: Leyendo jugador #1
+
+2021-01-17 22:44:43 [INFO]: Cliente desconectado: 0
+
+2021-01-17 22:44:43 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-17 22:44:43 [DEBUG]: Finalizando juego
+
+2021-01-17 22:44:43 [DEBUG]: Eliminando Camara
+
+2021-01-17 22:44:43 [DEBUG]: Eliminando Colisionador
+
+2021-01-17 22:44:43 [DEBUG]: Eliminando Lector
+
+2021-01-17 22:44:43 [DEBUG]: Eliminando Jugadores
+
+2021-01-17 22:44:43 [DEBUG]: Eliminando Background
+
+2021-01-17 22:44:43 [DEBUG]: Eliminando Temporizador
+
+2021-01-17 22:44:43 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-17 22:44:43 [DEBUG]: Eliminando Enemigos
+
+2021-01-17 22:44:43 [DEBUG]: Eliminando Escenarios
+
+2021-01-17 22:44:43 [DEBUG]: Eliminando Monedas.
+
+2021-01-17 22:44:43 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-17 22:44:43 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-17 22:44:43 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-17 22:44:43 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-17 22:44:55 [INFO]: Cargando nivel1...
+
+2021-01-17 22:44:55 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-17 22:44:55 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-17 22:44:55 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-17 22:44:55 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-17 22:44:55 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-17 22:44:55 [DEBUG]: Valor del puntero a bloques: 0x55bde6c6f140
+
+2021-01-17 22:44:55 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:55 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:44:55 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-17 22:44:55 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-17 22:44:55 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:55 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:44:55 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-17 22:44:55 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-17 22:44:55 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:55 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:44:55 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-17 22:44:55 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-17 22:44:55 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:55 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:44:55 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-17 22:44:55 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-17 22:44:55 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:55 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:44:55 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-17 22:44:55 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-17 22:44:55 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:55 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:44:55 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-17 22:44:55 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-17 22:44:55 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:55 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-17 22:44:55 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-17 22:44:55 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-17 22:44:55 [INFO]: Leyendo bloque...
+
+2021-01-17 22:44:55 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-17 22:44:55 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-17 22:44:55 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-17 22:44:55 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-17 22:44:55 [INFO]: Generando enemigo... 
+
+2021-01-17 22:44:55 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-17 22:44:55 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-17 22:44:55 [DEBUG]: Cantidad a generar: 10
+
+2021-01-17 22:44:55 [INFO]: Generando enemigo... 
+
+2021-01-17 22:44:55 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-17 22:44:55 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-17 22:44:55 [DEBUG]: Cantidad a generar: 8
+
+2021-01-17 22:44:55 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-17 22:44:55 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-17 22:44:55 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-17 22:44:55 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-17 22:44:55 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-17 22:44:55 [INFO]: Leyendo jugador #1
+
+2021-01-17 22:45:45 [INFO]: Cargando nivel2...
+
+2021-01-17 22:45:45 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-17 22:45:45 [DEBUG]: Path a background leido. Valor: ./res/Nivel_2sinTuberia.png
+
+2021-01-17 22:45:45 [DEBUG]: Ancho de background leido. Valor: 3072
+
+2021-01-17 22:45:45 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-17 22:45:45 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-17 22:45:45 [DEBUG]: Valor del puntero a bloques: 0x55bde6c702a0
+
+2021-01-17 22:45:45 [INFO]: Leyendo bloque...
+
+2021-01-17 22:45:45 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:45:45 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-17 22:45:45 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-17 22:45:45 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-17 22:45:45 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO2.png
+
+2021-01-17 22:45:45 [INFO]: Leyendo bloque...
+
+2021-01-17 22:45:45 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:45:45 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 500
+
+2021-01-17 22:45:45 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-17 22:45:45 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-17 22:45:45 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO2.png
+
+2021-01-17 22:45:45 [INFO]: Leyendo bloque...
+
+2021-01-17 22:45:45 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-17 22:45:45 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-17 22:45:45 [DEBUG]: Cargando posicion en x. Valor: 500
+
+2021-01-17 22:45:45 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-17 22:45:45 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-17 22:45:45 [INFO]: Generando enemigo... 
+
+2021-01-17 22:45:45 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-17 22:45:45 [DEBUG]: Imagen a cargar: ./res/TORTUGA2.png
+
+2021-01-17 22:45:45 [DEBUG]: Cantidad a generar: 4
+
+2021-01-17 22:45:45 [INFO]: Generando enemigo... 
+
+2021-01-17 22:45:45 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-17 22:45:45 [DEBUG]: Imagen a cargar: ./res/Goomba2.png
+
+2021-01-17 22:45:45 [DEBUG]: Cantidad a generar: 5
+
+2021-01-17 22:45:45 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-17 22:45:45 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-17 22:45:45 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-17 22:45:45 [DEBUG]: Reiniciando temporizador...
+
+2021-01-17 22:46:20 [INFO]: Cargando nivel3...
+
+2021-01-17 22:46:20 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-17 22:46:20 [DEBUG]: Path a background leido. Valor: ./res/Nivel_3.png
+
+2021-01-17 22:46:20 [DEBUG]: Ancho de background leido. Valor: 3552
+
+2021-01-17 22:46:20 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-17 22:46:20 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-17 22:46:20 [DEBUG]: Valor del puntero a bloques: 0x55bde6c70ca8
+
+2021-01-17 22:46:20 [INFO]: Leyendo bloque...
+
+2021-01-17 22:46:20 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:46:20 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-17 22:46:20 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-17 22:46:20 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-17 22:46:20 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-17 22:46:20 [INFO]: Leyendo bloque...
+
+2021-01-17 22:46:20 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-17 22:46:20 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 500
+
+2021-01-17 22:46:20 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-17 22:46:20 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-17 22:46:20 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-17 22:46:20 [INFO]: Leyendo bloque...
+
+2021-01-17 22:46:20 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-17 22:46:20 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-17 22:46:20 [DEBUG]: Cargando posicion en x. Valor: 500
+
+2021-01-17 22:46:20 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-17 22:46:20 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-17 22:46:20 [INFO]: Generando enemigo... 
+
+2021-01-17 22:46:20 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-17 22:46:20 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-17 22:46:20 [DEBUG]: Cantidad a generar: 4
+
+2021-01-17 22:46:20 [INFO]: Generando enemigo... 
+
+2021-01-17 22:46:20 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-17 22:46:20 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-17 22:46:20 [DEBUG]: Cantidad a generar: 5
+
+2021-01-17 22:46:20 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-17 22:46:20 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-17 22:46:20 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-17 22:46:20 [DEBUG]: Reiniciando temporizador...
+
+2021-01-17 22:46:55 [INFO]: Cargando nivel4...
+
+2021-01-17 22:46:55 [INFO]: Nivel no encontrado... Procediendo a finalizar el juego.
+
+2021-01-17 22:46:55 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-17 22:46:55 [DEBUG]: Finalizando juego
+
+2021-01-17 22:46:55 [DEBUG]: Eliminando Camara
+
+2021-01-17 22:46:55 [DEBUG]: Eliminando Colisionador
+
+2021-01-17 22:46:55 [DEBUG]: Eliminando Lector
+
+2021-01-17 22:46:55 [DEBUG]: Eliminando Jugadores
+
+2021-01-17 22:46:55 [DEBUG]: Eliminando Background
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 11:32:50 [INFO]: Cargando nivel1...
+
+2021-01-18 11:32:50 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 11:32:50 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 11:32:50 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 11:32:50 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 11:32:50 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 11:32:50 [DEBUG]: Valor del puntero a bloques: 0x565378d01140
+
+2021-01-18 11:32:50 [INFO]: Leyendo bloque...
+
+2021-01-18 11:32:50 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:32:50 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:32:50 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:32:50 [INFO]: Leyendo bloque...
+
+2021-01-18 11:32:50 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:32:50 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:32:50 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:32:50 [INFO]: Leyendo bloque...
+
+2021-01-18 11:32:50 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:32:50 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 11:32:50 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:32:50 [INFO]: Leyendo bloque...
+
+2021-01-18 11:32:50 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:32:50 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:32:50 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:32:50 [INFO]: Leyendo bloque...
+
+2021-01-18 11:32:50 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:32:50 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 11:32:50 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:32:50 [INFO]: Leyendo bloque...
+
+2021-01-18 11:32:50 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:32:50 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:32:50 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:32:50 [INFO]: Leyendo bloque...
+
+2021-01-18 11:32:50 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:32:50 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:32:50 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:32:50 [INFO]: Leyendo bloque...
+
+2021-01-18 11:32:50 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:32:50 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 11:32:50 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:32:50 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:32:50 [INFO]: Generando enemigo... 
+
+2021-01-18 11:32:50 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 11:32:50 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 11:32:50 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 11:32:50 [INFO]: Generando enemigo... 
+
+2021-01-18 11:32:50 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 11:32:50 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 11:32:50 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 11:32:50 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 11:32:50 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 11:32:50 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 11:32:50 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 11:32:50 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 11:32:50 [INFO]: Leyendo jugador #1
+
+2021-01-18 11:33:05 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:33:05 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 11:33:05 [DEBUG]: Finalizando juego
+
+2021-01-18 11:33:05 [DEBUG]: Eliminando Camara
+
+2021-01-18 11:33:05 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 11:33:05 [DEBUG]: Eliminando Lector
+
+2021-01-18 11:33:05 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 11:33:05 [DEBUG]: Eliminando Background
+
+2021-01-18 11:33:05 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 11:33:05 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 11:33:05 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 11:33:05 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 11:33:05 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 11:33:05 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 11:33:05 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 11:33:05 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 11:33:05 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 11:33:40 [INFO]: Cargando nivel1...
+
+2021-01-18 11:33:40 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 11:33:40 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 11:33:40 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 11:33:40 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 11:33:40 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 11:33:40 [DEBUG]: Valor del puntero a bloques: 0x556a9d8bf140
+
+2021-01-18 11:33:40 [INFO]: Leyendo bloque...
+
+2021-01-18 11:33:40 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:33:40 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:33:40 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:33:40 [INFO]: Leyendo bloque...
+
+2021-01-18 11:33:40 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:33:40 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:33:40 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:33:40 [INFO]: Leyendo bloque...
+
+2021-01-18 11:33:40 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:33:40 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 11:33:40 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:33:40 [INFO]: Leyendo bloque...
+
+2021-01-18 11:33:40 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:33:40 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:33:40 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:33:40 [INFO]: Leyendo bloque...
+
+2021-01-18 11:33:40 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:33:40 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 11:33:40 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:33:40 [INFO]: Leyendo bloque...
+
+2021-01-18 11:33:40 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:33:40 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:33:40 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:33:40 [INFO]: Leyendo bloque...
+
+2021-01-18 11:33:40 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:33:40 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:33:40 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:33:40 [INFO]: Leyendo bloque...
+
+2021-01-18 11:33:40 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:33:40 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 11:33:40 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:33:40 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:33:40 [INFO]: Generando enemigo... 
+
+2021-01-18 11:33:40 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 11:33:40 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 11:33:40 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 11:33:40 [INFO]: Generando enemigo... 
+
+2021-01-18 11:33:40 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 11:33:40 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 11:33:40 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 11:33:40 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 11:33:40 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 11:33:40 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 11:33:40 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 11:33:40 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 11:33:40 [INFO]: Leyendo jugador #1
+
+2021-01-18 11:34:06 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:34:06 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 11:34:06 [DEBUG]: Finalizando juego
+
+2021-01-18 11:34:06 [DEBUG]: Eliminando Camara
+
+2021-01-18 11:34:06 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 11:34:06 [DEBUG]: Eliminando Lector
+
+2021-01-18 11:34:06 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 11:34:06 [DEBUG]: Eliminando Background
+
+2021-01-18 11:34:06 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 11:34:06 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 11:34:06 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 11:34:06 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 11:34:06 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 11:34:06 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 11:34:06 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 11:34:06 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 11:34:06 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 11:34:31 [INFO]: Cargando nivel1...
+
+2021-01-18 11:34:31 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 11:34:31 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 11:34:31 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 11:34:31 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 11:34:31 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 11:34:31 [DEBUG]: Valor del puntero a bloques: 0x563a3b0f3140
+
+2021-01-18 11:34:31 [INFO]: Leyendo bloque...
+
+2021-01-18 11:34:31 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:34:31 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:34:31 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:34:31 [INFO]: Leyendo bloque...
+
+2021-01-18 11:34:31 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:34:31 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:34:31 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:34:31 [INFO]: Leyendo bloque...
+
+2021-01-18 11:34:31 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:34:31 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 11:34:31 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:34:31 [INFO]: Leyendo bloque...
+
+2021-01-18 11:34:31 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:34:31 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:34:31 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:34:31 [INFO]: Leyendo bloque...
+
+2021-01-18 11:34:31 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:34:31 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 11:34:31 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:34:31 [INFO]: Leyendo bloque...
+
+2021-01-18 11:34:31 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:34:31 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:34:31 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:34:31 [INFO]: Leyendo bloque...
+
+2021-01-18 11:34:31 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:34:31 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:34:31 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:34:31 [INFO]: Leyendo bloque...
+
+2021-01-18 11:34:31 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:34:31 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 11:34:31 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:34:31 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:34:31 [INFO]: Generando enemigo... 
+
+2021-01-18 11:34:31 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 11:34:31 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 11:34:31 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 11:34:31 [INFO]: Generando enemigo... 
+
+2021-01-18 11:34:31 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 11:34:31 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 11:34:31 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 11:34:31 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 11:34:31 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 11:34:31 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 11:34:31 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 11:34:31 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 11:34:31 [INFO]: Leyendo jugador #1
+
+2021-01-18 11:34:45 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:34:45 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 11:34:45 [DEBUG]: Finalizando juego
+
+2021-01-18 11:34:45 [DEBUG]: Eliminando Camara
+
+2021-01-18 11:34:45 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 11:34:45 [DEBUG]: Eliminando Lector
+
+2021-01-18 11:34:45 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 11:34:45 [DEBUG]: Eliminando Background
+
+2021-01-18 11:34:45 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 11:34:45 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 11:34:45 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 11:34:45 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 11:34:45 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 11:34:45 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 11:34:45 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 11:34:45 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 11:34:45 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 11:35:14 [INFO]: Cargando nivel1...
+
+2021-01-18 11:35:14 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 11:35:14 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 11:35:14 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 11:35:14 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 11:35:14 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 11:35:14 [DEBUG]: Valor del puntero a bloques: 0x55cf93955140
+
+2021-01-18 11:35:14 [INFO]: Leyendo bloque...
+
+2021-01-18 11:35:14 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:35:14 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:35:14 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:35:14 [INFO]: Leyendo bloque...
+
+2021-01-18 11:35:14 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:35:14 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:35:14 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:35:14 [INFO]: Leyendo bloque...
+
+2021-01-18 11:35:14 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:35:14 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 11:35:14 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:35:14 [INFO]: Leyendo bloque...
+
+2021-01-18 11:35:14 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:35:14 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:35:14 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:35:14 [INFO]: Leyendo bloque...
+
+2021-01-18 11:35:14 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:35:14 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 11:35:14 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:35:14 [INFO]: Leyendo bloque...
+
+2021-01-18 11:35:14 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:35:14 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:35:14 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:35:14 [INFO]: Leyendo bloque...
+
+2021-01-18 11:35:14 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:35:14 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:35:14 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:35:14 [INFO]: Leyendo bloque...
+
+2021-01-18 11:35:14 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:35:14 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 11:35:14 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:35:14 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:35:14 [INFO]: Generando enemigo... 
+
+2021-01-18 11:35:14 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 11:35:14 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 11:35:14 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 11:35:14 [INFO]: Generando enemigo... 
+
+2021-01-18 11:35:14 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 11:35:14 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 11:35:14 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 11:35:14 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 11:35:14 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 11:35:14 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 11:35:14 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 11:35:14 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 11:35:14 [INFO]: Leyendo jugador #1
+
+2021-01-18 11:35:38 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:35:38 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 11:35:38 [DEBUG]: Finalizando juego
+
+2021-01-18 11:35:38 [DEBUG]: Eliminando Camara
+
+2021-01-18 11:35:38 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 11:35:38 [DEBUG]: Eliminando Lector
+
+2021-01-18 11:35:38 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 11:35:38 [DEBUG]: Eliminando Background
+
+2021-01-18 11:35:38 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 11:35:38 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 11:35:38 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 11:35:38 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 11:35:38 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 11:35:38 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 11:35:38 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 11:35:38 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 11:35:38 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 11:36:03 [INFO]: Cargando nivel1...
+
+2021-01-18 11:36:03 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 11:36:03 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 11:36:03 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 11:36:03 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 11:36:03 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 11:36:03 [DEBUG]: Valor del puntero a bloques: 0x5591a8510140
+
+2021-01-18 11:36:03 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:03 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:36:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:36:03 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:36:03 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:03 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:36:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:36:03 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:36:03 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:03 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:36:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 11:36:03 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:36:03 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:03 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:36:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:36:03 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:36:03 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:03 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:36:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 11:36:03 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:36:03 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:03 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:36:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:36:03 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:36:03 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:03 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:36:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:36:03 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:36:03 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:03 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:36:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 11:36:03 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:36:03 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:36:03 [INFO]: Generando enemigo... 
+
+2021-01-18 11:36:03 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 11:36:03 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 11:36:03 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 11:36:03 [INFO]: Generando enemigo... 
+
+2021-01-18 11:36:03 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 11:36:03 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 11:36:03 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 11:36:03 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 11:36:03 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 11:36:03 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 11:36:03 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 11:36:03 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 11:36:03 [INFO]: Leyendo jugador #1
+
+2021-01-18 11:36:10 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:36:10 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 11:36:10 [DEBUG]: Finalizando juego
+
+2021-01-18 11:36:10 [DEBUG]: Eliminando Camara
+
+2021-01-18 11:36:10 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 11:36:10 [DEBUG]: Eliminando Lector
+
+2021-01-18 11:36:10 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 11:36:10 [DEBUG]: Eliminando Background
+
+2021-01-18 11:36:10 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 11:36:10 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 11:36:10 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 11:36:10 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 11:36:10 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 11:36:10 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 11:36:10 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 11:36:10 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 11:36:10 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 11:36:39 [INFO]: Cargando nivel1...
+
+2021-01-18 11:36:39 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 11:36:39 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 11:36:39 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 11:36:39 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 11:36:39 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 11:36:39 [DEBUG]: Valor del puntero a bloques: 0x56191f4ed140
+
+2021-01-18 11:36:39 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:39 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:36:39 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:36:39 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:36:39 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:39 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:36:39 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:36:39 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:36:39 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:39 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:36:39 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 11:36:39 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:36:39 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:39 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:36:39 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:36:39 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:36:39 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:39 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:36:39 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 11:36:39 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:36:39 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:39 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:36:39 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:36:39 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:36:39 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:39 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:36:39 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:36:39 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:36:39 [INFO]: Leyendo bloque...
+
+2021-01-18 11:36:39 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:36:39 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 11:36:39 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:36:39 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:36:39 [INFO]: Generando enemigo... 
+
+2021-01-18 11:36:39 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 11:36:39 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 11:36:39 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 11:36:39 [INFO]: Generando enemigo... 
+
+2021-01-18 11:36:39 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 11:36:39 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 11:36:39 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 11:36:39 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 11:36:39 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 11:36:39 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 11:36:39 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 11:36:39 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 11:36:39 [INFO]: Leyendo jugador #1
+
+2021-01-18 11:37:03 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:37:03 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 11:37:03 [DEBUG]: Finalizando juego
+
+2021-01-18 11:37:03 [DEBUG]: Eliminando Camara
+
+2021-01-18 11:37:03 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 11:37:03 [DEBUG]: Eliminando Lector
+
+2021-01-18 11:37:03 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 11:37:03 [DEBUG]: Eliminando Background
+
+2021-01-18 11:37:03 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 11:37:03 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 11:37:03 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 11:37:03 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 11:37:03 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 11:37:03 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 11:37:03 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 11:37:03 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 11:37:03 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 11:37:16 [INFO]: Cargando nivel1...
+
+2021-01-18 11:37:16 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 11:37:16 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 11:37:16 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 11:37:16 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 11:37:16 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 11:37:16 [DEBUG]: Valor del puntero a bloques: 0x55b75aeee140
+
+2021-01-18 11:37:16 [INFO]: Leyendo bloque...
+
+2021-01-18 11:37:16 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:37:16 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:37:16 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:37:16 [INFO]: Leyendo bloque...
+
+2021-01-18 11:37:16 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:37:16 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:37:16 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:37:16 [INFO]: Leyendo bloque...
+
+2021-01-18 11:37:16 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:37:16 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 11:37:16 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:37:16 [INFO]: Leyendo bloque...
+
+2021-01-18 11:37:16 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:37:16 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:37:16 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:37:16 [INFO]: Leyendo bloque...
+
+2021-01-18 11:37:16 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:37:16 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 11:37:16 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:37:16 [INFO]: Leyendo bloque...
+
+2021-01-18 11:37:16 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:37:16 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:37:16 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:37:16 [INFO]: Leyendo bloque...
+
+2021-01-18 11:37:16 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:37:16 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:37:16 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:37:16 [INFO]: Leyendo bloque...
+
+2021-01-18 11:37:16 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:37:16 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 11:37:16 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:37:16 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:37:16 [INFO]: Generando enemigo... 
+
+2021-01-18 11:37:16 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 11:37:16 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 11:37:16 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 11:37:16 [INFO]: Generando enemigo... 
+
+2021-01-18 11:37:16 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 11:37:16 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 11:37:16 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 11:37:16 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 11:37:16 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 11:37:16 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 11:37:16 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 11:37:16 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 11:37:16 [INFO]: Leyendo jugador #1
+
+2021-01-18 11:37:55 [INFO]: Cargando nivel2...
+
+2021-01-18 11:37:55 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 11:37:55 [DEBUG]: Path a background leido. Valor: ./res/Nivel_2sinTuberia.png
+
+2021-01-18 11:37:55 [DEBUG]: Ancho de background leido. Valor: 3072
+
+2021-01-18 11:37:55 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 11:37:55 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 11:37:55 [DEBUG]: Valor del puntero a bloques: 0x55b75aeef2a0
+
+2021-01-18 11:37:55 [INFO]: Leyendo bloque...
+
+2021-01-18 11:37:55 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:37:55 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:37:55 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:37:55 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:37:55 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO2.png
+
+2021-01-18 11:37:55 [INFO]: Leyendo bloque...
+
+2021-01-18 11:37:55 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:37:55 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 500
+
+2021-01-18 11:37:55 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:37:55 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 11:37:55 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO2.png
+
+2021-01-18 11:37:55 [INFO]: Leyendo bloque...
+
+2021-01-18 11:37:55 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:37:55 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:37:55 [DEBUG]: Cargando posicion en x. Valor: 500
+
+2021-01-18 11:37:55 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:37:55 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:37:55 [INFO]: Generando enemigo... 
+
+2021-01-18 11:37:55 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 11:37:55 [DEBUG]: Imagen a cargar: ./res/TORTUGA2.png
+
+2021-01-18 11:37:55 [DEBUG]: Cantidad a generar: 4
+
+2021-01-18 11:37:55 [INFO]: Generando enemigo... 
+
+2021-01-18 11:37:55 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 11:37:55 [DEBUG]: Imagen a cargar: ./res/Goomba2.png
+
+2021-01-18 11:37:55 [DEBUG]: Cantidad a generar: 5
+
+2021-01-18 11:37:55 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 11:37:55 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 11:37:55 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 11:37:55 [DEBUG]: Reiniciando temporizador...
+
+2021-01-18 11:38:27 [INFO]: Cargando nivel3...
+
+2021-01-18 11:38:27 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 11:38:27 [DEBUG]: Path a background leido. Valor: ./res/Nivel_3.png
+
+2021-01-18 11:38:27 [DEBUG]: Ancho de background leido. Valor: 3552
+
+2021-01-18 11:38:27 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 11:38:27 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 11:38:27 [DEBUG]: Valor del puntero a bloques: 0x55b75aeefca8
+
+2021-01-18 11:38:27 [INFO]: Leyendo bloque...
+
+2021-01-18 11:38:27 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:38:27 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:38:27 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:38:27 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:38:27 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:38:27 [INFO]: Leyendo bloque...
+
+2021-01-18 11:38:27 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:38:27 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 500
+
+2021-01-18 11:38:27 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:38:27 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 11:38:27 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:38:27 [INFO]: Leyendo bloque...
+
+2021-01-18 11:38:27 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:38:27 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:38:27 [DEBUG]: Cargando posicion en x. Valor: 500
+
+2021-01-18 11:38:27 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:38:27 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:38:27 [INFO]: Generando enemigo... 
+
+2021-01-18 11:38:27 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 11:38:27 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 11:38:27 [DEBUG]: Cantidad a generar: 4
+
+2021-01-18 11:38:27 [INFO]: Generando enemigo... 
+
+2021-01-18 11:38:27 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 11:38:27 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 11:38:27 [DEBUG]: Cantidad a generar: 5
+
+2021-01-18 11:38:27 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 11:38:27 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 11:38:27 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 11:38:27 [DEBUG]: Reiniciando temporizador...
+
+2021-01-18 11:38:46 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:38:46 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 11:38:46 [DEBUG]: Finalizando juego
+
+2021-01-18 11:38:46 [DEBUG]: Eliminando Camara
+
+2021-01-18 11:38:46 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 11:38:46 [DEBUG]: Eliminando Lector
+
+2021-01-18 11:38:46 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 11:38:46 [DEBUG]: Eliminando Background
+
+2021-01-18 11:38:46 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 11:38:46 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 11:38:46 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 11:38:46 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 11:38:46 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 11:38:46 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 11:38:46 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 11:38:46 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 11:38:46 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 11:39:11 [INFO]: Cargando nivel1...
+
+2021-01-18 11:39:11 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 11:39:11 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 11:39:11 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 11:39:11 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 11:39:11 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 11:39:11 [DEBUG]: Valor del puntero a bloques: 0x560890c7a140
+
+2021-01-18 11:39:11 [INFO]: Leyendo bloque...
+
+2021-01-18 11:39:11 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:39:11 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:39:11 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:39:11 [INFO]: Leyendo bloque...
+
+2021-01-18 11:39:11 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:39:11 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:39:11 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:39:11 [INFO]: Leyendo bloque...
+
+2021-01-18 11:39:11 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:39:11 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 11:39:11 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:39:11 [INFO]: Leyendo bloque...
+
+2021-01-18 11:39:11 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:39:11 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:39:11 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:39:11 [INFO]: Leyendo bloque...
+
+2021-01-18 11:39:11 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:39:11 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 11:39:11 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:39:11 [INFO]: Leyendo bloque...
+
+2021-01-18 11:39:11 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:39:11 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:39:11 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:39:11 [INFO]: Leyendo bloque...
+
+2021-01-18 11:39:11 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:39:11 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:39:11 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:39:11 [INFO]: Leyendo bloque...
+
+2021-01-18 11:39:11 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:39:11 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 11:39:11 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:39:11 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:39:11 [INFO]: Generando enemigo... 
+
+2021-01-18 11:39:11 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 11:39:11 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 11:39:11 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 11:39:11 [INFO]: Generando enemigo... 
+
+2021-01-18 11:39:11 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 11:39:11 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 11:39:11 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 11:39:11 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 11:39:11 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 11:39:11 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 11:39:11 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 11:39:11 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 11:39:11 [INFO]: Leyendo jugador #1
+
+2021-01-18 11:39:53 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:40:01 [INFO]: Cliente reconectado: 0
+
+2021-01-18 11:40:09 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:40:11 [INFO]: Cliente reconectado: 0
+
+2021-01-18 11:40:24 [INFO]: Cargando nivel2...
+
+2021-01-18 11:40:24 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 11:40:24 [DEBUG]: Path a background leido. Valor: ./res/Nivel_2sinTuberia.png
+
+2021-01-18 11:40:24 [DEBUG]: Ancho de background leido. Valor: 3072
+
+2021-01-18 11:40:24 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 11:40:24 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 11:40:24 [DEBUG]: Valor del puntero a bloques: 0x560890c7b2a0
+
+2021-01-18 11:40:24 [INFO]: Leyendo bloque...
+
+2021-01-18 11:40:24 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:40:24 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:40:24 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:40:24 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:40:24 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO2.png
+
+2021-01-18 11:40:24 [INFO]: Leyendo bloque...
+
+2021-01-18 11:40:24 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:40:24 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 500
+
+2021-01-18 11:40:24 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:40:24 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 11:40:24 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO2.png
+
+2021-01-18 11:40:24 [INFO]: Leyendo bloque...
+
+2021-01-18 11:40:24 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:40:24 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:40:24 [DEBUG]: Cargando posicion en x. Valor: 500
+
+2021-01-18 11:40:24 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:40:24 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:40:24 [INFO]: Generando enemigo... 
+
+2021-01-18 11:40:24 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 11:40:24 [DEBUG]: Imagen a cargar: ./res/TORTUGA2.png
+
+2021-01-18 11:40:24 [DEBUG]: Cantidad a generar: 4
+
+2021-01-18 11:40:24 [INFO]: Generando enemigo... 
+
+2021-01-18 11:40:24 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 11:40:24 [DEBUG]: Imagen a cargar: ./res/Goomba2.png
+
+2021-01-18 11:40:24 [DEBUG]: Cantidad a generar: 5
+
+2021-01-18 11:40:24 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 11:40:24 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 11:40:24 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 11:40:24 [DEBUG]: Reiniciando temporizador...
+
+2021-01-18 11:40:55 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:40:58 [INFO]: Cliente reconectado: 0
+
+2021-01-18 11:40:59 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:40:59 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 11:40:59 [DEBUG]: Finalizando juego
+
+2021-01-18 11:40:59 [DEBUG]: Eliminando Camara
+
+2021-01-18 11:40:59 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 11:40:59 [DEBUG]: Eliminando Lector
+
+2021-01-18 11:40:59 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 11:40:59 [DEBUG]: Eliminando Background
+
+2021-01-18 11:40:59 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 11:40:59 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 11:40:59 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 11:40:59 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 11:40:59 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 11:40:59 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 11:40:59 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 11:40:59 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 11:40:59 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 11:50:15 [INFO]: Cargando nivel1...
+
+2021-01-18 11:50:15 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 11:50:15 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 11:50:15 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 11:50:15 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 11:50:15 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 11:50:15 [DEBUG]: Valor del puntero a bloques: 0x562673fcb140
+
+2021-01-18 11:50:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:15 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:50:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:50:15 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:50:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:15 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:50:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:50:15 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:50:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:15 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:50:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 11:50:15 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:50:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:15 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:50:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:50:15 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:50:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:15 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:50:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 11:50:15 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:50:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:15 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:50:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:50:15 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:50:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:15 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:50:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:50:15 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:50:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:15 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:50:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 11:50:15 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:50:15 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:50:15 [INFO]: Generando enemigo... 
+
+2021-01-18 11:50:15 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 11:50:15 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 11:50:15 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 11:50:15 [INFO]: Generando enemigo... 
+
+2021-01-18 11:50:15 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 11:50:15 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 11:50:15 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 11:50:15 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 11:50:15 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 11:50:15 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 11:50:15 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 11:50:15 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 11:50:15 [INFO]: Leyendo jugador #1
+
+2021-01-18 11:50:24 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:50:24 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 11:50:24 [DEBUG]: Finalizando juego
+
+2021-01-18 11:50:24 [DEBUG]: Eliminando Camara
+
+2021-01-18 11:50:24 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 11:50:24 [DEBUG]: Eliminando Lector
+
+2021-01-18 11:50:24 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 11:50:24 [DEBUG]: Eliminando Background
+
+2021-01-18 11:50:24 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 11:50:24 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 11:50:24 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 11:50:24 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 11:50:24 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 11:50:24 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 11:50:24 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 11:50:24 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 11:50:24 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 11:50:42 [INFO]: Cargando nivel1...
+
+2021-01-18 11:50:42 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 11:50:42 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 11:50:42 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 11:50:42 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 11:50:42 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 11:50:42 [DEBUG]: Valor del puntero a bloques: 0x55d8d04ef140
+
+2021-01-18 11:50:42 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:42 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:50:42 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:50:42 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:50:42 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:42 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:50:42 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:50:42 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:50:42 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:42 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:50:42 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 11:50:42 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:50:42 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:42 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:50:42 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:50:42 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:50:42 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:42 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:50:42 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 11:50:42 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:50:42 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:42 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:50:42 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:50:42 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:50:42 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:42 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:50:42 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:50:42 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:50:42 [INFO]: Leyendo bloque...
+
+2021-01-18 11:50:42 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:50:42 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 11:50:42 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:50:42 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:50:42 [INFO]: Generando enemigo... 
+
+2021-01-18 11:50:42 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 11:50:42 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 11:50:42 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 11:50:42 [INFO]: Generando enemigo... 
+
+2021-01-18 11:50:42 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 11:50:42 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 11:50:42 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 11:50:42 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 11:50:42 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 11:50:42 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 11:50:42 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 11:50:42 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 11:50:42 [INFO]: Leyendo jugador #1
+
+2021-01-18 11:51:30 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:51:30 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 11:51:30 [DEBUG]: Finalizando juego
+
+2021-01-18 11:51:30 [DEBUG]: Eliminando Camara
+
+2021-01-18 11:51:30 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 11:51:30 [DEBUG]: Eliminando Lector
+
+2021-01-18 11:51:30 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 11:51:30 [DEBUG]: Eliminando Background
+
+2021-01-18 11:51:30 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 11:51:30 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 11:51:30 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 11:51:30 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 11:51:30 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 11:51:30 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 11:51:30 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 11:51:30 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 11:51:30 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 11:53:53 [INFO]: Cargando nivel1...
+
+2021-01-18 11:53:53 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 11:53:53 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 11:53:53 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 11:53:53 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 11:53:53 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 11:53:53 [DEBUG]: Valor del puntero a bloques: 0x55b239298140
+
+2021-01-18 11:53:53 [INFO]: Leyendo bloque...
+
+2021-01-18 11:53:53 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:53:53 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:53:53 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:53:53 [INFO]: Leyendo bloque...
+
+2021-01-18 11:53:53 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:53:53 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:53:53 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:53:53 [INFO]: Leyendo bloque...
+
+2021-01-18 11:53:53 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:53:53 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 11:53:53 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:53:53 [INFO]: Leyendo bloque...
+
+2021-01-18 11:53:53 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:53:53 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:53:53 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:53:53 [INFO]: Leyendo bloque...
+
+2021-01-18 11:53:53 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:53:53 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 11:53:53 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:53:53 [INFO]: Leyendo bloque...
+
+2021-01-18 11:53:53 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:53:53 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:53:53 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:53:53 [INFO]: Leyendo bloque...
+
+2021-01-18 11:53:53 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:53:53 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:53:53 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:53:53 [INFO]: Leyendo bloque...
+
+2021-01-18 11:53:53 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:53:53 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 11:53:53 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:53:53 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:53:53 [INFO]: Generando enemigo... 
+
+2021-01-18 11:53:53 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 11:53:53 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 11:53:53 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 11:53:53 [INFO]: Generando enemigo... 
+
+2021-01-18 11:53:53 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 11:53:53 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 11:53:53 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 11:53:53 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 11:53:53 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 11:53:53 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 11:53:53 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 11:53:53 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 11:53:53 [INFO]: Leyendo jugador #1
+
+2021-01-18 11:54:38 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:54:38 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 11:54:38 [DEBUG]: Finalizando juego
+
+2021-01-18 11:54:38 [DEBUG]: Eliminando Camara
+
+2021-01-18 11:54:38 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 11:54:38 [DEBUG]: Eliminando Lector
+
+2021-01-18 11:54:38 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 11:54:38 [DEBUG]: Eliminando Background
+
+2021-01-18 11:54:38 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 11:54:38 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 11:54:38 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 11:54:38 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 11:54:38 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 11:54:38 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 11:54:38 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 11:54:38 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 11:54:38 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 11:55:15 [INFO]: Cargando nivel1...
+
+2021-01-18 11:55:15 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 11:55:15 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 11:55:15 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 11:55:15 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 11:55:15 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 11:55:15 [DEBUG]: Valor del puntero a bloques: 0x5643d1469140
+
+2021-01-18 11:55:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:55:15 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:55:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:55:15 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:55:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:55:15 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:55:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:55:15 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:55:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:55:15 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:55:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 11:55:15 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:55:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:55:15 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:55:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 11:55:15 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:55:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:55:15 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:55:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 11:55:15 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:55:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:55:15 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 11:55:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:55:15 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 11:55:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:55:15 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:55:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 11:55:15 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:55:15 [INFO]: Leyendo bloque...
+
+2021-01-18 11:55:15 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 11:55:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 11:55:15 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 11:55:15 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 11:55:15 [INFO]: Generando enemigo... 
+
+2021-01-18 11:55:15 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 11:55:15 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 11:55:15 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 11:55:15 [INFO]: Generando enemigo... 
+
+2021-01-18 11:55:15 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 11:55:15 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 11:55:15 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 11:55:15 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 11:55:15 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 11:55:15 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 11:55:15 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 11:55:15 [INFO]: Cantidad de jugadores a generar: 2
+
+2021-01-18 11:55:15 [INFO]: Leyendo jugador #1
+
+2021-01-18 11:55:15 [INFO]: Leyendo jugador #2
+
+2021-01-18 11:55:49 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:55:49 [INFO]: Cliente reconectado: 0
+
+2021-01-18 11:55:52 [INFO]: Cliente desconectado: 0
+
+2021-01-18 11:55:53 [INFO]: Cliente desconectado: 1
+
+2021-01-18 11:55:53 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 11:55:53 [DEBUG]: Finalizando juego
+
+2021-01-18 11:55:53 [DEBUG]: Eliminando Camara
+
+2021-01-18 11:55:53 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 11:55:53 [DEBUG]: Eliminando Lector
+
+2021-01-18 11:55:53 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 11:55:53 [DEBUG]: Eliminando Background
+
+2021-01-18 11:55:53 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 11:55:53 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 11:55:53 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 11:55:53 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 11:55:53 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 11:55:53 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 11:55:53 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 11:55:53 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 11:55:53 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 12:03:02 [INFO]: Cargando nivel1...
+
+2021-01-18 12:03:02 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:03:02 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 12:03:02 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 12:03:02 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:03:02 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:03:02 [DEBUG]: Valor del puntero a bloques: 0x56113d88e140
+
+2021-01-18 12:03:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:03:02 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:03:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:03:02 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:03:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:03:02 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:03:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:03:02 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:03:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:03:02 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:03:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 12:03:02 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:03:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:03:02 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:03:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:03:02 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:03:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:03:02 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:03:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:03:02 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:03:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:03:02 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:03:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:03:02 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:03:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:03:02 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:03:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:03:02 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:03:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:03:02 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:03:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 12:03:02 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:03:02 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:03:02 [INFO]: Generando enemigo... 
+
+2021-01-18 12:03:02 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:03:02 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 12:03:02 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 12:03:02 [INFO]: Generando enemigo... 
+
+2021-01-18 12:03:02 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:03:02 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 12:03:02 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 12:03:02 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:03:02 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:03:02 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:03:02 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 12:03:02 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 12:03:02 [INFO]: Leyendo jugador #1
+
+2021-01-18 12:03:06 [ERROR]: No se pudo recibir el mensaje. Error number: 104
+
+2021-01-18 12:03:06 [INFO]: Cliente desconectado: 0
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 12:04:45 [INFO]: Cargando nivel1...
+
+2021-01-18 12:04:45 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:04:45 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 12:04:45 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 12:04:45 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:04:45 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:04:45 [DEBUG]: Valor del puntero a bloques: 0x564de53bf140
+
+2021-01-18 12:04:45 [INFO]: Leyendo bloque...
+
+2021-01-18 12:04:45 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:04:45 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:04:45 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:04:45 [INFO]: Leyendo bloque...
+
+2021-01-18 12:04:45 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:04:45 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:04:45 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:04:45 [INFO]: Leyendo bloque...
+
+2021-01-18 12:04:45 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:04:45 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 12:04:45 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:04:45 [INFO]: Leyendo bloque...
+
+2021-01-18 12:04:45 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:04:45 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:04:45 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:04:45 [INFO]: Leyendo bloque...
+
+2021-01-18 12:04:45 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:04:45 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:04:45 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:04:45 [INFO]: Leyendo bloque...
+
+2021-01-18 12:04:45 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:04:45 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:04:45 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:04:45 [INFO]: Leyendo bloque...
+
+2021-01-18 12:04:45 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:04:45 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:04:45 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:04:45 [INFO]: Leyendo bloque...
+
+2021-01-18 12:04:45 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:04:45 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 12:04:45 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:04:45 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:04:45 [INFO]: Generando enemigo... 
+
+2021-01-18 12:04:45 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:04:45 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 12:04:45 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 12:04:45 [INFO]: Generando enemigo... 
+
+2021-01-18 12:04:45 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:04:45 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 12:04:45 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 12:04:45 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:04:45 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:04:45 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:04:45 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 12:04:45 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 12:04:45 [INFO]: Leyendo jugador #1
+
+2021-01-18 12:04:49 [ERROR]: No se pudo recibir el mensaje. Error number: 104
+
+2021-01-18 12:04:49 [INFO]: Cliente desconectado: 0
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 12:05:12 [INFO]: Cargando nivel1...
+
+2021-01-18 12:05:12 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:05:12 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 12:05:12 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 12:05:12 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:05:12 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:05:12 [DEBUG]: Valor del puntero a bloques: 0x564633a86140
+
+2021-01-18 12:05:12 [INFO]: Leyendo bloque...
+
+2021-01-18 12:05:12 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:05:12 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:05:12 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:05:12 [INFO]: Leyendo bloque...
+
+2021-01-18 12:05:12 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:05:12 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:05:12 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:05:12 [INFO]: Leyendo bloque...
+
+2021-01-18 12:05:12 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:05:12 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 12:05:12 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:05:12 [INFO]: Leyendo bloque...
+
+2021-01-18 12:05:12 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:05:12 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:05:12 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:05:12 [INFO]: Leyendo bloque...
+
+2021-01-18 12:05:12 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:05:12 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:05:12 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:05:12 [INFO]: Leyendo bloque...
+
+2021-01-18 12:05:12 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:05:12 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:05:12 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:05:12 [INFO]: Leyendo bloque...
+
+2021-01-18 12:05:12 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:05:12 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:05:12 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:05:12 [INFO]: Leyendo bloque...
+
+2021-01-18 12:05:12 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:05:12 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 12:05:12 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:05:12 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:05:12 [INFO]: Generando enemigo... 
+
+2021-01-18 12:05:12 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:05:12 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 12:05:12 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 12:05:12 [INFO]: Generando enemigo... 
+
+2021-01-18 12:05:12 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:05:12 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 12:05:12 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 12:05:12 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:05:12 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:05:12 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:05:12 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 12:05:12 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 12:05:12 [INFO]: Leyendo jugador #1
+
+2021-01-18 12:05:43 [INFO]: Cliente desconectado: 0
+
+2021-01-18 12:05:43 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 12:05:43 [DEBUG]: Finalizando juego
+
+2021-01-18 12:05:43 [DEBUG]: Eliminando Camara
+
+2021-01-18 12:05:43 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 12:05:43 [DEBUG]: Eliminando Lector
+
+2021-01-18 12:05:43 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 12:05:43 [DEBUG]: Eliminando Background
+
+2021-01-18 12:05:43 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 12:05:43 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 12:05:43 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 12:05:43 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 12:05:43 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 12:05:43 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 12:05:43 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 12:05:43 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 12:05:43 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 12:06:01 [INFO]: Cargando nivel1...
+
+2021-01-18 12:06:01 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:06:01 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 12:06:01 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 12:06:01 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:06:01 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:06:01 [DEBUG]: Valor del puntero a bloques: 0x55aa60281140
+
+2021-01-18 12:06:01 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:01 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:06:01 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:06:01 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:06:01 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:01 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:06:01 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:06:01 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:06:01 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:01 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:06:01 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 12:06:01 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:06:01 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:01 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:06:01 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:06:01 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:06:01 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:01 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:06:01 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:06:01 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:06:01 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:01 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:06:01 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:06:01 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:06:01 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:01 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:06:01 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:06:01 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:06:01 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:01 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:06:01 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 12:06:01 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:06:01 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:06:01 [INFO]: Generando enemigo... 
+
+2021-01-18 12:06:01 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:06:01 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 12:06:01 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 12:06:01 [INFO]: Generando enemigo... 
+
+2021-01-18 12:06:01 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:06:01 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 12:06:01 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 12:06:01 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:06:01 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:06:01 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:06:01 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 12:06:01 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 12:06:01 [INFO]: Leyendo jugador #1
+
+2021-01-18 12:06:05 [INFO]: Cliente desconectado: 0
+
+2021-01-18 12:06:05 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 12:06:05 [DEBUG]: Finalizando juego
+
+2021-01-18 12:06:05 [DEBUG]: Eliminando Camara
+
+2021-01-18 12:06:05 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 12:06:05 [DEBUG]: Eliminando Lector
+
+2021-01-18 12:06:05 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 12:06:05 [DEBUG]: Eliminando Background
+
+2021-01-18 12:06:05 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 12:06:05 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 12:06:05 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 12:06:05 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 12:06:05 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 12:06:05 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 12:06:05 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 12:06:05 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 12:06:05 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 12:06:41 [INFO]: Cargando nivel1...
+
+2021-01-18 12:06:41 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:06:41 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 12:06:41 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 12:06:41 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:06:41 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:06:41 [DEBUG]: Valor del puntero a bloques: 0x55cfeae7c140
+
+2021-01-18 12:06:41 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:41 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:06:41 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:06:41 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:06:41 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:41 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:06:41 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:06:41 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:06:41 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:41 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:06:41 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 12:06:41 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:06:41 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:41 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:06:41 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:06:41 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:06:41 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:41 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:06:41 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:06:41 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:06:41 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:41 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:06:41 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:06:41 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:06:41 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:41 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:06:41 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:06:41 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:06:41 [INFO]: Leyendo bloque...
+
+2021-01-18 12:06:41 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:06:41 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 12:06:41 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:06:41 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:06:41 [INFO]: Generando enemigo... 
+
+2021-01-18 12:06:41 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:06:41 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 12:06:41 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 12:06:41 [INFO]: Generando enemigo... 
+
+2021-01-18 12:06:41 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:06:41 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 12:06:41 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 12:06:41 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:06:41 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:06:41 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:06:41 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 12:06:41 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 12:06:41 [INFO]: Leyendo jugador #1
+
+2021-01-18 12:07:19 [INFO]: Cargando nivel2...
+
+2021-01-18 12:07:19 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:07:19 [DEBUG]: Path a background leido. Valor: ./res/Nivel_2sinTuberia.png
+
+2021-01-18 12:07:19 [DEBUG]: Ancho de background leido. Valor: 3072
+
+2021-01-18 12:07:19 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:07:19 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:07:19 [DEBUG]: Valor del puntero a bloques: 0x55cfeae7d2a0
+
+2021-01-18 12:07:19 [INFO]: Leyendo bloque...
+
+2021-01-18 12:07:19 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:07:19 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:07:19 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:07:19 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:07:19 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO2.png
+
+2021-01-18 12:07:19 [INFO]: Leyendo bloque...
+
+2021-01-18 12:07:19 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:07:19 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 500
+
+2021-01-18 12:07:19 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:07:19 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:07:19 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO2.png
+
+2021-01-18 12:07:19 [INFO]: Leyendo bloque...
+
+2021-01-18 12:07:19 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:07:19 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:07:19 [DEBUG]: Cargando posicion en x. Valor: 500
+
+2021-01-18 12:07:19 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:07:19 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:07:19 [INFO]: Generando enemigo... 
+
+2021-01-18 12:07:19 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:07:19 [DEBUG]: Imagen a cargar: ./res/TORTUGA2.png
+
+2021-01-18 12:07:19 [DEBUG]: Cantidad a generar: 4
+
+2021-01-18 12:07:19 [INFO]: Generando enemigo... 
+
+2021-01-18 12:07:19 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:07:19 [DEBUG]: Imagen a cargar: ./res/Goomba2.png
+
+2021-01-18 12:07:19 [DEBUG]: Cantidad a generar: 5
+
+2021-01-18 12:07:19 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:07:19 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:07:19 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:07:19 [DEBUG]: Reiniciando temporizador...
+
+2021-01-18 12:07:35 [ERROR]: No se pudo recibir el mensaje. Error number: 104
+
+2021-01-18 12:07:35 [INFO]: Cliente desconectado: 0
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 12:08:03 [INFO]: Cargando nivel1...
+
+2021-01-18 12:08:03 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:08:03 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 12:08:03 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 12:08:03 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:08:03 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:08:03 [DEBUG]: Valor del puntero a bloques: 0x562eba19f140
+
+2021-01-18 12:08:03 [INFO]: Leyendo bloque...
+
+2021-01-18 12:08:03 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:08:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:08:03 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:08:03 [INFO]: Leyendo bloque...
+
+2021-01-18 12:08:03 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:08:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:08:03 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:08:03 [INFO]: Leyendo bloque...
+
+2021-01-18 12:08:03 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:08:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 12:08:03 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:08:03 [INFO]: Leyendo bloque...
+
+2021-01-18 12:08:03 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:08:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:08:03 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:08:03 [INFO]: Leyendo bloque...
+
+2021-01-18 12:08:03 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:08:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:08:03 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:08:03 [INFO]: Leyendo bloque...
+
+2021-01-18 12:08:03 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:08:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:08:03 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:08:03 [INFO]: Leyendo bloque...
+
+2021-01-18 12:08:03 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:08:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:08:03 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:08:03 [INFO]: Leyendo bloque...
+
+2021-01-18 12:08:03 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:08:03 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 12:08:03 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:08:03 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:08:03 [INFO]: Generando enemigo... 
+
+2021-01-18 12:08:03 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:08:03 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 12:08:03 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 12:08:03 [INFO]: Generando enemigo... 
+
+2021-01-18 12:08:03 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:08:03 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 12:08:03 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 12:08:03 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:08:03 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:08:03 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:08:03 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 12:08:03 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 12:08:03 [INFO]: Leyendo jugador #1
+
+2021-01-18 12:08:17 [INFO]: Cliente desconectado: 0
+
+2021-01-18 12:08:17 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 12:08:17 [DEBUG]: Finalizando juego
+
+2021-01-18 12:08:17 [DEBUG]: Eliminando Camara
+
+2021-01-18 12:08:17 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 12:08:17 [DEBUG]: Eliminando Lector
+
+2021-01-18 12:08:17 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 12:08:17 [DEBUG]: Eliminando Background
+
+2021-01-18 12:08:17 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 12:08:17 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 12:08:17 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 12:08:17 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 12:08:17 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 12:08:17 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 12:08:17 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 12:08:17 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 12:08:17 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 12:09:04 [INFO]: Cargando nivel1...
+
+2021-01-18 12:09:04 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:09:04 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 12:09:04 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 12:09:04 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:09:04 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:09:04 [DEBUG]: Valor del puntero a bloques: 0x560e66703140
+
+2021-01-18 12:09:04 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:04 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:09:04 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:09:04 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:09:04 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:04 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:09:04 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:09:04 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:09:04 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:04 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:09:04 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 12:09:04 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:09:04 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:04 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:09:04 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:09:04 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:09:04 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:04 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:09:04 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:09:04 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:09:04 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:04 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:09:04 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:09:04 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:09:04 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:04 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:09:04 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:09:04 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:09:04 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:04 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:09:04 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 12:09:04 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:09:04 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:09:04 [INFO]: Generando enemigo... 
+
+2021-01-18 12:09:04 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:09:04 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 12:09:04 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 12:09:04 [INFO]: Generando enemigo... 
+
+2021-01-18 12:09:04 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:09:04 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 12:09:04 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 12:09:04 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:09:04 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:09:04 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:09:04 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 12:09:04 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 12:09:04 [INFO]: Leyendo jugador #1
+
+2021-01-18 12:09:22 [INFO]: Cliente desconectado: 0
+
+2021-01-18 12:09:22 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 12:09:22 [DEBUG]: Finalizando juego
+
+2021-01-18 12:09:22 [DEBUG]: Eliminando Camara
+
+2021-01-18 12:09:22 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 12:09:22 [DEBUG]: Eliminando Lector
+
+2021-01-18 12:09:22 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 12:09:22 [DEBUG]: Eliminando Background
+
+2021-01-18 12:09:22 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 12:09:22 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 12:09:22 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 12:09:22 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 12:09:22 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 12:09:22 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 12:09:22 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 12:09:22 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 12:09:22 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 12:09:35 [INFO]: Cargando nivel1...
+
+2021-01-18 12:09:35 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:09:35 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 12:09:35 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 12:09:35 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:09:35 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:09:35 [DEBUG]: Valor del puntero a bloques: 0x556645b6c140
+
+2021-01-18 12:09:35 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:35 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:09:35 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:09:35 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:09:35 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:35 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:09:35 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:09:35 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:09:35 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:35 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:09:35 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 12:09:35 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:09:35 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:35 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:09:35 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:09:35 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:09:35 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:35 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:09:35 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:09:35 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:09:35 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:35 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:09:35 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:09:35 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:09:35 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:35 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:09:35 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:09:35 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:09:35 [INFO]: Leyendo bloque...
+
+2021-01-18 12:09:35 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:09:35 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 12:09:35 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:09:35 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:09:35 [INFO]: Generando enemigo... 
+
+2021-01-18 12:09:35 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:09:35 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 12:09:35 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 12:09:35 [INFO]: Generando enemigo... 
+
+2021-01-18 12:09:35 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:09:35 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 12:09:35 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 12:09:35 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:09:35 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:09:35 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:09:35 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 12:09:35 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 12:09:35 [INFO]: Leyendo jugador #1
+
+2021-01-18 12:09:41 [INFO]: Cliente desconectado: 0
+
+2021-01-18 12:09:41 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 12:09:41 [DEBUG]: Finalizando juego
+
+2021-01-18 12:09:41 [DEBUG]: Eliminando Camara
+
+2021-01-18 12:09:41 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 12:09:41 [DEBUG]: Eliminando Lector
+
+2021-01-18 12:09:41 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 12:09:41 [DEBUG]: Eliminando Background
+
+2021-01-18 12:09:41 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 12:09:41 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 12:09:41 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 12:09:41 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 12:09:41 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 12:09:41 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 12:09:41 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 12:09:41 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 12:09:41 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 12:10:13 [INFO]: Cargando nivel1...
+
+2021-01-18 12:10:13 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:10:13 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 12:10:13 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 12:10:13 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:10:13 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:10:13 [DEBUG]: Valor del puntero a bloques: 0x5607b3b90140
+
+2021-01-18 12:10:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:10:13 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:10:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:10:13 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:10:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:10:13 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:10:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:10:13 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:10:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:10:13 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:10:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 12:10:13 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:10:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:10:13 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:10:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:10:13 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:10:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:10:13 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:10:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:10:13 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:10:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:10:13 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:10:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:10:13 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:10:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:10:13 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:10:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:10:13 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:10:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:10:13 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:10:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 12:10:13 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:10:13 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:10:13 [INFO]: Generando enemigo... 
+
+2021-01-18 12:10:13 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:10:13 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 12:10:13 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 12:10:13 [INFO]: Generando enemigo... 
+
+2021-01-18 12:10:13 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:10:13 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 12:10:13 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 12:10:13 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:10:13 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:10:13 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:10:13 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 12:10:13 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 12:10:13 [INFO]: Leyendo jugador #1
+
+2021-01-18 12:10:41 [INFO]: Cliente desconectado: 0
+
+2021-01-18 12:10:41 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 12:10:41 [DEBUG]: Finalizando juego
+
+2021-01-18 12:10:41 [DEBUG]: Eliminando Camara
+
+2021-01-18 12:10:41 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 12:10:41 [DEBUG]: Eliminando Lector
+
+2021-01-18 12:10:41 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 12:10:41 [DEBUG]: Eliminando Background
+
+2021-01-18 12:10:41 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 12:10:41 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 12:10:41 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 12:10:41 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 12:10:41 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 12:10:41 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 12:10:41 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 12:10:41 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 12:10:41 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 12:11:46 [INFO]: Cargando nivel1...
+
+2021-01-18 12:11:46 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:11:46 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 12:11:46 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 12:11:46 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:11:46 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:11:46 [DEBUG]: Valor del puntero a bloques: 0x55567bce2140
+
+2021-01-18 12:11:46 [INFO]: Leyendo bloque...
+
+2021-01-18 12:11:46 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:11:46 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:11:46 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:11:46 [INFO]: Leyendo bloque...
+
+2021-01-18 12:11:46 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:11:46 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:11:46 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:11:46 [INFO]: Leyendo bloque...
+
+2021-01-18 12:11:46 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:11:46 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 12:11:46 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:11:46 [INFO]: Leyendo bloque...
+
+2021-01-18 12:11:46 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:11:46 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:11:46 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:11:46 [INFO]: Leyendo bloque...
+
+2021-01-18 12:11:46 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:11:46 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:11:46 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:11:46 [INFO]: Leyendo bloque...
+
+2021-01-18 12:11:46 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:11:46 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:11:46 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:11:46 [INFO]: Leyendo bloque...
+
+2021-01-18 12:11:46 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:11:46 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:11:46 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:11:46 [INFO]: Leyendo bloque...
+
+2021-01-18 12:11:46 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:11:46 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 12:11:46 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:11:46 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:11:46 [INFO]: Generando enemigo... 
+
+2021-01-18 12:11:46 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:11:46 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 12:11:46 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 12:11:46 [INFO]: Generando enemigo... 
+
+2021-01-18 12:11:46 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:11:46 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 12:11:46 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 12:11:46 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:11:46 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:11:46 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:11:46 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 12:11:46 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 12:11:46 [INFO]: Leyendo jugador #1
+
+2021-01-18 12:11:47 [ERROR]: No se pudo recibir el mensaje. Error number: 104
+
+2021-01-18 12:11:47 [INFO]: Cliente desconectado: 0
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 12:12:13 [INFO]: Cargando nivel1...
+
+2021-01-18 12:12:13 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:12:13 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 12:12:13 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 12:12:13 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:12:13 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:12:13 [DEBUG]: Valor del puntero a bloques: 0x5646f2e44140
+
+2021-01-18 12:12:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:12:13 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:12:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:12:13 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:12:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:12:13 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:12:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:12:13 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:12:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:12:13 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:12:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 12:12:13 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:12:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:12:13 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:12:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:12:13 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:12:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:12:13 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:12:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:12:13 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:12:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:12:13 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:12:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:12:13 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:12:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:12:13 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:12:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:12:13 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:12:13 [INFO]: Leyendo bloque...
+
+2021-01-18 12:12:13 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:12:13 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 12:12:13 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:12:13 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:12:13 [INFO]: Generando enemigo... 
+
+2021-01-18 12:12:13 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:12:13 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 12:12:13 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 12:12:13 [INFO]: Generando enemigo... 
+
+2021-01-18 12:12:13 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:12:13 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 12:12:13 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 12:12:13 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:12:13 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:12:13 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:12:13 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 12:12:13 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 12:12:13 [INFO]: Leyendo jugador #1
+
+2021-01-18 12:12:19 [INFO]: Cliente desconectado: 0
+
+2021-01-18 12:12:19 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 12:12:19 [DEBUG]: Finalizando juego
+
+2021-01-18 12:12:19 [DEBUG]: Eliminando Camara
+
+2021-01-18 12:12:19 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 12:12:19 [DEBUG]: Eliminando Lector
+
+2021-01-18 12:12:19 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 12:12:19 [DEBUG]: Eliminando Background
+
+2021-01-18 12:12:19 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 12:12:19 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 12:12:19 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 12:12:19 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 12:12:19 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 12:12:19 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 12:12:19 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 12:12:19 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 12:12:19 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 12:14:33 [INFO]: Cargando nivel1...
+
+2021-01-18 12:14:33 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:14:33 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 12:14:33 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 12:14:33 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:14:33 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:14:33 [DEBUG]: Valor del puntero a bloques: 0x5555b757c140
+
+2021-01-18 12:14:33 [INFO]: Leyendo bloque...
+
+2021-01-18 12:14:33 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:14:33 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:14:33 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:14:33 [INFO]: Leyendo bloque...
+
+2021-01-18 12:14:33 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:14:33 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:14:33 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:14:33 [INFO]: Leyendo bloque...
+
+2021-01-18 12:14:33 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:14:33 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 12:14:33 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:14:33 [INFO]: Leyendo bloque...
+
+2021-01-18 12:14:33 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:14:33 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:14:33 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:14:33 [INFO]: Leyendo bloque...
+
+2021-01-18 12:14:33 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:14:33 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:14:33 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:14:33 [INFO]: Leyendo bloque...
+
+2021-01-18 12:14:33 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:14:33 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:14:33 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:14:33 [INFO]: Leyendo bloque...
+
+2021-01-18 12:14:33 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:14:33 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:14:33 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:14:33 [INFO]: Leyendo bloque...
+
+2021-01-18 12:14:33 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:14:33 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 12:14:33 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:14:33 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:14:33 [INFO]: Generando enemigo... 
+
+2021-01-18 12:14:33 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:14:33 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 12:14:33 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 12:14:33 [INFO]: Generando enemigo... 
+
+2021-01-18 12:14:33 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:14:33 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 12:14:33 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 12:14:33 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:14:33 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:14:33 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:14:33 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 12:14:33 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 12:14:33 [INFO]: Leyendo jugador #1
+
+2021-01-18 12:15:15 [INFO]: Cargando nivel2...
+
+2021-01-18 12:15:15 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:15:15 [DEBUG]: Path a background leido. Valor: ./res/Nivel_2sinTuberia.png
+
+2021-01-18 12:15:15 [DEBUG]: Ancho de background leido. Valor: 3072
+
+2021-01-18 12:15:15 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:15:15 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:15:15 [DEBUG]: Valor del puntero a bloques: 0x5555b757d2a0
+
+2021-01-18 12:15:15 [INFO]: Leyendo bloque...
+
+2021-01-18 12:15:15 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:15:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:15:15 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:15:15 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:15:15 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO2.png
+
+2021-01-18 12:15:15 [INFO]: Leyendo bloque...
+
+2021-01-18 12:15:15 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:15:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 500
+
+2021-01-18 12:15:15 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:15:15 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:15:15 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO2.png
+
+2021-01-18 12:15:15 [INFO]: Leyendo bloque...
+
+2021-01-18 12:15:15 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:15:15 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:15:15 [DEBUG]: Cargando posicion en x. Valor: 500
+
+2021-01-18 12:15:15 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:15:15 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:15:15 [INFO]: Generando enemigo... 
+
+2021-01-18 12:15:15 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:15:15 [DEBUG]: Imagen a cargar: ./res/TORTUGA2.png
+
+2021-01-18 12:15:15 [DEBUG]: Cantidad a generar: 4
+
+2021-01-18 12:15:15 [INFO]: Generando enemigo... 
+
+2021-01-18 12:15:15 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:15:15 [DEBUG]: Imagen a cargar: ./res/Goomba2.png
+
+2021-01-18 12:15:15 [DEBUG]: Cantidad a generar: 5
+
+2021-01-18 12:15:15 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:15:15 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:15:15 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:15:15 [DEBUG]: Reiniciando temporizador...
+
+2021-01-18 12:15:46 [INFO]: Cargando nivel3...
+
+2021-01-18 12:15:46 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:15:46 [DEBUG]: Path a background leido. Valor: ./res/Nivel_3.png
+
+2021-01-18 12:15:46 [DEBUG]: Ancho de background leido. Valor: 3552
+
+2021-01-18 12:15:46 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:15:46 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:15:46 [DEBUG]: Valor del puntero a bloques: 0x5555b757dca8
+
+2021-01-18 12:15:46 [INFO]: Leyendo bloque...
+
+2021-01-18 12:15:46 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:15:46 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:15:46 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:15:46 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:15:46 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:15:46 [INFO]: Leyendo bloque...
+
+2021-01-18 12:15:46 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:15:46 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 500
+
+2021-01-18 12:15:46 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:15:46 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:15:46 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:15:46 [INFO]: Leyendo bloque...
+
+2021-01-18 12:15:46 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:15:46 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:15:46 [DEBUG]: Cargando posicion en x. Valor: 500
+
+2021-01-18 12:15:46 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:15:46 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:15:46 [INFO]: Generando enemigo... 
+
+2021-01-18 12:15:46 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:15:46 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 12:15:46 [DEBUG]: Cantidad a generar: 4
+
+2021-01-18 12:15:46 [INFO]: Generando enemigo... 
+
+2021-01-18 12:15:46 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:15:46 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 12:15:46 [DEBUG]: Cantidad a generar: 5
+
+2021-01-18 12:15:46 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:15:46 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:15:46 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:15:46 [DEBUG]: Reiniciando temporizador...
+
+2021-01-18 12:16:00 [INFO]: Cliente desconectado: 0
+
+2021-01-18 12:16:00 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 12:16:00 [DEBUG]: Finalizando juego
+
+2021-01-18 12:16:00 [DEBUG]: Eliminando Camara
+
+2021-01-18 12:16:00 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 12:16:00 [DEBUG]: Eliminando Lector
+
+2021-01-18 12:16:00 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 12:16:00 [DEBUG]: Eliminando Background
+
+2021-01-18 12:16:00 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 12:16:00 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 12:16:00 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 12:16:00 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 12:16:00 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 12:16:00 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 12:16:00 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 12:16:00 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 12:16:00 [INFO]: Destruyendo threads de clientes...
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         NUEVA PARTIDA         
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2021-01-18 12:20:02 [INFO]: Cargando nivel1...
+
+2021-01-18 12:20:02 [INFO]: Background leido correctamente del archivo XML.
+
+2021-01-18 12:20:02 [DEBUG]: Path a background leido. Valor: ./res/Nivel_1_sinTuberia.png
+
+2021-01-18 12:20:02 [DEBUG]: Ancho de background leido. Valor: 3392
+
+2021-01-18 12:20:02 [DEBUG]: Alto de background leido. Valor: 224
+
+2021-01-18 12:20:02 [INFO]: Leyendo los bloques del nivel.
+
+2021-01-18 12:20:02 [DEBUG]: Valor del puntero a bloques: 0x5625da5d4140
+
+2021-01-18 12:20:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:20:02 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:20:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:20:02 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:20:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:20:02 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:20:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:20:02 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:20:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:20:02 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:20:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 1
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en x. Valor: 100
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en y. Valor: 465
+
+2021-01-18 12:20:02 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:20:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:20:02 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:20:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 3
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en x. Valor: 1000
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en y. Valor: 500
+
+2021-01-18 12:20:02 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:20:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:20:02 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:20:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 250
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en x. Valor: 0
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en y. Valor: 535
+
+2021-01-18 12:20:02 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:20:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:20:02 [DEBUG]: Tipo de bloque : Ladrillo
+
+2021-01-18 12:20:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 15
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en x. Valor: 1800
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:20:02 [DEBUG]: Path al bloque a renderizar: ./res/LADRILLO.png
+
+2021-01-18 12:20:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:20:02 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:20:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 5
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en x. Valor: 1400
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en y. Valor: 350
+
+2021-01-18 12:20:02 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:20:02 [INFO]: Leyendo bloque...
+
+2021-01-18 12:20:02 [DEBUG]: Tipo de bloque : Sorpresa
+
+2021-01-18 12:20:02 [DEBUG]: Cargando cantidad de bloques consecutivos. Cantidad: 10
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en x. Valor: 270
+
+2021-01-18 12:20:02 [DEBUG]: Cargando posicion en y. Valor: 200
+
+2021-01-18 12:20:02 [DEBUG]: Path al bloque a renderizar: ./res/SORPRESA.png
+
+2021-01-18 12:20:02 [INFO]: Generando enemigo... 
+
+2021-01-18 12:20:02 [DEBUG]: Tipo de enemigo: troopa
+
+2021-01-18 12:20:02 [DEBUG]: Imagen a cargar: ./res/TORTUGA.png
+
+2021-01-18 12:20:02 [DEBUG]: Cantidad a generar: 10
+
+2021-01-18 12:20:02 [INFO]: Generando enemigo... 
+
+2021-01-18 12:20:02 [DEBUG]: Tipo de enemigo: goomba
+
+2021-01-18 12:20:02 [DEBUG]: Imagen a cargar: ./res/Goomba.png
+
+2021-01-18 12:20:02 [DEBUG]: Cantidad a generar: 8
+
+2021-01-18 12:20:02 [INFO]: Monedas leidas correctamente del archivo XML.
+
+2021-01-18 12:20:02 [DEBUG]: Cantidad de monedas a generar: 20
+
+2021-01-18 12:20:02 [DEBUG]: Tiempo de timer leido. Valor: 500
+
+2021-01-18 12:20:02 [DEBUG]: Creando e inicializando primer temporizador.
+
+2021-01-18 12:20:02 [INFO]: Cantidad de jugadores a generar: 1
+
+2021-01-18 12:20:02 [INFO]: Leyendo jugador #1
+
+2021-01-18 12:20:30 [INFO]: Cliente desconectado: 0
+
+2021-01-18 12:20:30 [INFO]: Juego Finalizado. Cerrando el servidor.
+
+2021-01-18 12:20:30 [DEBUG]: Finalizando juego
+
+2021-01-18 12:20:30 [DEBUG]: Eliminando Camara
+
+2021-01-18 12:20:30 [DEBUG]: Eliminando Colisionador
+
+2021-01-18 12:20:30 [DEBUG]: Eliminando Lector
+
+2021-01-18 12:20:30 [DEBUG]: Eliminando Jugadores
+
+2021-01-18 12:20:30 [DEBUG]: Eliminando Background
+
+2021-01-18 12:20:30 [DEBUG]: Eliminando Temporizador
+
+2021-01-18 12:20:30 [DEBUG]: Destruyendo texto en pantalla...
+
+2021-01-18 12:20:30 [DEBUG]: Eliminando Enemigos
+
+2021-01-18 12:20:30 [DEBUG]: Eliminando Escenarios
+
+2021-01-18 12:20:30 [DEBUG]: Eliminando Monedas.
+
+2021-01-18 12:20:30 [INFO]: Destruyendo servidor. Procediendo con el shutdown...
+
+2021-01-18 12:20:30 [INFO]: Destruyendo thread de aceptación de conexiones...
+
+2021-01-18 12:20:30 [ERROR]: No se pudo aceptar la conexión del client_address
+
+2021-01-18 12:20:30 [INFO]: Destruyendo threads de clientes...
+

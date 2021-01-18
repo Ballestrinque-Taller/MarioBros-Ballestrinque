@@ -5,8 +5,8 @@
 #include "Renderer.h"
 
 #define VELOCIDAD_HONGO 3
-#define ANCHO_SOURCE 920
-#define ALTO_SOURCE 920
+#define ANCHO_SOURCE 16
+#define ALTO_SOURCE 16
 #define ANCHO_HONGO 40
 #define ALTO_HONGO 40
 

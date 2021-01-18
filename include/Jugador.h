@@ -24,6 +24,8 @@ class Jugador: public Renderer{
     public:
         int get_velocidad_x();
         int get_velocidad_y();
+        uint8_t get_cantidad_vidas();
+        size_t get_puntaje();
         void grisar();
         void reconectar();
         Jugador(std::string path);

@@ -5,425 +5,425 @@
 		<Option title="Google_tests"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\Google_tests\;CMake Files\Google_tests\lib\;CMake Files\Google_tests\lib\googlemock\;CMake Files\Google_tests\lib\googlemock\cmake\;CMake Files\Google_tests\lib\googletest\;CMake Files\Google_tests\lib\googletest\cmake\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SDL2\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Google_tests\;CMake Files\Google_tests\lib\;CMake Files\Google_tests\lib\googlemock\;CMake Files\Google_tests\lib\googlemock\cmake\;CMake Files\Google_tests\lib\googletest\;CMake Files\Google_tests\lib\googletest\cmake\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SDL2\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests"/>
+				<Option working_dir="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Google_Tests_run">
-				<Option output="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/Google_Tests_run" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests"/>
+				<Option output="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/Google_Tests_run" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/include/SDL2"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/./include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/./include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/./include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/./include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 Google_Tests_run"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 Google_Tests_run"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Google_Tests_run/fast">
-				<Option output="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/Google_Tests_run" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests"/>
+				<Option output="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/Google_Tests_run" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/include/SDL2"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/./include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/./include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/./include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/./include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 Google_Tests_run/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 Google_Tests_run/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock_main">
-				<Option output="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/lib/libgmock_maind.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
+				<Option output="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/lib/libgmock_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/include/SDL2"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/./include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/./include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 gmock_main"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 gmock_main"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock_main/fast">
-				<Option output="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/lib/libgmock_maind.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
+				<Option output="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/lib/libgmock_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/include/SDL2"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/./include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/./include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 gmock_main/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 gmock_main/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock">
-				<Option output="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/lib/libgmockd.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
+				<Option output="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/lib/libgmock.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/include/SDL2"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/./include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/./include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 gmock"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 gmock"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock/fast">
-				<Option output="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/lib/libgmockd.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
+				<Option output="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/lib/libgmock.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/include/SDL2"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/./include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/./include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 gmock/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 gmock/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest_main">
-				<Option output="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
+				<Option output="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/lib/libgtest_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/include/SDL2"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/./include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/./include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 gtest_main"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 gtest_main"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest_main/fast">
-				<Option output="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
+				<Option output="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/lib/libgtest_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/include/SDL2"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/./include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/./include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest">
-				<Option output="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
+				<Option output="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/lib/libgtest.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/include/SDL2"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/./include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/./include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 gtest"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 gtest"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest/fast">
-				<Option output="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
+				<Option output="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/lib/libgtest.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/include/SDL2"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/./include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
-					<Add directory="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/./include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/include"/>
+					<Add directory="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/ClienteTest.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/ClienteTest.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/ServidorTest.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/ServidorTest.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/TestBasico.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/TestBasico.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/src/gmock-all.cc">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/src/gmock-all.cc">
 			<Option target="gmock"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/src/gmock_main.cc">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/src/gmock_main.cc">
 			<Option target="gmock_main"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/src/gtest-all.cc">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/src/gtest-all.cc">
 			<Option target="gtest"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/src/gtest_main.cc">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/src/gtest_main.cc">
 			<Option target="gtest_main"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Background.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Background.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Camara.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Camara.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Cliente.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Cliente.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Colisionador.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Colisionador.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Dibujador.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Dibujador.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Enemigo.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Enemigo.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Escenario.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Escenario.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Goomba.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Goomba.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Hongo.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Hongo.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Juego.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Juego.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Jugador.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Jugador.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Ladrillo.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Ladrillo.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/LectorXML.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/LectorXML.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Log.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Log.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Logger.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Logger.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Mensajes.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Mensajes.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Moneda.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Moneda.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Renderer.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Renderer.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/ReproductorDeSonido.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/ReproductorDeSonido.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Servidor.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Servidor.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Sorpresa.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Sorpresa.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Temporizador.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Temporizador.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/TextWriter.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/TextWriter.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Texturas.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Texturas.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/include/Tortuga.h">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/include/Tortuga.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Background.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Background.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Camara.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Camara.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Cliente.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Cliente.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Colisionador.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Colisionador.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Dibujador.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Dibujador.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Enemigo.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Enemigo.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Escenario.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Escenario.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Goomba.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Goomba.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Hongo.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Hongo.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Jugador.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Jugador.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Ladrillo.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Ladrillo.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/LectorXML.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/LectorXML.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Log.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Log.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Logger.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Logger.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Moneda.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Moneda.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Renderer.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Renderer.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/ReproductorDeSonido.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/ReproductorDeSonido.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Servidor.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Servidor.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Sorpresa.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Sorpresa.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Temporizador.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Temporizador.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/TextWriter.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/TextWriter.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/src/Tortuga.cpp">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/src/Tortuga.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/CMakeLists.txt">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/FindSDL2TTF.cmake">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/FindSDL2TTF.cmake">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/FindSDL2_image.cmake">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/FindSDL2_image.cmake">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/FindSDL2_mixer.cmake">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/FindSDL2_mixer.cmake">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/CMakeLists.txt">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Google_tests\"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/CMakeLists.txt">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Google_tests\lib\"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/CMakeLists.txt">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Google_tests\lib\googlemock\"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/cmake/gmock.pc.in">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/cmake/gmock.pc.in">
 			<Option virtualFolder="CMake Files\Google_tests\lib\googlemock\cmake\"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googlemock/cmake/gmock_main.pc.in">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googlemock/cmake/gmock_main.pc.in">
 			<Option virtualFolder="CMake Files\Google_tests\lib\googlemock\cmake\"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/CMakeLists.txt">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Google_tests\lib\googletest\"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/cmake/Config.cmake.in">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/cmake/Config.cmake.in">
 			<Option virtualFolder="CMake Files\Google_tests\lib\googletest\cmake\"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/cmake/gtest.pc.in">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/cmake/gtest.pc.in">
 			<Option virtualFolder="CMake Files\Google_tests\lib\googletest\cmake\"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/cmake/gtest_main.pc.in">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/cmake/gtest_main.pc.in">
 			<Option virtualFolder="CMake Files\Google_tests\lib\googletest\cmake\"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/Google_tests/lib/googletest/cmake/internal_utils.cmake">
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/Google_tests/lib/googletest/cmake/internal_utils.cmake">
 			<Option virtualFolder="CMake Files\Google_tests\lib\googletest\cmake\"/>
 		</Unit>
-		<Unit filename="/home/matias/Escritorio/facultad/taller-de-programacion/MarioBros-Ballestrinque/../../../../../../usr/lib/x86_64-linux-gnu/cmake/SDL2/sdl2-config.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SDL2\"/>
+		<Unit filename="/home/bata340/Documentos/Taller_I/MarioBros-Ballestrinque/../../../../../usr/lib/x86_64-linux-gnu/cmake/SDL2/sdl2-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SDL2\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

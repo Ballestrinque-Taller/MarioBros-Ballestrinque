@@ -8,7 +8,7 @@ Hongo::Hongo(int x, int y){
     set_dest_rect(x,y,ALTO_HONGO,ANCHO_HONGO);
     velocidad_x = VELOCIDAD_HONGO;
     velocidad_y = 0;
-    path_to_image = "./res/mario.png";
+    path_to_image = "./res/ItemsObjectsNPCS.png";
 }
 
 void Hongo::desplazar(){

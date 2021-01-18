@@ -2,9 +2,12 @@
 #include "Dibujador.h"
 
 #define ANCHO_ID 40
+#define ANCHO_HONGO_SRC 16
+#define ANCHO_CHAR 10
 #define ALTO_BARRA_NIVEL 40
 #define ALTO_ID 30
 #define ANCHO_PJ 30
+#define MARGEN_VIDAS 5
 #define ALTO_PJ 40
 
 void Dibujador::dibujar(std::vector<entidad_t> entidades_a_dibujar, TextWriter* nivel_label, int nivel_actual, TextWriter* temporizador_label, int tiempo_restante, SDL_Renderer* renderer){
@@ -26,6 +29,21 @@ void Dibujador::dibujar(std::vector<entidad_t> entidades_a_dibujar, TextWriter* 
             src_rect.x = 0;
             SDL_RenderCopyEx(renderer, texturas.at(i), &(src_rect), &(dest_rect), 0, nullptr, SDL_FLIP_NONE);
             text_writers.at(cantidad_de_jugadores)->write_text(entidades_a_dibujar.at(i).usuario, renderer);
+            text_puntos.at(cantidad_de_jugadores)->set_msg_rect((cantidad_de_jugadores)*(ANCHO_ID+2*ANCHO_PJ),ALTO_BARRA_NIVEL+(ALTO_ID*3)/2,ALTO_ID, ANCHO_CHAR*std::to_string(entidades_a_dibujar.at(i).puntaje).size());
+            text_puntos.at(cantidad_de_jugadores)->write_text(std::to_string(entidades_a_dibujar.at(i).puntaje).c_str(), renderer);
+            for (int j=0; j<entidades_a_dibujar.at(i).vidas; j++){
+                entidad_t dibujo_vida;
+                strcpy(dibujo_vida.path_textura,"./res/ItemsObjectsNPCS.png");
+                dibujo_vida.src_rect.x = ANCHO_HONGO_SRC; dibujo_vida.src_rect.y=0; dibujo_vida.src_rect.w=ANCHO_HONGO_SRC; dibujo_vida.src_rect.h=ANCHO_HONGO_SRC;
+                dibujo_vida.dest_rect.w = ANCHO_ID/2;
+                dibujo_vida.dest_rect.x = (cantidad_de_jugadores)*(ANCHO_ID+2*ANCHO_PJ)+j*(dibujo_vida.dest_rect.w+MARGEN_VIDAS);
+                dibujo_vida.dest_rect.y = ALTO_BARRA_NIVEL+(ALTO_ID*5)/2;
+                dibujo_vida.dest_rect.h = dibujo_vida.dest_rect.w;
+                SDL_Texture* textura = crear_textura(dibujo_vida, renderer);
+                texturas.push_back(textura);
+                SDL_RenderCopyEx(renderer, textura, &(dibujo_vida).src_rect, &(dibujo_vida).dest_rect, 0, nullptr, SDL_FLIP_NONE);
+                //SDL_DestroyTexture(textura);
+            }
             cantidad_de_jugadores++;
         }
         SDL_RenderCopyEx(renderer, texturas.at(i), &(entidades_a_dibujar.at(i).src_rect), &(entidades_a_dibujar.at(i).dest_rect), 0, nullptr, entidades_a_dibujar.at(i).flip);
@@ -65,8 +83,11 @@ SDL_Texture* Dibujador::crear_textura(entidad_t entidad, SDL_Renderer* renderer)
 
 void Dibujador::generar_identificador_jugador(){
     TextWriter* text_writer_pj = new TextWriter();
+    TextWriter* text_writer_puntos = new TextWriter();
     text_writer_pj->set_msg_rect((cantidad_de_jugadores)*(ANCHO_ID+2*ANCHO_PJ),ALTO_BARRA_NIVEL,ALTO_ID, ANCHO_ID);
+    //ACOMODAR LOS MARGENES BIEN DE ESTO
     text_writers.push_back(text_writer_pj);
+    text_puntos.push_back(text_writer_puntos);
 }
 
 Dibujador::~Dibujador(){
@@ -77,5 +98,9 @@ Dibujador::~Dibujador(){
     for (auto & text_writer: text_writers){
         delete(text_writer);
     }
+    for (auto & text_puntaje: text_puntos){
+        delete(text_puntaje);
+    }
     text_writers.clear();
+    text_puntos.clear();
 }

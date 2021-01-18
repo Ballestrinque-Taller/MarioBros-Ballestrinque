@@ -15,7 +15,6 @@ void ReproductorDeSonido::reproducir_sonido(uint8_t id_sonido) {
         return;
 
     Mix_Chunk* sonido = diccionario_sonido_especiales[id_sonido];
-    Mix_VolumeChunk(sonido,20);
     Mix_PlayChannel(-1,sonido,0);
 }
 
@@ -60,48 +59,56 @@ void ReproductorDeSonido::inicializar_diccionario_sonidos_especiales(){
               *sonido_game_over, *sonido_muerte, *sonido_hongo;
 
     sonido_moneda = Mix_LoadWAV( "./res/sonidos/sonido_moneda.wav" );
+    Mix_VolumeChunk(sonido_moneda,20);
     if( sonido_moneda == nullptr )
     {
         LOG(Log::ERROR)<<"No se puedo inicializar el sonido del path: ./res/sonidos/sonido_moneda.wav"<<std::endl;
     }
 
     sonido_cambio_nivel = Mix_LoadWAV( "./res/sonidos/sonido_fin_de_nivel.wav" );
-    if( sonido_moneda == nullptr )
+    Mix_VolumeChunk(sonido_cambio_nivel,20);
+    if( sonido_cambio_nivel == nullptr )
     {
         LOG(Log::ERROR)<<"No se puedo inicializar el sonido del path: ./res/sonidos/sonido_fin_de_nivel.wav"<<std::endl;
     }
 
     sonido_crecimiento = Mix_LoadWAV( "./res/sonidos/sonido_crecimiento.wav" );
-    if( sonido_moneda == nullptr )
+    Mix_VolumeChunk(sonido_crecimiento,100);
+    if( sonido_crecimiento == nullptr )
     {
         LOG(Log::ERROR)<<"No se puedo inicializar el sonido del path: ./res/sonidos/sonido_crecimiento.wav"<<std::endl;
     }
 
     sonido_game_over = Mix_LoadWAV( "./res/sonidos/sonido_game_over.wav" );
-    if( sonido_moneda == nullptr )
+    Mix_VolumeChunk(sonido_game_over,20);
+    if( sonido_game_over == nullptr )
     {
         LOG(Log::ERROR)<<"No se puedo inicializar el sonido del path: ./res/sonidos/sonido_game_over.wav"<<std::endl;
     }
 
     sonido_hongo = Mix_LoadWAV( "./res/sonidos/sonido_hongo.wav" );
-    if( sonido_moneda == nullptr )
+    Mix_VolumeChunk(sonido_hongo,128);
+    if( sonido_hongo == nullptr )
     {
         LOG(Log::ERROR)<<"No se puedo inicializar el sonido del path: ./res/sonidos/sonido_hongo.wav"<<std::endl;
     }
 
     sonido_muerte = Mix_LoadWAV( "./res/sonidos/sonido_muerte.wav" );
+    Mix_VolumeChunk(sonido_muerte,20);
     if( sonido_moneda == nullptr )
     {
         LOG(Log::ERROR)<<"No se puedo inicializar el sonido del path: ./res/sonidos/sonido_muerte.wav"<<std::endl;
     }
 
     sonido_pisar_enemigo = Mix_LoadWAV( "./res/sonidos/sonido_pisar_enemigos.wav" );
+    Mix_VolumeChunk(sonido_pisar_enemigo,64);
     if( sonido_moneda == nullptr )
     {
         LOG(Log::ERROR)<<"No se puedo inicializar el sonido del path: ./res/sonidos/sonido_pisar_enemigos.wav"<<std::endl;
     }
 
     sonido_salto = Mix_LoadWAV( "./res/sonidos/sonido_salto.wav" );
+    Mix_VolumeChunk(sonido_salto,20);
     if( sonido_moneda == nullptr )
     {
         LOG(Log::ERROR)<<"No se puedo inicializar el sonido del path: ./res/sonidos/sonido_salto.wav"<<std::endl;
