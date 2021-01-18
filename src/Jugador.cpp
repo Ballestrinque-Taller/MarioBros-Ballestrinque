@@ -215,7 +215,6 @@ void Jugador::colisionar_con_enemigo(int direccion_colision) {
         case NO_COLISIONA:
             break;
         default:
-            std::cout<<"Vidas: "<<vidas<<std::endl;
             inmune = true;
             if(estado_crecimiento == NO_CRECIDO)
                 vidas--;
