@@ -216,8 +216,11 @@ void Jugador::colisionar_con_enemigo(int direccion_colision) {
             break;
         default:
             inmune = true;
-            if(estado_crecimiento == NO_CRECIDO)
-                vidas--;
+            if(estado_crecimiento == NO_CRECIDO) {
+                if(vidas>0)
+                    vidas--;
+            }else
+                set_dest_rect_y(get_dest_rect().y+get_dest_rect().h/2);
             estado_crecimiento = NO_CRECIDO;
             TickDanio = SDL_GetTicks();
             break;
