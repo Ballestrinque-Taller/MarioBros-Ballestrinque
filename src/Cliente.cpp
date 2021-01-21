@@ -14,6 +14,7 @@
 
 #define STOP_RECEPTION_AND_TRANSMISSION 2
 #define TIMEOUT 11
+#define CAMBIANDO_NIVEL 255
 
 Cliente::Cliente(std::string ip, int puerto){
     SET_LOGGING_LEVEL(Log::DEBUG);
@@ -296,6 +297,8 @@ void Cliente::bucle_juego(){
             if (evento.type == SDL_QUIT) {
                 quit = true;
             }
+            if (evento.type == SDL_KEYDOWN && evento.key.keysym.sym == SDLK_m)
+                reproductorDeSonido->toggle_musica();
             mensaje.evento = evento;
             enviar_evento_a_servidor(&mensaje);
         }
@@ -342,7 +345,8 @@ void Cliente::recibir_renders_del_servidor(){
             entidad_t entidad = ((mensaje_servidor_a_cliente_t*)buffer)->entidad;
             if(entidad.es_jugador) {
                 strcpy(entidad.usuario, (((mensaje_servidor_a_cliente_t *) buffer)->entidad).usuario);
-                reproductorDeSonido->reproducir_sonido(entidad.sonido_a_reproducir);
+                if((((mensaje_servidor_a_cliente_t*)buffer)->num_nivel) != CAMBIANDO_NIVEL)
+                    reproductorDeSonido->reproducir_sonido(entidad.sonido_a_reproducir);
             }
             entidades.push_back(entidad);
             if(cantidad_entidades_a_recibir == 1)
@@ -368,7 +372,7 @@ void Cliente::render(){
     while(!quit) {
         size_t frame_start = SDL_GetTicks();
         recibir_renders_del_servidor();
-        if (nivel_recibido > nivel_actual && dibujador != nullptr) {
+        if (nivel_recibido > nivel_actual && (dibujador != nullptr && (CAMBIANDO_NIVEL != nivel_recibido))) {
             if (nivel_label != nullptr)
                 delete(nivel_label);
             if (temporizador_label != nullptr)
@@ -382,13 +386,17 @@ void Cliente::render(){
             pthread_mutex_unlock(&mutex_render);
             nivel_actual = nivel_recibido;
         }
-        pthread_mutex_lock(&mutex_render);
-        dibujador->crear_texturas(entidades, renderer);
-        dibujador->dibujar(entidades, nivel_label, nivel_actual, temporizador_label, tiempo_restante_timer, renderer);
-        pthread_mutex_unlock(&mutex_render);
-        size_t frame_time = SDL_GetTicks() - frame_start;
-        if (FRAME_DELAY > frame_time)
-            SDL_Delay(FRAME_DELAY - frame_time);
+        if(nivel_recibido == CAMBIANDO_NIVEL){
+            dibujador->dibujar_cambio_nivel(entidades, nivel_actual + 1, renderer);
+        }else{
+            pthread_mutex_lock(&mutex_render);
+            dibujador->crear_texturas(entidades, renderer);
+            dibujador->dibujar(entidades, nivel_label, nivel_actual, temporizador_label, tiempo_restante_timer, renderer);
+            pthread_mutex_unlock(&mutex_render);
+            size_t frame_time = SDL_GetTicks() - frame_start;
+            if (FRAME_DELAY > frame_time)
+                SDL_Delay(FRAME_DELAY - frame_time);
+        }
     }
 }
 

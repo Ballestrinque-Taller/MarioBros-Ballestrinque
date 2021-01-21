@@ -48,6 +48,7 @@ class Jugador: public Renderer{
         void sumar_puntos(int tipo_enemigo);
 
     private:
+        bool modo_test = false;
         int puntos = 0;
         int vidas = MAX_VIDAS;
         bool desconectado;

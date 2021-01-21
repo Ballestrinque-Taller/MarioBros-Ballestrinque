@@ -19,8 +19,6 @@
         <monedas cantidad="20" imagen="./res/MONEDA.png">
         </monedas>
         <bloques>
-            <bloque x="0" y="200" cantidad="10" tipo="Ladrillo" imagen="./res/LADRILLO.png">
-            </bloque>
             <bloque x="100" y="500" cantidad="1" tipo="Ladrillo" imagen="./res/LADRILLO.png">
             </bloque>
             <bloque x="100" y="465" cantidad="1" tipo="Ladrillo" imagen="./res/LADRILLO.png">
@@ -32,8 +30,6 @@
             <bloque x="1800" y="350" cantidad="15" tipo="Ladrillo" imagen="./res/LADRILLO.png">
             </bloque>
             <bloque x="1400" y="350" cantidad="5" tipo="Sorpresa" imagen="./res/SORPRESA.png">
-            </bloque>
-            <bloque x="270" y="200" cantidad="10" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
         </bloques>
         <enemigos>
@@ -51,11 +47,9 @@
         <monedas cantidad="20" imagen="./res/MONEDA.png">
         </monedas>
         <bloques>
-            <bloque x="0" y="200" cantidad="10" tipo="Ladrillo" imagen="./res/LADRILLO2.png">
-            </bloque>
             <bloque x="0" y="535" cantidad="500" tipo="Ladrillo" imagen="./res/LADRILLO2.png">
             </bloque>
-            <bloque x="500" y="200" cantidad="10" tipo="Sorpresa" imagen="./res/SORPRESA.png">
+            <bloque x="500" y="350" cantidad="10" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
         </bloques>
         <enemigos>
@@ -73,11 +67,9 @@
         <monedas cantidad="20" imagen="./res/MONEDA.png">
         </monedas>
         <bloques>
-            <bloque x="0" y="200" cantidad="10" tipo="Ladrillo" imagen="./res/LADRILLO.png">
-            </bloque>
             <bloque x="0" y="535" cantidad="500" tipo="Ladrillo" imagen="./res/LADRILLO.png">
             </bloque>
-            <bloque x="500" y="200" cantidad="10" tipo="Sorpresa" imagen="./res/SORPRESA.png">
+            <bloque x="500" y="350" cantidad="2" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
         </bloques>
         <enemigos>

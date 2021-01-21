@@ -111,6 +111,13 @@ void Jugador::desplazar(){
     aceleracion_gravitatoria();
     frames_render.dest_rect.y += velocidad_y;
     //rozamiento();
+    if(frames_render.dest_rect.y > 600){
+        reset_posicion();
+        if(!modo_test && vidas > 0)
+                vidas--;
+    }
+
+
     acelerando = false;
 }
 
@@ -142,6 +149,8 @@ void Jugador::recibir_evento(SDL_Event evento) {
                 case (SDLK_UP):
                     saltar();
                     break;
+                case (SDLK_t):
+                    modo_test = !modo_test;
         }
     }
     else if (evento.type == SDL_KEYUP){
@@ -216,13 +225,15 @@ void Jugador::colisionar_con_enemigo(int direccion_colision) {
             break;
         default:
             inmune = true;
-            if(estado_crecimiento == NO_CRECIDO) {
-                if(vidas>0)
-                    vidas--;
-            }else
-                set_dest_rect_y(get_dest_rect().y+get_dest_rect().h/2);
-            estado_crecimiento = NO_CRECIDO;
-            TickDanio = SDL_GetTicks();
+            if(!modo_test) {
+                if (estado_crecimiento == NO_CRECIDO) {
+                    if (vidas > 0)
+                        vidas--;
+                } else
+                    set_dest_rect_y(get_dest_rect().y + get_dest_rect().h / 2);
+                estado_crecimiento = NO_CRECIDO;
+                TickDanio = SDL_GetTicks();
+            }
             break;
     }
 }

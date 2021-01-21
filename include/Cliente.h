@@ -43,7 +43,7 @@ class Cliente{
         TextWriter* nivel_label = nullptr;
         TextWriter* temporizador_label = nullptr;
         int socket_cliente;
-        int nivel_recibido;
+        int nivel_recibido = 0;
         int nivel_actual=0;
         std::vector<entidad_t> entidades;
         bool quit = false;

@@ -20,7 +20,8 @@
 #include "Colisionador.h"
 
 //PARAMETROS SVR
-#define TIEMPO_MAX_SIN_CONEXION 5
+#define TIEMPO_MAX_SIN_CONEXION 10
+#define CAMBIANDO_NIVEL 255
 
 //ESTADOS MENSAJES
 #define EXIT_GAME -1
@@ -40,7 +41,7 @@ class Servidor{
         int cant_clientes_exit=0;
         bool juego_iniciado = false;
         bool quit = false;
-        int nivel_actual;
+        int nivel_actual = CAMBIANDO_NIVEL;
         LectorXML* lectorXml = nullptr;
         SDL_Window * ventana = nullptr;
         SDL_Renderer * renderer = nullptr;
@@ -83,7 +84,7 @@ class Servidor{
         static void intercambiar_mensajes(Servidor* servidor);
         static void intercambiar_mensajes_reconexion(Servidor *servidor);
         int get_pos_de_conexion();
-
+        void enviar_pantalla_entre_nivel();
 
     public:
         //Cosas de sockets

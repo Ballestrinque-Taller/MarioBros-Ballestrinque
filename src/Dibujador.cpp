@@ -10,6 +10,12 @@
 #define MARGEN_VIDAS 5
 #define ALTO_PJ 40
 
+Dibujador::Dibujador(){
+    texto_nivel = new TextWriter();
+    texto_nivel->set_msg_rect(200,50,100,400);
+
+}
+
 void Dibujador::dibujar(std::vector<entidad_t> entidades_a_dibujar, TextWriter* nivel_label, int nivel_actual, TextWriter* temporizador_label, int tiempo_restante, SDL_Renderer* renderer){
     cantidad_de_jugadores = 0;
     SDL_RenderClear(renderer);
@@ -48,6 +54,14 @@ void Dibujador::dibujar(std::vector<entidad_t> entidades_a_dibujar, TextWriter* 
         }
         SDL_RenderCopyEx(renderer, texturas.at(i), &(entidades_a_dibujar.at(i).src_rect), &(entidades_a_dibujar.at(i).dest_rect), 0, nullptr, entidades_a_dibujar.at(i).flip);
     }
+    for (auto& puntaje : puntajes_jugadores){
+        delete(puntaje);
+    }
+    for(auto& nombre: nombres_jugadores){
+        delete(nombre);
+    }
+    nombres_jugadores.clear();
+    puntajes_jugadores.clear();
     genere_identificadores = true;
     nivel_label->write_text((std::string("Nivel ") + std::to_string(nivel_actual)).c_str(), renderer);
     temporizador_label->write_text((std::string("TIME ")+std::to_string(tiempo_restante)).c_str(), renderer);
@@ -89,6 +103,36 @@ void Dibujador::generar_identificador_jugador(){
     text_writers.push_back(text_writer_pj);
     text_puntos.push_back(text_writer_puntos);
 }
+
+void Dibujador::dibujar_cambio_nivel(std::vector<entidad_t> jugadores, int nuevo_nivel, SDL_Renderer* renderer) {
+    SDL_RenderClear(renderer);
+    for (int i = 0; i < jugadores.size(); ++i) {
+        jugadores.at(i).dest_rect.x = 200;
+        jugadores.at(i).dest_rect.y = 150 + 90 * (i+1);
+        jugadores.at(i).dest_rect.h = 80;
+        jugadores.at(i).src_rect.x = 0;
+        jugadores.at(i).src_rect.y = 0;
+        jugadores.at(i).src_rect.h = 32;
+        jugadores.at(i).flip = SDL_FLIP_NONE;
+        if(puntajes_jugadores.size() < jugadores.size()) {
+            nombres_jugadores.push_back(new TextWriter());
+            nombres_jugadores.at(i)->set_msg_rect(300, 150 + 110 * (i + 1), 40, 20 * strlen(jugadores.at(i).usuario));
+            puntajes_jugadores.push_back(new TextWriter);
+            puntajes_jugadores.at(i)->set_msg_rect(600, 150 + 110 * (i + 1), 40, 20 * std::to_string(jugadores.at(i).puntaje).size()  );
+        }
+        nombres_jugadores.at(i)->write_text(jugadores.at(i).usuario, renderer);
+        puntajes_jugadores.at(i)->write_text(std::to_string(jugadores.at(i).puntaje).c_str(), renderer);
+    }
+
+    texto_nivel->write_text((std::string("Nivel: ") + std::to_string(nuevo_nivel)).c_str(), renderer);
+    crear_texturas(jugadores, renderer);
+    for(int i = 0 ; i < jugadores.size(); i++){
+        SDL_RenderCopyEx(renderer, texturas.at(i), &(jugadores.at(i).src_rect), &(jugadores.at(i).dest_rect), 0, nullptr, jugadores.at(i).flip);
+
+    }
+    SDL_RenderPresent(renderer);
+}
+
 
 Dibujador::~Dibujador(){
     for (auto & textura : texturas){
