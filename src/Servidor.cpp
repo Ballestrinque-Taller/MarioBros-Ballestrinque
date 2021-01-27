@@ -21,7 +21,7 @@
 
 #define STOP_RECEPTION_AND_TRANSMISSION 2
 
-#define TIEMPO_ENTRE_NIVEL 5000
+#define TIEMPO_ENTRE_NIVEL 5
 
 
 Servidor::Servidor(std::string ip, int puerto, std::string path_xml){
@@ -334,6 +334,7 @@ mensaje_servidor_a_cliente_t Servidor::obtener_mensaje_jugador(Jugador* jugador)
     mensaje.entidad.sonido_a_reproducir = jugador->get_sonido_a_reproducir();
     mensaje.entidad.vidas = jugador->get_cantidad_vidas();
     mensaje.entidad.puntaje = jugador->get_puntaje();
+    mensaje.entidad.muerto = jugador->esta_muerto();
     return mensaje;
 }
 
@@ -527,11 +528,13 @@ void Servidor::update() {
     colisionador->agregar_hongos(hongos_vec);
     colisionador->agregar_sorpresas(sorpresas_vec);
     for (auto & jugador : jugadores) {
-        pthread_mutex_lock(&mutex_desplazamiento);
-        jugador->cambiar_frame(camara);
-        jugador->desplazar();
-        pthread_mutex_unlock(&mutex_desplazamiento);
-        colisionador->jugador_colisionar(jugador);
+        if(!jugador->esta_muerto()) {
+            pthread_mutex_lock(&mutex_desplazamiento);
+            jugador->cambiar_frame(camara);
+            jugador->desplazar();
+            pthread_mutex_unlock(&mutex_desplazamiento);
+            colisionador->jugador_colisionar(jugador);
+        }
     }
     for (auto & enemigo : enemigos){
         enemigo->cambiar_frame(camara);
@@ -657,18 +660,27 @@ void Servidor::finalizar_juego(){
     }
 }
 
+bool Servidor::game_over(){
+    bool game_over = true;
+    for (auto& jugador: jugadores){
+        if(!jugador->esta_muerto()) {
+            game_over = false;
+            break;
+        }
+    }
+    return game_over;
+}
+
 void Servidor::game_loop() {
     if (estado_error == ERROR_JUEGO)
         quit = true;
 
-    while (!quit){
+    while (!quit && (!game_over() && !fin_juego)){
         pthread_mutex_lock(&mutex_render);
         camara->stop_scrolling();
         for (auto & jugador : jugadores)
             jugador->reset_posicion();
-        std::cout<<"entre al gameloop"<<std::endl;
-        int tiempo = SDL_GetTicks();
-
+        int tiempo = time(nullptr);
         int aux;
         if (nivel_actual == CAMBIANDO_NIVEL)
             aux = 0;
@@ -677,10 +689,9 @@ void Servidor::game_loop() {
         nivel_actual = CAMBIANDO_NIVEL;
         pthread_mutex_unlock(&mutex_render);
         enviar_pantalla_entre_nivel();
-        while(SDL_GetTicks() - tiempo <= TIEMPO_ENTRE_NIVEL){
+        while(time(nullptr) - tiempo <= TIEMPO_ENTRE_NIVEL){
         }
         if(!quit) {
-            std::cout<<"Estoy creando"<<std::endl;
             nivel_actual = aux+1;
             pthread_mutex_lock(&mutex_render);
 
@@ -691,20 +702,23 @@ void Servidor::game_loop() {
             if(estado_xml == ERROR_XML) {
                 lectorXml->set_default();
                 if(lectorXml->generar_nivel(&enemigos, &monedas, &escenarios, &background, &temporizador, nivel_str) == QUIT)
-                    quit = true;
+                    fin_juego = true;
             }
             pthread_mutex_unlock(&mutex_render);
         }
         camara->set_fin_nivel(background->es_fin_nivel());
-        while (camara->check_movimiento(jugadores) != FIN_NIVEL && !quit) {
-            std::cout<<"estoy en el bucle de la camara"<<std::endl;
+        while (camara->check_movimiento(jugadores) != FIN_NIVEL && !quit && !game_over()) {
             //LOS THREADS YA ESTAN RECIBIENDO Y ENVIANDO POR CADA CLIENTE
             update();
             if(cant_clientes_exit == jugadores.size())
                 quit = true;
             camara->set_fin_nivel(background->es_fin_nivel());
         }
-
+    }
+    enviar_pantalla_entre_nivel();
+    while(!quit){
+        if(cant_clientes_exit == jugadores.size())
+            quit = true;
     }
     finalizar_juego();
 }

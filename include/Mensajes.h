@@ -30,6 +30,7 @@ typedef struct entidad{
     uint8_t sonido_a_reproducir;
     size_t puntaje;
     uint8_t vidas;
+    bool muerto;
 }entidad_t;
 
 typedef struct mensaje_servidor_a_cliente{

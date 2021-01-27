@@ -114,7 +114,9 @@ void Jugador::desplazar(){
     if(frames_render.dest_rect.y > 600){
         reset_posicion();
         if(!modo_test && vidas > 0)
-                vidas--;
+            vidas--;
+        if(vidas<=0)
+            muerto = true;
     }
 
 
@@ -229,8 +231,12 @@ void Jugador::colisionar_con_enemigo(int direccion_colision) {
                 if (estado_crecimiento == NO_CRECIDO) {
                     if (vidas > 0)
                         vidas--;
-                } else
+                    if (vidas <= 0)
+                        muerto = true;
+                }
+                else {
                     set_dest_rect_y(get_dest_rect().y + get_dest_rect().h / 2);
+                }
                 estado_crecimiento = NO_CRECIDO;
                 TickDanio = SDL_GetTicks();
             }
@@ -288,4 +294,8 @@ uint8_t Jugador::get_cantidad_vidas(){
 
 size_t Jugador::get_puntaje(){
     return puntos;
+}
+
+bool Jugador::esta_muerto() {
+    return muerto;
 }

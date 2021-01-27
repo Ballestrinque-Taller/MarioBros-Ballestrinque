@@ -364,15 +364,31 @@ void Cliente::render_thread(Cliente* cliente){
     cliente->render();
 }
 
+bool Cliente::game_over(){
+    bool gameOver = true;
+    for (auto& entidad: entidades){
+        if(entidad.es_jugador && !entidad.muerto) {
+            gameOver = false;
+            break;
+        }
+    }
+    return gameOver;
+}
+
 void Cliente::render(){
     //inicializar_ventana();
     SDL_DestroyRenderer(renderer);
     renderer = SDL_CreateRenderer(ventana, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     dibujador = new Dibujador();
-    while(!quit) {
+    recibir_renders_del_servidor();
+    bool musica_prendida = true;
+    while(!quit && !game_over()) {
         size_t frame_start = SDL_GetTicks();
-        recibir_renders_del_servidor();
         if (nivel_recibido > nivel_actual && (dibujador != nullptr && (CAMBIANDO_NIVEL != nivel_recibido))) {
+            if (!musica_prendida) {
+                musica_prendida = true;
+                reproductorDeSonido->toggle_musica();
+            }
             if (nivel_label != nullptr)
                 delete(nivel_label);
             if (temporizador_label != nullptr)
@@ -381,13 +397,24 @@ void Cliente::render(){
             temporizador_label = new TextWriter();
             nivel_label->set_msg_rect(POS_X_TEXTO-WIDTH_TEXTO, POS_Y_TEXTO, HEIGHT_TEXTO, WIDTH_TEXTO);
             temporizador_label->set_msg_rect(POS_X_TEMP,POS_Y_TEMP,HEIGHT_MSG_TEMP,WIDTH_MSG_TEMP);
-            pthread_mutex_lock(&mutex_render);
-            //dibujador->crear_texturas(entidades, renderer);
-            pthread_mutex_unlock(&mutex_render);
             nivel_actual = nivel_recibido;
         }
-        if(nivel_recibido == CAMBIANDO_NIVEL){
-            dibujador->dibujar_cambio_nivel(entidades, nivel_actual + 1, renderer);
+        if(nivel_recibido == CAMBIANDO_NIVEL && nivel_actual < 1){
+            dibujador->dibujar_cambio_nivel(entidades, "Nivel: "+std::to_string(nivel_actual + 1), renderer);
+            size_t frame_time = SDL_GetTicks() - frame_start;
+            if (FRAME_DELAY > frame_time)
+                SDL_Delay(FRAME_DELAY - frame_time);
+        }
+        else if(nivel_recibido == CAMBIANDO_NIVEL && nivel_actual >=1){
+            if(musica_prendida) {
+                reproductorDeSonido->toggle_musica();
+                musica_prendida = false;
+                reproductorDeSonido->reproducir_sonido(SONIDO_FIN_DE_NIVEL);
+            }
+            dibujador->dibujar_cambio_nivel(entidades, "Nivel: "+std::to_string(nivel_actual + 1), renderer);
+            size_t frame_time = SDL_GetTicks() - frame_start;
+            if (FRAME_DELAY > frame_time)
+                SDL_Delay(FRAME_DELAY - frame_time);
         }else{
             pthread_mutex_lock(&mutex_render);
             dibujador->crear_texturas(entidades, renderer);
@@ -397,6 +424,19 @@ void Cliente::render(){
             if (FRAME_DELAY > frame_time)
                 SDL_Delay(FRAME_DELAY - frame_time);
         }
+        recibir_renders_del_servidor();
+    }
+    reproductorDeSonido->toggle_musica();
+    if(game_over()) {
+        reproductorDeSonido->reproducir_sonido(SONIDO_GAME_OVER);
+    }
+    while(!quit && game_over()){
+        recibir_renders_del_servidor();
+        size_t frame_start = SDL_GetTicks();
+        dibujador->dibujar_cambio_nivel(entidades, "Game Over", renderer);
+        size_t frame_time = SDL_GetTicks() - frame_start;
+        if (FRAME_DELAY > frame_time)
+            SDL_Delay(FRAME_DELAY - frame_time);
     }
 }
 

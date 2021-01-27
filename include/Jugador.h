@@ -41,6 +41,7 @@ class Jugador: public Renderer{
         bool esta_desconectado();
         bool esta_inmune();
         bool esta_crecido();
+        bool esta_muerto();
         void colisionar_con_bloque(int direccion);
         void colisionar_con_enemigo(int direccion);
         void colisionar_con_moneda();
@@ -49,6 +50,7 @@ class Jugador: public Renderer{
 
     private:
         bool modo_test = false;
+        bool muerto = false;
         int puntos = 0;
         int vidas = MAX_VIDAS;
         bool desconectado;

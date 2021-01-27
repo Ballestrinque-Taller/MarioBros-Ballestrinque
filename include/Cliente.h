@@ -35,6 +35,7 @@
 
 class Cliente{
     private:
+        bool game_over();
         bool error_svr = false;
         int recibir_estado_conex_servidor();
         void mostrar_login(std::string, int puerto);

@@ -15,10 +15,10 @@ int Camara::check_movimiento(std::vector<Jugador*>jugadores){
     bool jugadores_en_fin[jugadores.size()];
     int i = 0;
     for (auto &jugador: jugadores){
-        if (jugador->get_dest_rect_x() <= 0 && !jugador->esta_desconectado()) {
+        if (jugador->get_dest_rect_x() <= 0 && !jugador->esta_desconectado() && !jugador->esta_muerto()) {
             puedo_mover_camara = false;
         }
-        if (jugador->get_dest_rect_x() >= MARGEN_CAMARA || jugador->esta_desconectado()){
+        if (jugador->get_dest_rect_x() >= MARGEN_CAMARA || jugador->esta_desconectado() || jugador->esta_muerto()){
             jugadores_en_fin[i] = true;
         }
         i++;

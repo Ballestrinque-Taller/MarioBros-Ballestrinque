@@ -4,6 +4,9 @@
 #define ALTO_LADRILLO_PANTALLA 40
 #define ANCHO_LADRILLO_PANTALLA 40
 
+#define ANCHO_FRAME 40
+#define ALTO_FRAME 40
+
 #include "Escenario.h"
 #include "Camara.h"
 #include <SDL2/SDL.h>

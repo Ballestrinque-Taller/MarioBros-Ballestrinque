@@ -66,7 +66,7 @@ void ReproductorDeSonido::inicializar_diccionario_sonidos_especiales(){
     }
 
     sonido_cambio_nivel = Mix_LoadWAV( "./res/sonidos/sonido_fin_de_nivel.wav" );
-    Mix_VolumeChunk(sonido_cambio_nivel,20);
+    Mix_VolumeChunk(sonido_cambio_nivel,70);
     if( sonido_cambio_nivel == nullptr )
     {
         LOG(Log::ERROR)<<"No se puedo inicializar el sonido del path: ./res/sonidos/sonido_fin_de_nivel.wav"<<std::endl;
@@ -80,7 +80,7 @@ void ReproductorDeSonido::inicializar_diccionario_sonidos_especiales(){
     }
 
     sonido_game_over = Mix_LoadWAV( "./res/sonidos/sonido_game_over.wav" );
-    Mix_VolumeChunk(sonido_game_over,20);
+    Mix_VolumeChunk(sonido_game_over,100);
     if( sonido_game_over == nullptr )
     {
         LOG(Log::ERROR)<<"No se puedo inicializar el sonido del path: ./res/sonidos/sonido_game_over.wav"<<std::endl;

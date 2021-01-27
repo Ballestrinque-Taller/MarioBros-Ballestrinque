@@ -14,7 +14,7 @@ class Dibujador{
         void dibujar(std::vector<entidad_t> entidades_a_dibujar, TextWriter* nivel_label, int nivel_actual, TextWriter* temporizador_label, int tiempo_restante, SDL_Renderer* renderer);
         void crear_texturas(std::vector<entidad_t> entidades_a_texturizar, SDL_Renderer* renderer);
         ~Dibujador();
-        void dibujar_cambio_nivel(std::vector<entidad_t> jugadores, int nuevo_nivel, SDL_Renderer* renderer);
+        void dibujar_cambio_nivel(std::vector<entidad_t> jugadores, std::string texto_arriba, SDL_Renderer* renderer);
 
     private:
         int cantidad_de_jugadores;

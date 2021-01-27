@@ -1,5 +1,6 @@
 #include <Log.h>
 #include "Dibujador.h"
+#include <bits/stdc++.h>
 
 #define ANCHO_ID 40
 #define ANCHO_HONGO_SRC 16
@@ -74,11 +75,13 @@ void Dibujador::crear_texturas(std::vector<entidad_t> entidades_a_texturizar, SD
     }
     texturas.clear();
     for (auto & entidad : entidades_a_texturizar){
-        SDL_Texture* textura = crear_textura(entidad, renderer);
-        if (textura == nullptr){
-            LOG(Log::ERROR)<<"No se pudo generar la textura: "<<entidad.path_textura << std::endl;
-        }else {
-            texturas.push_back(textura);
+        if((entidad.es_jugador && !entidad.muerto) || !entidad.es_jugador) {
+            SDL_Texture *textura = crear_textura(entidad, renderer);
+            if (textura == nullptr) {
+                LOG(Log::ERROR) << "No se pudo generar la textura: " << entidad.path_textura << std::endl;
+            } else {
+                texturas.push_back(textura);
+            }
         }
     }
 }
@@ -104,8 +107,22 @@ void Dibujador::generar_identificador_jugador(){
     text_puntos.push_back(text_writer_puntos);
 }
 
-void Dibujador::dibujar_cambio_nivel(std::vector<entidad_t> jugadores, int nuevo_nivel, SDL_Renderer* renderer) {
+int comparador_jugadores(entidad_t jugador_a_comparar, entidad_t jugador_comparado){
+    if (jugador_a_comparar.puntaje > jugador_comparado.puntaje){
+        return 1;
+    }else if (jugador_a_comparar.puntaje < jugador_comparado.puntaje){
+        return -1;
+    }
+    return 0;
+}
+
+void Dibujador::dibujar_cambio_nivel(std::vector<entidad_t> jugadores, std::string texto_arriba, SDL_Renderer* renderer) {
+    std::sort(jugadores.begin(),jugadores.end(), comparador_jugadores);
     SDL_RenderClear(renderer);
+    entidad_t background;
+    background.dest_rect.x = 0, background.dest_rect.y = 0, background.dest_rect.h = 600, background.dest_rect.w = 800;
+    background.src_rect.x = 0, background.src_rect.y = 0, background.src_rect.h = 600, background.src_rect.w = 800;
+    strcpy(background.path_textura, "./res/FONDO_TRANSICION_redimensionado.png");
     for (int i = 0; i < jugadores.size(); ++i) {
         jugadores.at(i).dest_rect.x = 200;
         jugadores.at(i).dest_rect.y = 150 + 90 * (i+1);
@@ -114,22 +131,29 @@ void Dibujador::dibujar_cambio_nivel(std::vector<entidad_t> jugadores, int nuevo
         jugadores.at(i).src_rect.y = 0;
         jugadores.at(i).src_rect.h = 32;
         jugadores.at(i).flip = SDL_FLIP_NONE;
+        jugadores.at(i).muerto = false;
         if(puntajes_jugadores.size() < jugadores.size()) {
             nombres_jugadores.push_back(new TextWriter());
-            nombres_jugadores.at(i)->set_msg_rect(300, 150 + 110 * (i + 1), 40, 20 * strlen(jugadores.at(i).usuario));
+            nombres_jugadores.at(i)->set_msg_rect(300, 150 + 90 * (i + 1), 40, 20 * strlen(jugadores.at(i).usuario));
             puntajes_jugadores.push_back(new TextWriter);
-            puntajes_jugadores.at(i)->set_msg_rect(600, 150 + 110 * (i + 1), 40, 20 * std::to_string(jugadores.at(i).puntaje).size()  );
+            puntajes_jugadores.at(i)->set_msg_rect(500, 150 + 90 * (i + 1), 40, 20 * std::to_string(jugadores.at(i).puntaje).size()  );
         }
+    }
+    crear_texturas(jugadores, renderer);
+    texturas.insert(texturas.begin(),crear_textura(background, renderer));
+    for(int i = 0 ; i < texturas.size(); i++){
+        if(i==0){
+            SDL_RenderCopyEx(renderer, texturas.at(i), &(background.src_rect), &(background.dest_rect), 0, nullptr, SDL_FLIP_NONE);
+        }else {
+            SDL_RenderCopyEx(renderer, texturas.at(i), &(jugadores.at(i-1).src_rect), &(jugadores.at(i-1).dest_rect), 0,
+                             nullptr, jugadores.at(i-1).flip);
+        }
+    }
+    for(int i=0; i< jugadores.size(); i++){
         nombres_jugadores.at(i)->write_text(jugadores.at(i).usuario, renderer);
         puntajes_jugadores.at(i)->write_text(std::to_string(jugadores.at(i).puntaje).c_str(), renderer);
     }
-
-    texto_nivel->write_text((std::string("Nivel: ") + std::to_string(nuevo_nivel)).c_str(), renderer);
-    crear_texturas(jugadores, renderer);
-    for(int i = 0 ; i < jugadores.size(); i++){
-        SDL_RenderCopyEx(renderer, texturas.at(i), &(jugadores.at(i).src_rect), &(jugadores.at(i).dest_rect), 0, nullptr, jugadores.at(i).flip);
-
-    }
+    texto_nivel->write_text(texto_arriba.c_str(), renderer);
     SDL_RenderPresent(renderer);
 }
 

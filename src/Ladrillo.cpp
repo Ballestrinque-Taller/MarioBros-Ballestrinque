@@ -4,9 +4,6 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-#define ANCHO_FRAME 16
-#define ALTO_FRAME 16
-
 #define POS_INICIAL_X_FRAME 0
 #define POS_INICIAL_Y_FRAME 0
 

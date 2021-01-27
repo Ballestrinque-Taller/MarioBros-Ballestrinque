@@ -37,6 +37,8 @@ class Colisionador;
 class Servidor{
     private:
         //Cosas de Juego
+        bool game_over();
+        bool fin_juego = false;
         Colisionador* colisionador = nullptr;
         int cant_clientes_exit=0;
         bool juego_iniciado = false;
@@ -86,7 +88,8 @@ class Servidor{
         int get_pos_de_conexion();
         void enviar_pantalla_entre_nivel();
 
-    public:
+
+public:
         //Cosas de sockets
         int chequear_credenciales_validas(int socket);
         Servidor(std::string ip, int puerto, std::string path_xml);
