@@ -21,6 +21,7 @@ class ReproductorDeSonido {
         void reproducir_musica(uint8_t id_musica=MUSICA_ORIGINAL);
         void reproducir_sonido(uint8_t id_sonido);
         void toggle_musica();
+        bool musica_encendida();
         ~ReproductorDeSonido();
 
     private:

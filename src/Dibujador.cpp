@@ -53,7 +53,8 @@ void Dibujador::dibujar(std::vector<entidad_t> entidades_a_dibujar, TextWriter* 
             }
             cantidad_de_jugadores++;
         }
-        SDL_RenderCopyEx(renderer, texturas.at(i), &(entidades_a_dibujar.at(i).src_rect), &(entidades_a_dibujar.at(i).dest_rect), 0, nullptr, entidades_a_dibujar.at(i).flip);
+        if((entidades_a_dibujar.at(i).es_jugador && !entidades_a_dibujar.at(i).muerto) || !entidades_a_dibujar.at(i).es_jugador)
+            SDL_RenderCopyEx(renderer, texturas.at(i), &(entidades_a_dibujar.at(i).src_rect), &(entidades_a_dibujar.at(i).dest_rect), 0, nullptr, entidades_a_dibujar.at(i).flip);
     }
     for (auto& puntaje : puntajes_jugadores){
         delete(puntaje);
@@ -75,26 +76,31 @@ void Dibujador::crear_texturas(std::vector<entidad_t> entidades_a_texturizar, SD
     }
     texturas.clear();
     for (auto & entidad : entidades_a_texturizar){
-        if((entidad.es_jugador && !entidad.muerto) || !entidad.es_jugador) {
+        //if((entidad.es_jugador && !entidad.muerto) || !entidad.es_jugador) {
             SDL_Texture *textura = crear_textura(entidad, renderer);
             if (textura == nullptr) {
                 LOG(Log::ERROR) << "No se pudo generar la textura: " << entidad.path_textura << std::endl;
             } else {
                 texturas.push_back(textura);
             }
-        }
+        //}
     }
 }
 
 SDL_Texture* Dibujador::crear_textura(entidad_t entidad, SDL_Renderer* renderer){
-    SDL_Surface* surface = IMG_Load(entidad.path_textura);
-    if (surface == nullptr){
-        LOG(Log::ERROR) << "No se encontro el archivo: " << entidad.path_textura << ". Cargando textura por defecto..." << std::endl;
-        surface = IMG_Load(entidad.default_path);
-    }
-    SDL_SetColorKey( surface, SDL_TRUE, SDL_MapRGB( surface->format, 0x92, 0x27, 0x8F ) ); //0x92 0x27 0x8F es el color del divisor de mario.
-    SDL_Texture* textura = SDL_CreateTextureFromSurface(renderer, surface);
-    SDL_FreeSurface(surface);
+    SDL_Texture *textura = nullptr;
+    //if((entidad.es_jugador && !entidad.muerto) || !entidad.es_jugador) {
+        SDL_Surface *surface = IMG_Load(entidad.path_textura);
+        if (surface == nullptr) {
+            LOG(Log::ERROR) << "No se encontro el archivo: " << entidad.path_textura
+                            << ". Cargando textura por defecto..." << std::endl;
+            surface = IMG_Load(entidad.default_path);
+        }
+        SDL_SetColorKey(surface, SDL_TRUE, SDL_MapRGB(surface->format, 0x92, 0x27,
+                                                      0x8F)); //0x92 0x27 0x8F es el color del divisor de mario.
+        textura = SDL_CreateTextureFromSurface(renderer, surface);
+        SDL_FreeSurface(surface);
+    //}
     return textura;
 }
 
@@ -116,8 +122,22 @@ int comparador_jugadores(entidad_t jugador_a_comparar, entidad_t jugador_compara
     return 0;
 }
 
+void sort_jugadores(std::vector<entidad_t>* jugadores){
+    for(int i=0;i<(*jugadores).size()-1;i++){
+        int maximo = i;
+        for(int j=1;j<(*jugadores).size();j++){
+            if((*jugadores).at(j).puntaje>(*jugadores).at(maximo).puntaje)
+                maximo = j;
+        }
+        entidad_t aux = (*jugadores).at(i);
+        (*jugadores).at(i) = (*jugadores).at(maximo);
+        (*jugadores).at(maximo) = aux;
+    }
+}
+
 void Dibujador::dibujar_cambio_nivel(std::vector<entidad_t> jugadores, std::string texto_arriba, SDL_Renderer* renderer) {
-    std::sort(jugadores.begin(),jugadores.end(), comparador_jugadores);
+    //std::sort(jugadores.begin(),jugadores.end(), comparador_jugadores);
+    sort_jugadores(&jugadores);
     SDL_RenderClear(renderer);
     entidad_t background;
     background.dest_rect.x = 0, background.dest_rect.y = 0, background.dest_rect.h = 600, background.dest_rect.w = 800;

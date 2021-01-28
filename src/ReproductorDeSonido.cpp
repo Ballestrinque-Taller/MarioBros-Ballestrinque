@@ -94,7 +94,7 @@ void ReproductorDeSonido::inicializar_diccionario_sonidos_especiales(){
     }
 
     sonido_muerte = Mix_LoadWAV( "./res/sonidos/sonido_muerte.wav" );
-    Mix_VolumeChunk(sonido_muerte,20);
+    Mix_VolumeChunk(sonido_muerte,128);
     if( sonido_moneda == nullptr )
     {
         LOG(Log::ERROR)<<"No se puedo inicializar el sonido del path: ./res/sonidos/sonido_muerte.wav"<<std::endl;
@@ -133,4 +133,8 @@ ReproductorDeSonido::~ReproductorDeSonido() {
     diccionario_musica.clear();
     diccionario_sonido_especiales.clear();
     Mix_Quit();
+}
+
+bool ReproductorDeSonido::musica_encendida(){
+    return (Mix_PausedMusic() != 1 && Mix_PlayingMusic() != 0);
 }

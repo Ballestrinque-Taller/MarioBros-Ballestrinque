@@ -115,8 +115,10 @@ void Jugador::desplazar(){
         reset_posicion();
         if(!modo_test && vidas > 0)
             vidas--;
-        if(vidas<=0)
+        if(vidas<=0) {
             muerto = true;
+            sonido_a_reproducir = SONIDO_MUERTE;
+        }
     }
 
 
@@ -231,8 +233,10 @@ void Jugador::colisionar_con_enemigo(int direccion_colision) {
                 if (estado_crecimiento == NO_CRECIDO) {
                     if (vidas > 0)
                         vidas--;
-                    if (vidas <= 0)
+                    if (vidas <= 0){
                         muerto = true;
+                        sonido_a_reproducir = SONIDO_MUERTE;
+                    }
                 }
                 else {
                     set_dest_rect_y(get_dest_rect().y + get_dest_rect().h / 2);

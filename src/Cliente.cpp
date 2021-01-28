@@ -381,12 +381,10 @@ void Cliente::render(){
     renderer = SDL_CreateRenderer(ventana, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     dibujador = new Dibujador();
     recibir_renders_del_servidor();
-    bool musica_prendida = true;
     while(!quit && !game_over()) {
         size_t frame_start = SDL_GetTicks();
         if (nivel_recibido > nivel_actual && (dibujador != nullptr && (CAMBIANDO_NIVEL != nivel_recibido))) {
-            if (!musica_prendida) {
-                musica_prendida = true;
+            if (!reproductorDeSonido->musica_encendida()) {
                 reproductorDeSonido->toggle_musica();
             }
             if (nivel_label != nullptr)
@@ -406,9 +404,8 @@ void Cliente::render(){
                 SDL_Delay(FRAME_DELAY - frame_time);
         }
         else if(nivel_recibido == CAMBIANDO_NIVEL && nivel_actual >=1){
-            if(musica_prendida) {
+            if(reproductorDeSonido->musica_encendida()) {
                 reproductorDeSonido->toggle_musica();
-                musica_prendida = false;
                 reproductorDeSonido->reproducir_sonido(SONIDO_FIN_DE_NIVEL);
             }
             dibujador->dibujar_cambio_nivel(entidades, "Nivel: "+std::to_string(nivel_actual + 1), renderer);
@@ -426,15 +423,22 @@ void Cliente::render(){
         }
         recibir_renders_del_servidor();
     }
-    reproductorDeSonido->toggle_musica();
+    if(reproductorDeSonido->musica_encendida())
+        reproductorDeSonido->toggle_musica();
     if(game_over()) {
-        reproductorDeSonido->reproducir_sonido(SONIDO_GAME_OVER);
+
     }
+    size_t tiempo_desde_muertes = SDL_GetTicks();
+    bool reproduci_sonido_game_over = false;
     while(!quit && game_over()){
         recibir_renders_del_servidor();
         size_t frame_start = SDL_GetTicks();
         dibujador->dibujar_cambio_nivel(entidades, "Game Over", renderer);
         size_t frame_time = SDL_GetTicks() - frame_start;
+        if(SDL_GetTicks()-tiempo_desde_muertes > 3000 && !reproduci_sonido_game_over){
+            reproduci_sonido_game_over = true;
+            reproductorDeSonido->reproducir_sonido(SONIDO_GAME_OVER);
+        }
         if (FRAME_DELAY > frame_time)
             SDL_Delay(FRAME_DELAY - frame_time);
     }
