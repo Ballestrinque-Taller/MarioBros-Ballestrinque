@@ -20,11 +20,11 @@ o descargar el código de este repositorio en formato zip y extraerlo a alguna c
 *Tener instalados SDL2, SDL2_TTF, SDL2_mixer, y SDL2_image, cmake
 *Comandos de instalacion:
 
-  sudo apt-get install cmake
-  sudo apt-get install libsdl2-dev
-  sudo apt-get install libsdl2-image-dev
-  sudo apt-get install libsdl2-ttf-dev
-  sudo apt-get install libsdl2-mixer-dev
+  sudo apt-get install cmake  
+  sudo apt-get install libsdl2-dev  
+  sudo apt-get install libsdl2-image-dev  
+  sudo apt-get install libsdl2-ttf-dev  
+  sudo apt-get install libsdl2-mixer-dev  
 
 
 *Compilar con:
