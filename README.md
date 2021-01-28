@@ -15,37 +15,22 @@ git clone https://github.com/Ballestrinque-Taller/MarioBros-Ballestrinque.git
 ```
 o descargar el código de este repositorio en formato zip y extraerlo a alguna carpeta.  
 
-### Compilación en Windows
-
-Descargar e instalar el entorno [MSYS](https://www.msys2.org/). Seguir las instrucciones de la página web para configurar el entorno y actualizar los repositorios.
-
-Todavía en el entorno de MSYS, ejecutar el siguiente comando para obtener las dependencias:  
-```
-pacman -S make mingw-w64-x86_64-gcc mingw-w64-x86_64-SDL2 mingw-w64-x86_64-SDL2_image mingw-w64-x86_64-SDL2_ttf
-```
-Responder a `:: Proceed with installation? [Y/n]` con `y` para instalarlos.
-
-Ahora, dentro se msys, cambiar el directorio de trabajo a ese (o sea, `cd /path_al_projecto-MarioBros-Ballestrinque/`). Este paso es importante
-
-asegurandose que `pwd` devuelve el directorio del projecto, ejecutar  
-```
-./windows-obtener_dll.sh
-```
-para descargar los archivos _.dll_ necesarios. Este paso solo debe hacerse una vez; no hay que volverlo a ejecutar cada vez que se quiera compilar.
-
-Una vez terminado con esto, cerrar la ventana para luego abrir un entorno de MSYS MinGW64 (MSYS MinGW 64-bit).  
-
-Cambiar el directorio de trabajo al directorio del projecto y ejecutar:  
-`make` u opcionalmente con el flag `-j NUCLEOS` donde `NUCLEOS` es el numero de nucleos de la computadora (recomendado poner x1.5 o x2 veces el numero de nucleos físicos)  
-  ej: `make -j 12`
-
-Luego de que termine de ejecutarse, el ejecutable se encuentra en el directorio del projecto bin/app.exe 
-
-
 ### Compilación en Linux
 
-*Tener instalados SDL2 y SDL2_image
+*Tener instalados SDL2, SDL2_TTF, SDL2_mixer, y SDL2_image, cmake
+*Comandos de instalacion:
+
+  sudo apt-get install cmake
+  sudo apt-get install libsdl2-dev
+  sudo apt-get install libsdl2-image-dev
+  sudo apt-get install libsdl2-ttf-dev
+  sudo apt-get install libsdl2-mixer-dev
+
+
 *Compilar con:
+  Parado en la carpeta base del proyecto -> cmake CMakeLists.txt
+  
+  Luego:
   `make` u opcionalmente con el flag `-j NUCLEOS` donde `NUCLEOS` es el numero de nucleos de la computadora (recomendado poner x1.5 o x2 veces el numero de nucleos físicos)  
   ej: `make -j 12`
 
@@ -53,7 +38,12 @@ Luego de que termine de ejecutarse, el ejecutable se encuentra en el directorio 
 
 ## Ejecución
 
-ejecutar desde una terminal con el derectorio de trabajo en el projecto  
-`bin/app` o `bin/app.exe`
+*Para correr el cliente: ./MarioBros-Ballestrinque c IP PUERTO
+
+*Para correr el servidor: ./MarioBros-Ballestrinque s IP PUERTO ./res/config.xml
+
+U opcionalmente se puede poner otro path al xml
+
+
 
 
