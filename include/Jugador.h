@@ -53,7 +53,7 @@ class Jugador: public Renderer{
         bool muerto = false;
         int puntos = 0;
         int vidas = MAX_VIDAS;
-        bool desconectado;
+        bool desconectado = false;
         bool acelerando;
         bool en_aire;
         bool agachado;
