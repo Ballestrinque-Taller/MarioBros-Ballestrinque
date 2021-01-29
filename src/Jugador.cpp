@@ -29,8 +29,11 @@
 #define FRAME_MOV_FINAL 3
 #define FRAME_AGACHADO 6
 
+#define ESTA_CRECIENDO 2
 #define CRECIDO 1
 #define NO_CRECIDO 0
+
+#define TIEMPO_ANIMACION_CRECIMIENTO 1200 //en milisegundos
 
 Jugador::Jugador(std::string path){
     path_to_image = path;
@@ -71,10 +74,12 @@ void Jugador::cambiar_frame(Camara* camara){
     if (estado_crecimiento == CRECIDO) {
         set_src_rect(frame_actual * ANCHO_FRAME, 1, ALTO_FRAME, ANCHO_FRAME);
         set_dest_rect(get_dest_rect().x, get_dest_rect().y, ALTO_PANTALLA, ANCHO_PANTALLA);
-    }else{
+    }else if (estado_crecimiento == NO_CRECIDO){
         set_src_rect(frame_actual * ANCHO_FRAME, ALTO_FRAME+1, ALTO_FRAME/2, ANCHO_FRAME);
         set_dest_rect(get_dest_rect().x,get_dest_rect().y, ALTO_PANTALLA/2, ANCHO_PANTALLA);
     }
+    else if (estado_crecimiento == ESTA_CRECIENDO)
+        animacion_crecimiento();
     camara->acomodar_a_imagen(this);
 }
 
@@ -132,8 +137,8 @@ void Jugador::aceleracion_gravitatoria() {
 }
 
 void Jugador::crecer(){
-    estado_crecimiento = CRECIDO;
-    set_dest_rect(get_dest_rect_x(), get_dest_rect().y-ALTO_PANTALLA/2, get_dest_rect().h, get_dest_rect().w);
+    estado_crecimiento = ESTA_CRECIENDO;
+    //set_dest_rect(get_dest_rect_x(), get_dest_rect().y-ALTO_PANTALLA/2, get_dest_rect().h, get_dest_rect().w);
 }
 
 void Jugador::recibir_evento(SDL_Event evento) {
@@ -174,7 +179,7 @@ void Jugador::recibir_evento(SDL_Event evento) {
 }
 
 void Jugador::agacharse(){
-    if (!en_aire){
+    if (!en_aire && estado_crecimiento == CRECIDO){
         agachado = true;
         velocidad_x=0;
     }
@@ -302,4 +307,36 @@ size_t Jugador::get_puntaje(){
 
 bool Jugador::esta_muerto() {
     return muerto;
+}
+
+void Jugador::animacion_crecimiento(){
+    unsigned int tiempo_inicial = SDL_GetTicks();
+    unsigned int tiempo_animacion = 0;
+    int posicion_y = get_dest_rect().y;
+    while(tiempo_animacion < TIEMPO_ANIMACION_CRECIMIENTO){
+
+        //mario chiquito: 0-120 240-360 480-600 840-960
+        if((tiempo_animacion > TIEMPO_ANIMACION_CRECIMIENTO/10*2 && tiempo_animacion < TIEMPO_ANIMACION_CRECIMIENTO/10*3)
+            || (tiempo_animacion > TIEMPO_ANIMACION_CRECIMIENTO/10*4 && tiempo_animacion < TIEMPO_ANIMACION_CRECIMIENTO/10*5) || (tiempo_animacion > TIEMPO_ANIMACION_CRECIMIENTO/10*7 && tiempo_animacion < TIEMPO_ANIMACION_CRECIMIENTO/10*8) ){
+
+            set_src_rect(frame_actual * ANCHO_FRAME, ALTO_FRAME+1, ALTO_FRAME/2, ANCHO_FRAME);
+            set_dest_rect(get_dest_rect().x,posicion_y, ALTO_PANTALLA/2, ANCHO_PANTALLA);
+        }
+        //mario mediano: 120-240 360-480 600-720 960-1080
+        if((tiempo_animacion > TIEMPO_ANIMACION_CRECIMIENTO/10 && tiempo_animacion < TIEMPO_ANIMACION_CRECIMIENTO/10*2) || (tiempo_animacion > (TIEMPO_ANIMACION_CRECIMIENTO/10)*3 && tiempo_animacion < (TIEMPO_ANIMACION_CRECIMIENTO/10)*4)
+            || (tiempo_animacion > TIEMPO_ANIMACION_CRECIMIENTO/10*5 && tiempo_animacion < (TIEMPO_ANIMACION_CRECIMIENTO/10)*6) || (tiempo_animacion > (TIEMPO_ANIMACION_CRECIMIENTO/10)*8 && tiempo_animacion < (TIEMPO_ANIMACION_CRECIMIENTO/10)*9) ){
+
+            set_src_rect(frame_actual * ANCHO_FRAME, 1, ALTO_FRAME, ANCHO_FRAME);
+            set_dest_rect(get_dest_rect().x,posicion_y-ALTO_PANTALLA/4, (ALTO_PANTALLA*3)/4, ANCHO_PANTALLA);
+        }
+        //mario grande: 720-840 1080-1200
+        if((tiempo_animacion > TIEMPO_ANIMACION_CRECIMIENTO/10*6 && tiempo_animacion < TIEMPO_ANIMACION_CRECIMIENTO/10*7) || (tiempo_animacion > TIEMPO_ANIMACION_CRECIMIENTO/10*9 && tiempo_animacion < TIEMPO_ANIMACION_CRECIMIENTO)){
+            set_src_rect(frame_actual * ANCHO_FRAME, 1, ALTO_FRAME, ANCHO_FRAME);
+            set_dest_rect(get_dest_rect().x, posicion_y-ALTO_PANTALLA/2, ALTO_PANTALLA, ANCHO_PANTALLA);
+        }
+
+        tiempo_animacion = SDL_GetTicks() - tiempo_inicial;
+    }
+
+    estado_crecimiento = CRECIDO;
 }

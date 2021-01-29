@@ -70,6 +70,7 @@ class Jugador: public Renderer{
         int tick_actual;
 
         void aceleracion_gravitatoria();
+        void animacion_crecimiento();
         void rozamiento();
 };
 

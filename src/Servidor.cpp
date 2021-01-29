@@ -339,7 +339,9 @@ mensaje_servidor_a_cliente_t Servidor::obtener_mensaje_jugador(Jugador* jugador)
 }
 
 void Servidor::grisar_jugador(int num_cliente){
+    pthread_mutex_lock(&mutex_render);
     jugadores.at(num_cliente)->grisar();
+    pthread_mutex_unlock(&mutex_render);
 }
 
 void Servidor::reconectar_jugador(int num_cliente){
