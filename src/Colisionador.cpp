@@ -192,23 +192,34 @@ void Colisionador::enemigo_colisiona_con_bloque(Enemigo* enemigo) {
     bool colision_superior = false;
     for(Escenario* escenario: bloques){
         if(colision_izquierda(escenario, enemigo) || colision_derecha(escenario, enemigo)) {
+            if(colision_izquierda(escenario, enemigo)){
+                enemigo->set_dest_rect_x(escenario->get_dest_rect().x - enemigo->get_dest_rect().w);
+            }else
+                enemigo->set_dest_rect_x(escenario->get_dest_rect().x + escenario->get_dest_rect().w);
             enemigo->cambiar_direccion();
         }
-        else if (colision_arriba(escenario, enemigo)){
+        else if (colision_arriba(escenario, enemigo) && !enemigo->esta_muerto()){
             enemigo->set_enemigo_en_aire(false);
             enemigo->set_dest_rect_y(escenario->get_dest_rect().y - enemigo->get_dest_rect().h);
             colision_superior = true;
         }
     }
-    if(!colision_superior)
+    if(!colision_superior || enemigo->esta_muerto())
         enemigo->set_enemigo_en_aire(true);
 }
 
 void Colisionador::enemigo_colisiona_con_enemigo(Enemigo* enemigo){
-    for(Enemigo* enemigo_extra: enemigos){
-        if((colision_izquierda(enemigo_extra, enemigo) || colision_derecha(enemigo_extra, enemigo)) &&
-                (enemigo_extra->get_dest_rect().x != enemigo->get_dest_rect().x) && !enemigo_extra->esta_muerto()){
-            enemigo->cambiar_direccion();
+    if(!enemigo->esta_muerto()){
+        for(Enemigo* enemigo_extra: enemigos){
+            if((colision_izquierda(enemigo_extra, enemigo) || colision_derecha(enemigo_extra, enemigo)) &&
+               (enemigo_extra->get_dest_rect().x != enemigo->get_dest_rect().x) && !enemigo_extra->esta_muerto()){
+                if(colision_izquierda(enemigo_extra, enemigo)){
+                    enemigo->set_dest_rect_x(enemigo_extra->get_dest_rect().x - enemigo->get_dest_rect().w);
+                }else
+                    enemigo->set_dest_rect_x(enemigo_extra->get_dest_rect().x + enemigo_extra->get_dest_rect().w);
+
+                enemigo->cambiar_direccion();
+            }
         }
     }
 }

@@ -31,18 +31,6 @@ void Enemigo::aceleracion_gravitatoria(){
     if(velocidad_y < MAX_ACEL_GRAVEDAD && en_aire){
         velocidad_y += DECAIMIENTO_ACEL_Y;
     }
-    /*
-    //IF !COLISION && ACEL < MAX_ACEL_GRAVEDAD (BAJA MENOS DE LO MAXIMO)
-    if (velocidad_y < MAX_ACEL_GRAVEDAD && frames_render.dest_rect.y < 535 - frames_render.dest_rect.h) {
-        velocidad_y += DECAIMIENTO_ACEL_Y;
-        en_aire = true;
-    }
-        //IF COLISION && ACEL PARA ABAJO (POSITIVA)
-    else if (velocidad_y > 0 && frames_render.dest_rect.y >= 535 - frames_render.dest_rect.h) {
-        velocidad_y = 0;
-        frames_render.dest_rect.y = 535 - frames_render.dest_rect.h;
-        en_aire = false;
-    }*/
 }
 
 void Enemigo::desplazar(){

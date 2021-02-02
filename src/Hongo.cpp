@@ -12,8 +12,8 @@ Hongo::Hongo(int x, int y){
 }
 
 void Hongo::desplazar(){
-    aceleracion_gravitatoria();
-    set_dest_rect(get_dest_rect().x+velocidad_x,get_dest_rect().y+velocidad_y,get_dest_rect().h, get_dest_rect().w);
+    //aceleracion_gravitatoria();
+    //set_dest_rect(get_dest_rect().x+velocidad_x,get_dest_rect().y+velocidad_y,get_dest_rect().h, get_dest_rect().w);
 }
 
 void Hongo::cambiar_direccion() {

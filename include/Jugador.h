@@ -42,13 +42,17 @@ class Jugador: public Renderer{
         bool esta_inmune();
         bool esta_crecido();
         bool esta_muerto();
+        bool finalizo_nivel();
+        void finalizar_nivel(bool termino);
         void colisionar_con_bloque(int direccion);
         void colisionar_con_enemigo(int direccion);
         void colisionar_con_moneda();
         void crecer();
         void sumar_puntos(int tipo_enemigo);
+        void sumar_puntos_fin_nivel(int puntos_a_sumar);
 
     private:
+        bool termino_nivel = false;
         bool modo_test = false;
         bool muerto = false;
         int puntos = 0;

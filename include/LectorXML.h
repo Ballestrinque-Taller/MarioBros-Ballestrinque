@@ -15,6 +15,7 @@
 #include "Jugador.h"
 #include "Mensajes.h"
 #include "Moneda.h"
+#include "Tuberia.h"
 #include <vector>
 
 #define ERROR_XML -1

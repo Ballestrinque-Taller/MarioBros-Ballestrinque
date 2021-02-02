@@ -2,6 +2,8 @@
 #include "Log.h"
 #include "Mensajes.h"
 #include <arpa/inet.h>
+#include <algorithm>
+
 
 #define ERROR_JUEGO -1
 
@@ -488,6 +490,14 @@ void Servidor::enviar_pantalla_entre_nivel(){
     pthread_mutex_unlock(&mutex_render);
 }
 
+bool Servidor::contiene_jugador(Jugador* jugador_buscado){
+    for(int i = 0; i < jugadores_fin.size(); i++){
+        if(jugador_buscado == jugadores_fin.at(i))
+            return true;
+    }
+    return false;
+}
+
 void Servidor::update() {
     temporizador->update();
     colisionador->clear_entidades();
@@ -536,7 +546,10 @@ void Servidor::update() {
             jugador->desplazar();
             pthread_mutex_unlock(&mutex_desplazamiento);
             colisionador->jugador_colisionar(jugador);
+            if(jugador->finalizo_nivel() && !contiene_jugador(jugador))
+                jugadores_fin.push_back(jugador);
         }
+
     }
     for (auto & enemigo : enemigos){
         enemigo->cambiar_frame(camara);
@@ -552,6 +565,8 @@ void Servidor::update() {
     for (auto & hongo: hongos){
         colisionador->hongo_colisionar_con_pared(hongo);
     }
+
+
     camara->scroll_background(background);
     camara->stop_scrolling();
     usleep(15000);
@@ -716,6 +731,17 @@ void Servidor::game_loop() {
                 quit = true;
             camara->set_fin_nivel(background->es_fin_nivel());
         }
+        for(auto & jugador: jugadores){
+            if(jugador->finalizo_nivel() && !contiene_jugador(jugador))
+                jugadores_fin.push_back(jugador);
+        }
+        for(int i = 0 ; i< jugadores_fin.size(); i ++){
+            std::cout<<i<<std::endl;
+            jugadores_fin.at(i)->sumar_puntos_fin_nivel(2000 - 500 *i);
+            jugadores_fin.at(i)->finalizar_nivel(false);
+        }
+        jugadores_fin.clear();
+
     }
     enviar_pantalla_entre_nivel();
     while(!quit){

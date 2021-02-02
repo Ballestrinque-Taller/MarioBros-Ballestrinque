@@ -22,4 +22,4 @@ include_directories(${SDL2TTF_INCLUDE_DIR} ${SDL2_MIXER_INCLUDE_DIR} ${SDL2_IMAG
 
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} ${SDL2TTF_LIBRARY} ${SDL2_MIXER_LIBRARY})
 
-add_subdirectory(Google_tests)
+#add_subdirectory(Google_tests)

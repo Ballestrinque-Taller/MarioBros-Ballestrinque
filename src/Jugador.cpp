@@ -308,6 +308,17 @@ size_t Jugador::get_puntaje(){
 bool Jugador::esta_muerto() {
     return muerto;
 }
+bool Jugador::finalizo_nivel(){
+    return termino_nivel;
+}
+void Jugador::finalizar_nivel(bool termino){
+    termino_nivel = termino;
+}
+
+void Jugador::sumar_puntos_fin_nivel(int puntos_a_sumar){
+    puntos += puntos_a_sumar;
+}
+
 
 void Jugador::animacion_crecimiento(){
     unsigned int tiempo_inicial = SDL_GetTicks();

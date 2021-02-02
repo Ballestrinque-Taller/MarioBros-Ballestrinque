@@ -194,7 +194,18 @@ void LectorXML::generar_bloques_particulares(std::string tipo, int cantidad, int
         for (int i=0; i<cantidad; i++){
             escenarios->push_back(new Sorpresa(x+i*ANCHO_SORPRESA_PANTALLA,y, path));
         }
+    }else if(tipo.compare("Tuberia") == 0){
+        std::string png_str(".png");
+        for (int i = 0; i < png_str.size(); i++)
+            path.erase(path.size() - 1);
+        std::string path_sup = path + "_TAPA.png";
+        std::string path_inf = path + "_CUERPO.png";
+        escenarios->push_back(new Tuberia(x,y - cantidad * ALTO_TUBERIA_PANTALLA, path_sup));
+        for (int i=cantidad-1; i>=0; i--){
+            escenarios->push_back(new Tuberia(x,y-i*ALTO_TUBERIA_PANTALLA, path_inf));
+        }
     }
+
 }
 
 bool LectorXML::generar_monedas(xml_node<>* nivel, std::vector<Moneda*>* monedas){

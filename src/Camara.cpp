@@ -19,6 +19,11 @@ int Camara::check_movimiento(std::vector<Jugador*>jugadores){
             puedo_mover_camara = false;
         }
         if (jugador->get_dest_rect_x() >= MARGEN_CAMARA || jugador->esta_desconectado() || jugador->esta_muerto()){
+            if(!jugador->esta_desconectado() && !jugador->esta_muerto() && fin_nivel){
+                jugador->finalizar_nivel(true);
+            }
+
+
             jugadores_en_fin[i] = true;
         }
         i++;
@@ -38,8 +43,9 @@ int Camara::check_movimiento(std::vector<Jugador*>jugadores){
                 jugador->set_dest_rect_x(MARGEN_CAMARA);
         }else if (jugador->get_dest_rect_x() <= 0){
             jugador->set_dest_rect_x(0);
-        }else if(jugador->get_dest_rect_x() > MARGEN_CAMARA && fin_nivel){
+        }else if(jugador->get_dest_rect_x() >= MARGEN_CAMARA && fin_nivel){
             jugador->set_dest_rect_x(MARGEN_CAMARA);
+
         }
     }
     if (fin_nivel && todos_los_jugadores_en_fin)

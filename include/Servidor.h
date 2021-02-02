@@ -58,6 +58,7 @@ class Servidor{
         std::vector<Enemigo*> enemigos;
         std::vector<Escenario*> escenarios;
         std::vector<Moneda*> monedas;
+        std::vector<Jugador*> jugadores_fin;
         Temporizador* temporizador = nullptr;
         void update();
         void game_loop();
@@ -87,6 +88,7 @@ class Servidor{
         static void intercambiar_mensajes_reconexion(Servidor *servidor);
         int get_pos_de_conexion();
         void enviar_pantalla_entre_nivel();
+        bool contiene_jugador(Jugador* jugador_buscado);
 
 
 public:

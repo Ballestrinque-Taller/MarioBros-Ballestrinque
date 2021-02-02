@@ -31,6 +31,12 @@
             </bloque>
             <bloque x="1400" y="350" cantidad="5" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
+            <bloque x="200" y="495" cantidad="2" tipo="Tuberia" imagen="./res/TUBERIA.png">
+            </bloque>
+            <bloque x="350" y="495" cantidad="3" tipo="Tuberia" imagen="./res/TUBERIA.png">
+            </bloque>
+            <bloque x="500" y="495" cantidad="4" tipo="Tuberia" imagen="./res/TUBERIA.png">
+            </bloque>
         </bloques>
         <enemigos>
             <enemigo tipo="troopa" imagen="./res/TORTUGA.png" cantidad="10">
