@@ -397,3 +397,7 @@ bool LectorXML::posee_credenciales(credenciales_t credenciales){
     }
     return posee;
 }
+
+bool LectorXML::tiene_siguiente_nivel(std::string nivel){
+    return(documento.first_node()->first_node(nivel.c_str()) != nullptr);
+}

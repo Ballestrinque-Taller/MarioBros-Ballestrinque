@@ -177,6 +177,12 @@ void Dibujador::dibujar_cambio_nivel(std::vector<entidad_t> jugadores, std::stri
     SDL_RenderPresent(renderer);
 }
 
+void Dibujador::dibujar_fin_juego(std::vector<entidad_t> jugadores, SDL_Renderer* renderer){
+    sort_jugadores(&jugadores);
+    char felicitaciones[16];
+    strcpy(felicitaciones,"Felicitaciones ");
+    dibujar_cambio_nivel(jugadores, strcat(felicitaciones,jugadores.at(0).usuario) ,renderer);
+}
 
 Dibujador::~Dibujador(){
     for (auto & textura : texturas){

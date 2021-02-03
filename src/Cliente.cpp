@@ -15,6 +15,7 @@
 #define STOP_RECEPTION_AND_TRANSMISSION 2
 #define TIMEOUT 11
 #define CAMBIANDO_NIVEL 255
+#define FIN_JUEGO 254
 
 Cliente::Cliente(std::string ip, int puerto){
     SET_LOGGING_LEVEL(Log::DEBUG);
@@ -381,9 +382,9 @@ void Cliente::render(){
     renderer = SDL_CreateRenderer(ventana, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     dibujador = new Dibujador();
     recibir_renders_del_servidor();
-    while(!quit && !game_over()) {
+    while(!quit && !game_over() && nivel_recibido != FIN_JUEGO) {
         size_t frame_start = SDL_GetTicks();
-        if (nivel_recibido > nivel_actual && (dibujador != nullptr && (CAMBIANDO_NIVEL != nivel_recibido))) {
+        if (nivel_recibido > nivel_actual && (dibujador != nullptr && (CAMBIANDO_NIVEL != nivel_recibido)) && nivel_recibido != FIN_JUEGO) {
             if (!reproductorDeSonido->musica_encendida()) {
                 reproductorDeSonido->toggle_musica();
             }
@@ -425,9 +426,7 @@ void Cliente::render(){
     }
     if(reproductorDeSonido->musica_encendida())
         reproductorDeSonido->toggle_musica();
-    if(game_over()) {
 
-    }
     size_t tiempo_desde_muertes = SDL_GetTicks();
     bool reproduci_sonido_game_over = false;
     while(!quit && game_over()){
@@ -439,6 +438,14 @@ void Cliente::render(){
             reproduci_sonido_game_over = true;
             reproductorDeSonido->reproducir_sonido(SONIDO_GAME_OVER);
         }
+        if (FRAME_DELAY > frame_time)
+            SDL_Delay(FRAME_DELAY - frame_time);
+    }
+    while(!quit && nivel_recibido == FIN_JUEGO){
+        recibir_renders_del_servidor();
+        size_t frame_start = SDL_GetTicks();
+        dibujador->dibujar_fin_juego(entidades, renderer);
+        size_t frame_time = SDL_GetTicks() - frame_start;
         if (FRAME_DELAY > frame_time)
             SDL_Delay(FRAME_DELAY - frame_time);
     }

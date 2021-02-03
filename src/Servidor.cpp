@@ -459,7 +459,6 @@ int Servidor::recibir_mensaje(int num_cliente){
 }
 
 void Servidor::enviar_pantalla_entre_nivel(){
-    pthread_mutex_lock(&mutex_render);
     if(!enemigos.empty()){
         for(auto &enemigo:enemigos){
             delete(enemigo);
@@ -487,7 +486,6 @@ void Servidor::enviar_pantalla_entre_nivel(){
     if(background != nullptr)
         delete(background);
     background = nullptr;
-    pthread_mutex_unlock(&mutex_render);
 }
 
 bool Servidor::contiene_jugador(Jugador* jugador_buscado){
@@ -703,47 +701,63 @@ void Servidor::game_loop() {
             aux = 0;
         else
             aux = nivel_actual;
-        nivel_actual = CAMBIANDO_NIVEL;
+        if(aux != FIN_JUEGO)
+            nivel_actual = CAMBIANDO_NIVEL;
         pthread_mutex_unlock(&mutex_render);
+        pthread_mutex_lock(&mutex_render);
         enviar_pantalla_entre_nivel();
+        pthread_mutex_unlock(&mutex_render);
         while(time(nullptr) - tiempo <= TIEMPO_ENTRE_NIVEL){
         }
-        if(!quit) {
-            nivel_actual = aux+1;
+        int estado_xml;
+        if(!quit && !fin_juego) {
             pthread_mutex_lock(&mutex_render);
+            nivel_actual = aux+1;
 
             std::string nivel_str = (std::string("nivel")+std::to_string(nivel_actual));
-            int estado_xml = lectorXml->generar_nivel(&enemigos, &monedas, &escenarios, &background, &temporizador, nivel_str);
-            if ( estado_xml == QUIT)
-                quit = true;
+            estado_xml = lectorXml->generar_nivel(&enemigos, &monedas, &escenarios, &background, &temporizador, nivel_str);
+            if ( estado_xml == QUIT) {
+                fin_juego = true;
+                nivel_actual = FIN_JUEGO;
+            }
             if(estado_xml == ERROR_XML) {
                 lectorXml->set_default();
-                if(lectorXml->generar_nivel(&enemigos, &monedas, &escenarios, &background, &temporizador, nivel_str) == QUIT)
+                if(lectorXml->generar_nivel(&enemigos, &monedas, &escenarios, &background, &temporizador, nivel_str) == QUIT){
                     fin_juego = true;
+                    nivel_actual = FIN_JUEGO;
+                }
             }
             pthread_mutex_unlock(&mutex_render);
         }
-        camara->set_fin_nivel(background->es_fin_nivel());
-        while (camara->check_movimiento(jugadores) != FIN_NIVEL && !quit && !game_over()) {
-            //LOS THREADS YA ESTAN RECIBIENDO Y ENVIANDO POR CADA CLIENTE
-            update();
-            if(cant_clientes_exit == jugadores.size())
-                quit = true;
+        if(!fin_juego){
             camara->set_fin_nivel(background->es_fin_nivel());
+            while (camara->check_movimiento(jugadores) != FIN_NIVEL && !quit && !game_over() && !fin_juego) {
+                //LOS THREADS YA ESTAN RECIBIENDO Y ENVIANDO POR CADA CLIENTE
+                update();
+                if(cant_clientes_exit == jugadores.size())
+                    quit = true;
+                camara->set_fin_nivel(background->es_fin_nivel());
+            }
+            if(!lectorXml->tiene_siguiente_nivel("nivel"+std::to_string(nivel_actual+1))){
+                fin_juego = true;
+                nivel_actual = FIN_JUEGO;
+            }
+            for(auto & jugador: jugadores){
+                if(jugador->finalizo_nivel() && !contiene_jugador(jugador))
+                    jugadores_fin.push_back(jugador);
+            }
+            for(int i = 0 ; i< jugadores_fin.size(); i ++){
+                jugadores_fin.at(i)->sumar_puntos_fin_nivel(2000 - 500 *i);
+                jugadores_fin.at(i)->finalizar_nivel(false);
+            }
+            jugadores_fin.clear();
         }
-        for(auto & jugador: jugadores){
-            if(jugador->finalizo_nivel() && !contiene_jugador(jugador))
-                jugadores_fin.push_back(jugador);
-        }
-        for(int i = 0 ; i< jugadores_fin.size(); i ++){
-            std::cout<<i<<std::endl;
-            jugadores_fin.at(i)->sumar_puntos_fin_nivel(2000 - 500 *i);
-            jugadores_fin.at(i)->finalizar_nivel(false);
-        }
-        jugadores_fin.clear();
-
     }
+    pthread_mutex_lock(&mutex_render);
     enviar_pantalla_entre_nivel();
+    if (fin_juego)
+        nivel_actual = FIN_JUEGO;
+    pthread_mutex_unlock(&mutex_render);
     while(!quit){
         if(cant_clientes_exit == jugadores.size())
             quit = true;

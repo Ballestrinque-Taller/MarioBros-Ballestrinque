@@ -34,6 +34,7 @@ class LectorXML{
         int get_cantidad_jugadores();
         void set_default();
         bool posee_credenciales(credenciales_t credenciales);
+        bool tiene_siguiente_nivel(std::string nivel);
 
    private:
         int cant_jugadores = 0;
