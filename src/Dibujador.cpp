@@ -301,6 +301,15 @@ Dibujador::~Dibujador(){
     for (auto & text_puntaje: text_puntos){
         delete(text_puntaje);
     }
+    for (auto & nombre: nombres_jugadores){
+        delete(nombre);
+    }
+    nombres_jugadores.clear();
+    for (auto & puntaje: puntajes_jugadores){
+        delete(puntaje);
+    }
+    puntajes_jugadores.clear();
+    puntajes_tabla.clear();
     text_writers.clear();
     text_puntos.clear();
 }
