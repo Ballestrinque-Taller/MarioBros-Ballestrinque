@@ -28,7 +28,6 @@ Cliente::Cliente(std::string ip, int puerto){
     inicializar_ventana();
     reproductorDeSonido = new ReproductorDeSonido();
     mostrar_login(ip, puerto);
-    //login(ip, puerto);
     struct timeval timeout;
     timeout.tv_sec = 1;
     timeout.tv_usec = 0;
@@ -169,7 +168,6 @@ void Cliente::mostrar_login(std::string ip, int puerto) {
     delete(campo_password);
     delete(password);
     if (estado_conexion == CONECTADO){
-        //reproductorDeSonido->reproducir_efecto_especial("EFECTO_MONEDA");
         bucle_juego();
     }
     else{
@@ -290,8 +288,12 @@ void Cliente::bucle_juego(){
     mensaje_cliente_a_servidor_t mensaje;
     pthread_create(&thread_render, nullptr, reinterpret_cast<void *(*)(void *)>(Cliente::render_thread), this);
     LOG(Log::INFO)<<"Iniciando Bucle de Juego."<<std::endl;
-    reproductorDeSonido->reproducir_musica();
+    bool musica_iniciada = false;
     while (!quit){
+        if(nivel_recibido == 1 && !musica_iniciada){
+            musica_iniciada = true;
+            reproductorDeSonido->reproducir_musica();
+        }
         render_iniciado = true;
         //CORRE EN UN THREAD INDEPENDIENTE AL RENDER QUE SE RALENTIZA A LOS FPS
         while (SDL_PollEvent(&evento) != 0) {
@@ -373,19 +375,24 @@ bool Cliente::game_over(){
             break;
         }
     }
+    if(tiempo_restante_timer<= 0 && !gameOver){
+        gameOver = true;
+    }
     return gameOver;
 }
 
 void Cliente::render(){
-    //inicializar_ventana();
     SDL_DestroyRenderer(renderer);
     renderer = SDL_CreateRenderer(ventana, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     dibujador = new Dibujador();
     recibir_renders_del_servidor();
+    bool musica_estaba_encendida = true;
+    bool sonido_fin_nivel_reproducido = false;
     while(!quit && !game_over() && nivel_recibido != FIN_JUEGO) {
         size_t frame_start = SDL_GetTicks();
         if (nivel_recibido > nivel_actual && (dibujador != nullptr && (CAMBIANDO_NIVEL != nivel_recibido)) && nivel_recibido != FIN_JUEGO) {
-            if (!reproductorDeSonido->musica_encendida()) {
+            sonido_fin_nivel_reproducido = false;
+            if (!reproductorDeSonido->musica_encendida() && musica_estaba_encendida) {
                 reproductorDeSonido->toggle_musica();
             }
             if (nivel_label != nullptr)
@@ -405,15 +412,21 @@ void Cliente::render(){
                 SDL_Delay(FRAME_DELAY - frame_time);
         }
         else if(nivel_recibido == CAMBIANDO_NIVEL && nivel_actual >=1){
-            if(reproductorDeSonido->musica_encendida()) {
+            musica_estaba_encendida = reproductorDeSonido->musica_encendida();
+            if(musica_estaba_encendida) {
                 reproductorDeSonido->toggle_musica();
+            }
+            if(!sonido_fin_nivel_reproducido) {
                 reproductorDeSonido->reproducir_sonido(SONIDO_FIN_DE_NIVEL);
+                sonido_fin_nivel_reproducido = true;
             }
             dibujador->dibujar_cambio_nivel(entidades, "Nivel: "+std::to_string(nivel_actual + 1), renderer);
+            dibujador->set_ronda_cambiada(false);
             size_t frame_time = SDL_GetTicks() - frame_start;
             if (FRAME_DELAY > frame_time)
                 SDL_Delay(FRAME_DELAY - frame_time);
         }else{
+            dibujador->set_ronda_cambiada(true);
             pthread_mutex_lock(&mutex_render);
             dibujador->crear_texturas(entidades, renderer);
             dibujador->dibujar(entidades, nivel_label, nivel_actual, temporizador_label, tiempo_restante_timer, renderer);
@@ -433,6 +446,7 @@ void Cliente::render(){
         recibir_renders_del_servidor();
         size_t frame_start = SDL_GetTicks();
         dibujador->dibujar_cambio_nivel(entidades, "Game Over", renderer);
+        dibujador->set_ronda_cambiada(false);
         size_t frame_time = SDL_GetTicks() - frame_start;
         if(SDL_GetTicks()-tiempo_desde_muertes > 3000 && !reproduci_sonido_game_over){
             reproduci_sonido_game_over = true;
@@ -445,6 +459,7 @@ void Cliente::render(){
         recibir_renders_del_servidor();
         size_t frame_start = SDL_GetTicks();
         dibujador->dibujar_fin_juego(entidades, renderer);
+        dibujador->set_ronda_cambiada(false);
         size_t frame_time = SDL_GetTicks() - frame_start;
         if (FRAME_DELAY > frame_time)
             SDL_Delay(FRAME_DELAY - frame_time);

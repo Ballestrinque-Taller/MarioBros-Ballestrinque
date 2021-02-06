@@ -683,6 +683,11 @@ bool Servidor::game_over(){
             break;
         }
     }
+    if(temporizador != nullptr) {
+        if (!game_over && temporizador->get_tiempo_restante() <= 0) {
+            game_over = true;
+        }
+    }
     return game_over;
 }
 

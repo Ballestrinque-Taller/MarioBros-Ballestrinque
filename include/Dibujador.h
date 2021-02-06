@@ -8,6 +8,11 @@
 #include <vector>
 #include "Mensajes.h"
 
+typedef struct puntajes_tabla{
+    std::string usuario;
+    std::vector<int> puntajes_rondas;
+}puntajes_tabla_t;
+
 class Dibujador{
     public:
         Dibujador();
@@ -16,15 +21,25 @@ class Dibujador{
         ~Dibujador();
         void dibujar_cambio_nivel(std::vector<entidad_t> jugadores, std::string texto_arriba, SDL_Renderer* renderer);
         void dibujar_fin_juego(std::vector<entidad_t> jugadores, SDL_Renderer* renderer);
+        void set_ronda_cambiada(bool ronda_cambiada);
     private:
-        int cantidad_de_jugadores;
+        bool es_ronda_cambiada = false;
+        bool usuarios_registrados = false;
+        void registrar_usuarios(std::vector<entidad_t> jugadores);
+        int cantidad_de_jugadores=0;
         bool genere_identificadores=false;
         std::vector<TextWriter*> text_writers;
         std::vector<TextWriter*> text_puntos;
         std::vector<TextWriter*> nombres_jugadores;
         std::vector<TextWriter*> puntajes_jugadores;
+        std::vector<puntajes_tabla_t> puntajes_tabla;
         TextWriter* texto_nivel;
         void generar_identificador_jugador();
+        void dibujar_tabla_puntajes(std::vector<entidad_t>* jugadores, SDL_Renderer* renderer);
+        void agregar_puntajes_restantes(std::vector<entidad_t> jugadores);
+        void establecer_dimensiones_jugadores(std::vector<entidad_t>* jugadores);
+        void escribir_puntajes_y_usuarios(std::vector<entidad_t> jugadores, SDL_Renderer* renderer);
+        void dibujar_lineas_tabla(SDL_Renderer* renderer);
         std::vector<SDL_Texture*> texturas;
         SDL_Texture* crear_textura(entidad_t entidad, SDL_Renderer* renderer);
 };
