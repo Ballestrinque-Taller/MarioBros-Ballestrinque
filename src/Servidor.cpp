@@ -546,6 +546,11 @@ void Servidor::update() {
             colisionador->jugador_colisionar(jugador);
             if(jugador->finalizo_nivel() && !contiene_jugador(jugador))
                 jugadores_fin.push_back(jugador);
+        }else{
+            pthread_mutex_lock(&mutex_desplazamiento);
+            jugador->cambiar_frame(camara);
+            jugador->desplazar();
+            pthread_mutex_unlock(&mutex_desplazamiento);
         }
 
     }

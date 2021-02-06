@@ -17,7 +17,7 @@
 
 #define MAX_VIDAS 3
 
-#define MAX_SEGS_INMUNE 3
+#define MAX_SEGS_INMUNE 1
 
 
 class Jugador: public Renderer{

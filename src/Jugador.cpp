@@ -28,6 +28,7 @@
 #define FRAME_SALTO 5
 #define FRAME_MOV_FINAL 3
 #define FRAME_AGACHADO 6
+#define FRAME_MUERTO 6
 
 #define ESTA_CRECIENDO 2
 #define CRECIDO 1
@@ -53,34 +54,37 @@ Jugador::Jugador(std::string path){
 
 void Jugador::cambiar_frame(Camara* camara){
     tick_actual++;
-    if (tick_actual >= TIEMPO_FRAME && velocidad_x!= 0 && !en_aire){
-        tick_actual = 0;
-        frame_actual++;
-            if(frame_actual > FRAME_MOV_FINAL)
+    if(!muerto) {
+        if (tick_actual >= TIEMPO_FRAME && velocidad_x != 0 && !en_aire) {
+            tick_actual = 0;
+            frame_actual++;
+            if (frame_actual > FRAME_MOV_FINAL)
                 frame_actual = 0;
+        } else if (agachado) {
+            tick_actual = 0;
+            frame_actual = FRAME_AGACHADO;
+        } else if (en_aire) {
+            tick_actual = 0;
+            frame_actual = FRAME_SALTO;
+        } else if (velocidad_x == 0 && !en_aire) {
+            tick_actual = 0;
+            frame_actual = 0;
+        }
+        if (estado_crecimiento == CRECIDO) {
+            set_src_rect(frame_actual * ANCHO_FRAME, 1, ALTO_FRAME, ANCHO_FRAME);
+            set_dest_rect(get_dest_rect().x, get_dest_rect().y, ALTO_PANTALLA, ANCHO_PANTALLA);
+        } else if (estado_crecimiento == NO_CRECIDO) {
+            set_src_rect(frame_actual * ANCHO_FRAME, ALTO_FRAME + 1, ALTO_FRAME / 2, ANCHO_FRAME);
+            set_dest_rect(get_dest_rect().x, get_dest_rect().y, ALTO_PANTALLA / 2, ANCHO_PANTALLA);
+        } else if (estado_crecimiento == ESTA_CRECIENDO)
+            animacion_crecimiento();
+        camara->acomodar_a_imagen(this);
+    }else{
+        frame_actual = FRAME_MUERTO;
+        set_src_rect(frame_actual * ANCHO_FRAME, ALTO_FRAME + 1, ALTO_FRAME / 2, ANCHO_FRAME);
+        en_aire = true;
+        velocidad_y = 2;
     }
-    else if(agachado){
-        tick_actual = 0;
-        frame_actual = FRAME_AGACHADO;
-    }
-    else if(en_aire){
-        tick_actual = 0;
-        frame_actual = FRAME_SALTO;
-    }
-    else if (velocidad_x == 0 && !en_aire){
-        tick_actual = 0;
-        frame_actual = 0;
-    }
-    if (estado_crecimiento == CRECIDO) {
-        set_src_rect(frame_actual * ANCHO_FRAME, 1, ALTO_FRAME, ANCHO_FRAME);
-        set_dest_rect(get_dest_rect().x, get_dest_rect().y, ALTO_PANTALLA, ANCHO_PANTALLA);
-    }else if (estado_crecimiento == NO_CRECIDO){
-        set_src_rect(frame_actual * ANCHO_FRAME, ALTO_FRAME+1, ALTO_FRAME/2, ANCHO_FRAME);
-        set_dest_rect(get_dest_rect().x,get_dest_rect().y, ALTO_PANTALLA/2, ANCHO_PANTALLA);
-    }
-    else if (estado_crecimiento == ESTA_CRECIENDO)
-        animacion_crecimiento();
-    camara->acomodar_a_imagen(this);
 }
 
 int Jugador::get_velocidad_x(){
@@ -115,18 +119,16 @@ void Jugador::desplazar(){
     frames_render.dest_rect.x += velocidad_x;
     aceleracion_gravitatoria();
     frames_render.dest_rect.y += velocidad_y;
-    //rozamiento();
     if(frames_render.dest_rect.y > 600){
-        reset_posicion();
+        if(!muerto)
+            reset_posicion();
         if(!modo_test && vidas > 0)
             vidas--;
-        if(vidas<=0) {
+        if(vidas<=0 && !muerto) {
             muerto = true;
             sonido_a_reproducir = SONIDO_MUERTE;
         }
     }
-
-
     acelerando = false;
 }
 
@@ -145,12 +147,16 @@ void Jugador::recibir_evento(SDL_Event evento) {
     if (evento.type == SDL_KEYDOWN){
         switch (evento.key.keysym.sym) {
                 case (SDLK_LEFT):
-                    texturas.flip = SDL_FLIP_HORIZONTAL;
-                    acelerar_x(IZQUIERDA);
+                    if(!muerto) {
+                        texturas.flip = SDL_FLIP_HORIZONTAL;
+                        acelerar_x(IZQUIERDA);
+                    }
                     break;
                 case (SDLK_RIGHT):
-                    texturas.flip = SDL_FLIP_NONE;
-                    acelerar_x(DERECHA);
+                    if(!muerto) {
+                        texturas.flip = SDL_FLIP_NONE;
+                        acelerar_x(DERECHA);
+                    }
                     break;
                 case (SDLK_DOWN):
                     agacharse();
@@ -204,8 +210,10 @@ void Jugador::grisar(){
 void Jugador::colisionar_con_bloque(int direccion_colision) {
     switch(direccion_colision){
         case COLISION_SUPERIOR:
-            velocidad_y= 0;
-            en_aire = false;
+            if(!muerto) {
+                velocidad_y = 0;
+                en_aire = false;
+            }
             break;
         case COLISION_IZQUIERDA:
             velocidad_x = 0;

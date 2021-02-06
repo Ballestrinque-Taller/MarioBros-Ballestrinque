@@ -53,8 +53,8 @@ void Dibujador::dibujar(std::vector<entidad_t> entidades_a_dibujar, TextWriter* 
             }
             cantidad_de_jugadores++;
         }
-        if((entidades_a_dibujar.at(i).es_jugador && !entidades_a_dibujar.at(i).muerto) || !entidades_a_dibujar.at(i).es_jugador)
-            SDL_RenderCopyEx(renderer, texturas.at(i), &(entidades_a_dibujar.at(i).src_rect), &(entidades_a_dibujar.at(i).dest_rect), 0, nullptr, entidades_a_dibujar.at(i).flip);
+        //if((entidades_a_dibujar.at(i).es_jugador && !entidades_a_dibujar.at(i).muerto) || !entidades_a_dibujar.at(i).es_jugador)
+        SDL_RenderCopyEx(renderer, texturas.at(i), &(entidades_a_dibujar.at(i).src_rect), &(entidades_a_dibujar.at(i).dest_rect), 0, nullptr, entidades_a_dibujar.at(i).flip);
     }
     for (auto& puntaje : puntajes_jugadores){
         delete(puntaje);
