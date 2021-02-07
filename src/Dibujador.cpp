@@ -251,6 +251,8 @@ void Dibujador::dibujar_tabla_puntajes(std::vector<entidad_t>* jugadores, SDL_Re
 }
 
 void Dibujador::dibujar_lineas_tabla(SDL_Renderer *renderer) {
+    SDL_RenderDrawLine(renderer, 650, 235, 650, 235+90*puntajes_tabla.size());
+    SDL_RenderDrawLine(renderer, 150, 235, 150, 235+90*puntajes_tabla.size());
     for(int x=0; x<4; x++) {
 
         SDL_RenderDrawLine(renderer, 405+x*60, 235, 405+x*60, 235+90*puntajes_tabla.size());
