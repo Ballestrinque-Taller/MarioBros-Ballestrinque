@@ -20,7 +20,7 @@
 #define DERECHA 1
 #define IZQUIERDA -1
 
-#define FPS 60
+#define FPS 30
 #define FRAME_DELAY 1000/FPS
 
 #define POS_X_TEXTO 800
@@ -51,13 +51,13 @@ class Cliente{
         SDL_Window * ventana = nullptr;
         SDL_Renderer * renderer = nullptr;
         int inicializar_ventana();
-        Dibujador* dibujador;
+        Dibujador* dibujador = nullptr;
         void enviar_evento_a_servidor(mensaje_cliente_a_servidor_t* mensaje_ptr);
         pthread_t thread_render;
         int login(std::string ip, int puerto);
         bool render_iniciado = false;
         pthread_mutex_t mutex_render;
-        ReproductorDeSonido* reproductorDeSonido;
+        ReproductorDeSonido* reproductorDeSonido = nullptr;
 
     public:
         Cliente(std::string, int puerto);

@@ -311,7 +311,6 @@ void Cliente::bucle_juego(){
     if (error_svr){
         LOG(Log::ERROR)<<"El servidor se cerro. El cliente se cerrará"<<std::endl;
         SDL_ShowSimpleMessageBox(0,"Error: Server Shutdown", "El servidor ha sido cerrado y se procede con el cierre del cliente.", ventana);
-        //sleep(5);
     }
 }
 
@@ -343,7 +342,6 @@ void Cliente::recibir_renders_del_servidor(){
 
         //PROCESAMIENTO DEL MENSAJE
         if (total_bytes_recibidos == bytes_struct) {
-            //LOG(Log::DEBUG) << "Mensaje recibido. Bytes: " << total_bytes_recibidos << std::endl;
             cantidad_entidades_recibidas++;
             entidad_t entidad = ((mensaje_servidor_a_cliente_t*)buffer)->entidad;
             if(entidad.es_jugador) {
@@ -437,8 +435,10 @@ void Cliente::render(){
         }
         recibir_renders_del_servidor();
     }
-    if(reproductorDeSonido->musica_encendida())
-        reproductorDeSonido->toggle_musica();
+    if(reproductorDeSonido != nullptr) {
+        if (reproductorDeSonido->musica_encendida())
+            reproductorDeSonido->toggle_musica();
+    }
 
     size_t tiempo_desde_muertes = SDL_GetTicks();
     bool reproduci_sonido_game_over = false;
@@ -448,17 +448,23 @@ void Cliente::render(){
         dibujador->dibujar_cambio_nivel(entidades, "Game Over", renderer);
         dibujador->set_ronda_cambiada(false);
         size_t frame_time = SDL_GetTicks() - frame_start;
-        if(SDL_GetTicks()-tiempo_desde_muertes > 3000 && !reproduci_sonido_game_over){
+        if((SDL_GetTicks()-tiempo_desde_muertes > 3000 || tiempo_restante_timer <= 0) && !reproduci_sonido_game_over){
             reproduci_sonido_game_over = true;
             reproductorDeSonido->reproducir_sonido(SONIDO_GAME_OVER);
         }
         if (FRAME_DELAY > frame_time)
             SDL_Delay(FRAME_DELAY - frame_time);
     }
+    if(nivel_recibido == FIN_JUEGO && reproductorDeSonido != nullptr){
+        reproductorDeSonido->reproducir_musica(MUSICA_VICTORIA);
+    }
     while(!quit && nivel_recibido == FIN_JUEGO){
+        LOG(Log::DEBUG)<<"Entre en recibir renders"<<std::endl;
         recibir_renders_del_servidor();
         size_t frame_start = SDL_GetTicks();
+        LOG(Log::DEBUG)<<"Entre en dibujador fin ronda"<<std::endl;
         dibujador->dibujar_fin_juego(entidades, renderer);
+        LOG(Log::DEBUG)<<"Entre en dibujador set ronda cambiada"<<std::endl;
         dibujador->set_ronda_cambiada(false);
         size_t frame_time = SDL_GetTicks() - frame_start;
         if (FRAME_DELAY > frame_time)
@@ -477,7 +483,8 @@ Cliente::~Cliente(){
     }
     close(socket_cliente);
     shutdown(socket_cliente, STOP_RECEPTION_AND_TRANSMISSION);
-    delete(reproductorDeSonido);
+    if(reproductorDeSonido != nullptr)
+        delete(reproductorDeSonido);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(ventana);
     SDL_Quit();

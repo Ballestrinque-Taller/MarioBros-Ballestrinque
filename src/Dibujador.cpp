@@ -1,4 +1,4 @@
-#include <Log.h>
+#include "Log.h"
 #include "Dibujador.h"
 #include <bits/stdc++.h>
 
@@ -14,7 +14,6 @@
 Dibujador::Dibujador(){
     texto_nivel = new TextWriter();
     texto_nivel->set_msg_rect(200,50,100,400);
-
 }
 
 void Dibujador::dibujar(std::vector<entidad_t> entidades_a_dibujar, TextWriter* nivel_label, int nivel_actual, TextWriter* temporizador_label, int tiempo_restante, SDL_Renderer* renderer){
@@ -108,7 +107,6 @@ void Dibujador::generar_identificador_jugador(){
     TextWriter* text_writer_pj = new TextWriter();
     TextWriter* text_writer_puntos = new TextWriter();
     text_writer_pj->set_msg_rect((cantidad_de_jugadores)*(ANCHO_ID+2*ANCHO_PJ),ALTO_BARRA_NIVEL,ALTO_ID, ANCHO_ID);
-    //ACOMODAR LOS MARGENES BIEN DE ESTO
     text_writers.push_back(text_writer_pj);
     text_puntos.push_back(text_writer_puntos);
 }
@@ -214,6 +212,7 @@ void Dibujador::escribir_puntajes_y_usuarios(std::vector<entidad_t> jugadores, S
     puntajes_jugadores.clear();
     sort_puntajes_tabla(&puntajes_tabla);
     int cant_jugadores = puntajes_tabla.size();
+    LOG(Log::DEBUG)<<"Escribiendo los puntajes."<<std::endl;
     for(int i=0; i<cant_jugadores; i++){
         for(int j=0; j<puntajes_tabla.at(i).puntajes_rondas.size(); j++){
             TextWriter* text_writer = new TextWriter();
@@ -222,10 +221,15 @@ void Dibujador::escribir_puntajes_y_usuarios(std::vector<entidad_t> jugadores, S
             text_writer->write_text(std::to_string(puntajes_tabla.at(i).puntajes_rondas.at(j)).c_str(), renderer);
         }
     }
+    LOG(Log::DEBUG)<<"Escribiendo los nombres y puntajes finales."<<std::endl;
     for(int i=0; i<jugadores.size(); i++){
+        LOG(Log::DEBUG)<<"Escribiendo nombre: "<<jugadores.at(i).usuario<<std::endl;
         nombres_jugadores.at(i)->write_text(jugadores.at(i).usuario, renderer);
         TextWriter* text_writer = new TextWriter();
-        text_writer->set_msg_rect(590,170+90*(i+1),30,10*strlen(std::to_string(jugadores.at(i).puntaje).c_str()));
+        LOG(Log::DEBUG)<<"Escribiendo puntaje: "<<jugadores.at(i).puntaje<<std::endl;
+        int long_puntaje = std::to_string(jugadores.at(i).puntaje).size();
+        LOG(Log::DEBUG)<<"Longitud puntaje: "<<long_puntaje<<std::endl;
+        text_writer->set_msg_rect(590,170+90*(i+1),30,10*long_puntaje);
         text_writer->write_text(std::to_string(jugadores.at(i).puntaje).c_str(), renderer);
         puntajes_jugadores.push_back(text_writer);
     }
@@ -267,7 +271,9 @@ void Dibujador::dibujar_cambio_nivel(std::vector<entidad_t> jugadores, std::stri
     background.dest_rect.x = 0, background.dest_rect.y = 0, background.dest_rect.h = 600, background.dest_rect.w = 800;
     background.src_rect.x = 0, background.src_rect.y = 0, background.src_rect.h = 600, background.src_rect.w = 800;
     strcpy(background.path_textura, "./res/FONDO_TRANSICION_redimensionado.png");
+    LOG(Log::DEBUG)<<"Dibujando Tabla"<<std::endl;
     dibujar_tabla_puntajes(&jugadores, renderer);
+    LOG(Log::DEBUG)<<"Insert de Background al inicio"<<std::endl;
     texturas.insert(texturas.begin(),crear_textura(background, renderer));
     for(int i = 0 ; i < texturas.size(); i++){
         if(i==0){
@@ -277,39 +283,56 @@ void Dibujador::dibujar_cambio_nivel(std::vector<entidad_t> jugadores, std::stri
                              nullptr, jugadores.at(i-1).flip);
         }
     }
+    LOG(Log::DEBUG)<<"Escribiendo puntajes y usuarios."<<std::endl;
     escribir_puntajes_y_usuarios(jugadores, renderer);
+    LOG(Log::DEBUG)<<"Escribiendo titulo"<<std::endl;
     texto_nivel->write_text(texto_arriba.c_str(), renderer);
+    LOG(Log::DEBUG)<<"Haciendo lineas"<<std::endl;
     dibujar_lineas_tabla(renderer);
     SDL_RenderPresent(renderer);
 }
 
 void Dibujador::dibujar_fin_juego(std::vector<entidad_t> jugadores, SDL_Renderer* renderer){
     sort_jugadores(&jugadores);
-    char felicitaciones[16];
+    char felicitaciones[100];
     strcpy(felicitaciones,"Felicitaciones ");
     dibujar_cambio_nivel(jugadores, strcat(felicitaciones,jugadores.at(0).usuario) ,renderer);
 }
 
 Dibujador::~Dibujador(){
-    for (auto & textura : texturas){
-        SDL_DestroyTexture(textura);
+    if(!texturas.empty()) {
+        for (auto &textura : texturas) {
+            SDL_DestroyTexture(textura);
+        }
     }
     texturas.clear();
-    for (auto & text_writer: text_writers){
-        delete(text_writer);
+    if (!text_writers.empty()) {
+        for (auto& text_writer: text_writers) {
+            delete (text_writer);
+        }
+        text_writers.clear();
     }
-    for (auto & text_puntaje: text_puntos){
-        delete(text_puntaje);
+    if (!text_puntos.empty()) {
+        for (auto &text_puntaje: text_puntos) {
+            delete (text_puntaje);
+        }
+        text_puntos.clear();
     }
-    for (auto & nombre: nombres_jugadores){
-        delete(nombre);
+    if(!nombres_jugadores.empty()) {
+        for (auto &nombre: nombres_jugadores) {
+            delete (nombre);
+        }
+        nombres_jugadores.clear();
     }
-    nombres_jugadores.clear();
-    for (auto & puntaje: puntajes_jugadores){
-        delete(puntaje);
+    if(!puntajes_jugadores.empty()) {
+        for (auto &puntaje: puntajes_jugadores) {
+            delete (puntaje);
+        }
+        puntajes_jugadores.clear();
     }
-    puntajes_jugadores.clear();
+    for(auto& punt_tabla: puntajes_tabla){
+        punt_tabla.puntajes_rondas.clear();
+    }
     puntajes_tabla.clear();
-    text_writers.clear();
-    text_puntos.clear();
+
 }

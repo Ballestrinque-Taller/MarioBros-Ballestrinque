@@ -122,8 +122,10 @@ void Jugador::desplazar(){
     if(frames_render.dest_rect.y > 600){
         if(!muerto)
             reset_posicion();
-        if(!modo_test && vidas > 0)
+        if(!modo_test && vidas > 0) {
             vidas--;
+            sonido_a_reproducir = SONIDO_PERDER_VIDA;
+        }
         if(vidas<=0 && !muerto) {
             muerto = true;
             sonido_a_reproducir = SONIDO_MUERTE;
@@ -192,7 +194,8 @@ void Jugador::agacharse(){
 }
 
 void Jugador::reset_posicion(){
-    set_dest_rect(0,0,ALTO_PANTALLA,ANCHO_PANTALLA);
+    if(!muerto)
+        set_dest_rect(0,0,ALTO_PANTALLA,ANCHO_PANTALLA);
     velocidad_x = 0;
 }
 
@@ -244,8 +247,9 @@ void Jugador::colisionar_con_enemigo(int direccion_colision) {
             inmune = true;
             if(!modo_test) {
                 if (estado_crecimiento == NO_CRECIDO) {
-                    if (vidas > 0)
+                    if (vidas > 0) {
                         vidas--;
+                    }
                     if (vidas <= 0){
                         muerto = true;
                         sonido_a_reproducir = SONIDO_MUERTE;
@@ -254,6 +258,8 @@ void Jugador::colisionar_con_enemigo(int direccion_colision) {
                 else {
                     set_dest_rect_y(get_dest_rect().y + get_dest_rect().h / 2);
                 }
+                if(!muerto)
+                    sonido_a_reproducir = SONIDO_PERDER_VIDA;
                 estado_crecimiento = NO_CRECIDO;
                 TickDanio = SDL_GetTicks();
             }

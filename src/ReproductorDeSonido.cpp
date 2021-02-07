@@ -46,17 +46,25 @@ void ReproductorDeSonido::toggle_musica() {
 }
 
 void ReproductorDeSonido::inicializar_diccionario_de_musica() {
-    Mix_Music* musica_original;
+    Mix_Music *musica_original, *musica_victoria;
+    Mix_VolumeMusic(MIX_MAX_VOLUME/4);
+
     musica_original = Mix_LoadMUS( "./res/sonidos/musica_original.wav" );
     if( musica_original == nullptr ){
         LOG(Log::ERROR)<<"No se puedo inicializar la musica del path: ./res/sonidos/musica_original.wav"<<std::endl;
     }
     diccionario_musica.insert(std::pair<int,Mix_Music*>(MUSICA_ORIGINAL,musica_original));
+
+    musica_victoria = Mix_LoadMUS( "./res/sonidos/musica_victoria.wav" );
+    if( musica_victoria == nullptr ){
+        LOG(Log::ERROR)<<"No se puedo inicializar la musica del path: ./res/sonidos/musica_victoria.wav"<<std::endl;
+    }
+    diccionario_musica.insert(std::pair<int,Mix_Music*>(MUSICA_VICTORIA,musica_victoria));
 }
 
 void ReproductorDeSonido::inicializar_diccionario_sonidos_especiales(){
     Mix_Chunk *sonido_moneda, *sonido_salto, *sonido_pisar_enemigo, *sonido_crecimiento, *sonido_cambio_nivel,
-              *sonido_game_over, *sonido_muerte, *sonido_hongo;
+              *sonido_game_over, *sonido_muerte, *sonido_hongo, *sonido_perder_vida;
 
     sonido_moneda = Mix_LoadWAV( "./res/sonidos/sonido_moneda.wav" );
     Mix_VolumeChunk(sonido_moneda,20);
@@ -102,16 +110,23 @@ void ReproductorDeSonido::inicializar_diccionario_sonidos_especiales(){
 
     sonido_pisar_enemigo = Mix_LoadWAV( "./res/sonidos/sonido_pisar_enemigos.wav" );
     Mix_VolumeChunk(sonido_pisar_enemigo,64);
-    if( sonido_moneda == nullptr )
+    if( sonido_pisar_enemigo == nullptr )
     {
         LOG(Log::ERROR)<<"No se puedo inicializar el sonido del path: ./res/sonidos/sonido_pisar_enemigos.wav"<<std::endl;
     }
 
     sonido_salto = Mix_LoadWAV( "./res/sonidos/sonido_salto.wav" );
     Mix_VolumeChunk(sonido_salto,20);
-    if( sonido_moneda == nullptr )
+    if( sonido_salto == nullptr )
     {
         LOG(Log::ERROR)<<"No se puedo inicializar el sonido del path: ./res/sonidos/sonido_salto.wav"<<std::endl;
+    }
+
+    sonido_perder_vida = Mix_LoadWAV( "./res/sonidos/sonido_perder_vida.wav" );
+    Mix_VolumeChunk(sonido_perder_vida,60);
+    if( sonido_perder_vida == nullptr )
+    {
+        LOG(Log::ERROR)<<"No se puedo inicializar el sonido del path: ./res/sonidos/sonido_perder_vida.wav"<<std::endl;
     }
 
     diccionario_sonido_especiales.insert(std::pair<int,Mix_Chunk*>(SONIDO_CRECIMIENTO,sonido_crecimiento));
@@ -122,6 +137,7 @@ void ReproductorDeSonido::inicializar_diccionario_sonidos_especiales(){
     diccionario_sonido_especiales.insert(std::pair<int,Mix_Chunk*>(SONIDO_MUERTE,sonido_muerte));
     diccionario_sonido_especiales.insert(std::pair<int,Mix_Chunk*>(SONIDO_PISAR_ENEMIGOS,sonido_pisar_enemigo));
     diccionario_sonido_especiales.insert(std::pair<int,Mix_Chunk*>(SONIDO_SALTO,sonido_salto));
+    diccionario_sonido_especiales.insert(std::pair<int,Mix_Chunk*>(SONIDO_PERDER_VIDA,sonido_perder_vida));
 }
 
 ReproductorDeSonido::~ReproductorDeSonido() {

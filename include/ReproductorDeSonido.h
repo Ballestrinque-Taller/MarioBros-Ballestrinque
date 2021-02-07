@@ -5,6 +5,7 @@
 #include <map>
 
 #define MUSICA_ORIGINAL 0
+#define MUSICA_VICTORIA 1
 #define NO_HAY_SONIDO 0
 #define SONIDO_CRECIMIENTO 1
 #define SONIDO_FIN_DE_NIVEL 2
@@ -14,6 +15,7 @@
 #define SONIDO_MUERTE 6
 #define SONIDO_PISAR_ENEMIGOS 7
 #define SONIDO_SALTO 8
+#define SONIDO_PERDER_VIDA 9
 
 class ReproductorDeSonido {
     public:
