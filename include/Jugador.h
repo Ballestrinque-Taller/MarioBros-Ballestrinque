@@ -5,7 +5,7 @@
 #include "Camara.h"
 #include "ReproductorDeSonido.h"
 
-#define MAX_ACELERACION 80
+#define MAX_ACELERACION 8
 
 #define COLISION_SUPERIOR 0
 #define COLISION_INFERIOR 1
