@@ -271,7 +271,6 @@ void Dibujador::dibujar_cambio_nivel(std::vector<entidad_t> jugadores, std::stri
     background.dest_rect.x = 0, background.dest_rect.y = 0, background.dest_rect.h = 600, background.dest_rect.w = 800;
     background.src_rect.x = 0, background.src_rect.y = 0, background.src_rect.h = 600, background.src_rect.w = 800;
     strcpy(background.path_textura, "./res/FONDO_TRANSICION_redimensionado.png");
-    LOG(Log::DEBUG)<<"Dibujando Tabla"<<std::endl;
     dibujar_tabla_puntajes(&jugadores, renderer);
     LOG(Log::DEBUG)<<"Insert de Background al inicio"<<std::endl;
     texturas.insert(texturas.begin(),crear_textura(background, renderer));

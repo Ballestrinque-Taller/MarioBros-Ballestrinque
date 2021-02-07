@@ -17,6 +17,7 @@
 #define CAMBIANDO_NIVEL 255
 #define FIN_JUEGO 254
 
+
 Cliente::Cliente(std::string ip, int puerto){
     SET_LOGGING_LEVEL(Log::DEBUG);
     socket_cliente = socket(AF_INET,SOCK_STREAM,0);
@@ -298,7 +299,9 @@ void Cliente::bucle_juego(){
         //CORRE EN UN THREAD INDEPENDIENTE AL RENDER QUE SE RALENTIZA A LOS FPS
         while (SDL_PollEvent(&evento) != 0) {
             if (evento.type == SDL_QUIT) {
+                pthread_mutex_lock(&mutex_render);
                 quit = true;
+                pthread_mutex_unlock(&mutex_render);
             }
             if (evento.type == SDL_KEYDOWN && evento.key.keysym.sym == SDLK_m)
                 reproductorDeSonido->toggle_musica();
@@ -457,15 +460,12 @@ void Cliente::render(){
     }
     if(nivel_recibido == FIN_JUEGO && reproductorDeSonido != nullptr){
         reproductorDeSonido->reproducir_musica(MUSICA_VICTORIA);
+        recibir_renders_del_servidor();
+        dibujador->dibujar_fin_juego(entidades, renderer);
     }
     while(!quit && nivel_recibido == FIN_JUEGO){
-        LOG(Log::DEBUG)<<"Entre en recibir renders"<<std::endl;
-        recibir_renders_del_servidor();
         size_t frame_start = SDL_GetTicks();
-        LOG(Log::DEBUG)<<"Entre en dibujador fin ronda"<<std::endl;
-        dibujador->dibujar_fin_juego(entidades, renderer);
-        LOG(Log::DEBUG)<<"Entre en dibujador set ronda cambiada"<<std::endl;
-        dibujador->set_ronda_cambiada(false);
+        //dibujador->set_ronda_cambiada(false);
         size_t frame_time = SDL_GetTicks() - frame_start;
         if (FRAME_DELAY > frame_time)
             SDL_Delay(FRAME_DELAY - frame_time);
