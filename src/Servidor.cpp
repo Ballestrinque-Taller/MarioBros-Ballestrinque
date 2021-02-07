@@ -324,6 +324,10 @@ mensaje_servidor_a_cliente_t Servidor::obtener_mensaje(Renderer* render){
     mensaje.entidad.src_rect = render->get_src_rect();
     mensaje.entidad.flip = render->get_flip();
     mensaje.entidad.es_jugador = false;
+    mensaje.entidad.sonido_a_reproducir = NO_HAY_SONIDO;
+    mensaje.entidad.vidas = 0;
+    mensaje.entidad.puntaje = 0;
+    mensaje.entidad.muerto = false;
     mensaje.num_nivel = nivel_actual;
     if(temporizador != nullptr)
         mensaje.tiempo_restante = temporizador->get_tiempo_restante();

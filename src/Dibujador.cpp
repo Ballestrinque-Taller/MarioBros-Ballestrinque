@@ -161,9 +161,11 @@ void Dibujador::establecer_dimensiones_jugadores(std::vector<entidad_t>* jugador
 void Dibujador::agregar_puntajes_restantes(std::vector<entidad_t> jugadores){
     for(auto& jugador: jugadores) {
         int i = 0;
+        //Encontrar al usuario
         while (i < puntajes_tabla.size() && strcmp(jugador.usuario,puntajes_tabla.at(i).usuario.c_str()) != 0){
             i++;
         }
+        //Si encontre al usuario
         if(i < puntajes_tabla.size()) {
             if (strcmp(jugador.usuario, puntajes_tabla.at(i).usuario.c_str()) == 0) {
                 int puntaje_ronda = jugador.puntaje;
@@ -205,7 +207,7 @@ void sort_puntajes_tabla(std::vector<puntajes_tabla_t>* datos_tabla){
     }
 }
 
-void Dibujador::escribir_puntajes_y_usuarios(std::vector<entidad_t> jugadores, SDL_Renderer* renderer){
+void Dibujador::escribir_puntajes_y_nombres(std::vector<entidad_t> jugadores, SDL_Renderer* renderer){
     for (auto& puntos_jugadores: puntajes_jugadores){
         delete(puntos_jugadores);
     }
@@ -213,25 +215,19 @@ void Dibujador::escribir_puntajes_y_usuarios(std::vector<entidad_t> jugadores, S
     sort_puntajes_tabla(&puntajes_tabla);
     int cant_jugadores = puntajes_tabla.size();
     LOG(Log::DEBUG)<<"Escribiendo los puntajes."<<std::endl;
+    TextWriter* text_writer = new TextWriter();
+    puntajes_jugadores.push_back(text_writer);
     for(int i=0; i<cant_jugadores; i++){
+        int puntaje_acum = 0;
         for(int j=0; j<puntajes_tabla.at(i).puntajes_rondas.size(); j++){
-            TextWriter* text_writer = new TextWriter();
-            text_writer->set_msg_rect(410+60*j,170+90*(i+1),30,10*strlen(std::to_string(puntajes_tabla.at(i).puntajes_rondas.at(j)).c_str()));
-            puntajes_jugadores.push_back(text_writer);
+            puntaje_acum += puntajes_tabla.at(i).puntajes_rondas.at(j);
+            text_writer->set_msg_rect(410+60*j,170+90*(i+1),30,10*(std::to_string(puntajes_tabla.at(i).puntajes_rondas.at(j)).size()));
             text_writer->write_text(std::to_string(puntajes_tabla.at(i).puntajes_rondas.at(j)).c_str(), renderer);
         }
-    }
-    LOG(Log::DEBUG)<<"Escribiendo los nombres y puntajes finales."<<std::endl;
-    for(int i=0; i<jugadores.size(); i++){
-        LOG(Log::DEBUG)<<"Escribiendo nombre: "<<jugadores.at(i).usuario<<std::endl;
-        nombres_jugadores.at(i)->write_text(jugadores.at(i).usuario, renderer);
-        TextWriter* text_writer = new TextWriter();
-        LOG(Log::DEBUG)<<"Escribiendo puntaje: "<<jugadores.at(i).puntaje<<std::endl;
-        int long_puntaje = std::to_string(jugadores.at(i).puntaje).size();
-        LOG(Log::DEBUG)<<"Longitud puntaje: "<<long_puntaje<<std::endl;
-        text_writer->set_msg_rect(590,170+90*(i+1),30,10*long_puntaje);
-        text_writer->write_text(std::to_string(jugadores.at(i).puntaje).c_str(), renderer);
-        puntajes_jugadores.push_back(text_writer);
+        int long_puntaje = std::to_string(puntaje_acum).size();
+        text_writer->set_msg_rect(590, 170+90*(i+1),30, 10*long_puntaje);
+        text_writer->write_text(std::to_string(puntaje_acum).c_str(), renderer);
+        nombres_jugadores.at(i)->write_text(puntajes_tabla.at(i).usuario.c_str(), renderer);
     }
 }
 
@@ -272,7 +268,6 @@ void Dibujador::dibujar_cambio_nivel(std::vector<entidad_t> jugadores, std::stri
     background.src_rect.x = 0, background.src_rect.y = 0, background.src_rect.h = 600, background.src_rect.w = 800;
     strcpy(background.path_textura, "./res/FONDO_TRANSICION_redimensionado.png");
     dibujar_tabla_puntajes(&jugadores, renderer);
-    LOG(Log::DEBUG)<<"Insert de Background al inicio"<<std::endl;
     texturas.insert(texturas.begin(),crear_textura(background, renderer));
     for(int i = 0 ; i < texturas.size(); i++){
         if(i==0){
@@ -282,11 +277,9 @@ void Dibujador::dibujar_cambio_nivel(std::vector<entidad_t> jugadores, std::stri
                              nullptr, jugadores.at(i-1).flip);
         }
     }
-    LOG(Log::DEBUG)<<"Escribiendo puntajes y usuarios."<<std::endl;
-    escribir_puntajes_y_usuarios(jugadores, renderer);
-    LOG(Log::DEBUG)<<"Escribiendo titulo"<<std::endl;
+    escribir_puntajes_y_nombres(jugadores, renderer);
+    //escribir_nombres_y_puntajes_finales(jugadores, renderer);
     texto_nivel->write_text(texto_arriba.c_str(), renderer);
-    LOG(Log::DEBUG)<<"Haciendo lineas"<<std::endl;
     dibujar_lineas_tabla(renderer);
     SDL_RenderPresent(renderer);
 }

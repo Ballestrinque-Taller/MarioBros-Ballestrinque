@@ -38,7 +38,7 @@ class Dibujador{
         void dibujar_tabla_puntajes(std::vector<entidad_t>* jugadores, SDL_Renderer* renderer);
         void agregar_puntajes_restantes(std::vector<entidad_t> jugadores);
         void establecer_dimensiones_jugadores(std::vector<entidad_t>* jugadores);
-        void escribir_puntajes_y_usuarios(std::vector<entidad_t> jugadores, SDL_Renderer* renderer);
+        void escribir_puntajes_y_nombres(std::vector<entidad_t> jugadores, SDL_Renderer* renderer);
         void dibujar_lineas_tabla(SDL_Renderer* renderer);
         std::vector<SDL_Texture*> texturas;
         SDL_Texture* crear_textura(entidad_t entidad, SDL_Renderer* renderer);
