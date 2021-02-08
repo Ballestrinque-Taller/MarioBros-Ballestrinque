@@ -21,7 +21,9 @@ class Hongo: public Renderer{
         int velocidad_x;
         int velocidad_y;
         bool en_aire = false;
+        int animacion = 0;
         void aceleracion_gravitatoria();
+        void animacion_emerger();
 
 
 

@@ -136,8 +136,8 @@ void Colisionador::jugador_colisiona_con_sorpresa(Jugador* jugador){
     for(auto& sorpresa : sorpresas){
         if(colision_abajo(sorpresa, jugador) && !sorpresa->sorpresa_consumida()){
             if(sorpresa->get_tipo_premio() == SORPRESA_HONGO) {
-                servidor->spawn_hongo(sorpresa->get_dest_rect_x()+12,
-                                      sorpresa->get_dest_rect().y - ALTO_HONGO);
+                servidor->spawn_hongo(sorpresa->get_dest_rect_x(),
+                                      sorpresa->get_dest_rect().y);
                 jugador->set_sonido_a_reproducir(SONIDO_HONGO);
             }else{
                 jugador->colisionar_con_moneda();

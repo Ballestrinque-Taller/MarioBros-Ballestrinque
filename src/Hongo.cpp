@@ -6,14 +6,26 @@
 Hongo::Hongo(int x, int y){
     set_src_rect(0,0,ALTO_SOURCE,ANCHO_SOURCE);
     set_dest_rect(x,y,ALTO_HONGO,ANCHO_HONGO);
-    velocidad_x = VELOCIDAD_HONGO;
+    velocidad_x = 0;
     velocidad_y = 0;
     path_to_image = "./res/ItemsObjectsNPCS.png";
 }
 
+void Hongo::animacion_emerger() {
+    if (animacion > 40) {
+        velocidad_y = 0;
+    }
+    else {
+        velocidad_y = -1;
+        ++animacion;
+    }
+}
+
 void Hongo::desplazar(){
-    //aceleracion_gravitatoria();
-    //set_dest_rect(get_dest_rect().x+velocidad_x,get_dest_rect().y+velocidad_y,get_dest_rect().h, get_dest_rect().w);
+    
+    animacion_emerger();
+    frames_render.dest_rect.x += velocidad_x;
+    frames_render.dest_rect.y += velocidad_y;
 }
 
 void Hongo::cambiar_direccion() {

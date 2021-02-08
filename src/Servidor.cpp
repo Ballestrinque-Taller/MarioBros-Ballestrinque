@@ -244,6 +244,13 @@ void Servidor::enviar_mensaje(int num_cliente){
         num_entidades++;
     }
 
+    for (auto &hongo: hongos) {
+        if (hongo->get_dest_rect_x()<=ANCHO_VENTANA && hongo->get_dest_rect_x()>=ANCHO_ENTIDAD) {
+            mensajes.push_back(obtener_mensaje(hongo));
+            num_entidades++;
+        }
+    }
+
     for (auto &escenario:escenarios) {
         if (escenario->get_dest_rect_x()<=ANCHO_VENTANA && escenario->get_dest_rect_x()>=ANCHO_ENTIDAD) {
             mensajes.push_back(obtener_mensaje(escenario));
@@ -258,12 +265,6 @@ void Servidor::enviar_mensaje(int num_cliente){
         }
     }
 
-    for (auto &hongo: hongos) {
-        if (hongo->get_dest_rect_x()<=ANCHO_VENTANA && hongo->get_dest_rect_x()>=ANCHO_ENTIDAD) {
-            mensajes.push_back(obtener_mensaje(hongo));
-            num_entidades++;
-        }
-    }
 
     for (auto &enemigo: enemigos) {
         if (enemigo->get_dest_rect_x()<=ANCHO_VENTANA && enemigo->get_dest_rect_x()>=ANCHO_ENTIDAD) {
@@ -527,7 +528,6 @@ void Servidor::update() {
         //if(hongo->get_dest_rect_x()<ANCHO_VENTANA && hongo->get_dest_rect_x()>-ANCHO_HONGO){
         hongos_vec.push_back(hongo);
         //}
-        hongo->desplazar();
         camara->acomodar_a_imagen(hongo);
 
     }
@@ -570,7 +570,8 @@ void Servidor::update() {
         moneda->cambiar_frame(camara);
     }
     for (auto & hongo: hongos){
-        colisionador->hongo_colisionar_con_pared(hongo);
+        //colisionador->hongo_colisionar_con_pared(hongo);
+        hongo->desplazar();
     }
 
 
