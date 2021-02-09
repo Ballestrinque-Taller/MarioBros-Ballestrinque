@@ -276,15 +276,17 @@ void Servidor::enviar_mensaje(int num_cliente){
         if (i == num_cliente) {
             jugador_final = jugadores[i];
         } else {
-            mensajes.push_back(obtener_mensaje_jugador(jugadores[i]));
-            jugadores[i]->set_sonido_a_reproducir(NO_HAY_SONIDO);
+            mensajes.push_back(obtener_mensaje_jugador(jugadores[i], jugadores[i]->cliente_recibio_sonido(num_cliente)));
+            if(!jugadores.at(i)->cliente_recibio_sonido(num_cliente))
+                jugadores[i]->agregar_cliente_que_recibio_sonido(num_cliente);
             strcpy(mensajes.back().entidad.usuario, usuarios[i].c_str());
         }
         num_entidades++;
     }
     if (jugador_final != nullptr) {
-        mensajes.push_back(obtener_mensaje_jugador(jugador_final));
-        jugador_final->set_sonido_a_reproducir(NO_HAY_SONIDO);
+        mensajes.push_back(obtener_mensaje_jugador(jugador_final, jugador_final->cliente_recibio_sonido(num_cliente)));
+        if(!jugador_final->cliente_recibio_sonido(num_cliente))
+            jugador_final->agregar_cliente_que_recibio_sonido(num_cliente);
         strcpy(mensajes.back().entidad.usuario, usuarios[num_cliente].c_str());
     }
     pthread_mutex_unlock(&mutex_render);
@@ -334,10 +336,14 @@ mensaje_servidor_a_cliente_t Servidor::obtener_mensaje(Renderer* render){
     return mensaje;
 }
 
-mensaje_servidor_a_cliente_t Servidor::obtener_mensaje_jugador(Jugador* jugador){
+mensaje_servidor_a_cliente_t Servidor::obtener_mensaje_jugador(Jugador* jugador, bool cliente_recibio_sonido){
     mensaje_servidor_a_cliente_t mensaje = obtener_mensaje(jugador);
     mensaje.entidad.es_jugador = true;
-    mensaje.entidad.sonido_a_reproducir = jugador->get_sonido_a_reproducir();
+    if(!cliente_recibio_sonido) {
+        mensaje.entidad.sonido_a_reproducir = jugador->get_sonido_a_reproducir();
+    }else{
+        mensaje.entidad.sonido_a_reproducir = NO_HAY_SONIDO;
+    }
     mensaje.entidad.vidas = jugador->get_cantidad_vidas();
     mensaje.entidad.puntaje = jugador->get_puntaje();
     mensaje.entidad.muerto = jugador->esta_muerto();

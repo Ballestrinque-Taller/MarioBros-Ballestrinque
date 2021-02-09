@@ -69,7 +69,7 @@ class Servidor{
         sockaddr_in svr_address;
         std::vector<int> conexiones;
         mensaje_servidor_a_cliente_t obtener_mensaje(Renderer* render);
-        mensaje_servidor_a_cliente_t obtener_mensaje_jugador(Jugador* jugador);
+        mensaje_servidor_a_cliente_t obtener_mensaje_jugador(Jugador* jugador, bool cliente_recibio_sonido);
         credenciales_t recibir_credenciales(int socket);
         void enviar_retorno_conexion(int socket, int retorno);
         int encontrar_pos_usuario_a_reconectar(int cliente);

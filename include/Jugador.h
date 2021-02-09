@@ -4,6 +4,7 @@
 #include "Renderer.h"
 #include "Camara.h"
 #include "ReproductorDeSonido.h"
+#include <vector>
 
 #define MAX_ACELERACION 8
 
@@ -50,6 +51,9 @@ class Jugador: public Renderer{
         void crecer();
         void sumar_puntos(int tipo_enemigo);
         void sumar_puntos_fin_nivel(int puntos_a_sumar);
+        void agregar_cliente_que_recibio_sonido(int cliente);
+        bool cliente_recibio_sonido(int cliente);
+        void clear_clientes_que_recibieron_sonido();
 
     private:
         bool termino_nivel = false;
@@ -66,6 +70,7 @@ class Jugador: public Renderer{
         int tiempo_inmune = 9900;
         int TickDanio = 0;
         uint8_t sonido_a_reproducir = NO_HAY_SONIDO;
+        std::vector<int> clientes_que_recibieron_sonido;
 
         int velocidad_x;
         int velocidad_y;
