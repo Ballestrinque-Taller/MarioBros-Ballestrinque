@@ -17,6 +17,7 @@
 Sorpresa::Sorpresa(int pos_x, int pos_y, std::string path): Escenario(){
     set_dest_rect(pos_x, pos_y, ALTO_SORPRESA_PANTALLA, ANCHO_SORPRESA_PANTALLA);
     set_src_rect(POS_INICIAL_X_FRAME, POS_INICIAL_Y_FRAME, ALTO_FRAME, ANCHO_FRAME);
+    frame_actual = 0;
     path_to_image = path;
     default_path = ("./res/Sorpresa_default.png");
     tipo_sorpresa = rand()%2;
