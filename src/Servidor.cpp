@@ -567,6 +567,7 @@ void Servidor::update() {
         escenario->cambiar_frame(camara);
     }
     for (auto & moneda: monedas){
+        moneda->desplazar();
         moneda->cambiar_frame(camara);
     }
     for (auto & hongo: hongos){
@@ -595,6 +596,13 @@ void Servidor::consumir_moneda(SDL_Rect pos_moneda){
         }
     }
 }
+
+void Servidor::spawn_moneda(int x, int y) {
+    Moneda* monedita = new Moneda(x, y, "./res/moneda_sorpresa.png");
+    monedita->animar();
+    monedas.push_back(monedita);
+}
+
 
 void Servidor::matar_enemigo(SDL_Rect pos_enemigo){
     for(int i=0;i<enemigos.size();i++) {

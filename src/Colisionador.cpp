@@ -140,6 +140,8 @@ void Colisionador::jugador_colisiona_con_sorpresa(Jugador* jugador){
                                       sorpresa->get_dest_rect().y);
                 jugador->set_sonido_a_reproducir(SONIDO_HONGO);
             }else{
+                servidor->spawn_moneda(sorpresa->get_dest_rect().x, 
+                                        sorpresa->get_dest_rect().y);
                 jugador->colisionar_con_moneda();
                 jugador->set_sonido_a_reproducir(SONIDO_MONEDA);
             }

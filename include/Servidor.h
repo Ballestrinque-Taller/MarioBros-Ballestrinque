@@ -121,6 +121,7 @@ public:
         void consumir_moneda(SDL_Rect pos_moneda);
         void matar_enemigo(SDL_Rect pos_enemigo);
         void spawn_hongo(int x, int y);
+        void spawn_moneda(int x, int y);
         void consumir_hongo(SDL_Rect pos_hongo);
 
 

@@ -9,7 +9,7 @@
 #define FRAME_USADA 4
 
 #define ANCHO_FRAME 16
-#define ALTO_FRAME 15
+#define ALTO_FRAME 16
 
 #define POS_INICIAL_X_FRAME 0
 #define POS_INICIAL_Y_FRAME 0
@@ -22,6 +22,26 @@ Moneda::Moneda(int pos_x, int pos_y, std::string path): Escenario(){
     path_to_image = path;
     default_path = ("./res/Moneda_default.png");
     frame_actual = 0;
+}
+
+void Moneda::animar() {
+    se_mueve = true;
+    velocidad_y = -15;
+}
+
+void Moneda::desplazar() {
+    if (se_mueve) {
+        aceleracion_gravitatoria();
+
+        frames_render.dest_rect.x += velocidad_x;
+        frames_render.dest_rect.y += velocidad_y;
+    }
+}
+
+void Moneda::aceleracion_gravitatoria(){
+    if(velocidad_y < 10 ){
+        velocidad_y += 1;
+    }
 }
 
 void Moneda::cambiar_frame(Camara* camara){
