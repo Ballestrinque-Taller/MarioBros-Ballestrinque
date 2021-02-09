@@ -19,13 +19,13 @@
         <monedas cantidad="20" imagen="./res/MONEDA.png">
         </monedas>
         <bloques>
-            <bloque x="0" y="535" cantidad="74" tipo="Ladrillo" imagen="./res/LADRILLO.png">
+            <bloque x="0" y="535" cantidad="74" tipo="Ladrillo" imagen="./res/PISO_NIVEL_1_3.png">
             </bloque>
-            <bloque x="3050" y="535" cantidad="16" tipo="Ladrillo" imagen="./res/LADRILLO.png">
+            <bloque x="3050" y="535" cantidad="16" tipo="Ladrillo" imagen="./res/PISO_NIVEL_1_3.png">
             </bloque>
-            <bloque x="3830" y="535" cantidad="68" tipo="Ladrillo" imagen="./res/LADRILLO.png">
+            <bloque x="3830" y="535" cantidad="68" tipo="Ladrillo" imagen="./res/PISO_NIVEL_1_3.png">
             </bloque>
-            <bloque x="6660" y="535" cantidad="61" tipo="Ladrillo" imagen="./res/LADRILLO.png">
+            <bloque x="6660" y="535" cantidad="61" tipo="Ladrillo" imagen="./res/PISO_NIVEL_1_3.png">
             </bloque>
             <bloque x="1800" y="350" cantidad="15" tipo="Ladrillo" imagen="./res/LADRILLO.png">
             </bloque>
@@ -55,17 +55,17 @@
         <monedas cantidad="20" imagen="./res/MONEDA.png">
         </monedas>
         <bloques>
-            <bloque x="0" y="535" cantidad="86" tipo="Ladrillo" imagen="./res/LADRILLO2.png">
+            <bloque x="0" y="535" cantidad="86" tipo="Ladrillo" imagen="./res/PISO_NIVEL_2.png">
             </bloque>
-            <bloque x="3560" y="535" cantidad="40" tipo="Ladrillo" imagen="./res/LADRILLO2.png">
+            <bloque x="3560" y="535" cantidad="40" tipo="Ladrillo" imagen="./res/PISO_NIVEL_2.png">
             </bloque>
-            <bloque x="5245" y="535" cantidad="2" tipo="Ladrillo" imagen="./res/LADRILLO2.png">
+            <bloque x="5245" y="535" cantidad="2" tipo="Ladrillo" imagen="./res/PISO_NIVEL_2.png">
             </bloque>
-            <bloque x="5410" y="535" cantidad="13" tipo="Ladrillo" imagen="./res/LADRILLO2.png">
+            <bloque x="5410" y="535" cantidad="13" tipo="Ladrillo" imagen="./res/PISO_NIVEL_2.png">
             </bloque>
-            <bloque x="6225" y="535" cantidad="9" tipo="Ladrillo" imagen="./res/LADRILLO2.png">
+            <bloque x="6225" y="535" cantidad="9" tipo="Ladrillo" imagen="./res/PISO_NIVEL_2.png">
             </bloque>
-            <bloque x="6875" y="535" cantidad="35" tipo="Ladrillo" imagen="./res/LADRILLO2.png">
+            <bloque x="6875" y="535" cantidad="35" tipo="Ladrillo" imagen="./res/PISO_NIVEL_2.png">
             </bloque>
             <bloque x="500" y="350" cantidad="5" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
@@ -87,7 +87,13 @@
         <monedas cantidad="20" imagen="./res/MONEDA.png">
         </monedas>
         <bloques>
-            <bloque x="0" y="535" cantidad="500" tipo="Ladrillo" imagen="./res/LADRILLO.png">
+            <bloque x="0" y="535" cantidad="86" tipo="Ladrillo" imagen="./res/PISO_NIVEL_1_3.png">
+            </bloque>
+            <bloque x="3530" y="535" cantidad="44" tipo="Ladrillo" imagen="./res/PISO_NIVEL_1_3.png">
+            </bloque>
+            <bloque x="5370" y="535" cantidad="3" tipo="Ladrillo" imagen="./res/PISO_NIVEL_1_3.png">
+            </bloque>
+            <bloque x="5580" y="535" cantidad="100" tipo="Ladrillo" imagen="./res/PISO_NIVEL_1_3.png">
             </bloque>
             <bloque x="500" y="350" cantidad="2" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
