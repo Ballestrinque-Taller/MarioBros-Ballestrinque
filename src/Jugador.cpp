@@ -112,6 +112,7 @@ void Jugador::saltar() {
         velocidad_y = -ACELERACION_SALTO;
         en_aire = true;
         sonido_a_reproducir = SONIDO_SALTO;
+        clear_clientes_que_recibieron_sonido();
     }
 }
 
@@ -120,16 +121,18 @@ void Jugador::desplazar(){
     aceleracion_gravitatoria();
     frames_render.dest_rect.y += velocidad_y;
     if(frames_render.dest_rect.y > 600){
-        if(!muerto)
-            reset_posicion();
         if(!modo_test && vidas > 0) {
             vidas--;
             sonido_a_reproducir = SONIDO_PERDER_VIDA;
+            clear_clientes_que_recibieron_sonido();
         }
         if(vidas<=0 && !muerto) {
             muerto = true;
             sonido_a_reproducir = SONIDO_MUERTE;
+            clear_clientes_que_recibieron_sonido();
         }
+        if(!muerto)
+            reset_posicion();
     }
     acelerando = false;
 }
@@ -253,13 +256,16 @@ void Jugador::colisionar_con_enemigo(int direccion_colision) {
                     if (vidas <= 0){
                         muerto = true;
                         sonido_a_reproducir = SONIDO_MUERTE;
+                        clear_clientes_que_recibieron_sonido();
                     }
                 }
                 else {
                     set_dest_rect_y(get_dest_rect().y + get_dest_rect().h / 2);
                 }
-                if(!muerto)
+                if(!muerto) {
                     sonido_a_reproducir = SONIDO_PERDER_VIDA;
+                    clear_clientes_que_recibieron_sonido();
+                }
                 estado_crecimiento = NO_CRECIDO;
                 TickDanio = SDL_GetTicks();
             }
@@ -305,6 +311,7 @@ bool Jugador::esta_desconectado(){
 
 void Jugador::set_sonido_a_reproducir(uint8_t sonido) {
     sonido_a_reproducir = sonido;
+    clear_clientes_que_recibieron_sonido();
 }
 
 uint8_t Jugador::get_sonido_a_reproducir() {
@@ -364,4 +371,18 @@ void Jugador::animacion_crecimiento(){
     }
 
     estado_crecimiento = CRECIDO;
+}
+
+void Jugador::agregar_cliente_que_recibio_sonido(int cliente){
+    clientes_que_recibieron_sonido.push_back(cliente);
+}
+bool Jugador::cliente_recibio_sonido(int cliente){
+    for(int cliente_array : clientes_que_recibieron_sonido){
+        if(cliente_array == cliente)
+            return true;
+    }
+    return false;
+}
+void Jugador::clear_clientes_que_recibieron_sonido(){
+    clientes_que_recibieron_sonido.clear();
 }
