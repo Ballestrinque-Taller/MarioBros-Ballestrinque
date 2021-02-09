@@ -21,6 +21,7 @@ Moneda::Moneda(int pos_x, int pos_y, std::string path): Escenario(){
     set_src_rect(POS_INICIAL_X_FRAME, POS_INICIAL_Y_FRAME, ALTO_FRAME, ANCHO_FRAME);
     path_to_image = path;
     default_path = ("./res/Moneda_default.png");
+    frame_actual = 0;
 }
 
 void Moneda::cambiar_frame(Camara* camara){

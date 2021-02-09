@@ -53,7 +53,7 @@ void generar_textura_logo(SDL_Texture** textura_logo, SDL_Rect* dest_rect_logo, 
 }
 
 void generar_textura_background(SDL_Texture** textura_bg, SDL_Rect* dest_rect_bg, SDL_Rect* src_rect_bg, SDL_Renderer* renderer){
-    SDL_Surface* logo_s = IMG_Load("./res/Nivel_1_sinTuberia.png");
+    SDL_Surface* logo_s = IMG_Load("./res/Nivel_1.png");
     (*textura_bg) = SDL_CreateTextureFromSurface(renderer, logo_s);
     SDL_FreeSurface(logo_s);
     dest_rect_bg->x = 0;

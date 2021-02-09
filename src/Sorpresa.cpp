@@ -4,8 +4,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-#define ANCHO_FRAME 16
-#define ALTO_FRAME 16
+#define ANCHO_FRAME 40
+#define ALTO_FRAME 40
 #define MAX_FRAME 2
 #define MAXIMO_TICKS 15
 #define FRAME_USADA 3
@@ -17,6 +17,7 @@
 Sorpresa::Sorpresa(int pos_x, int pos_y, std::string path): Escenario(){
     set_dest_rect(pos_x, pos_y, ALTO_SORPRESA_PANTALLA, ANCHO_SORPRESA_PANTALLA);
     set_src_rect(POS_INICIAL_X_FRAME, POS_INICIAL_Y_FRAME, ALTO_FRAME, ANCHO_FRAME);
+    frame_actual = 0;
     path_to_image = path;
     default_path = ("./res/Sorpresa_default.png");
     tipo_sorpresa = rand()%2;
