@@ -122,6 +122,7 @@ void Jugador::desplazar(){
     frames_render.dest_rect.y += velocidad_y;
     if(frames_render.dest_rect.y > 600){
         if(!modo_test && vidas > 0) {
+            estado_crecimiento = NO_CRECIDO;
             vidas--;
             sonido_a_reproducir = SONIDO_PERDER_VIDA;
             clear_clientes_que_recibieron_sonido();

@@ -217,6 +217,12 @@ void Dibujador::escribir_puntajes_y_nombres(std::vector<entidad_t> jugadores, SD
     LOG(Log::DEBUG)<<"Escribiendo los puntajes."<<std::endl;
     TextWriter* text_writer = new TextWriter();
     puntajes_jugadores.push_back(text_writer);
+    for(int i=0; i<3;i++){
+        text_writer->set_msg_rect(410+60*i,215,10,50);
+        text_writer->write_text(std::string("LVL "+std::to_string(i+1)).c_str(), renderer);
+    }
+    text_writer->set_msg_rect(590,215,10,50);
+    text_writer->write_text("Fin",renderer);
     for(int i=0; i<cant_jugadores; i++){
         int puntaje_acum = 0;
         for(int j=0; j<puntajes_tabla.at(i).puntajes_rondas.size(); j++){
@@ -225,6 +231,7 @@ void Dibujador::escribir_puntajes_y_nombres(std::vector<entidad_t> jugadores, SD
             text_writer->write_text(std::to_string(puntajes_tabla.at(i).puntajes_rondas.at(j)).c_str(), renderer);
         }
         int long_puntaje = std::to_string(puntaje_acum).size();
+
         text_writer->set_msg_rect(590, 170+90*(i+1),30, 10*long_puntaje);
         text_writer->write_text(std::to_string(puntaje_acum).c_str(), renderer);
         nombres_jugadores.at(i)->write_text(puntajes_tabla.at(i).usuario.c_str(), renderer);
