@@ -1,8 +1,18 @@
-bin/app
-bin/app.exe
-app.exe
+#el ejecutable
+MarioBros-Ballestrinque 
+
 .idea/
 obj/
 .vscode/
 *.code-workspace
 logfile.txt
+logfile_cliente.txt
+logfile_servidor.txt
+
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles/
+
+Google_tests/lib/googletest/generated/
+Google_tests/cmake_install.cmake
+Google_tests/Makefile
