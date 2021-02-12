@@ -123,7 +123,7 @@ int comparador_jugadores(entidad_t jugador_a_comparar, entidad_t jugador_compara
 void sort_jugadores(std::vector<entidad_t>* jugadores){
     for(int i=0;i<(*jugadores).size()-1;i++){
         int maximo = i;
-        for(int j=1;j<(*jugadores).size();j++){
+        for(int j=i;j<(*jugadores).size();j++){
             if((*jugadores).at(j).puntaje>(*jugadores).at(maximo).puntaje)
                 maximo = j;
         }
@@ -254,6 +254,7 @@ void Dibujador::dibujar_tabla_puntajes(std::vector<entidad_t>* jugadores, SDL_Re
         usuarios_registrados = true;
     }
     establecer_dimensiones_jugadores(jugadores);
+    sort_jugadores(jugadores);
     crear_texturas((*jugadores), renderer);
 }
 
