@@ -573,8 +573,11 @@ void Servidor::update() {
         escenario->cambiar_frame(camara);
     }
     for (auto & moneda: monedas){
-        moneda->desplazar();
         moneda->cambiar_frame(camara);
+        moneda->desplazar();
+        if (moneda->velocidad_y >= 8) {
+            consumir_moneda(moneda->get_dest_rect());
+        }
     }
     for (auto & hongo: hongos){
         //colisionador->hongo_colisionar_con_pared(hongo);

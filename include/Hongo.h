@@ -18,8 +18,8 @@ class Hongo: public Renderer{
         void set_hongo_en_aire(bool esta_en_aire);
 
     private:
-        int velocidad_x;
-        int velocidad_y;
+        float velocidad_x;
+        float velocidad_y;
         bool en_aire = false;
         int animacion = 0;
         void aceleracion_gravitatoria();

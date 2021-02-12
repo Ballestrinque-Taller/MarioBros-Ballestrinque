@@ -16,7 +16,7 @@ void Hongo::animacion_emerger() {
         velocidad_y = 0;
     }
     else {
-        velocidad_y = -1;
+        velocidad_y = -0.5;
         ++animacion;
     }
 }
