@@ -43,7 +43,8 @@ class LectorXML{
         std::string archivo_data;
         bool generar_timer(xml_node<>* nivel, Temporizador** timer);
         bool generar_background(xml_node<>* nivel, Background** background);
-        bool generar_monedas(xml_node<>* nivel, std::vector<Moneda*>* monedas);
+        bool generar_monedas(xml_node<>* nivel, std::vector<Moneda*>* monedas, std::vector<Escenario*> escenarios);
+        bool moneda_colisiona_con_algun_bloque(int pos_x_moneda, int pos_y_moneda, std::vector<Escenario*> escenarios);
         bool generar_enemigos(xml_node<>* nivel, std::vector<Enemigo*>* enemigos);
         bool generar_escenario(std::vector<Escenario*>* escenarios, xml_node<>* nivel);
         void generar_enemigos_particulares(std::string tipo_enemigo, std::string path_a_imagen, int cantidad, std::vector<Enemigo*>* enemigos);

@@ -208,7 +208,29 @@ void LectorXML::generar_bloques_particulares(std::string tipo, int cantidad, int
 
 }
 
-bool LectorXML::generar_monedas(xml_node<>* nivel, std::vector<Moneda*>* monedas){
+bool colision_moneda(Renderer* entidad_almacenada, Renderer* entidad_a_colisionar){
+    SDL_Rect entidad_almacenada_rect = entidad_almacenada->get_dest_rect();
+    SDL_Rect entidad_col_rect = entidad_a_colisionar->get_dest_rect();
+    if(((entidad_almacenada_rect.x <= (entidad_col_rect.x + entidad_col_rect.w)) && ((entidad_almacenada_rect.x + entidad_almacenada_rect.w) >= entidad_col_rect.x))
+        && ((entidad_almacenada_rect.y <= (entidad_col_rect.y + entidad_col_rect.h)) && ((entidad_almacenada_rect.y + entidad_almacenada_rect.h) >= entidad_col_rect.y))){
+        return true;
+    }
+    return false;
+}
+
+bool LectorXML::moneda_colisiona_con_algun_bloque(int pos_x_moneda, int pos_y_moneda, std::vector<Escenario*> escenarios){
+    bool colisiona = false;
+    Moneda* moneda = new Moneda(pos_x_moneda, pos_y_moneda,"");
+    for(auto& escenario: escenarios){
+        if(colision_moneda(moneda, escenario)){
+            colisiona = true;
+            break;
+        }
+    }
+    return colisiona;
+}
+
+bool LectorXML::generar_monedas(xml_node<>* nivel, std::vector<Moneda*>* monedas, std::vector<Escenario*>escenarios){
     xml_node<>* nodo_de_monedas = nivel->first_node(CAMPO_MONEDAS);
     if(nodo_de_monedas != nullptr) {
         LOG(Log::INFO) << "Monedas leidas correctamente del archivo XML." << std::endl;
@@ -228,7 +250,12 @@ bool LectorXML::generar_monedas(xml_node<>* nivel, std::vector<Moneda*>* monedas
     LOG(Log::DEBUG) << "Cantidad de monedas a generar: " << cantidad << std::endl;
     std::string path = nodo_de_monedas->first_attribute("imagen")->value();
     for (int i=0; i<cantidad; i++){
-        monedas->push_back(new Moneda(rand() % (ancho_ajustado),rand()%RANGO_MONEDAS+POS_MIN_MONEDAS, path));
+        int pos_x, pos_y;
+        do {
+            pos_x = rand() % ancho_ajustado;
+            pos_y = rand() % RANGO_MONEDAS + POS_MIN_MONEDAS;
+        }while(moneda_colisiona_con_algun_bloque(pos_x, pos_y, escenarios));
+        monedas->push_back(new Moneda(pos_x,pos_y, path));
     }
     return true;
 }
@@ -345,7 +372,7 @@ int LectorXML::generar_nivel(std::vector<Enemigo*>* enemigos, std::vector<Moneda
     if (!generar_enemigos(nodo_del_nivel, enemigos)) {
         return ERROR_XML;
     }
-    if (!generar_monedas(nodo_del_nivel, monedas)){
+    if (!generar_monedas(nodo_del_nivel, monedas, (*escenarios))){
         return ERROR_XML;
     }
     if(!generar_timer(nodo_del_nivel, temporizador)) {
