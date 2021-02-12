@@ -123,8 +123,8 @@ void Colisionador::jugador_colisiona_con_enemigo(Jugador* jugador) {
 void Colisionador::jugador_colisiona_con_moneda(Jugador* jugador) {
     for(int i=0; i<monedas.size();i++){
         Moneda* moneda = monedas.at(i);
-        if(colision_izquierda(moneda, jugador) || colision_derecha(moneda, jugador) ||
-           colision_arriba(moneda, jugador) || colision_abajo(moneda, jugador)) {
+        if(!moneda->se_mueve && (colision_izquierda(moneda, jugador) || colision_derecha(moneda, jugador) ||
+           colision_arriba(moneda, jugador) || colision_abajo(moneda, jugador))) {
             jugador->colisionar_con_moneda();
             servidor->consumir_moneda(moneda->get_dest_rect());
             jugador->set_sonido_a_reproducir(SONIDO_MONEDA);
@@ -141,7 +141,7 @@ void Colisionador::jugador_colisiona_con_sorpresa(Jugador* jugador){
                 jugador->set_sonido_a_reproducir(SONIDO_HONGO);
             }else{
                 servidor->spawn_moneda(sorpresa->get_dest_rect().x, 
-                                        sorpresa->get_dest_rect().y);
+                                        sorpresa->get_dest_rect().y-16);
                 jugador->colisionar_con_moneda();
                 jugador->set_sonido_a_reproducir(SONIDO_MONEDA);
             }
