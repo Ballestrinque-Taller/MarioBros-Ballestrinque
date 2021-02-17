@@ -62,3 +62,7 @@ void Enemigo::set_enemigo_en_aire(bool estado){
     if (!en_aire)
         velocidad_y = 0;
 }
+
+int Enemigo::get_velocidad_x() {
+    return velocidad_x;
+}

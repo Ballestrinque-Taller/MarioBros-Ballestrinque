@@ -192,13 +192,16 @@ void Colisionador::hongo_colisionar_con_pared(Hongo *hongo) {
 
 void Colisionador::enemigo_colisiona_con_bloque(Enemigo* enemigo) {
     bool colision_superior = false;
+    int velocidad_enemigo_inicial = enemigo->get_velocidad_x();
     for(Escenario* escenario: bloques){
         if(colision_izquierda(escenario, enemigo) || colision_derecha(escenario, enemigo)) {
+            std::cout<<"Colision"<<std::endl;
             if(colision_izquierda(escenario, enemigo)){
                 enemigo->set_dest_rect_x(escenario->get_dest_rect().x - enemigo->get_dest_rect().w);
             }else
                 enemigo->set_dest_rect_x(escenario->get_dest_rect().x + escenario->get_dest_rect().w);
-            enemigo->cambiar_direccion();
+            if(enemigo->get_velocidad_x() == velocidad_enemigo_inicial)
+                enemigo->cambiar_direccion();
         }
         else if (colision_arriba(escenario, enemigo) && !enemigo->esta_muerto()){
             enemigo->set_enemigo_en_aire(false);

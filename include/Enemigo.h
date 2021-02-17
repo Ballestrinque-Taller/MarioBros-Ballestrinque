@@ -20,6 +20,7 @@ class Enemigo: public Renderer{
         bool esta_muerto();
         int tipo_enemigo;
         void set_enemigo_en_aire(bool estado);
+        int get_velocidad_x();
 
 
     protected:
