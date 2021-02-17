@@ -195,7 +195,6 @@ void Colisionador::enemigo_colisiona_con_bloque(Enemigo* enemigo) {
     int velocidad_enemigo_inicial = enemigo->get_velocidad_x();
     for(Escenario* escenario: bloques){
         if(colision_izquierda(escenario, enemigo) || colision_derecha(escenario, enemigo)) {
-            std::cout<<"Colision"<<std::endl;
             if(colision_izquierda(escenario, enemigo)){
                 enemigo->set_dest_rect_x(escenario->get_dest_rect().x - enemigo->get_dest_rect().w);
             }else
