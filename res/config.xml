@@ -1,7 +1,7 @@
 <config>
     <log nivel="DEBUG">
     </log>
-    <jugadores cantidad = "2">
+    <jugadores cantidad = "1">
         <jugador1 path="./res/MARIO_NORMAL.png">
         </jugador1>
         <jugador2 path="./res/LUIGI.png">
@@ -31,13 +31,21 @@
             </bloque>
             <bloque x="1400" y="350" cantidad="5" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
-            <bloque x="100" y="495" cantidad="1" tipo="Tuberia" imagen="./res/TUBERIA.png">
+            <bloque x="1750" y="350" cantidad="1" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
-            <bloque x="200" y="495" cantidad="2" tipo="Tuberia" imagen="./res/TUBERIA.png">
+            <bloque x="900" y="350" cantidad="1" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
-            <bloque x="350" y="495" cantidad="3" tipo="Tuberia" imagen="./res/TUBERIA.png">
+            <bloque x="7200" y="350" cantidad="2" tipo="Sorpresa" imagen="./res/SORPRESA.png">
             </bloque>
-            <bloque x="500" y="495" cantidad="4" tipo="Tuberia" imagen="./res/TUBERIA.png">
+            <bloque x="1000" y="375" cantidad="5" tipo="Ladrillo" imagen="./res/LADRILLO.png">
+            </bloque>
+            <bloque x="2500" y="495" cantidad="2" tipo="Tuberia" imagen="./res/TUBERIA.png">
+            </bloque>
+            <bloque x="4000" y="495" cantidad="2" tipo="Tuberia" imagen="./res/TUBERIA.png">
+            </bloque>
+            <bloque x="7000" y="495" cantidad="2" tipo="Tuberia" imagen="./res/TUBERIA.png">
+            </bloque>
+            <bloque x="700" y="495" cantidad="3" tipo="Tuberia" imagen="./res/TUBERIA.png">
             </bloque>
         </bloques>
         <enemigos>
